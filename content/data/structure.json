@@ -1,0 +1,434 @@
+{
+  "paths": {
+    "beginner": {
+      "id": "beginner",
+      "name": "Od zera",
+      "description": "Dla osób, które dopiero zaczynają przygodę z Claude Code",
+      "color": "#4CAF50",
+      "modules": [
+        {
+          "id": "module-1",
+          "name": "Podstawy",
+          "description": "Wprowadzenie do Claude Code",
+          "lessons": [
+            {
+              "id": "lesson-1",
+              "title": "Czym jest Claude Code",
+              "file": "beginner/01-czym-jest-claude-code.md",
+              "duration": "10 min"
+            },
+            {
+              "id": "lesson-2",
+              "title": "Instalacja i konfiguracja",
+              "file": "beginner/02-instalacja-i-konfiguracja.md",
+              "duration": "15 min"
+            },
+            {
+              "id": "lesson-3",
+              "title": "Pierwszy projekt - Hello World",
+              "file": "beginner/03-pierwszy-projekt-hello-world.md",
+              "duration": "15 min"
+            },
+            {
+              "id": "lesson-4",
+              "title": "Interface CLI - podstawowe komendy",
+              "file": "beginner/04-interface-cli-podstawowe-komendy.md",
+              "duration": "10 min"
+            },
+            {
+              "id": "lesson-5",
+              "title": "System pomocy i dokumentacja",
+              "file": "beginner/05-system-pomocy-i-dokumentacja.md",
+              "duration": "10 min"
+            }
+          ]
+        },
+        {
+          "id": "module-2",
+          "name": "Praca z plikami",
+          "description": "Czytanie, edycja i tworzenie plików",
+          "lessons": [
+            {
+              "id": "lesson-6",
+              "title": "Czytanie i edycja plików",
+              "file": "beginner/06-czytanie-i-edycja-plikow.md",
+              "duration": "15 min"
+            },
+            {
+              "id": "lesson-7",
+              "title": "Tworzenie nowych plików",
+              "file": "beginner/07-tworzenie-nowych-plikow.md",
+              "duration": "12 min"
+            },
+            {
+              "id": "lesson-8",
+              "title": "Nawigacja po projekcie",
+              "file": "beginner/08-nawigacja-po-projekcie.md",
+              "duration": "12 min"
+            },
+            {
+              "id": "lesson-9",
+              "title": "Praca z Git",
+              "file": "beginner/09-praca-z-git.md",
+              "duration": "15 min"
+            }
+          ]
+        },
+        {
+          "id": "module-3",
+          "name": "Narzędzia podstawowe",
+          "description": "Bash, Grep, Read, Write i Multi-edit",
+          "lessons": [
+            {
+              "id": "lesson-10",
+              "title": "Bash i komendy systemowe",
+              "file": "beginner/10-bash-i-komendy-systemowe.md",
+              "duration": "15 min"
+            },
+            {
+              "id": "lesson-11",
+              "title": "Grep i wyszukiwanie w kodzie",
+              "file": "beginner/11-grep-i-wyszukiwanie-w-kodzie.md",
+              "duration": "15 min"
+            },
+            {
+              "id": "lesson-12",
+              "title": "Read i Write tools",
+              "file": "beginner/12-read-i-write-tools.md",
+              "duration": "12 min"
+            },
+            {
+              "id": "lesson-13",
+              "title": "Glob tool",
+              "file": "beginner/13-glob-tool.md",
+              "duration": "12 min"
+            },
+            {
+              "id": "lesson-14",
+              "title": "Multi-edit",
+              "file": "beginner/14-multi-edit.md",
+              "duration": "15 min"
+            }
+          ]
+        },
+        {
+          "id": "module-4",
+          "name": "Agents i Task",
+          "description": "Wprowadzenie do agents i narzędzia Task",
+          "lessons": [
+            {
+              "id": "lesson-15",
+              "title": "Czym są agents",
+              "file": "beginner/15-czym-sa-agents.md",
+              "duration": "12 min"
+            },
+            {
+              "id": "lesson-16",
+              "title": "Kiedy używać Task tool",
+              "file": "beginner/16-kiedy-uzywac-task-tool.md",
+              "duration": "12 min"
+            },
+            {
+              "id": "lesson-17",
+              "title": "Podstawowe typy agents",
+              "file": "beginner/17-podstawowe-typy-agents.md",
+              "duration": "15 min"
+            },
+            {
+              "id": "lesson-18",
+              "title": "Praktyczne przykłady agents",
+              "file": "beginner/18-praktyczne-przyklady-agents.md",
+              "duration": "15 min"
+            }
+          ]
+        },
+        {
+          "id": "module-5",
+          "name": "Projekt końcowy",
+          "description": "Budowa prostej aplikacji od A do Z",
+          "lessons": [
+            {
+              "id": "lesson-19",
+              "title": "Budowa prostej aplikacji",
+              "file": "beginner/19-budowa-prostej-aplikacji.md",
+              "duration": "30 min"
+            }
+          ]
+        }
+      ],
+      "finalTest": "beginner-final"
+    },
+    "intermediate": {
+      "id": "intermediate",
+      "name": "Średnio zaawansowany",
+      "description": "Dla osób znających podstawy, które chcą pogłębić wiedzę",
+      "color": "#FF9800",
+      "modules": [
+        {
+          "id": "module-1",
+          "name": "Zaawansowane features",
+          "description": "Plan Mode, TodoWrite, WebSearch i więcej",
+          "lessons": [
+            {
+              "id": "lesson-1",
+              "title": "Plan Mode i strategiczne planowanie",
+              "file": "intermediate/01-plan-mode-strategiczne-planowanie.md",
+              "duration": "15 min"
+            },
+            {
+              "id": "lesson-2",
+              "title": "TodoWrite - organizacja zadań",
+              "file": "intermediate/02-todowrite-organizacja-zadan.md",
+              "duration": "12 min"
+            },
+            {
+              "id": "lesson-3",
+              "title": "WebSearch i WebFetch",
+              "file": "intermediate/03-websearch-webfetch.md",
+              "duration": "15 min"
+            },
+            {
+              "id": "lesson-4",
+              "title": "MultiEdit - edycja wielu plików",
+              "file": "intermediate/04-multiedit-edycja-wielu-plikow.md",
+              "duration": "15 min"
+            },
+            {
+              "id": "lesson-5",
+              "title": "Glob i Grep - zaawansowane wyszukiwanie",
+              "file": "intermediate/05-glob-grep-zaawansowane-wyszukiwanie.md",
+              "duration": "15 min"
+            }
+          ]
+        },
+        {
+          "id": "module-2",
+          "name": "Customizacja",
+          "description": "Slash commands, Settings, Hooks i Skills",
+          "lessons": [
+            {
+              "id": "lesson-6",
+              "title": "Slash commands - własne komendy",
+              "file": "intermediate/06-slash-commands-wlasne-komendy.md",
+              "duration": "15 min"
+            },
+            {
+              "id": "lesson-7",
+              "title": "Konfiguracja zaawansowana",
+              "file": "intermediate/07-konfiguracja-zaawansowana.md",
+              "duration": "12 min"
+            },
+            {
+              "id": "lesson-8",
+              "title": "Hooks - automatyzacja workflow",
+              "file": "intermediate/08-hooks-automatyzacja-workflow.md",
+              "duration": "15 min"
+            },
+            {
+              "id": "lesson-9",
+              "title": "Skills - rozszerzenia",
+              "file": "intermediate/09-skills-rozszerzenia.md",
+              "duration": "12 min"
+            }
+          ]
+        },
+        {
+          "id": "module-3",
+          "name": "Agents w praktyce",
+          "description": "Specjalizowani agents i tworzenie własnych",
+          "lessons": [
+            {
+              "id": "lesson-10",
+              "title": "Wprowadzenie do agents",
+              "file": "intermediate/10-wprowadzenie-do-agents.md",
+              "duration": "12 min"
+            },
+            {
+              "id": "lesson-11",
+              "title": "Specjalizowani agents",
+              "file": "intermediate/11-specjalizowani-agents.md",
+              "duration": "15 min"
+            },
+            {
+              "id": "lesson-12",
+              "title": "Agent workflow - łączenie agents",
+              "file": "intermediate/12-agent-workflow.md",
+              "duration": "15 min"
+            },
+            {
+              "id": "lesson-13",
+              "title": "Tworzenie własnych agents",
+              "file": "intermediate/13-tworzenie-wlasnych-agents.md",
+              "duration": "20 min"
+            },
+            {
+              "id": "lesson-14",
+              "title": "Troubleshooting agents",
+              "file": "intermediate/14-troubleshooting-agents.md",
+              "duration": "12 min"
+            }
+          ]
+        },
+        {
+          "id": "module-4",
+          "name": "Dobre praktyki",
+          "description": "Efektywna komunikacja i optymalizacja workflow",
+          "lessons": [
+            {
+              "id": "lesson-15",
+              "title": "Efektywna komunikacja z AI",
+              "file": "intermediate/15-efektywna-komunikacja-z-ai.md",
+              "duration": "15 min"
+            },
+            {
+              "id": "lesson-16",
+              "title": "Kontekst i pamięć",
+              "file": "intermediate/16-kontekst-i-pamiec.md",
+              "duration": "12 min"
+            },
+            {
+              "id": "lesson-17",
+              "title": "Debugowanie problemów",
+              "file": "intermediate/17-debugowanie-problemow.md",
+              "duration": "15 min"
+            },
+            {
+              "id": "lesson-18",
+              "title": "Optymalizacja workflow",
+              "file": "intermediate/18-optymalizacja-workflow.md",
+              "duration": "15 min"
+            }
+          ]
+        }
+      ],
+      "finalTest": "intermediate-final"
+    },
+    "advanced": {
+      "id": "advanced",
+      "name": "Zaawansowany",
+      "description": "Dla ekspertów szukających mastery",
+      "color": "#F44336",
+      "modules": [
+        {
+          "id": "module-1",
+          "name": "MCP Servers",
+          "description": "Model Context Protocol - rozszerzanie możliwości Claude Code",
+          "lessons": [
+            {
+              "id": "lesson-1",
+              "title": "Czym są MCP servers",
+              "file": "advanced/01-czym-sa-mcp-servers.md",
+              "duration": "15 min"
+            },
+            {
+              "id": "lesson-2",
+              "title": "Instalacja i konfiguracja MCP",
+              "file": "advanced/02-instalacja-konfiguracja-mcp.md",
+              "duration": "15 min"
+            },
+            {
+              "id": "lesson-3",
+              "title": "Najpopularniejsze serwery MCP",
+              "file": "advanced/03-najpopularniejsze-serwery-mcp.md",
+              "duration": "20 min"
+            },
+            {
+              "id": "lesson-4",
+              "title": "Tworzenie własnych MCP servers",
+              "file": "advanced/04-tworzenie-wlasnych-mcp-servers.md",
+              "duration": "25 min"
+            }
+          ]
+        },
+        {
+          "id": "module-2",
+          "name": "Integracje",
+          "description": "GitHub, CI/CD, Docker, Databases",
+          "lessons": [
+            {
+              "id": "lesson-5",
+              "title": "GitHub integration",
+              "file": "advanced/05-github-integration.md",
+              "duration": "15 min"
+            },
+            {
+              "id": "lesson-6",
+              "title": "CI/CD workflows",
+              "file": "advanced/06-cicd-workflows.md",
+              "duration": "20 min"
+            },
+            {
+              "id": "lesson-7",
+              "title": "Docker i kontenery",
+              "file": "advanced/07-docker-kontenery.md",
+              "duration": "20 min"
+            },
+            {
+              "id": "lesson-8",
+              "title": "Databases i ORM",
+              "file": "advanced/08-databases-orm.md",
+              "duration": "20 min"
+            }
+          ]
+        },
+        {
+          "id": "module-3",
+          "name": "Zaawansowane projekty",
+          "description": "Architektura, TDD, Refactoring, Performance",
+          "lessons": [
+            {
+              "id": "lesson-9",
+              "title": "Architektura wielowarstwowa",
+              "file": "advanced/09-architektura-wielowarstwowa.md",
+              "duration": "25 min"
+            },
+            {
+              "id": "lesson-10",
+              "title": "TDD z Claude Code",
+              "file": "advanced/10-tdd-claude-code.md",
+              "duration": "25 min"
+            },
+            {
+              "id": "lesson-11",
+              "title": "Refactoring legacy code",
+              "file": "advanced/11-refactoring-legacy-code.md",
+              "duration": "20 min"
+            },
+            {
+              "id": "lesson-12",
+              "title": "Performance optimization",
+              "file": "advanced/12-performance-optimization.md",
+              "duration": "20 min"
+            }
+          ]
+        },
+        {
+          "id": "module-4",
+          "name": "Production",
+          "description": "Deployment, Monitoring, Security",
+          "lessons": [
+            {
+              "id": "lesson-13",
+              "title": "Deployment strategies",
+              "file": "advanced/13-deployment-strategies.md",
+              "duration": "20 min"
+            },
+            {
+              "id": "lesson-14",
+              "title": "Monitoring i logging",
+              "file": "advanced/14-monitoring-logging.md",
+              "duration": "15 min"
+            },
+            {
+              "id": "lesson-15",
+              "title": "Security best practices",
+              "file": "advanced/15-security-best-practices.md",
+              "duration": "20 min"
+            }
+          ]
+        }
+      ],
+      "finalTest": "advanced-final"
+    }
+  }
+}

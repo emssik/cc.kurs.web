@@ -1,0 +1,508 @@
+// _lesson.scss
+// Style dla widoku lekcji
+
+.lesson {
+    max-width: 800px;
+    margin: 0 auto;
+
+    .lesson-header {
+        margin-bottom: $spacing-xl;
+        padding-bottom: $spacing-lg;
+        border-bottom: 2px solid $color-bg-dark;
+
+        h1 {
+            margin-bottom: $spacing-sm;
+        }
+
+        .lesson-description {
+            font-size: $font-size-lg;
+            color: $color-text-secondary;
+            margin-bottom: $spacing-md;
+        }
+
+        .lesson-meta {
+            display: flex;
+            gap: $spacing-md;
+            font-size: $font-size-sm;
+            color: $color-text-secondary;
+
+            .duration,
+            .difficulty {
+                padding: $spacing-xs $spacing-sm;
+                background-color: $color-bg-medium;
+                border-radius: $radius-sm;
+            }
+
+            .difficulty {
+                &.beginner {
+                    background-color: lighten($color-beginner, 40%);
+                    color: darken($color-beginner, 10%);
+                }
+
+                &.intermediate {
+                    background-color: lighten($color-intermediate, 40%);
+                    color: darken($color-intermediate, 10%);
+                }
+
+                &.advanced {
+                    background-color: lighten($color-advanced, 40%);
+                    color: darken($color-advanced, 10%);
+                }
+            }
+        }
+    }
+
+    .lesson-content {
+        margin-bottom: $spacing-2xl;
+
+        h2, h3, h4 {
+            margin-top: $spacing-xl;
+            margin-bottom: $spacing-md;
+        }
+
+        p {
+            margin-bottom: $spacing-md;
+            line-height: $line-height-relaxed;
+        }
+
+        ul, ol {
+            margin-bottom: $spacing-lg;
+
+            li {
+                margin-bottom: $spacing-sm;
+                line-height: $line-height-relaxed;
+            }
+        }
+
+        // Code blocks (pre > code)
+        pre {
+            margin: $spacing-lg 0;
+            padding: $spacing-lg;
+            background-color: #1e1e1e;
+            border-radius: $radius-md;
+            overflow-x: auto;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border: 1px solid #333;
+            position: relative;
+
+            code {
+                display: block;
+                font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+                font-size: 14px;
+                line-height: 1.6;
+                color: #d4d4d4;
+                background-color: transparent;
+                padding: 0;
+                border-radius: 0;
+                white-space: pre;
+                word-wrap: normal;
+                overflow-wrap: normal;
+
+                // Lepsze kolory dla highlight.js
+                .hljs-comment {
+                    color: #6a9955;
+                    font-style: italic;
+                }
+
+                .hljs-string {
+                    color: #ce9178;
+                }
+
+                .hljs-keyword {
+                    color: #569cd6;
+                }
+
+                .hljs-function {
+                    color: #dcdcaa;
+                }
+
+                .hljs-number {
+                    color: #b5cea8;
+                }
+
+                .hljs-built_in {
+                    color: #4ec9b0;
+                }
+
+                .hljs-variable {
+                    color: #9cdcfe;
+                }
+
+                .hljs-title {
+                    color: #dcdcaa;
+                }
+            }
+        }
+
+        // Inline code
+        code {
+            background-color: rgba(110, 118, 129, 0.1);
+            color: #e83e8c;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', monospace;
+            font-weight: 500;
+            border: 1px solid rgba(110, 118, 129, 0.2);
+        }
+
+        // Bash/terminal style blocks
+        pre.language-bash,
+        pre.language-shell,
+        pre.language-terminal {
+            background-color: #0d1117;
+            border-color: #30363d;
+
+            code {
+                color: #c9d1d9;
+
+                &::before {
+                    content: '$ ';
+                    color: #58a6ff;
+                    user-select: none;
+                }
+            }
+        }
+
+        blockquote {
+            margin: $spacing-lg 0;
+            padding: $spacing-md $spacing-lg;
+            border-left: 4px solid $color-primary;
+            background-color: $color-bg-medium;
+            border-radius: $radius-sm;
+
+            p:last-child {
+                margin-bottom: 0;
+            }
+        }
+
+        // Callout boxes / Alerts
+        .callout,
+        .alert,
+        .note,
+        .info,
+        .warning,
+        .tip {
+            margin: $spacing-lg 0;
+            padding: $spacing-md $spacing-lg;
+            border-left: 4px solid;
+            border-radius: $radius-sm;
+            background-color: $color-bg-medium;
+
+            h3, h4 {
+                margin-top: 0;
+                margin-bottom: $spacing-sm;
+            }
+
+            p:last-child {
+                margin-bottom: 0;
+            }
+
+            &.info {
+                border-left-color: #3182ce;
+                background-color: #ebf8ff;
+
+                h3, h4 {
+                    color: #2c5282;
+                }
+            }
+
+            &.tip {
+                border-left-color: #48bb78;
+                background-color: #f0fff4;
+
+                h3, h4 {
+                    color: #22543d;
+                }
+            }
+
+            &.warning {
+                border-left-color: #ed8936;
+                background-color: #fffaf0;
+
+                h3, h4 {
+                    color: #7c2d12;
+                }
+            }
+
+            &.note {
+                border-left-color: #667eea;
+                background-color: #faf5ff;
+
+                h3, h4 {
+                    color: #553c9a;
+                }
+            }
+        }
+
+        // Tables - ładne style dla markdown tabel
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: $spacing-lg 0;
+            background-color: white;
+            border-radius: $radius-md;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            font-size: 14px;
+
+            thead {
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                color: white;
+
+                th {
+                    padding: $spacing-md;
+                    text-align: left;
+                    font-weight: 600;
+                    border: none;
+                }
+            }
+
+            tbody {
+                tr {
+                    border-bottom: 1px solid #e1e8ed;
+                    transition: background-color 0.2s;
+
+                    &:hover {
+                        background-color: #f7fafc;
+                    }
+
+                    &:last-child {
+                        border-bottom: none;
+                    }
+                }
+
+                td {
+                    padding: $spacing-md;
+                    border: none;
+                }
+            }
+        }
+
+        // Checklisty w markdown - kolorowe markery
+        ul li::marker,
+        ol li::marker {
+            color: $color-primary;
+            font-weight: bold;
+        }
+
+        img {
+            margin: $spacing-lg auto;
+            border-radius: $radius-md;
+            box-shadow: $shadow-md;
+        }
+
+        // Horizontal rule
+        hr {
+            margin: $spacing-2xl 0;
+            border: none;
+            height: 2px;
+            background: linear-gradient(to right, transparent, $color-bg-dark, transparent);
+        }
+    }
+
+    .lesson-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: $spacing-lg;
+        border-top: 2px solid $color-bg-dark;
+        gap: $spacing-md;
+
+        @media (max-width: $breakpoint-mobile) {
+            flex-direction: column;
+
+            .btn {
+                width: 100%;
+            }
+        }
+    }
+}
+
+// Task section
+.task-section {
+    margin: $spacing-2xl 0;
+    padding: $spacing-lg;
+    background-color: lighten($color-info, 45%);
+    border-left: 4px solid $color-info;
+    border-radius: $radius-md;
+
+    h3 {
+        color: $color-info;
+        margin-bottom: $spacing-md;
+    }
+
+    ol, ul {
+        margin-bottom: 0;
+    }
+}
+
+// Resources section
+.resources-section {
+    margin: $spacing-2xl 0;
+    padding: $spacing-lg;
+    background-color: $color-bg-medium;
+    border-radius: $radius-md;
+
+    h3 {
+        margin-bottom: $spacing-md;
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+
+        li {
+            margin-bottom: $spacing-sm;
+
+            a {
+                display: flex;
+                align-items: center;
+                padding: $spacing-sm;
+                border-radius: $radius-sm;
+                transition: background-color $transition-fast;
+
+                &:hover {
+                    background-color: $color-bg-light;
+                }
+
+                &::before {
+                    content: '🔗';
+                    margin-right: $spacing-sm;
+                }
+            }
+        }
+    }
+}
+
+// Breadcrumbs
+.breadcrumbs {
+    margin-bottom: $spacing-lg;
+    font-size: $font-size-sm;
+
+    ol {
+        display: flex;
+        align-items: center;
+        gap: $spacing-xs;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        flex-wrap: wrap;
+
+        li {
+            display: flex;
+            align-items: center;
+            margin: 0;
+            color: $color-text-secondary;
+
+            &:not(:last-child)::after {
+                content: '›';
+                margin-left: $spacing-xs;
+                color: $color-text-secondary;
+                font-weight: bold;
+            }
+
+            a {
+                color: $color-text-secondary;
+                transition: color $transition-fast;
+
+                &:hover {
+                    color: $color-primary;
+                }
+            }
+
+            &:last-child {
+                color: $color-text-primary;
+                font-weight: $font-weight-medium;
+            }
+        }
+    }
+}
+
+// Lesson navigation (footer)
+.lesson-navigation {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: $spacing-md;
+    align-items: center;
+    width: 100%;
+
+    // Pierwszy przycisk (poprzednia)
+    > *:first-child {
+        justify-self: start;
+    }
+
+    // Środkowy przycisk (oznacz jako ukończona)
+    > *:nth-child(2) {
+        justify-self: center;
+    }
+
+    // Ostatni przycisk (następna)
+    > *:last-child {
+        justify-self: end;
+    }
+
+    .btn {
+        .icon {
+            font-weight: bold;
+        }
+    }
+
+    @media (max-width: $breakpoint-mobile) {
+        grid-template-columns: 1fr;
+
+        > * {
+            justify-self: stretch !important;
+        }
+    }
+}
+
+// Success button
+.btn-success {
+    background-color: #48bb78;
+    color: white;
+
+    &:hover {
+        background-color: darken(#48bb78, 10%);
+    }
+}
+
+// Badge styles
+.badge {
+    display: inline-block;
+    padding: $spacing-xs $spacing-sm;
+    font-size: $font-size-xs;
+    font-weight: $font-weight-bold;
+    border-radius: $radius-sm;
+
+    &.badge-beginner {
+        background-color: lighten($color-beginner, 40%);
+        color: darken($color-beginner, 15%);
+    }
+
+    &.badge-intermediate {
+        background-color: lighten($color-intermediate, 40%);
+        color: darken($color-intermediate, 15%);
+    }
+
+    &.badge-advanced {
+        background-color: lighten($color-advanced, 40%);
+        color: darken($color-advanced, 15%);
+    }
+}
+
+// Tags
+.tags {
+    display: flex;
+    gap: $spacing-xs;
+    flex-wrap: wrap;
+
+    .tag {
+        display: inline-block;
+        padding: $spacing-xs $spacing-sm;
+        font-size: $font-size-xs;
+        background-color: $color-bg-medium;
+        border-radius: $radius-sm;
+        color: $color-text-secondary;
+    }
+}

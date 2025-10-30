@@ -1,0 +1,130 @@
+{
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Czy kiedykolwiek używałeś/aś Claude Code?",
+      "options": [
+        {"id": "a", "text": "Nie, pierwszy raz o tym słyszę", "points": 0},
+        {"id": "b", "text": "Słyszałem/am, ale nie używałem/am", "points": 10},
+        {"id": "c", "text": "Używałem/am kilka razy", "points": 50},
+        {"id": "d", "text": "Używam regularnie", "points": 100}
+      ]
+    },
+    {
+      "id": "q2",
+      "question": "Jak dobrze znasz terminal/wiersz poleceń?",
+      "options": [
+        {"id": "a", "text": "W ogóle nie znam", "points": 0},
+        {"id": "b", "text": "Znam podstawowe komendy (cd, ls)", "points": 30},
+        {"id": "c", "text": "Swobodnie poruszam się po systemie", "points": 70},
+        {"id": "d", "text": "Używam zaawansowanych narzędzi (grep, sed, awk)", "points": 100}
+      ]
+    },
+    {
+      "id": "q3",
+      "question": "Co wiesz o pracy z plikami w środowisku programistycznym?",
+      "options": [
+        {"id": "a", "text": "Nie wiem jak edytować pliki w terminalu", "points": 0},
+        {"id": "b", "text": "Potrafię używać podstawowego edytora tekstu", "points": 30},
+        {"id": "c", "text": "Znam różne edytory i narzędzia do edycji plików", "points": 70},
+        {"id": "d", "text": "Swobodnie używam zaawansowanych narzędzi edycji", "points": 100}
+      ]
+    },
+    {
+      "id": "q4",
+      "question": "Czy znasz Git i kontrolę wersji?",
+      "options": [
+        {"id": "a", "text": "Nie, nigdy nie używałem/am", "points": 0},
+        {"id": "b", "text": "Słyszałem/am o Git, ale nie używam", "points": 20},
+        {"id": "c", "text": "Używam podstawowych komend Git (commit, push, pull)", "points": 60},
+        {"id": "d", "text": "Znam zaawansowane funkcje Git (rebase, cherry-pick, itp.)", "points": 100}
+      ]
+    },
+    {
+      "id": "q5",
+      "question": "Co wiesz o narzędziach do wyszukiwania w kodzie (np. grep, find)?",
+      "options": [
+        {"id": "a", "text": "Nie znam takich narzędzi", "points": 0},
+        {"id": "b", "text": "Słyszałem/am o nich, ale nie używam", "points": 20},
+        {"id": "c", "text": "Używam podstawowych funkcji wyszukiwania", "points": 60},
+        {"id": "d", "text": "Swobodnie używam zaawansowanych wzorców i regex", "points": 100}
+      ]
+    },
+    {
+      "id": "q6",
+      "question": "Czy wiesz czym są agenty AI w kontekście narzędzi programistycznych?",
+      "options": [
+        {"id": "a", "text": "Nie, to dla mnie nowe pojęcie", "points": 0},
+        {"id": "b", "text": "Słyszałem/am o tym, ale nie rozumiem jak działają", "points": 30},
+        {"id": "c", "text": "Rozumiem koncepcję i używałem/am podobnych narzędzi", "points": 70},
+        {"id": "d", "text": "Aktywnie używam agentów AI w pracy programistycznej", "points": 100}
+      ]
+    },
+    {
+      "id": "q7",
+      "question": "Jak dobrze znasz markdown?",
+      "options": [
+        {"id": "a", "text": "Nie wiem co to jest", "points": 0},
+        {"id": "b", "text": "Widziałem/am pliki .md, ale nie wiem jak ich używać", "points": 20},
+        {"id": "c", "text": "Potrafię pisać podstawowe dokumenty w markdown", "points": 60},
+        {"id": "d", "text": "Swobodnie tworzę złożone dokumenty z tabelami, linkami itp.", "points": 100}
+      ]
+    },
+    {
+      "id": "q8",
+      "question": "Czy masz doświadczenie z narzędziami AI do kodowania (GitHub Copilot, Claude, itp.)?",
+      "options": [
+        {"id": "a", "text": "Nie, nigdy nie używałem/am", "points": 0},
+        {"id": "b", "text": "Testowałem/am raz czy dwa", "points": 30},
+        {"id": "c", "text": "Używam od czasu do czasu", "points": 70},
+        {"id": "d", "text": "To integralny element mojego workflow", "points": 100}
+      ]
+    },
+    {
+      "id": "q9",
+      "question": "Jak oceniasz swoją znajomość debugowania kodu?",
+      "options": [
+        {"id": "a", "text": "Nie wiem jak debugować kod", "points": 0},
+        {"id": "b", "text": "Używam console.log / print do debugowania", "points": 30},
+        {"id": "c", "text": "Znam debuggery i podstawowe techniki", "points": 70},
+        {"id": "d", "text": "Swobodnie używam zaawansowanych narzędzi debugowania", "points": 100}
+      ]
+    },
+    {
+      "id": "q10",
+      "question": "Co wiesz o testowaniu kodu (unit tests, integration tests)?",
+      "options": [
+        {"id": "a", "text": "Nie pisałem/am jeszcze testów", "points": 0},
+        {"id": "b", "text": "Rozumiem czym są testy, ale nie mam praktyki", "points": 30},
+        {"id": "c", "text": "Piszę podstawowe testy jednostkowe", "points": 70},
+        {"id": "d", "text": "Stosuję TDD i piszę różne rodzaje testów", "points": 100}
+      ]
+    },
+    {
+      "id": "q11",
+      "question": "Jak dobrze znasz JavaScript/TypeScript?",
+      "options": [
+        {"id": "a", "text": "Nie znam w ogóle", "points": 0},
+        {"id": "b", "text": "Znam podstawy składni", "points": 30},
+        {"id": "c", "text": "Potrafię pisać funkcjonalny kod", "points": 70},
+        {"id": "d", "text": "Swobodnie używam zaawansowanych wzorców", "points": 100}
+      ]
+    },
+    {
+      "id": "q12",
+      "question": "Czy znasz koncepcję SPA (Single Page Application)?",
+      "options": [
+        {"id": "a", "text": "Nie, nie wiem co to jest", "points": 0},
+        {"id": "b", "text": "Słyszałem/am o tym, ale nie rozumiem", "points": 20},
+        {"id": "c", "text": "Rozumiem koncepcję i używałem/am frameworków SPA", "points": 60},
+        {"id": "d", "text": "Tworzę SPA, znam routing, state management itp.", "points": 100}
+      ]
+    }
+  ],
+  "thresholds": {
+    "beginner": {"min": 0, "max": 40, "name": "Od zera", "description": "Dla osób, które dopiero zaczynają przygodę z Claude Code i programowaniem"},
+    "intermediate": {"min": 41, "max": 70, "name": "Średnio zaawansowany", "description": "Dla osób znających podstawy, które chcą pogłębić wiedzę"},
+    "advanced": {"min": 71, "max": 100, "name": "Zaawansowany", "description": "Dla ekspertów szukających mastery"}
+  },
+  "maxPoints": 1200
+}

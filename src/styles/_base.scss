@@ -1,0 +1,187 @@
+// _base.scss
+// Reset i podstawowe style
+
+// Box sizing reset
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+// Root
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+// Body
+body {
+    font-family: $font-family-primary;
+    font-size: $font-size-base;
+    font-weight: $font-weight-normal;
+    line-height: $line-height-normal;
+    color: $color-text-primary;
+    background-color: $color-bg-light;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+// Headings
+h1, h2, h3, h4, h5, h6 {
+    margin-bottom: $spacing-md;
+    font-weight: $font-weight-bold;
+    line-height: $line-height-tight;
+    color: $color-text-primary;
+}
+
+h1 {
+    font-size: $font-size-4xl;
+}
+
+h2 {
+    font-size: $font-size-3xl;
+}
+
+h3 {
+    font-size: $font-size-2xl;
+}
+
+h4 {
+    font-size: $font-size-xl;
+}
+
+h5 {
+    font-size: $font-size-lg;
+}
+
+h6 {
+    font-size: $font-size-base;
+}
+
+// Paragraphs
+p {
+    margin-bottom: $spacing-md;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+// Links
+a {
+    color: $color-primary;
+    text-decoration: none;
+    transition: color $transition-fast;
+
+    &:hover {
+        color: darken($color-primary, 10%);
+    }
+
+    &:focus {
+        outline: 2px solid $color-primary;
+        outline-offset: 2px;
+    }
+}
+
+// Lists
+ul, ol {
+    margin-bottom: $spacing-md;
+    padding-left: $spacing-lg;
+
+    li {
+        margin-bottom: $spacing-sm;
+    }
+}
+
+// Code - basic styles (overridden in lesson component)
+code {
+    font-family: $font-family-mono;
+    font-size: 0.9em;
+}
+
+pre {
+    font-family: $font-family-mono;
+    margin-bottom: $spacing-md;
+}
+
+// Images
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+// Buttons (reset)
+button {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+
+// Tables
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: $spacing-md;
+
+    th, td {
+        padding: $spacing-sm $spacing-md;
+        text-align: left;
+        border-bottom: 1px solid $color-bg-dark;
+    }
+
+    th {
+        font-weight: $font-weight-bold;
+        background-color: $color-bg-medium;
+    }
+}
+
+// Utility classes
+.text-center {
+    text-align: center;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-muted {
+    color: $color-text-secondary;
+}
+
+.text-bold {
+    font-weight: $font-weight-bold;
+}
+
+.mt-0 { margin-top: 0; }
+.mt-sm { margin-top: $spacing-sm; }
+.mt-md { margin-top: $spacing-md; }
+.mt-lg { margin-top: $spacing-lg; }
+.mt-xl { margin-top: $spacing-xl; }
+
+.mb-0 { margin-bottom: 0; }
+.mb-sm { margin-bottom: $spacing-sm; }
+.mb-md { margin-bottom: $spacing-md; }
+.mb-lg { margin-bottom: $spacing-lg; }
+.mb-xl { margin-bottom: $spacing-xl; }
+
+.hidden {
+    display: none !important;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}

@@ -1,0 +1,26 @@
+{
+  "name": "cc.kurs.web",
+  "version": "1.0.0",
+  "description": "Interaktywna platforma webowa do nauki Claude Code",
+  "main": "index.html",
+  "scripts": {
+    "dev": "concurrently \"npm run sass:watch\" \"npm run serve\"",
+    "serve": "live-server --port=8080 --no-browser",
+    "sass:watch": "sass --watch src/styles/main.scss:dist/css/main.css --style=expanded --source-map",
+    "sass:build": "sass src/styles/main.scss:dist/css/main.css --style=compressed --no-source-map",
+    "build": "npm run sass:build"
+  },
+  "keywords": [
+    "claude-code",
+    "education",
+    "interactive",
+    "tutorial"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "live-server": "^1.2.2",
+    "sass": "^1.69.5"
+  }
+}

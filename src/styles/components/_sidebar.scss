@@ -1,0 +1,151 @@
+// _sidebar.scss
+// Sidebar z listą lekcji
+
+.sidebar {
+    width: $sidebar-width;
+    background-color: $color-bg-medium;
+    border-radius: $radius-lg;
+    padding: $spacing-lg;
+    margin-right: $spacing-xl;
+    height: fit-content;
+    position: sticky;
+    top: calc(#{$spacing-lg} + 80px); // Header height + padding
+
+    .sidebar-header {
+        margin-bottom: $spacing-lg;
+
+        h3 {
+            font-size: $font-size-xl;
+            margin-bottom: $spacing-md;
+        }
+
+        .progress-summary {
+            .progress-bar {
+                height: 8px;
+                background-color: $color-bg-dark;
+                border-radius: $radius-full;
+                overflow: hidden;
+                margin-bottom: $spacing-sm;
+
+                .progress-fill {
+                    height: 100%;
+                    background-color: $color-success;
+                    transition: width $transition-base;
+                }
+            }
+
+            .progress-text {
+                font-size: $font-size-sm;
+                color: $color-text-secondary;
+            }
+        }
+    }
+
+    .sidebar-description {
+        font-size: $font-size-sm;
+        color: $color-text-secondary;
+        margin-bottom: $spacing-md;
+    }
+
+    .lesson-nav {
+        .module {
+            margin-bottom: $spacing-lg;
+
+            .module-title {
+                font-weight: $font-weight-bold;
+                font-size: $font-size-base;
+                margin-bottom: $spacing-sm;
+                color: $color-text-primary;
+            }
+
+            .lesson-list {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+
+                .lesson-item {
+                    margin-bottom: $spacing-xs;
+
+                    a {
+                        display: flex;
+                        align-items: center;
+                        gap: $spacing-sm;
+                        padding: $spacing-sm;
+                        border-radius: $radius-sm;
+                        transition: all $transition-fast;
+                        color: $color-text-secondary;
+                        text-decoration: none;
+
+                        .lesson-status {
+                            flex-shrink: 0;
+                            font-size: $font-size-lg;
+                            width: 20px;
+                            text-align: center;
+                        }
+
+                        .lesson-title {
+                            flex: 1;
+                            font-size: $font-size-sm;
+                            line-height: 1.4;
+                        }
+
+                        .lesson-duration {
+                            flex-shrink: 0;
+                            font-size: $font-size-xs;
+                            color: $color-text-secondary;
+                            opacity: 0.7;
+                        }
+
+                        &:hover {
+                            background-color: $color-bg-light;
+                            color: $color-text-primary;
+                            transform: translateX(2px);
+                        }
+                    }
+
+                    &.active a {
+                        background-color: $color-primary;
+                        color: white;
+                        font-weight: $font-weight-medium;
+                        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+                        .lesson-status,
+                        .lesson-duration {
+                            color: white;
+                            opacity: 1;
+                        }
+                    }
+
+                    &.completed {
+                        .lesson-status {
+                            color: $color-success;
+                            font-weight: bold;
+                        }
+                    }
+
+                    &.completed.active {
+                        .lesson-status {
+                            color: white;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Responsive
+@media (max-width: $breakpoint-tablet) {
+    .sidebar {
+        position: static;
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: $spacing-lg;
+    }
+}
+
+@media (max-width: $breakpoint-mobile) {
+    .sidebar {
+        padding: $spacing-md;
+    }
+}

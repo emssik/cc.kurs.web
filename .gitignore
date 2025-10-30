@@ -34,3 +34,10 @@ dist/
 build/
 target/
 *.egg-info/
+
+# SCSS/CSS
+.sass-cache/
+*.css.map
+
+# IDE
+.vscode/settings.json

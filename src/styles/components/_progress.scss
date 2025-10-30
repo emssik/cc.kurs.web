@@ -1,0 +1,207 @@
+// _progress.scss
+// Komponenty związane z postępem użytkownika
+
+.progress-overview {
+    background-color: $color-bg-medium;
+    padding: $spacing-xl;
+    border-radius: $radius-lg;
+    margin: $spacing-xl 0;
+    text-align: center;
+
+    h3 {
+        margin-bottom: $spacing-lg;
+    }
+
+    p {
+        font-size: $font-size-lg;
+        margin-bottom: $spacing-md;
+
+        strong {
+            color: $color-primary;
+        }
+    }
+}
+
+// Progress stats
+.progress-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: $spacing-lg;
+    margin: $spacing-xl 0;
+
+    .stat-card {
+        background-color: $color-bg-light;
+        padding: $spacing-lg;
+        border-radius: $radius-md;
+        box-shadow: $shadow-sm;
+        text-align: center;
+
+        .stat-value {
+            font-size: $font-size-3xl;
+            font-weight: $font-weight-bold;
+            color: $color-primary;
+            display: block;
+            margin-bottom: $spacing-sm;
+        }
+
+        .stat-label {
+            font-size: $font-size-sm;
+            color: $color-text-secondary;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+    }
+}
+
+// Achievement badges (dla przyszłego użycia)
+.achievements {
+    margin: $spacing-2xl 0;
+
+    h3 {
+        margin-bottom: $spacing-lg;
+    }
+
+    .badges-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+        gap: $spacing-md;
+
+        .badge {
+            aspect-ratio: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: $color-bg-medium;
+            border-radius: $radius-md;
+            padding: $spacing-md;
+            transition: all $transition-fast;
+
+            &:hover {
+                transform: scale(1.05);
+                box-shadow: $shadow-md;
+            }
+
+            .badge-icon {
+                font-size: $font-size-3xl;
+                margin-bottom: $spacing-sm;
+            }
+
+            .badge-name {
+                font-size: $font-size-xs;
+                text-align: center;
+                color: $color-text-secondary;
+            }
+
+            &.locked {
+                opacity: 0.3;
+                cursor: not-allowed;
+
+                &:hover {
+                    transform: none;
+                    box-shadow: none;
+                }
+            }
+        }
+    }
+}
+
+// Circular progress
+.circular-progress {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    margin: 0 auto;
+
+    svg {
+        transform: rotate(-90deg);
+
+        circle {
+            fill: none;
+            stroke-width: 8;
+
+            &.background {
+                stroke: $color-bg-dark;
+            }
+
+            &.progress {
+                stroke: $color-primary;
+                stroke-linecap: round;
+                transition: stroke-dashoffset $transition-slow;
+            }
+        }
+    }
+
+    .progress-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: $font-size-2xl;
+        font-weight: $font-weight-bold;
+        color: $color-text-primary;
+    }
+}
+
+// Timeline (dla historii postępu)
+.progress-timeline {
+    margin: $spacing-2xl 0;
+
+    .timeline-item {
+        display: flex;
+        gap: $spacing-lg;
+        margin-bottom: $spacing-lg;
+        position: relative;
+
+        &::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 30px;
+            bottom: -20px;
+            width: 2px;
+            background-color: $color-bg-dark;
+        }
+
+        &:last-child::before {
+            display: none;
+        }
+
+        .timeline-marker {
+            width: 32px;
+            height: 32px;
+            background-color: $color-primary;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: $color-text-light;
+            font-weight: $font-weight-bold;
+            flex-shrink: 0;
+            z-index: 1;
+        }
+
+        .timeline-content {
+            flex: 1;
+            background-color: $color-bg-medium;
+            padding: $spacing-md;
+            border-radius: $radius-md;
+
+            .timeline-date {
+                font-size: $font-size-sm;
+                color: $color-text-secondary;
+                margin-bottom: $spacing-xs;
+            }
+
+            .timeline-title {
+                font-weight: $font-weight-bold;
+                margin-bottom: $spacing-xs;
+            }
+
+            .timeline-description {
+                font-size: $font-size-sm;
+                color: $color-text-secondary;
+            }
+        }
+    }
+}

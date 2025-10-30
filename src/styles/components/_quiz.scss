@@ -1,0 +1,272 @@
+// _quiz.scss
+// Style dla quizów i testów
+
+.quiz-container {
+    max-width: 700px;
+    margin: 0 auto;
+
+    .quiz-progress {
+        margin-bottom: $spacing-xl;
+
+        .progress-bar {
+            height: 12px;
+            background-color: $color-bg-medium;
+            border-radius: $radius-full;
+            overflow: hidden;
+            margin-bottom: $spacing-sm;
+
+            .progress-fill {
+                height: 100%;
+                background: linear-gradient(90deg, $color-primary, $color-accent);
+                transition: width $transition-base;
+            }
+        }
+
+        .progress-text {
+            text-align: center;
+            color: $color-text-secondary;
+            font-size: $font-size-sm;
+        }
+    }
+
+    .question-container {
+        margin-bottom: $spacing-2xl;
+
+        .question-text {
+            font-size: $font-size-2xl;
+            margin-bottom: $spacing-xl;
+            line-height: $line-height-relaxed;
+        }
+
+        .options-container {
+            display: flex;
+            flex-direction: column;
+            gap: $spacing-md;
+
+            .option-label {
+                display: flex;
+                align-items: center;
+                padding: $spacing-lg;
+                background-color: $color-bg-medium;
+                border-radius: $radius-md;
+                cursor: pointer;
+                transition: all $transition-fast;
+                border: 2px solid transparent;
+
+                &:hover {
+                    background-color: darken($color-bg-medium, 5%);
+                    transform: translateX(4px);
+                }
+
+                input[type="radio"] {
+                    margin-right: $spacing-md;
+                    width: 20px;
+                    height: 20px;
+                    cursor: pointer;
+                    accent-color: $color-primary;
+                }
+
+                .option-text {
+                    flex: 1;
+                    font-size: $font-size-lg;
+                }
+
+                &:has(input:checked) {
+                    background-color: lighten($color-primary, 40%);
+                    border-color: $color-primary;
+                }
+            }
+        }
+    }
+
+    .quiz-navigation {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: $spacing-lg;
+        border-top: 2px solid $color-bg-dark;
+
+        @media (max-width: $breakpoint-mobile) {
+            flex-direction: column;
+            gap: $spacing-md;
+
+            .btn {
+                width: 100%;
+            }
+        }
+    }
+}
+
+// Test info
+.test-info {
+    background-color: $color-bg-medium;
+    padding: $spacing-lg;
+    border-radius: $radius-md;
+    margin: $spacing-xl 0;
+
+    p {
+        margin-bottom: $spacing-sm;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        strong {
+            color: $color-text-primary;
+        }
+    }
+}
+
+// Note
+.note {
+    font-size: $font-size-sm;
+    color: $color-text-secondary;
+    font-style: italic;
+    margin: $spacing-lg 0;
+}
+
+// Results review
+.results-review {
+    margin-top: $spacing-2xl;
+
+    .question-review {
+        padding: $spacing-lg;
+        margin-bottom: $spacing-lg;
+        background-color: $color-bg-medium;
+        border-radius: $radius-md;
+        border-left: 4px solid $color-error;
+
+        &.correct {
+            border-left-color: $color-success;
+        }
+
+        .question-text {
+            font-weight: $font-weight-bold;
+            margin-bottom: $spacing-md;
+        }
+
+        .user-answer,
+        .correct-answer {
+            margin-bottom: $spacing-sm;
+            padding: $spacing-sm;
+            border-radius: $radius-sm;
+        }
+
+        .user-answer {
+            background-color: lighten($color-error, 40%);
+
+            &.correct {
+                background-color: lighten($color-success, 40%);
+            }
+        }
+
+        .correct-answer {
+            background-color: lighten($color-success, 40%);
+        }
+
+        .explanation {
+            margin-top: $spacing-md;
+            padding: $spacing-sm;
+            background-color: $color-bg-light;
+            border-radius: $radius-sm;
+            font-size: $font-size-sm;
+        }
+    }
+}
+
+// Test result view
+.test-result-view {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+
+    h2 {
+        margin-bottom: $spacing-xl;
+    }
+
+    .score-display {
+        margin: $spacing-2xl 0;
+
+        .score-circle {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto;
+            border-radius: 50%;
+            border: 8px solid $color-primary;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: $color-bg-medium;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+
+            .score-value {
+                font-size: 48px;
+                font-weight: $font-weight-bold;
+                color: $color-text-primary;
+            }
+        }
+    }
+
+    .path-assignment {
+        background-color: $color-bg-medium;
+        padding: $spacing-xl;
+        border-radius: $radius-md;
+        margin: $spacing-2xl 0;
+        text-align: left;
+
+        h3 {
+            margin-bottom: $spacing-md;
+            color: $color-text-primary;
+        }
+
+        p {
+            margin: 0;
+            color: $color-text-secondary;
+        }
+    }
+
+    .cta-buttons {
+        display: flex;
+        gap: $spacing-md;
+        justify-content: center;
+        margin-top: $spacing-xl;
+
+        @media (max-width: $breakpoint-mobile) {
+            flex-direction: column;
+
+            .btn {
+                width: 100%;
+            }
+        }
+    }
+}
+
+// Initial test view
+.initial-test-view {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+
+    h2 {
+        margin-bottom: $spacing-lg;
+    }
+
+    p {
+        margin-bottom: $spacing-md;
+    }
+
+    .cta-buttons {
+        display: flex;
+        gap: $spacing-md;
+        justify-content: center;
+        margin-top: $spacing-xl;
+
+        @media (max-width: $breakpoint-mobile) {
+            flex-direction: column;
+
+            .btn {
+                width: 100%;
+            }
+        }
+    }
+}
