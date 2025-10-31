@@ -1,3 +1,5 @@
+# ⚠️ Projekt przykładowy, wygenerowany w trakcie webinaru 2025-10-30, bez żadnych dodatkowych poprawek.
+
 # Claude Code - Kurs Interaktywny
 
 Interaktywna platforma webowa do nauki Claude Code z systemem ścieżek edukacyjnych dostosowanych do poziomu użytkownika.
