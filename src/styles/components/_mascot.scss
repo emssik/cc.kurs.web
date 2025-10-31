@@ -1,0 +1,348 @@
+// _mascot.scss
+// Maskotka kursu z animacjami CSS
+
+.mascot-container {
+    position: relative;
+    display: inline-block;
+
+    .mascot {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        transition: transform $transition-base;
+    }
+
+    &.mascot-animated {
+        .mascot {
+            animation: float 3s ease-in-out infinite;
+        }
+    }
+}
+
+// Float animation
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+// Mascot variations
+.mascot-default {
+    // Neutral/helpful state
+    .mascot {
+        filter: none;
+    }
+}
+
+.mascot-success {
+    // Celebrating with raised arms
+    .mascot {
+        animation: celebrateJump 0.6s $animation-bounce;
+    }
+
+    &::after {
+        content: '🎉';
+        position: absolute;
+        top: -20px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: $font-size-2xl;
+        animation: confetti 1s ease-out;
+    }
+}
+
+@keyframes celebrateJump {
+    0%, 100% {
+        transform: translateY(0) scale(1);
+    }
+    50% {
+        transform: translateY(-20px) scale(1.1);
+    }
+}
+
+@keyframes confetti {
+    0% {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(-30px) scale(1.5);
+    }
+}
+
+.mascot-error {
+    // Confused expression
+    .mascot {
+        animation: headShake 0.5s ease-in-out;
+    }
+
+    &::after {
+        content: '❓';
+        position: absolute;
+        top: -10px;
+        right: -10px;
+        font-size: $font-size-xl;
+        animation: questionPop 0.5s $animation-bounce;
+    }
+}
+
+@keyframes headShake {
+    0%, 100% {
+        transform: rotate(0);
+    }
+    25% {
+        transform: rotate(-5deg);
+    }
+    75% {
+        transform: rotate(5deg);
+    }
+}
+
+@keyframes questionPop {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.mascot-thinking {
+    // Hand on chin, thoughtful
+    .mascot {
+        animation: thinking 2s ease-in-out infinite;
+    }
+
+    &::after {
+        content: '💭';
+        position: absolute;
+        top: -15px;
+        right: -5px;
+        font-size: $font-size-xl;
+        animation: thoughtBubble 2s ease-in-out infinite;
+    }
+}
+
+@keyframes thinking {
+    0%, 100% {
+        transform: rotate(0);
+    }
+    50% {
+        transform: rotate(-3deg);
+    }
+}
+
+@keyframes thoughtBubble {
+    0%, 100% {
+        opacity: 0.5;
+        transform: scale(0.9);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+// Mascot sizes
+.mascot-sm {
+    max-width: 80px;
+}
+
+.mascot-md {
+    max-width: 120px;
+}
+
+.mascot-lg {
+    max-width: 200px;
+}
+
+.mascot-xl {
+    max-width: 300px;
+}
+
+// Mascot in header
+.header .mascot-container {
+    max-width: 60px;
+    margin-right: $spacing-md;
+
+    .mascot {
+        transition: transform $transition-fast;
+    }
+
+    &:hover .mascot {
+        transform: scale(1.1) rotate(5deg);
+    }
+}
+
+// Mascot in footer
+.footer .mascot-container {
+    max-width: 80px;
+}
+
+// Mascot on welcome screen
+.welcome-screen .mascot-container {
+    max-width: 250px;
+    margin: $spacing-2xl auto;
+}
+
+// Mascot speech bubble
+.mascot-speech-bubble {
+    position: relative;
+    background-color: $color-bg-light;
+    border: 2px solid $color-primary;
+    border-radius: $radius-lg;
+    padding: $spacing-md $spacing-lg;
+    margin-top: $spacing-md;
+    box-shadow: $shadow-md;
+    animation: slideInUp $transition-base;
+
+    &::before {
+        content: '';
+        position: absolute;
+        bottom: 100%;
+        left: $spacing-lg;
+        border: 10px solid transparent;
+        border-bottom-color: $color-primary;
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: 100%;
+        left: calc(#{$spacing-lg} + 2px);
+        border: 8px solid transparent;
+        border-bottom-color: $color-bg-light;
+    }
+
+    .speech-text {
+        margin: 0;
+        color: $color-text-primary;
+        font-size: $font-size-base;
+        line-height: $line-height-relaxed;
+    }
+
+    &.speech-bubble-right {
+        &::before {
+            left: auto;
+            right: $spacing-lg;
+        }
+
+        &::after {
+            left: auto;
+            right: calc(#{$spacing-lg} + 2px);
+        }
+    }
+}
+
+// Interactive mascot (responds to user actions)
+.mascot-interactive {
+    cursor: pointer;
+
+    &:hover .mascot {
+        transform: scale(1.05);
+    }
+
+    &:active .mascot {
+        transform: scale(0.95);
+    }
+}
+
+// Mascot idle animations
+.mascot-idle {
+    .mascot {
+        animation: idle 4s ease-in-out infinite;
+    }
+}
+
+@keyframes idle {
+    0%, 100% {
+        transform: translateY(0) scale(1);
+    }
+    25% {
+        transform: translateY(-5px) scale(1.02);
+    }
+    50% {
+        transform: translateY(0) scale(1);
+    }
+    75% {
+        transform: translateY(-3px) scale(1.01);
+    }
+}
+
+// Mascot wave animation (greeting)
+.mascot-wave {
+    .mascot {
+        animation: wave 1s ease-in-out;
+        transform-origin: bottom center;
+    }
+}
+
+@keyframes wave {
+    0%, 100% {
+        transform: rotate(0);
+    }
+    10%, 30%, 50%, 70% {
+        transform: rotate(-10deg);
+    }
+    20%, 40%, 60%, 80% {
+        transform: rotate(10deg);
+    }
+    90% {
+        transform: rotate(-5deg);
+    }
+}
+
+// Mascot loader (when loading content)
+.mascot-loader {
+    .mascot {
+        animation: loaderSpin 2s linear infinite;
+    }
+
+    &::after {
+        content: '⏳';
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: $font-size-lg;
+        animation: pulse 1.5s ease-in-out infinite;
+    }
+}
+
+@keyframes loaderSpin {
+    0%, 100% {
+        transform: rotate(0);
+    }
+    50% {
+        transform: rotate(360deg);
+    }
+}
+
+// Responsive adjustments
+@media (max-width: $breakpoint-mobile) {
+    .mascot-container {
+        max-width: 150px;
+
+        &.mascot-lg,
+        &.mascot-xl {
+            max-width: 150px;
+        }
+    }
+
+    .welcome-screen .mascot-container {
+        max-width: 180px;
+    }
+
+    .mascot-speech-bubble {
+        font-size: $font-size-sm;
+    }
+}

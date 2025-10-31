@@ -88,3 +88,10 @@ $z-loading: 9999;
 // Container
 $container-max-width: 1200px;
 $sidebar-width: 280px;
+
+// Animations
+$animation-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+$animation-smooth: cubic-bezier(0.4, 0.0, 0.2, 1);
+
+// Touch targets (minimum 44px for accessibility)
+$touch-target-min: 44px;

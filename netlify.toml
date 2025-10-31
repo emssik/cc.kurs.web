@@ -1,0 +1,32 @@
+[build]
+  # Komenda do zbudowania projektu (kompiluje SASS)
+  command = "npm run build"
+
+  # Katalog z gotowymi plikami do publikacji (główny folder z index.html)
+  publish = "."
+
+# Przekierowania dla aplikacji SPA
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Nagłówki bezpieczeństwa
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+# Cache dla statycznych zasobów
+[[headers]]
+  for = "/dist/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/src/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"

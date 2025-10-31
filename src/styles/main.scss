@@ -4,7 +4,10 @@
 // 1. Variables i mixins
 @import 'variables';
 
-// 2. Base styles
+// 2. Animations
+@import 'animations';
+
+// 3. Base styles
 @import 'base';
 
 // 3. Layout
@@ -30,11 +33,15 @@
 
 // 4. Components
 @import 'components/navbar';
+@import 'components/hamburger';
 @import 'components/sidebar';
 @import 'components/lesson';
 @import 'components/quiz';
 @import 'components/progress';
 @import 'components/path-detail';
+@import 'components/loading';
+@import 'components/errors';
+@import 'components/mascot';
 
 // 5. Loading screen
 .loading-screen {
@@ -84,18 +91,30 @@
     transition: all $transition-fast;
     cursor: pointer;
     text-decoration: none;
+    border: none;
+    min-height: $touch-target-min; // Touch-friendly
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: $spacing-sm;
 
     &:focus {
         outline: 2px solid $color-primary;
         outline-offset: 2px;
     }
 
+    &:active {
+        transform: scale(0.98);
+    }
+
     &.btn-primary {
         background-color: $color-primary;
         color: $color-text-light;
 
-        &:hover {
+        &:hover:not(:disabled) {
             background-color: darken($color-primary, 10%);
+            transform: translateY(-2px);
+            box-shadow: $shadow-md;
         }
     }
 
@@ -103,8 +122,10 @@
         background-color: $color-secondary;
         color: $color-text-light;
 
-        &:hover {
+        &:hover:not(:disabled) {
             background-color: darken($color-secondary, 10%);
+            transform: translateY(-2px);
+            box-shadow: $shadow-md;
         }
     }
 
@@ -113,7 +134,7 @@
         border: 2px solid $color-primary;
         color: $color-primary;
 
-        &:hover {
+        &:hover:not(:disabled) {
             background-color: $color-primary;
             color: $color-text-light;
         }
@@ -122,6 +143,25 @@
     &:disabled {
         opacity: 0.5;
         cursor: not-allowed;
+        transform: none !important;
+    }
+
+    // Size variations
+    &.btn-sm {
+        padding: $spacing-xs $spacing-md;
+        font-size: $font-size-sm;
+        min-height: 36px;
+    }
+
+    &.btn-lg {
+        padding: $spacing-md $spacing-xl;
+        font-size: $font-size-lg;
+        min-height: 52px;
+    }
+
+    &.btn-block {
+        width: 100%;
+        display: flex;
     }
 }
 
@@ -289,6 +329,23 @@
 }
 
 // 9. Responsive
+
+// Tablet (768px - 1024px)
+@media (max-width: $breakpoint-tablet) and (min-width: $breakpoint-mobile + 1) {
+    .main-content {
+        padding: $spacing-lg;
+    }
+
+    .paths-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    h1 {
+        font-size: $font-size-3xl;
+    }
+}
+
+// Mobile (< 768px)
 @media (max-width: $breakpoint-mobile) {
     .main-content {
         flex-direction: column;
@@ -296,10 +353,90 @@
     }
 
     h1 {
-        font-size: $font-size-3xl;
+        font-size: $font-size-2xl;
     }
 
     h2 {
-        font-size: $font-size-2xl;
+        font-size: $font-size-xl;
     }
+
+    h3 {
+        font-size: $font-size-lg;
+    }
+
+    .paths-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+
+        .btn {
+            width: 100%;
+        }
+    }
+
+    // Touch-friendly spacing
+    .btn {
+        padding: $spacing-md $spacing-lg;
+    }
+
+    // Larger tap targets on mobile
+    a,
+    button {
+        min-height: $touch-target-min;
+    }
+}
+
+// Small mobile (< 375px)
+@media (max-width: 375px) {
+    h1 {
+        font-size: $font-size-xl;
+    }
+
+    .header {
+        .logo h1 {
+            font-size: $font-size-xl;
+        }
+    }
+}
+
+// Landscape mode on mobile
+@media (max-width: $breakpoint-mobile) and (orientation: landscape) {
+    .main-content {
+        padding: $spacing-sm $spacing-md;
+    }
+
+    .header {
+        .header-content {
+            padding: $spacing-sm $spacing-md;
+        }
+    }
+}
+
+// High DPI displays (Retina)
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    // Crisper text rendering
+    body {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+}
+
+// Reduced motion preference
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+// Dark mode support (future enhancement)
+@media (prefers-color-scheme: dark) {
+    // Placeholder for dark mode styles
+    // Can be implemented in future phases
 }

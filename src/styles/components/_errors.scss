@@ -1,0 +1,322 @@
+// _errors.scss
+// Error states, empty states, and user-friendly messages
+
+// General error container
+.error-container {
+    text-align: center;
+    padding: $spacing-3xl $spacing-lg;
+    max-width: 600px;
+    margin: 0 auto;
+
+    .error-icon {
+        font-size: $font-size-4xl;
+        margin-bottom: $spacing-lg;
+        animation: shake 0.5s ease-in-out;
+
+        &.icon-404 {
+            color: $color-warning;
+        }
+
+        &.icon-error {
+            color: $color-error;
+        }
+
+        &.icon-empty {
+            color: $color-text-secondary;
+        }
+    }
+
+    .error-title {
+        font-size: $font-size-3xl;
+        margin-bottom: $spacing-md;
+        color: $color-text-primary;
+    }
+
+    .error-message {
+        font-size: $font-size-lg;
+        color: $color-text-secondary;
+        margin-bottom: $spacing-xl;
+        line-height: $line-height-relaxed;
+    }
+
+    .error-actions {
+        display: flex;
+        gap: $spacing-md;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+}
+
+// 404 Not Found
+.not-found-view {
+    .error-icon {
+        &::before {
+            content: '🔍';
+        }
+    }
+}
+
+// General error page
+.error-view {
+    .error-icon {
+        &::before {
+            content: '⚠️';
+        }
+    }
+}
+
+// Empty state
+.empty-state {
+    text-align: center;
+    padding: $spacing-3xl $spacing-lg;
+    color: $color-text-secondary;
+
+    .empty-icon {
+        font-size: $font-size-4xl;
+        margin-bottom: $spacing-lg;
+        opacity: 0.5;
+
+        &::before {
+            content: '📭';
+        }
+
+        &.icon-no-lessons::before {
+            content: '📚';
+        }
+
+        &.icon-no-progress::before {
+            content: '🎯';
+        }
+
+        &.icon-no-results::before {
+            content: '🔍';
+        }
+    }
+
+    .empty-title {
+        font-size: $font-size-2xl;
+        margin-bottom: $spacing-md;
+        color: $color-text-primary;
+    }
+
+    .empty-message {
+        font-size: $font-size-lg;
+        margin-bottom: $spacing-xl;
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .empty-action {
+        margin-top: $spacing-lg;
+    }
+}
+
+// Inline error messages
+.error-message-inline {
+    background-color: lighten($color-error, 45%);
+    border-left: 4px solid $color-error;
+    padding: $spacing-md;
+    border-radius: $radius-md;
+    margin-bottom: $spacing-md;
+    animation: slideInLeft $transition-base;
+
+    .error-message-icon {
+        color: $color-error;
+        margin-right: $spacing-sm;
+        font-weight: $font-weight-bold;
+
+        &::before {
+            content: '✕';
+        }
+    }
+
+    .error-message-text {
+        color: darken($color-error, 20%);
+        font-size: $font-size-base;
+        margin: 0;
+    }
+
+    &.error-message-warning {
+        background-color: lighten($color-warning, 35%);
+        border-left-color: $color-warning;
+
+        .error-message-icon {
+            color: $color-warning;
+
+            &::before {
+                content: '⚠';
+            }
+        }
+
+        .error-message-text {
+            color: darken($color-warning, 30%);
+        }
+    }
+
+    &.error-message-info {
+        background-color: lighten($color-info, 45%);
+        border-left-color: $color-info;
+
+        .error-message-icon {
+            color: $color-info;
+
+            &::before {
+                content: 'ℹ';
+            }
+        }
+
+        .error-message-text {
+            color: darken($color-info, 20%);
+        }
+    }
+
+    &.error-message-success {
+        background-color: lighten($color-success, 50%);
+        border-left-color: $color-success;
+
+        .error-message-icon {
+            color: $color-success;
+
+            &::before {
+                content: '✓';
+            }
+        }
+
+        .error-message-text {
+            color: darken($color-success, 20%);
+        }
+    }
+}
+
+// Toast notifications (for JS implementation)
+.toast {
+    position: fixed;
+    bottom: $spacing-xl;
+    right: $spacing-xl;
+    background-color: $color-text-primary;
+    color: $color-text-light;
+    padding: $spacing-md $spacing-lg;
+    border-radius: $radius-lg;
+    box-shadow: $shadow-xl;
+    z-index: $z-modal + 10;
+    animation: slideInRight $transition-base;
+    max-width: 400px;
+    display: flex;
+    align-items: center;
+    gap: $spacing-md;
+
+    &.toast-success {
+        background-color: $color-success;
+    }
+
+    &.toast-error {
+        background-color: $color-error;
+    }
+
+    &.toast-warning {
+        background-color: $color-warning;
+    }
+
+    &.toast-info {
+        background-color: $color-info;
+    }
+
+    .toast-icon {
+        font-size: $font-size-xl;
+    }
+
+    .toast-message {
+        flex: 1;
+    }
+
+    .toast-close {
+        background: none;
+        border: none;
+        color: inherit;
+        font-size: $font-size-xl;
+        cursor: pointer;
+        padding: 0;
+        opacity: 0.7;
+        transition: opacity $transition-fast;
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+
+    &.toast-exit {
+        animation: slideInRight $transition-base reverse;
+    }
+
+    @media (max-width: $breakpoint-mobile) {
+        bottom: $spacing-md;
+        right: $spacing-md;
+        left: $spacing-md;
+        max-width: none;
+    }
+}
+
+// Form field errors
+.form-error {
+    color: $color-error;
+    font-size: $font-size-sm;
+    margin-top: $spacing-xs;
+    display: flex;
+    align-items: center;
+    gap: $spacing-xs;
+    animation: slideInUp $transition-fast;
+
+    &::before {
+        content: '✕';
+        font-weight: $font-weight-bold;
+    }
+}
+
+.form-field-error {
+    input,
+    textarea,
+    select {
+        border-color: $color-error !important;
+
+        &:focus {
+            outline-color: $color-error !important;
+        }
+    }
+}
+
+// Offline indicator
+.offline-indicator {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: $color-warning;
+    color: $color-text-primary;
+    text-align: center;
+    padding: $spacing-sm;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-medium;
+    z-index: $z-modal + 20;
+    animation: slideInDown $transition-base;
+
+    &::before {
+        content: '⚠ ';
+    }
+}
+
+// Network error retry
+.retry-container {
+    text-align: center;
+    padding: $spacing-xl;
+
+    .retry-message {
+        margin-bottom: $spacing-lg;
+        color: $color-text-secondary;
+    }
+
+    .retry-button {
+        @extend .btn;
+        @extend .btn-primary;
+    }
+}

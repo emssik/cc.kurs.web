@@ -34,7 +34,16 @@
                     <h1>Claude Code</h1>
                     <span class="tagline">Interaktywny kurs</span>
                 </div>
-                <nav class="main-nav">
+
+                <!-- Hamburger menu button (visible on mobile) -->
+                <button class="hamburger" id="hamburger-btn" aria-label="Menu" aria-expanded="false">
+                    <span class="line"></span>
+                    <span class="line"></span>
+                    <span class="line"></span>
+                </button>
+
+                <!-- Navigation -->
+                <nav class="main-nav" id="main-nav">
                     <ul>
                         <li><a href="#/" class="nav-link">Start</a></li>
                         <li><a href="#/test" class="nav-link">Test wstępny</a></li>
@@ -43,6 +52,9 @@
                 </nav>
             </div>
         </header>
+
+        <!-- Mobile nav overlay -->
+        <div class="mobile-nav-overlay" id="mobile-nav-overlay"></div>
 
         <!-- Main Content Area -->
         <main class="main-content">
@@ -102,6 +114,7 @@
     <script src="src/js/utils.js"></script>
     <script src="src/js/lessons.js"></script>
     <script src="src/js/quiz.js"></script>
+    <script src="src/js/hamburger.js"></script>
     <script src="src/js/app.js"></script>
 </body>
 </html>
