@@ -73,10 +73,12 @@
     background-color: rgba(0, 0, 0, 0.5);
     z-index: $z-header - 1;
     opacity: 0;
+    pointer-events: none; // Nie blokuj kliknięć gdy nieaktywny
     transition: opacity $transition-base;
 
     &.active {
         opacity: 1;
+        pointer-events: auto; // Pozwól na kliknięcia gdy aktywny
     }
 
     @media (max-width: $breakpoint-mobile) {
