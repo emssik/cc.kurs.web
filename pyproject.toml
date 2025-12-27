@@ -1,0 +1,11 @@
+[project]
+name = "cc-kurs-web"
+version = "0.1.0"
+description = "Add your description here"
+requires-python = ">=3.13"
+dependencies = [
+    "claude-code-client",
+]
+
+[tool.uv.sources]
+claude-code-client = { git = "https://github.com/emssik/agents.spa.git", subdirectory = "src/modules" }

@@ -29,7 +29,12 @@ body {
 }
 
 // Headings
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     margin-bottom: $spacing-md;
     font-weight: $font-weight-bold;
     line-height: $line-height-tight;
@@ -86,7 +91,8 @@ a {
 }
 
 // Lists
-ul, ol {
+ul,
+ol {
     margin-bottom: $spacing-md;
     padding-left: $spacing-lg;
 
@@ -129,7 +135,8 @@ table {
     border-collapse: collapse;
     margin-bottom: $spacing-md;
 
-    th, td {
+    th,
+    td {
         padding: $spacing-sm $spacing-md;
         text-align: left;
         border-bottom: 1px solid $color-bg-dark;
@@ -158,17 +165,45 @@ table {
     font-weight: $font-weight-bold;
 }
 
-.mt-0 { margin-top: 0; }
-.mt-sm { margin-top: $spacing-sm; }
-.mt-md { margin-top: $spacing-md; }
-.mt-lg { margin-top: $spacing-lg; }
-.mt-xl { margin-top: $spacing-xl; }
+.mt-0 {
+    margin-top: 0;
+}
 
-.mb-0 { margin-bottom: 0; }
-.mb-sm { margin-bottom: $spacing-sm; }
-.mb-md { margin-bottom: $spacing-md; }
-.mb-lg { margin-bottom: $spacing-lg; }
-.mb-xl { margin-bottom: $spacing-xl; }
+.mt-sm {
+    margin-top: $spacing-sm;
+}
+
+.mt-md {
+    margin-top: $spacing-md;
+}
+
+.mt-lg {
+    margin-top: $spacing-lg;
+}
+
+.mt-xl {
+    margin-top: $spacing-xl;
+}
+
+.mb-0 {
+    margin-bottom: 0;
+}
+
+.mb-sm {
+    margin-bottom: $spacing-sm;
+}
+
+.mb-md {
+    margin-bottom: $spacing-md;
+}
+
+.mb-lg {
+    margin-bottom: $spacing-lg;
+}
+
+.mb-xl {
+    margin-bottom: $spacing-xl;
+}
 
 .hidden {
     display: none !important;

@@ -171,32 +171,54 @@ const App = {
 
         return `
             <div class="welcome-screen">
-                <h2>Witaj w kursie Claude Code!</h2>
-                <p>Przygotuj się na interaktywną przygodę z nauką jednego z najciekawszych narzędzi AI.</p>
-
-                ${hasStarted ? `
-                    <div class="progress-overview">
-                        <h3>Twój postęp</h3>
-                        <p>Ścieżka: <strong>${progress.currentPath || 'Nie wybrano'}</strong></p>
-                        <p>Ukończone lekcje: <strong>${progress.completedLessons.length}</strong></p>
-                        <a href="#/path/${progress.currentPath}" class="btn btn-primary">Kontynuuj naukę</a>
+                <div class="welcome-hero">
+                    <div class="welcome-text">
+                        <h2 class="gradient-text">Witaj w kursie Claude Code!</h2>
+                        <p>Przygotuj się na interaktywną przygodę z nauką jednego z najciekawszych narzędzi AI. Opanuj terminal, automatyzację i kodowanie z pomocą Claude.</p>
+                        
+                        ${hasStarted ? `
+                            <div class="progress-overview glass-effect">
+                                <h3>Twój postęp</h3>
+                                <p>Ścieżka: <strong>${progress.currentPath || 'Nie wybrano'}</strong></p>
+                                <p>Ukończone lekcje: <strong>${progress.completedLessons.length}</strong></p>
+                                <a href="#/path/${progress.currentPath}" class="btn btn-primary btn-lg">Kontynuuj naukę</a>
+                            </div>
+                        ` : `
+                            <div class="cta-buttons">
+                                <a href="#/test" class="btn btn-primary btn-lg">Rozpocznij test wstępny</a>
+                                <a href="#/paths" class="btn btn-outline btn-lg">Przeglądaj ścieżki</a>
+                            </div>
+                        `}
                     </div>
-                ` : `
-                    <div class="cta-buttons">
-                        <a href="#/test" class="btn btn-primary">Rozpocznij test wstępny</a>
-                        <a href="#/paths" class="btn btn-secondary">Przeglądaj ścieżki</a>
+                    <div class="welcome-image">
+                        <img src="src/assets/mascot/claude_mascot.png" alt="Claude Mascot" class="mascot-img">
                     </div>
-                `}
+                </div>
 
-                <div class="features">
+                <div class="welcome-features">
                     <h3>Co znajdziesz w kursie?</h3>
-                    <ul>
-                        <li>✨ Interaktywne lekcje dostosowane do Twojego poziomu</li>
-                        <li>🎯 Praktyczne zadania i przykłady</li>
-                        <li>📚 3 ścieżki edukacyjne: od zera, średniozaawansowany, zaawansowany</li>
-                        <li>🏆 Testy sprawdzające wiedzę</li>
-                        <li>💾 Automatyczny zapis postępu</li>
-                    </ul>
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">📚</div>
+                            <h4>Lekcje interaktywne</h4>
+                            <p>Nauka przez praktykę w prawdziwym środowisku.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🛠️</div>
+                            <h4>Zadania praktyczne</h4>
+                            <p>Rozwiązywanie realnych problemów programistycznych.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🎯</div>
+                            <h4>Ścieżki rozwoju</h4>
+                            <p>Dostosowane do Twojego poziomu zaawansowania.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🚀</div>
+                            <h4>Testy wiedzy</h4>
+                            <p>Sprawdź swoje umiejętności i śledź postępy.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         `;
