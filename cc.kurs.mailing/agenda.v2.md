@@ -6,22 +6,23 @@
 
 ## SPIS TREŚCI - KOLEJNOŚĆ MODUŁÓW
 
-1. **MODUŁ PODSTAWY**
-2. **MODUŁ BEZPIECZEŃSTWO I UPRAWNIENIA**
-3. **MODUŁ AGENT SKILLS**
-4. **MODUŁ HOOKS**
-5. **MODUŁ MCP SERVERS**
-6. **MODUŁ PLUGINS & MARKETPLACE**
-7. **MODUŁ SUBAGENTS**
-8. **MODUŁ KONFIGURACJA ZAAWANSOWANA**
-9. **MODUŁ SLASH COMMANDS**
-10. **MODUŁ ROZSZERZANIE CLAUDE CODE - WYBÓR NARZĘDZI**
-11. **MODUŁ INTEGRACJE IDE**
-12. **MODUŁ CLAUDE API**
-13. **MODUŁ BEST PRACTICES**
-14. **MODUŁ ADVANCED PATTERNS**
-15. **MODUŁ CASE STUDIES**
-16. **MODUŁ ENTERPRISE & SCALE**
+**MODUŁ PODSTAWY**
+**MODUŁ WBUDOWANE NARZĘDZIA (TOOLS)**
+**MODUŁ BEZPIECZEŃSTWO I UPRAWNIENIA**
+**MODUŁ SLASH COMMANDS**
+**MODUŁ INTEGRACJE IDE**
+**MODUŁ SUBAGENTS**
+**MODUŁ HOOKS**
+**MODUŁ MCP SERVERS**
+**MODUŁ AGENT SKILLS**
+**MODUŁ PLUGINS & MARKETPLACE**
+**MODUŁ KONFIGURACJA ZAAWANSOWANA**
+**MODUŁ ROZSZERZANIE CLAUDE CODE - WYBÓR NARZĘDZI**
+**MODUŁ CLAUDE API**
+**MODUŁ BEST PRACTICES**
+**MODUŁ ADVANCED PATTERNS**
+**MODUŁ CASE STUDIES**
+**MODUŁ ENTERPRISE & SCALE**
 
 **PODSUMOWANIE:** Checklist kompetencji, dalsze zasoby, praktyczne projekty
 
@@ -66,6 +67,116 @@ System Uprawnień
 • Przykład praktyczny: Shift+Tab aby przełączyć na "accept edits on" dla szybkich iteracji
 • Zagadnienie: Odpowiedzi na pytania o uprawnienia
 • Przykład praktyczny: y (tak), n (nie), s (pokaż szczegóły), a (zawsze zezwalaj)
+
+---
+
+## MODUŁ WBUDOWANE NARZĘDZIA (TOOLS) (2-4h)
+
+Read - Czytanie Plików
+• Zagadnienie: Podstawowe czytanie całego pliku
+• Przykład praktyczny: Claude automatycznie używa Read gdy referencja @src/auth.ts jest w prompcie
+• Zagadnienie: Czytanie z offsetem i limitem dla dużych plików
+• Przykład praktyczny: Read z offset: 100, limit: 50 dla linii 100-150 w długim pliku
+• Zagadnienie: Czytanie obrazów i PDFów
+• Przykład praktyczny: Read pliku screenshot.png pokazuje obraz wizualnie, PDF jest processowany strona po stronie
+
+Write - Tworzenie Plików
+• Zagadnienie: Tworzenie nowych plików z zawartością
+• Przykład praktyczny: > Create new API endpoint file src/api/users.ts z boilerplate kodem
+• Zagadnienie: Nadpisywanie istniejących plików (wymaga wcześniejszego Read)
+• Przykład praktyczny: Write nadpisuje plik tylko jeśli Claude wcześniej użył Read na tym pliku
+• Zagadnienie: Kiedy NIE używać Write
+• Przykład praktyczny: ZAWSZE preferuj Edit dla istniejących plików zamiast Write (nadpisanie całego pliku)
+
+Edit - Modyfikacja Plików
+• Zagadnienie: Exact string replacement w plikach
+• Przykład praktyczny: old_string: "var name = 'test'", new_string: "const name = 'test'" dla refactoringu
+• Zagadnienie: Replace all dla zmian globalnych
+• Przykład praktyczny: Edit z replace_all: true zamienia wszystkie wystąpienia zmiennej w pliku (renaming)
+• Zagadnienie: Zachowanie wcięć i formatowania
+• Przykład praktyczny: old_string musi dokładnie odpowiadać zawartości z Read (z wcięciami), bez line number prefix
+
+NotebookEdit - Edycja Jupyter Notebooks
+• Zagadnienie: Zamiana zawartości komórki w notebooku
+• Przykład praktyczny: NotebookEdit z cell_id dla konkretnej komórki, new_source: "import pandas as pd\ndf = pd.read_csv('data.csv')"
+• Zagadnienie: Dodawanie i usuwanie komórek
+• Przykład praktyczny: edit_mode: "insert" dodaje nową komórkę, edit_mode: "delete" usuwa istniejącą
+• Zagadnienie: Typy komórek
+• Przykład praktyczny: cell_type: "code" dla kodu Python, cell_type: "markdown" dla dokumentacji
+
+Bash - Wykonywanie Komend
+• Zagadnienie: Podstawowe komendy systemowe
+• Przykład praktyczny: Bash command: "npm test" uruchamia testy, Bash command: "git status" sprawdza zmiany
+• Zagadnienie: Timeout i background execution
+• Przykład praktyczny: Bash z timeout: 600000 (10 min) dla długich buildów, run_in_background: true dla dev servers
+• Zagadnienie: Cytowanie ścieżek ze spacjami
+• Przykład praktyczny: cd "/Users/name/My Documents" (correct), cd /Users/name/My Documents (incorrect - fail)
+• Zagadnienie: Sekwencyjne vs równoległe komendy
+• Przykład praktyczny: command1 && command2 dla zależnych operacji, osobne Bash calls w parallel dla niezależnych
+
+Glob - Wyszukiwanie Plików
+• Zagadnienie: Pattern matching dla plików
+• Przykład praktyczny: Glob pattern: "**/*.ts" znajduje wszystkie pliki TypeScript rekursywnie
+• Zagadnienie: Glob w konkretnym katalogu
+• Przykład praktyczny: Glob pattern: "*.test.js", path: "./tests" szuka tylko w folderze tests
+• Zagadnienie: Sortowanie po dacie modyfikacji
+• Przykład praktyczny: Glob zwraca pliki sorted by modification time (najnowsze pierwsze)
+
+Grep - Wyszukiwanie Zawartości
+• Zagadnienie: Podstawowe wyszukiwanie regex w plikach
+• Przykład praktyczny: Grep pattern: "function.*login", output_mode: "files_with_matches" znajduje pliki z definicjami funkcji login
+• Zagadnienie: Output modes - content, files, count
+• Przykład praktyczny: output_mode: "content" pokazuje matching lines z -A/-B/-C context, "files_with_matches" tylko ścieżki, "count" ilość matchów
+• Zagadnienie: Filtrowanie po typie pliku
+• Przykład praktyczny: Grep pattern: "API_KEY", type: "js" szuka tylko w plikach JavaScript, glob: "*.ts" dla TypeScript
+• Zagadnienie: Case insensitive i multiline
+• Przykład praktyczny: Grep z -i: true dla case insensitive, multiline: true dla patternów przez wiele linii
+
+WebFetch - Pobieranie Stron
+• Zagadnienie: Fetch URL i analiza zawartości
+• Przykład praktyczny: WebFetch url: "https://docs.example.com/api", prompt: "Extract all API endpoints" konwertuje HTML→markdown i analizuje
+• Zagadnienie: Redirects i cache
+• Przykład praktyczny: WebFetch automatycznie informuje o redirect, 15-min cache przyspiesza powtórne zapytania
+• Zagadnienie: Kiedy używać MCP zamiast WebFetch
+• Przykład praktyczny: Jeśli MCP web fetch tool dostępny, użyj go (mniej ograniczeń)
+
+WebSearch - Wyszukiwanie w Internecie
+• Zagadnienie: Wyszukiwanie aktualnych informacji
+• Przykład praktyczny: WebSearch query: "React 19 new features 2025" dla informacji poza knowledge cutoff
+• Zagadnienie: Domain filtering
+• Przykład praktyczny: WebSearch query: "API docs", allowed_domains: ["docs.python.org"] ogranicza do oficjalnej dokumentacji
+• Zagadnienie: KRYTYCZNE: Zawsze dodawaj Sources
+• Przykład praktyczny: Po odpowiedzi ZAWSZE dołącz sekcję "Sources:" z markdown linkami [Title](URL)
+
+Task - Delegacja do Subagentów
+• Zagadnienie: Wywoływanie specjalistycznych agentów
+• Przykład praktyczny: Task subagent_type: "Explore", prompt: "Find all API endpoints", model: "haiku" dla szybkiej eksploracji
+• Zagadnienie: Dostępne typy subagentów
+• Przykład praktyczny: general-purpose (research), Explore (codebase search), Plan (architecture), claude-code-guide (docs lookup)
+• Zagadnienie: Background execution
+• Przykład praktyczny: Task z run_in_background: true, użyj TaskOutput task_id: "..." aby odczytać wyniki później
+• Zagadnienie: Resumowanie agentów
+• Przykład praktyczny: Task z resume: "agent-id-123" kontynuuje pracę z pełnym poprzednim kontekstem
+
+TodoWrite - Zarządzanie Taskami
+• Zagadnienie: Tworzenie listy zadań dla złożonych operacji
+• Przykład praktyczny: TodoWrite todos: [{content: "Run tests", status: "pending", activeForm: "Running tests"}, ...]
+• Zagadnienie: Statusy zadań i workflow
+• Przykład praktyczny: pending → in_progress (zacznij pracę) → completed (natychmiast po zakończeniu)
+• Zagadnienie: Kiedy używać TodoWrite
+• Przykład praktyczny: Zadania z 3+ krokami, user podaje listę tasków, complex non-trivial tasks
+• Zagadnienie: Kiedy NIE używać TodoWrite
+• Przykład praktyczny: Single straightforward task, trivial operations, purely conversational requests
+
+AskUserQuestion - Zadawanie Pytań
+• Zagadnienie: Zbieranie preferencji i wyborów użytkownika
+• Przykład praktyczny: AskUserQuestion questions: [{question: "Which library?", header: "Library", options: [{label: "Axios", description: "..."}, ...]}]
+• Zagadnienie: Single vs multi-select
+• Przykład praktyczny: multiSelect: false dla wyboru jednej opcji (auth method), multiSelect: true dla wielu feature flags
+• Zagadnienie: Recommended options
+• Przykład praktyczny: Pierwsza opcja z "(Recommended)" w labelu jeśli masz sugestię
+• Zagadnienie: Automatyczne "Other" option
+• Przykład praktyczny: Użytkownik zawsze może wybrać "Other" i podać custom text input
 
 ---
 
