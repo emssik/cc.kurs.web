@@ -267,12 +267,6 @@ cproj() {
 # Użycie: cproj moja-apka
 ```
 
-**Uwaga:** `/compact` to **slash command** (komenda interaktywna), nie flaga CLI. Użyj jej wewnątrz sesji Claude Code, np.:
-```bash
-claude
-> /compact  # Teraz jesteś w trybie kompaktowym
-```
-
 **Zapisz plik** (Ctrl+X, potem Y, potem Enter) i załaduj na nowo:
 
 ```bash

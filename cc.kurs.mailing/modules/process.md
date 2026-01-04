@@ -9,6 +9,7 @@ W ai_docs/claude_code znajdziesz aktualną dokumentację Claude Code.
 2. Podziel go na od 5 do 10 części, każda z tych części będzie osobnym mailem. 
 2.5 maile zapisuj z kolejnymi numerami w utworzonym wcześniej katalogu.
 3. Każdy mail ma mieć:
+    - uzywaj formy bezpośredniej: "dzisiaj nauczysz się" lub "dzisiaj nauczę Cię / pokazę Cię" zamiast "dzisiaj nauczycie się" 
     - krótkie przypomnienie poprzedniej lekcji
     - dwa krótkie pytania do poprzedniej lekcji
     - TLDR

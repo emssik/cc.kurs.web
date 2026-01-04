@@ -6,9 +6,9 @@
 
 Cześć!
 
-Cieszę się, że tu jesteś. Przez najbliższe tygodnie razem odkryjemy, jak całkowicie zmienić sposób, w jaki pracujesz z komputerem. Nie chodzi tu o kolejny dodatek do edytora kodu czy chatbota, który podpowie Ci składnię. Claude Code to coś znacznie potężniejszego - Twój osobisty asystent, który rozumie kontekst, sam wykonuje polecenia i działa jak bardzo sprytny praktykant z niesamowitą pamięcią.
+Cieszę się, że tu jesteś. Przez najbliższe tygodnie razem odkryjemy, jak całkowicie zmienić sposób, w jaki pracujesz z komputerem. Nie chodzi tu o kolejny dodatek do edytora kodu czy chatbota, który podpowie Ci składnię. Claude Code to coś znacznie potężniejszego - Twój osobisty asystent, który rozumie kontekst, sam wykonuje polecenia i działa jak bardzo sprytny praktykant.
 
-W tym kursie nauczysz się nie tylko obsługi narzędzia, ale przede wszystkim **nowego sposobu myślenia o pracy**. Zamiast samemu klepać komendy, będziesz delegować zadania. Zamiast szukać rozwiązań w Google, po prostu opiszesz problem. To jak przejście od samodzielnego kopania rowów do zarządzania ekipą budowlaną.
+W tym kursie nauczysz się nie tylko obsługi narzędzia, ale przede wszystkim **nowego sposobu myślenia o pracy**. Zamiast samemu klepać komendy, będziesz delegować zadania. Zamiast szukać rozwiązań w Google, czy Perplexity po prostu opiszesz problem. To jak przejście od samodzielnego kopania rowów do zarządzania ekipą budowlaną.
 
 Zaczynamy!
 
@@ -29,7 +29,11 @@ Zanim zaczniemy - coś dla rozluźnienia. Okazuje się, że nawet Claude potrzeb
 
 **["Claude got bored while coding and decided to look at pictures of Yellowstone National Park instead. It's literally me if I were AI."](https://x.com/NaturesEpyon/status/1851033604182458387)**
 
-Relatable, prawda? 😄
+Można się pośmiać, ale trzeba pamiętać, że modele tak właśnie działają. Nie są idealne i może nigdy nie będą. Co ciekawe to potrafi działać jak sinusoida. Jeszcze 2 miesiące temu, modele bardzo niewiele mi halucynowły. A dzisiaj, gdy pomagają mi w tworzeniu tego kursu ilość błędów jest ogromna.
+
+Podobnie może być gdy tworzysz kod, analizujesz umowę, czy prosisz model, by napisał e-mail do współpracowników. 
+
+Pamiętaj o tym. Ostatecznie to TY jesteś odpowiedzialny za wyniki.
 
 ---
 
@@ -45,14 +49,16 @@ To **autonomiczny agent terminalowy** - czyli program, który sam wykonuje polec
 
 Najlepszą analogią jest **bardzo szybki, sprytny praktykant z fotograficzną pamięcią**:
 - Rozumie kontekst całego projektu
-- Pamięta wszystko, co mu powiedziałeś
+- Pamięta wszystko, co mu powiedziałeś (w ramach przekazanego kontekstu)
 - Sam podejmuje decyzje jak wykonać zadanie
 - Pracuje szybciej niż Ty
 - Nigdy się nie nudzi powtarzalnymi zadaniami
 
+Wróćmy jeszcze na moment do tej pamięci. To prawda, ma genialną pamięć, niestety niesamowicie krótką :) Działa trochę jak bohater filmu "Memento". 
+
 ### Uniwersalny interfejs do komputera
 
-Claude Code to nie tylko narzędzie dla programistów. Nazwano go "uniwersalnym interfejsem do komputera", bo potrafi obsłużyć praktycznie każde zadanie, które normalnie wykonujesz w terminalu:
+Claude Code to nie tylko narzędzie dla programistów. Nazwano go "uniwersalnym interfejsem do komputera", bo potrafi obsłużyć praktycznie każde zadanie, które normalnie wykonujesz w terminalu (i nie tylko).
 
 **Przykłady dla programisty:**
 - "Zaktualizuj wszystkie zależności w projekcie, przetestuj je i stwórz commit z opisem zmian"
@@ -76,13 +82,13 @@ Widzisz różnicę? Nie dajesz szczegółowych instrukcji - opisujesz **cel**, a
 
 ## Jak właściwie rozmawiać z Claude Code?
 
-### Myśl zadaniowo, nie komendowo
+### Myśl zadaniowo
 
 ❌ **Źle:** "Uruchom npm install, potem npm test, a jak przejdzie to zrób git commit"
 
 ✅ **Dobrze:** "Zainstaluj wszystkie zależności projektu, uruchom testy i jeśli przejdą, stwórz commit opisujący zmiany"
 
-Różnica jest subtelna, ale kluczowa. W pierwszym przypadku dajesz instrukcje krok po kroku - jak szefowi kuchni, który mówi: "pokrój marchewkę na kostkę 5mm, dodaj do garnka, gotuj 7 minut". W drugim mówisz: "przygotuj zupę marchewkową". Claude sam zdecyduje o szczegółach.
+Różnica jest subtelna, ale kluczowa. W pierwszym przypadku dajesz instrukcje krok po kroku. To trochę tak jak byś do szefa kuchni powiedział: "pokrój marchewkę na kostkę 5mm, dodaj do garnka, gotuj 7 minut". W drugim mówisz: "przygotuj zupę marchewkową". Claude sam zdecyduje o szczegółach.
 
 ### Deleguj, nie instruuj
 
@@ -99,6 +105,8 @@ Claude rozumie analogie i potrafi wcielić się w rolę:
 - "Zachowaj się jak senior developer robiący przegląd kodu - sprawdź ten plik pod kątem bezpieczeństwa"
 - "Jesteś specjalistą od optymalizacji - przyspiesz ten skrypt Pythona"
 - "Przyjrzyj się temu jak konsultant biznesowy - czy ta struktura projektu ma sens?"
+
+I choć najnowsze badania pokazują, że "wcielanie się w role", nie ma zbyt dużęgo wpływu na jakość odpowiedzi, jednak zgodnie z moim (i nie tylko moim) doświadczeniem, lepiej osadza model w kontekście w jakim ma pracować. Jeśli dodasz jeszcze do tego, kim Ty jesteś i jak ma formułować odpowiedz, dostosowane do Ciebie, będzie idealnie.
 
 ---
 
@@ -146,7 +154,7 @@ Uczciwie - Claude Code nie jest rozwiązaniem na wszystko. Są sytuacje, kiedy l
 - Lepiej: Skonfiguruj odpowiedni proces automatyczny (CI/CD, cron)
 - Przykład: Generowanie raportów co noc o 3:00
 
-🚫 **Bardzo duże pliki binarne (powyżej 100MB)**
+🚫 **Duże pliki binarne (powyżej 100MB)**
 - Lepiej: Użyj dedykowanych narzędzi do przetwarzania multimediów
 - Przykład: Obróbka filmu 4K w DaVinci Resolve
 
@@ -198,7 +206,7 @@ Przykład:
 - ✅ Napisz: "Przenieś wszystkie pliki PDF z folderu /pobrane do /dokumenty/faktury i posortuj je według daty"
 
 ### Zadanie 2: Kontekst jest kluczowy
-Weź jeden z problemów, który obecnie masz w pracy (projekt, analiza danych, organizacja plików). Opisz go Claude Code w 2-3 zdaniach, dodając maksymalnie dużo kontekstu. Nie musisz tego jeszcze wysyłać - po prostu potrenuj formułowanie zadań.
+Weź jeden z problemów, który obecnie masz w pracy (projekt, analiza danych, organizacja plików). Opisz go dla Claude Code w 2-3 zdaniach, dodając maksymalnie dużo kontekstu. Nie musisz tego jeszcze wysyłać - po prostu potrenuj formułowanie zadań.
 
 ### Zadanie 3: Lista pomysłów
 Stwórz listę 5-10 zadań, które mógłbyś delegować Claude Code w swoim codziennym życiu zawodowym. Nie ograniczaj się do programowania - pomyśl szerzej (raporty, porządkowanie plików, analiza danych, przygotowanie materiałów).
@@ -216,8 +224,6 @@ Chcesz zgłębić temat? Sprawdź te materiały:
 3. **[Anthropic: Welcome Claude to your team](https://x.com/AnthropicAI/status/1785786262072578419)** - Oficjalny wpis o możliwościach Claude jako asystenta
 
 4. **[Reddit: Claude Code memes](https://www.reddit.com/r/ClaudeAI/)** - Społeczność użytkowników, memy i prawdziwe case study
-
-5. **[Kevin Schawinski o memach Claude Code](https://x.com/kevinschawinski/status/1956281098083676588)** - Zabawne obserwacje społeczności
 
 ---
 
