@@ -1,3 +1,5 @@
+Last updated: 2026-01-12
+
 # Claude Code on Amazon Bedrock
 
 > Learn about configuring Claude Code through Amazon Bedrock, including setup, IAM configuration, and troubleshooting.

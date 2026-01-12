@@ -1,3 +1,5 @@
+Last updated: 2026-01-12
+
 # Plan Ulepszeń Lekcji - Moduł 01 Podstawy
 
 **Data utworzenia:** 2025-12-29

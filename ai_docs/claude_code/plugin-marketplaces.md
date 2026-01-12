@@ -1,3 +1,5 @@
+Last updated: 2026-01-12
+
 # Create and distribute a plugin marketplace
 
 > Build and host plugin marketplaces to distribute Claude Code extensions across teams and communities.
@@ -217,6 +219,10 @@ For plugins in the same repository:
 }
 ```
 
+<Note>
+  Relative paths only work when users add your marketplace via Git (GitHub, GitLab, or git URL). If users add your marketplace via a direct URL to the `marketplace.json` file, relative paths will not resolve correctly. For URL-based distribution, use GitHub, npm, or git URL sources instead. See [Troubleshooting](#plugins-with-relative-paths-fail-in-url-based-marketplaces) for details.
+</Note>
+
 ### GitHub repositories
 
 ```json  theme={null}
@@ -359,9 +365,9 @@ You can also specify which plugins should be enabled by default:
 
 For full configuration options, see [Plugin settings](/en/settings#plugin-settings).
 
-### Enterprise marketplace restrictions
+### Managed marketplace restrictions
 
-For organizations requiring strict control over plugin sources, enterprise administrators can restrict which plugin marketplaces users are allowed to add using the [`strictKnownMarketplaces`](/en/settings#strictknownmarketplaces) setting in managed settings.
+For organizations requiring strict control over plugin sources, administrators can restrict which plugin marketplaces users are allowed to add using the [`strictKnownMarketplaces`](/en/settings#strictknownmarketplaces) setting in managed settings.
 
 When `strictKnownMarketplaces` is configured in managed settings, the restriction behavior depends on the value:
 
@@ -487,6 +493,20 @@ Run `claude plugin validate .` or `/plugin validate .` from your marketplace dir
 * For GitHub sources, ensure repositories are public or you have access
 * Test plugin sources manually by cloning/downloading
 
+### Plugins with relative paths fail in URL-based marketplaces
+
+**Symptoms**: Added a marketplace via URL (such as `https://example.com/marketplace.json`), but plugins with relative path sources like `"./plugins/my-plugin"` fail to install with "path not found" errors.
+
+**Cause**: URL-based marketplaces only download the `marketplace.json` file itself. They do not download plugin files from the server. Relative paths in the marketplace entry reference files on the remote server that were not downloaded.
+
+**Solutions**:
+
+* **Use external sources**: Change plugin entries to use GitHub, npm, or git URL sources instead of relative paths:
+  ```json  theme={null}
+  { "name": "my-plugin", "source": { "source": "github", "repo": "owner/repo" } }
+  ```
+* **Use a Git-based marketplace**: Host your marketplace in a Git repository and add it with the git URL. Git-based marketplaces clone the entire repository, making relative paths work correctly.
+
 ### Files not found after installation
 
 **Symptoms**: Plugin installs but references to files fail, especially files outside the plugin directory
@@ -503,7 +523,7 @@ For additional debugging tools and common issues, see [Debugging and development
 * [Plugins](/en/plugins) - Creating your own plugins
 * [Plugins reference](/en/plugins-reference) - Complete technical specifications and schemas
 * [Plugin settings](/en/settings#plugin-settings) - Plugin configuration options
-* [strictKnownMarketplaces reference](/en/settings#strictknownmarketplaces) - Enterprise marketplace restrictions
+* [strictKnownMarketplaces reference](/en/settings#strictknownmarketplaces) - Managed marketplace restrictions
 
 
 ---

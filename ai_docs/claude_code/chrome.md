@@ -1,3 +1,5 @@
+Last updated: 2026-01-12
+
 # Use Claude Code with Chrome (beta)
 
 > Connect Claude Code to your browser to test web apps, debug with console logs, and automate browser tasks.

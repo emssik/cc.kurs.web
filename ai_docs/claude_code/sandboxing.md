@@ -1,3 +1,5 @@
+Last updated: 2026-01-12
+
 # Sandboxing
 
 > Learn how Claude Code's sandboxed bash tool provides filesystem and network isolation for safer, more autonomous agent execution.

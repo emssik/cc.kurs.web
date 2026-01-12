@@ -1,3 +1,5 @@
+Last updated: 2026-01-12
+
 # Claude Code - Dodatkowe Materiały Praktyczne (2025)
 
 **Data utworzenia:** 2025-12-29

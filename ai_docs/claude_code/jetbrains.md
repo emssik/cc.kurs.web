@@ -1,3 +1,5 @@
+Last updated: 2026-01-12
+
 # JetBrains IDEs
 
 > Use Claude Code with JetBrains IDEs including IntelliJ, PyCharm, WebStorm, and more

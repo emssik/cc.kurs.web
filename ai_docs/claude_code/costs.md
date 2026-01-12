@@ -1,3 +1,5 @@
+Last updated: 2026-01-12
+
 # Manage costs effectively
 
 > Learn how to track and optimize token usage and costs when using Claude Code.

@@ -1,3 +1,5 @@
+Last updated: 2026-01-12
+
 # Enterprise network configuration
 
 > Configure Claude Code for enterprise environments with proxy servers, custom Certificate Authorities (CA), and mutual Transport Layer Security (mTLS) authentication.

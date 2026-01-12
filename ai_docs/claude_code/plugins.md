@@ -1,3 +1,5 @@
+Last updated: 2026-01-12
+
 # Create plugins
 
 > Create custom plugins to extend Claude Code with slash commands, agents, hooks, Skills, and MCP servers.

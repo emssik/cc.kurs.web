@@ -1,5 +1,8 @@
 # Lekcja 4: Opanuj terminal - REPL i skróty klawiszowe
 
+
+Dudaj dać opis claude z opcją pracy na plikach lokalnych
+
 ## Przypomnienie z lekcji 3
 
 W poprzedniej lekcji poznaliśmy dwa sposoby uwierzytelniania w Claude Code - konto Pro/Max (przez `/login`) i API key poprzez Claude Console. Dowiedzieliśmy się, że subskrypcja Pro/Max oferuje stały miesięczny koszt, ale API daje większą kontrolę i przejrzystość kosztów. Nauczyliśmy się również monitorować wydatki za pomocą komendy `/cost` (dostępnej tylko dla użytkowników API). Średnie koszty dla użytkowników API to około $100-200 na dewelopera miesięcznie przy intensywnym użyciu aliasu `sonnet` (aktualnie wskazującego na Sonnet 4.5), choć mogą się znacznie różnić w zależności od liczby uruchomionych instancji i wykorzystania w automatyzacji.

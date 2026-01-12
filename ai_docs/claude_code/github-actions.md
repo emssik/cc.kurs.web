@@ -1,3 +1,5 @@
+Last updated: 2026-01-12
+
 # Claude Code GitHub Actions
 
 > Learn about integrating Claude Code into your development workflow with Claude Code GitHub Actions

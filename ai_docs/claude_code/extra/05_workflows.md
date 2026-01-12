@@ -1,3 +1,5 @@
+Last updated: 2026-01-12
+
 # Claude Code - Workflows dla Konkretnych Use Cases (2025)
 
 **Źródło:** Wyszukiwanie materiałów z czerwca-grudnia 2025

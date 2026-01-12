@@ -1,3 +1,5 @@
+Last updated: 2026-01-12
+
 # LLM gateway configuration
 
 > Learn how to configure Claude Code to work with LLM gateway solutions. Covers gateway requirements, authentication configuration, model selection, and provider-specific endpoint setup.

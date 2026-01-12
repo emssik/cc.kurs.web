@@ -1,3 +1,5 @@
+Last updated: 2026-01-12
+
 # Security
 
 > Learn about Claude Code's security safeguards and best practices for safe usage.
@@ -113,7 +115,7 @@ For more details on cloud execution, see [Claude Code on the web](/en/claude-cod
 
 ### Team security
 
-* Use [enterprise managed settings](/en/iam#enterprise-managed-settings) to enforce organizational standards
+* Use [managed settings](/en/iam#managed-settings) to enforce organizational standards
 * Share approved permission configurations through version control
 * Train team members on security best practices
 * Monitor Claude Code usage through [OpenTelemetry metrics](/en/monitoring-usage)

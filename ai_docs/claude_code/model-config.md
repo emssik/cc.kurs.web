@@ -1,3 +1,5 @@
+Last updated: 2026-01-12
+
 # Model configuration
 
 > Learn about the Claude Code model configuration, including model aliases like `opusplan`

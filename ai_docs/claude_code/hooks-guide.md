@@ -1,3 +1,5 @@
+Last updated: 2026-01-12
+
 # Get started with Claude Code hooks
 
 > Learn how to customize and extend Claude Code's behavior by registering shell commands

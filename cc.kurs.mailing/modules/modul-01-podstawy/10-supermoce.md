@@ -1,5 +1,8 @@
 # Mail 10: Supermoce - odkryj zaawansowane możliwości
 
+
+TODO: dodać koniecznie, że najważniejsze to fakt, ze te wszystkie lekcje mozna czytać albo bradzo dokladnie, albo je tylko skanowac, najwazniejsze, zeby w głowie zostaly mozliwości jakie oferuje narzedzie i pomysly na ich uzycie. Bo szczególły techniczne, to już się potem uzgodnie w trakcie rozmowy z claude code
+
 ---
 
 ## Przypomnienie z lekcji 9

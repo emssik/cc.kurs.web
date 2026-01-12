@@ -1,3 +1,5 @@
+Last updated: 2026-01-12
+
 # Analytics
 
 > View detailed usage insights and productivity metrics for your organization's Claude Code deployment.

@@ -1,3 +1,5 @@
+Last updated: 2026-01-12
+
 # Legal and compliance
 
 > Legal agreements, compliance certifications, and security information for Claude Code.

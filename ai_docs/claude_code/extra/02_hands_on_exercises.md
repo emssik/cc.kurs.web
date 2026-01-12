@@ -1,3 +1,5 @@
+Last updated: 2026-01-12
+
 # Claude Code - Hands-On Exercises i Praktyczne Ćwiczenia (2025)
 
 **Źródło:** Wyszukiwanie materiałów z czerwca-grudnia 2025

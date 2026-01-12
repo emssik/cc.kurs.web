@@ -1,3 +1,5 @@
+Last updated: 2026-01-12
+
 # Status line configuration
 
 > Create a custom status line for Claude Code to display contextual information

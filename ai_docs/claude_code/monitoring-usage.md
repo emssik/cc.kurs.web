@@ -1,3 +1,5 @@
+Last updated: 2026-01-12
+
 # Monitoring
 
 > Learn how to enable and configure OpenTelemetry for Claude Code.

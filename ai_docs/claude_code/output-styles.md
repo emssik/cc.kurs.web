@@ -1,3 +1,5 @@
+Last updated: 2026-01-12
+
 # Output styles
 
 > Adapt Claude Code for uses beyond software engineering

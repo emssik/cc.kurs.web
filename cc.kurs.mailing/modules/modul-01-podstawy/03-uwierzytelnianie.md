@@ -2,6 +2,8 @@
 
 ---
 
+TODO - dodać info o GLM i dodać link afiljacyjny do GLM.
+
 ## Przypomnienie z poprzedniej lekcji
 
 W lekcji 2 nauczyłeś się instalować Claude Code na różnych systemach operacyjnych. Poznałeś trzy metody instalacji:

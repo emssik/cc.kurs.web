@@ -1,3 +1,5 @@
+Last updated: 2026-01-12
+
 # Tracking Wykorzystania Materiałów Extra w Lekcjach
 
 **Data utworzenia:** 2025-12-29

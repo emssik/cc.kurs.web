@@ -1,3 +1,5 @@
+Last updated: 2026-01-12
+
 # Claude Code in Slack
 
 > Delegate coding tasks directly from your Slack workspace

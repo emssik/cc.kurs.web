@@ -1,3 +1,5 @@
+Last updated: 2026-01-12
+
 # Claude Code overview
 
 > Learn about Claude Code, Anthropic's agentic coding tool that lives in your terminal and helps you turn ideas into code faster than ever before.
@@ -6,7 +8,7 @@
 
 Prerequisites:
 
-* A [Claude.ai](https://claude.ai) (recommended) or [Claude Console](https://console.anthropic.com/) account
+* A [Claude subscription](https://claude.com/pricing) (Pro, Max, Teams, or Enterprise) or [Claude Console](https://console.anthropic.com/) account
 
 **Install Claude Code:**
 

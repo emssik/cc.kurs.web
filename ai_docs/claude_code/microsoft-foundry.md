@@ -1,3 +1,5 @@
+Last updated: 2026-01-12
+
 # Claude Code on Microsoft Foundry
 
 > Learn about configuring Claude Code through Microsoft Foundry, including setup, configuration, and troubleshooting.

@@ -1,3 +1,5 @@
+Last updated: 2026-01-12
+
 # Claude Code on Google Vertex AI
 
 > Learn about configuring Claude Code through Google Vertex AI, including setup, IAM configuration, and troubleshooting.

@@ -1,3 +1,5 @@
+Last updated: 2026-01-12
+
 # Run Claude Code programmatically
 
 > Use the Agent SDK to run Claude Code programmatically from the CLI, Python, or TypeScript.

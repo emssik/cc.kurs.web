@@ -1,3 +1,5 @@
+Last updated: 2026-01-12
+
 # Checkpointing
 
 > Automatically track and rewind Claude's edits to quickly recover from unwanted changes.

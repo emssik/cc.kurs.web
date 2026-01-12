@@ -1,3 +1,5 @@
+Last updated: 2026-01-12
+
 # Claude Code - Case Studies i Praktyczne Zastosowania (2025)
 
 **Źródło:** Wyszukiwanie materiałów z czerwca-grudnia 2025

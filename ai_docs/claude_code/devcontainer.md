@@ -1,3 +1,5 @@
+Last updated: 2026-01-12
+
 # Development containers
 
 > Learn about the Claude Code development container for teams that need consistent, secure environments.

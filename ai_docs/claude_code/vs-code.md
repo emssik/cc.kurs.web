@@ -1,3 +1,5 @@
+Last updated: 2026-01-12
+
 # Use Claude Code in VS Code
 
 > Install and configure the Claude Code extension for VS Code. Get AI coding assistance with inline diffs, @-mentions, plan review, and keyboard shortcuts.
