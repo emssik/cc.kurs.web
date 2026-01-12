@@ -2,18 +2,24 @@
 
 ---
 
+
+todo:
+
+- zmiany w claude -> mozna praocwać z claude code, w tym na lokalnym katalogu
+
+
 ## 🔄 Przypomnienie z poprzedniej lekcji
 
-W pierwszym mailu poznaliśmy Claude Code - autonomicznego agenta terminalowego, który zmienia sposób, w jaki pracujemy z komputerem. Dowiedzieliśmy się, że to nie jest kolejny chatbot ani asystent w IDE, tylko **prawdziwy terminal agent**, który może wykonywać komendy systemowe, edytować pliki i zarządzać całym projektem.
+W pierwszym mailu poznałeś Claude Code - autonomicznego agenta terminalowego, który zmienia sposób, w jaki pracujesz z komputerem. Dowiedziałeś się, że to nie jest kolejny chatbot ani asystent w IDE, tylko **prawdziwy terminal agent**, który może wykonywać komendy systemowe, edytować pliki i zarządzać całym projektem.
 
-Kluczowa zmiana myślenia: **nie instruujemy Claude krok po kroku, tylko delegujemy zadania**. Zamiast mówić "uruchom npm install", mówimy "zainstaluj wszystkie zależności i napraw konflikty wersji jeśli wystąpią".
+Kluczowa zmiana myślenia: **nie instruujesz Claude krok po kroku, tylko delegujesz zadania**. Zamiast mówić "uruchom npm install", mówisz "zainstaluj wszystkie zależności i napraw konflikty wersji jeśli wystąpią".
 
 ---
 
 ## 🤔 Sprawdź się - 2 pytania z poprzedniej lekcji
 
 1. **Czym Claude Code różni się od narzędzi takich jak GitHub Copilot?**
-   - Podpowiedź: Zastanów się, gdzie działają te narzędzia i co mogą robić z twoim systemem
+   - Podpowiedź: Zastanów się, gdzie działają te narzędzia i co mogą robić z Twoim systemem
 
 2. **Dlaczego mówimy, że Claude Code to "bardzo szybki stażysta z doskonałą pamięcią"?**
    - Podpowiedź: Pomyśl o tym, jak formułujesz polecenia i jaki poziom szczegółowości jest potrzebny
@@ -24,11 +30,11 @@ Kluczowa zmiana myślenia: **nie instruujemy Claude krok po kroku, tylko deleguj
 
 ## 📝 TLDR - Czego się dzisiaj nauczysz
 
-Dzisiaj przejdziemy przez instalację Claude Code na twoim systemie - niezależnie czy masz Maca, Linuxa czy Windowsa. Poznasz **trzy metody instalacji** i dowiesz się, którą wybrać. Nauczysz się także rozwiązywać najczęstsze problemy instalacyjne (bo one zawsze się pojawiają!) oraz skonfigurujesz **aliasy**, które przyśpieszą twoją pracę. Po tej lekcji będziesz mieć w pełni działające środowisko gotowe do pracy.
+Dzisiaj przejdziesz przez instalację Claude Code na Twoim systemie - niezależnie czy masz Maca, Linuxa czy Windowsa. Poznasz **trzy metody instalacji** i dowiesz się, którą wybrać. Nauczysz się także rozwiązywać najczęstste problemy instalacyjne (bo one zawsze się pojawiają!) oraz skonfigurujesz **aliasy**, które przyśpieszą Twoją pracę. Po tej lekcji będziesz mieć w pełni działające środowisko gotowe do pracy.
 
 ---
 
-## 😄 MEM Z INTERNETU
+## Memy dnia
 
 **Gary Bernhardt o wiecznym "piekle zależności":**
 
@@ -42,20 +48,34 @@ I jeszcze jedno złoto od ThePrimeagen o frustracji z instalacją:
 
 🔗 [Zobacz tweet](https://x.com/ThePrimeagen/status/1760710371550106045?lang=en)
 
-Dokładnie tak czasem czujemy się z instalacją... ale obiecuję, że z Claude Code będzie prościej! 😉
+Dokładnie tak czasem czujesz się z instalacją... ale obiecuję, że z Claude Code będzie prościej! 😉
 
 ---
 
-## 📦 Treść lekcji: Instalacja krok po kroku
+## 📦 Instalacja krok po kroku
 
 ### Która metoda instalacji dla Ciebie?
 
-Zanim zaczniemy, musisz wybrać metodę instalacji. Oto najprostszy przewodnik:
+Zanim zaczniesz, musisz wybrać metodę instalacji. Oto najprostszy przewodnik:
 
 - **Masz Maca z Homebrew?** → Użyj Homebrew (najłatwiejsze)
 - **Linux lub Mac bez Homebrew?** → Użyj oficjalnego skryptu instalacyjnego
-- **Windows?** → PowerShell (jako Administrator)
-- **Chcesz zarządzać wersjami?** → Użyj NPM (wymaga Node.js 18+)
+- **Windows?** → PowerShell
+- **Chcesz ręcznie zarządzać wersjami?** → Użyj NPM (wymaga Node.js 18+)
+
+**Wersja w 20 sekund (plusy/minusy):**
+- **Instalator natywny (skrypt)** → najbardziej niezawodny i bez Node.js, ale mniej wygodny do żonglowania wersjami
+- **Homebrew** → najłatwiejsze aktualizacje i odinstalowanie, ale wymaga Homebrew
+- **NPM** → wygodne wersjonowanie, ale najwięcej problemów z uprawnieniami i PATH
+
+**Przed instalacją: 3 szybkie checki**
+1. Jeśli wybierasz NPM, sprawdź wersję Node: `node -v` (musi być 18+)
+2. Na macOS/Linux sprawdź, czy nie masz starego `claude`: `which -a claude`
+3. Zamknij stare sesje terminala, żeby nowy PATH wczytał się po instalacji
+
+**UWAGA**
+
+Sam na codzień używam Maca, nie mam jak przetestować pozostałych form instalacji. W razie problemów na pewno znajdziesz odpowiedzi w dokumentacji do Claude Code. https://code.claude.com/docs/en/quickstart
 
 ---
 
@@ -103,6 +123,8 @@ npm install -g @anthropic-ai/claude-code
 claude --version
 ```
 
+**UWAGA:** NIE używaj `sudo npm install -g` - może to prowadzić do problemów z uprawnieniami i ryzyka bezpieczeństwa.
+
 ---
 
 ### 🐧 Instalacja na Linux
@@ -112,9 +134,6 @@ claude --version
 ```bash
 # Pobierz i uruchom oficjalny skrypt
 curl -fsSL https://claude.ai/install.sh | bash
-
-# Jeśli pojawi się błąd uprawnień, dodaj sudo:
-curl -fsSL https://claude.ai/install.sh | sudo bash
 ```
 
 **Jeśli komenda `claude` nie działa po instalacji:**
@@ -123,15 +142,15 @@ Oznacza to, że musisz dodać Claude do zmiennej PATH (ścieżki systemowej):
 
 ```bash
 # Dla bash (Ubuntu/Debian standardowo)
-echo 'export PATH="$HOME/.claude/bin:$PATH"' >> ~/.bashrc
+echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc
 source ~/.bashrc
 
 # Dla zsh (nowsze dystrybucje)
-echo 'export PATH="$HOME/.claude/bin:$PATH"' >> ~/.zshrc
+echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.zshrc
 source ~/.zshrc
 
 # Dla Fish shell
-fish_add_path $HOME/.claude/bin
+fish_add_path $HOME/.local/bin
 ```
 
 **Uwaga o bilingowaniu:** Instalacja natywna wymaga bibliotek `libgcc`, `libstdc++`, i `ripgrep`. W niektórych środowiskach (np. Alpine Linux) może być konieczne ręczne zainstalowanie tych zależności.
@@ -146,8 +165,6 @@ claude --help
 ---
 
 ### 🪟 Instalacja na Windows
-
-**WAŻNE:** Uruchom PowerShell **jako Administrator** (kliknij prawym przyciskiem, "Uruchom jako administrator")
 
 **Metoda 1: Oficjalny skrypt PowerShell (zalecana)**
 
@@ -171,6 +188,8 @@ Jeśli masz zainstalowany Node.js:
 npm install -g @anthropic-ai/claude-code
 ```
 
+**UWAGA:** Uruchamianie PowerShell jako Administrator nie jest wymagane i może prowadzić do problemów z uprawnieniami.
+
 **Sprawdź instalację:**
 
 ```powershell
@@ -185,24 +204,49 @@ Jeśli instalacja się zawiesza, Windows Defender może blokować skrypt. Rozwi�
 
 ---
 
+### ✅ Pierwsze uruchomienie (co zobaczysz)
+
+Po instalacji uruchom:
+
+```bash
+claude
+```
+
+**Czego się spodziewać:**
+- Otworzy się przeglądarka z logowaniem (lub zobaczysz link do skopiowania)
+- Wybierzesz typ konta (Claude Console vs Claude Pro/Max) - to normalne
+- Po zalogowaniu wrócisz do terminala i zobaczysz prompt Claude
+
+W kolejnym mailu masz pełny przewodnik po logowaniu i konfiguracji, więc tu tylko „kontrola, że działa”.
+
+---
+
 ### 🔧 Najczęstsze problemy i rozwiązania
 
 Oto tabelka ratunkowa dla najczęstszych błędów:
 
 | **Problem** | **Jak rozpoznać** | **Jak naprawić** |
 |-------------|-------------------|------------------|
-| **Brak uprawnień** | Widzisz `Permission denied` | Użyj Native Installation (zobacz powyżej) LUB skonfiguruj prefix npm: `npm config set prefix ~/.local` |
+| **Brak uprawnień** | Widzisz `Permission denied` | Użyj Native Installation (instalator natywny, zobacz powyżej) - NIE używaj sudo! |
 | **Za stara wersja Node.js** | `Error: Unsupported Node version` | Zaktualizuj: `nvm install --lts` lub `brew upgrade node` |
-| **Komenda nie znaleziona** | `command not found: claude` | Dodaj do PATH (patrz sekcja Linux wyżej) lub zrestartuj terminal |
+| **Komenda nie znaleziona** | `command not found: claude` | Dodaj `~/.local/bin` do PATH (patrz sekcja Linux wyżej) lub zrestartuj terminal |
 | **Windows Defender blokuje** | Instalacja się zawiesza | Wyłącz tymczasowo Real-time Protection |
 | **Błąd certyfikatu SSL** | `unable to verify the first certificate` | Zaktualizuj certyfikaty: `npm config set cafile /ścieżka/do/cert.pem` |
 | **Zepsuty cache NPM** | Dziwne błędy przy `npm install` | Wyczyść: `npm cache clean --force` i spróbuj ponownie |
 
 ---
 
+### ⚠️ Najczęstsze wpadki z życia (i jak je złapać szybko)
+
+- **Masz dwie instalacje naraz**: `which -a claude` pokazuje kilka ścieżek; usuń starą i zostaw jedną metodę
+- **Stary alias nadpisuje nową instalację**: sprawdź `alias | rg claude` i usuń nieaktualne skróty
+- **PATH jest poprawny, ale terminal „nie widzi” zmian**: zamknij i otwórz terminal albo `source ~/.zshrc` / `source ~/.bashrc`
+
+---
+
 ### 🚑 Zaawansowane troubleshooting
 
-**Komenda `doctor` - twój przyjaciel**
+**Komenda `doctor` - Twój przyjaciel**
 
 Claude Code ma wbudowane narzędzie diagnostyczne dostępne w dwóch wariantach:
 
@@ -222,15 +266,43 @@ Ta komenda sprawdzi:
 
 **Pełny reset instalacji (jeśli nic nie działa):**
 
-```bash
-# macOS/Linux - "opcja nuklearna"
-rm -rf ~/.claude
-npm uninstall -g @anthropic-ai/claude-code
-# Teraz zainstaluj od nowa
+**Dla instalacji natywnej:**
 
-# Windows
-Remove-Item -Recurse -Force $env:APPDATA\claude
+```bash
+# macOS/Linux - usuń plik wykonywalny i dane
+rm -f ~/.local/bin/claude
+rm -rf ~/.claude-code
+
+# Opcjonalnie usuń też konfigurację (ustawienia, MCP, historia)
+rm -rf ~/.claude
+rm ~/.claude.json
+
+# Teraz zainstaluj od nowa
+curl -fsSL https://claude.ai/install.sh | bash
+```
+
+```powershell
+# Windows PowerShell - usuń plik wykonywalny i dane
+Remove-Item -Path "$env:LOCALAPPDATA\Programs\claude-code" -Recurse -Force
+Remove-Item -Path "$env:LOCALAPPDATA\Microsoft\WindowsApps\claude.exe" -Force
+
+# Opcjonalnie usuń też konfigurację
+Remove-Item -Path "$env:USERPROFILE\.claude" -Recurse -Force
+Remove-Item -Path "$env:USERPROFILE\.claude.json" -Force
+
+# Teraz zainstaluj od nowa
+irm https://claude.ai/install.ps1 | iex
+```
+
+**Dla instalacji przez NPM:**
+
+```bash
+# macOS/Linux
 npm uninstall -g @anthropic-ai/claude-code
+rm -rf ~/.claude
+rm ~/.claude.json
+# Teraz zainstaluj od nowa
+npm install -g @anthropic-ai/claude-code
 ```
 
 ---
@@ -304,9 +376,13 @@ npm install -g @anthropic-ai/claude-code
 
 **Brak dostępu do sudo?**
 
-Zainstaluj lokalnie w swoim katalogu użytkownika:
+Użyj instalatora natywnego (zalecane) lub zainstaluj NPM lokalnie:
 
 ```bash
+# Opcja 1: Instalator natywny (zalecana)
+curl -fsSL https://claude.ai/install.sh | bash
+
+# Opcja 2: NPM lokalnie
 npm config set prefix ~/.local
 npm install -g @anthropic-ai/claude-code
 export PATH="$HOME/.local/bin:$PATH"
@@ -333,12 +409,12 @@ Gratulacje! Jeśli dotarłeś tutaj, powinieneś mieć w pełni działającą in
 ✅ Poznałeś **trzy metody instalacji** (skrypt, Homebrew, NPM) i wiesz, którą wybrać dla swojego systemu
 ✅ Umiesz **rozwiązać najczęstsze problemy** instalacyjne za pomocą tabeli ratunkowej
 ✅ Znasz komendę `claude doctor` do diagnostyki
-✅ Skonfigurowałeś **aliasy**, które przyśpieszą twoją codzienną pracę
+✅ Skonfigurowałeś **aliasy**, które przyśpieszą Twoją codzienną pracę
 ✅ Wiesz jak zainstalować Claude Code nawet w trudnym środowisku korporacyjnym
 
 **Najważniejsza rzecz do zapamiętania:**
 
-> Jeśli cokolwiek nie działa, uruchom `claude doctor` - to twoja pierwsza linia obrony przy problemach.
+> Jeśli cokolwiek nie działa, uruchom `claude doctor` - to Twoja pierwsza linia obrony przy problemach.
 
 ---
 
@@ -370,7 +446,7 @@ Gratulacje! Jeśli dotarłeś tutaj, powinieneś mieć w pełni działającą in
 
 ### Zadanie 1: Instalacja podstawowa ⭐
 
-1. Wybierz odpowiednią metodę instalacji dla twojego systemu
+1. Wybierz odpowiednią metodę instalacji dla Twojego systemu
 2. Zainstaluj Claude Code
 3. Uruchom `claude --version` i zrób screenshot wyniku
 4. Uruchom `claude doctor` i sprawdź, czy wszystko działa
@@ -398,7 +474,7 @@ Symulacja problemu (tylko jeśli wszystko działa!):
 2. Wyświetl swoją zmienną PATH: `echo $PATH`
 3. Zidentyfikuj, który fragment PATH wskazuje na Claude
 
-**Oczekiwany wynik:** Rozumiesz, jak działa zmienna PATH i gdzie znajdują się twoje programy.
+**Oczekiwany wynik:** Rozumiesz, jak działa zmienna PATH i gdzie znajdują się Twoje programy.
 
 ---
 
@@ -450,6 +526,11 @@ Claude powinien odpowiedzieć i pokazać informacje o twoim systemie!
 
 ---
 
+## Na miłe zakończenie :)
+## 002
+
+TUTAJ WKLEJ OBRAZEK z adresu https://images.danielroziecki.com//.netlify/images?url=/002.use.homebrew.jpg
+
 ## 🎯 Co dalej?
 
 W następnym mailu (#3) poznasz **uwierzytelnianie i konfigurację konta** - zarówno konto Claude.ai (Pro/Team) jak i Claude Console (API). Dowiesz się, którą opcję wybrać i jak skonfigurować klucze API.
@@ -465,5 +546,3 @@ Jeśli masz pytania lub coś nie działa - odpowiedz na tego maila. Pomogę rozw
 PS: Nie zapomnij wykonać zadań praktycznych! To najważniejsza część nauki.
 
 ---
-
-*Mail wygenerowany w ramach kursu Claude Code dla programistów*

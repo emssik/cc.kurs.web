@@ -154,6 +154,60 @@ Używaj przed:
 | `/export` | Eksportuj konwersację do pliku | `/export conversation.md` |
 | `/version` | Sprawdź wersję Claude Code | `/version` |
 
+### Custom Status Line - wizualny kontekst projektu
+
+Claude Code pozwala skonfigurować własny **status line** - pasek statusu wyświetlany podczas pracy, który może pokazywać kluczowe informacje o projekcie:
+
+**Jak to działa?**
+Status line to skrypt, który zwraca informacje wyświetlane w interfejsie Claude Code. Może zawierać:
+- Aktualną gałąź Git
+- Liczbę uncommitted changes
+- Status testów
+- Dowolne inne informacje projektowe
+
+**Konfiguracja w settings.json:**
+```json
+{
+  "statusLine": {
+    "type": "command",
+    "command": "~/.claude/statusline.sh"
+  }
+}
+```
+
+**Gotowe rozwiązanie z community:**
+Zamiast pisać własny skrypt od zera, możesz użyć **ccstatusline** - gotowego rozwiązania:
+
+🔗 **https://github.com/sirmalloc/ccstatusline**
+
+Zawiera:
+- Git branch i status (uncommitted changes)
+- File counts (pliki w projekcie)
+- Test status (jeśli wykryje framework testowy)
+- Łatwa instalacja i konfiguracja
+
+**Przykład prostego własnego skryptu:**
+```bash
+#!/bin/bash
+# ~/.claude/statusline.sh
+
+BRANCH=$(git branch --show-current 2>/dev/null || echo "no git")
+UNCOMMITTED=$(git status --short 2>/dev/null | wc -l | tr -d ' ')
+
+echo "📍 $BRANCH | 📝 $UNCOMMITTED changes"
+```
+
+Pamiętaj, aby nadać skryptowi uprawnienia wykonywania:
+```bash
+chmod +x ~/.claude/statusline.sh
+```
+
+**Po co to?**
+Status line daje Ci (i Claude) natychmiastowy kontekst o stanie projektu bez potrzeby sprawdzania komend typu `git status`. To szczególnie przydatne gdy:
+- Przełączasz się między projektami
+- Pracujesz na wielu gałęziach
+- Chcesz mieć szybki overview stanu projektu
+
 ### Praktyczne scenariusze
 
 #### Scenariusz 1: Analiza danych sprzedażowych dla małej firmy

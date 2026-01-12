@@ -68,6 +68,14 @@ System Uprawnień
 • Zagadnienie: Odpowiedzi na pytania o uprawnienia
 • Przykład praktyczny: y (tak), n (nie), s (pokaż szczegóły), a (zawsze zezwalaj)
 
+Custom Status Line
+• Zagadnienie: Własny script dla paska statusu w Claude Code
+• Przykład praktyczny: Bash script wyciągający BRANCH=$(git branch --show-current), TESTS=..., UNCOMMITTED=...
+• Zagadnienie: Konfiguracja statusLine
+• Przykład praktyczny: "statusLine": {"type": "command", "command": "~/.claude/statusline.sh"}
+• Zagadnienie: Gotowe rozwiązanie community
+• Przykład praktyczny: ccstatusline - https://github.com/sirmalloc/ccstatusline - ready-to-use statusline z git info, file counts, test status
+
 ---
 
 ## MODUŁ WBUDOWANE NARZĘDZIA (TOOLS) (2-4h)
@@ -463,12 +471,6 @@ CLAUDE.md - Project Memory
 • Przykład praktyczny: Sekcje: ## Overview (stack), ## Architecture (komponenty), ## Conventions (coding standards), ## Known Issues
 • Zagadnienie: Development workflow w CLAUDE.md
 • Przykład praktyczny: Blok ```bash z komendami npm install, npm run dev, npm test, npm run build
-
-Custom Status Line
-• Zagadnienie: Własny script dla paska statusu
-• Przykład praktyczny: Bash script wyciągający BRANCH=$(git branch --show-current), TESTS=..., UNCOMMITTED=...
-• Zagadnienie: Konfiguracja statusLine
-• Przykład praktyczny: "statusLine": {"type": "command", "command": "~/.claude/statusline.sh"}
 
 Environment Variables
 • Zagadnienie: Kluczowe zmienne środowiskowe dla Claude Code

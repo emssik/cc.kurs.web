@@ -8,7 +8,7 @@ Cześć!
 
 Cieszę się, że tu jesteś. Przez najbliższe tygodnie razem odkryjemy, jak całkowicie zmienić sposób, w jaki pracujesz z komputerem. Nie chodzi tu o kolejny dodatek do edytora kodu czy chatbota, który podpowie Ci składnię. Claude Code to coś znacznie potężniejszego - Twój osobisty asystent, który rozumie kontekst, sam wykonuje polecenia i działa jak bardzo sprytny praktykant.
 
-W tym kursie nauczysz się nie tylko obsługi narzędzia, ale przede wszystkim **nowego sposobu myślenia o pracy**. Zamiast samemu klepać komendy, będziesz delegować zadania. Zamiast szukać rozwiązań w Google, czy Perplexity po prostu opiszesz problem. To jak przejście od samodzielnego kopania rowów do zarządzania ekipą budowlaną.
+W tym kursie nauczysz się nie tylko obsługi narzędzia, ale przede wszystkim **nowego sposobu myślenia o pracy**. Zamiast wydawać szczegółowe instrukcje, będziesz delegować zadania. Zamiast szukać rozwiązań w Google, czy Perplexity po prostu opiszesz problem. To jak przejście od samodzielnego kopania rowów do zarządzania ekipą budowlaną. Albo co będzie chyba lepszym porównaniem, od otrzymania nagle możliwości delegowania swoich zadań do nieskończonej ilości asystentów z ogromną wiedzą, ale kiepską pamięcią ;)
 
 Zaczynamy!
 
@@ -17,7 +17,7 @@ Zaczynamy!
 ## TLDR (Too Long; Didn't Read)
 
 W tym mailu dowiesz się:
-- Czym Claude Code różni się od wszystkich innych narzędzi AI, które znasz
+- Czym Claude Code różni się innych narzędzi AI, które znasz
 - Jak zmienić sposób myślenia z "kopiuję kod z chatbota" na "deleguję zadania asystentowi"
 - Jakie zadania Claude Code wykona dla Ciebie (i które lepiej zrobić samemu)
 
@@ -85,7 +85,6 @@ Widzisz różnicę? Nie dajesz szczegółowych instrukcji - opisujesz **cel**, a
 ### Myśl zadaniowo
 
 ❌ **Źle:** "Uruchom npm install, potem npm test, a jak przejdzie to zrób git commit"
-
 ✅ **Dobrze:** "Zainstaluj wszystkie zależności projektu, uruchom testy i jeśli przejdą, stwórz commit opisujący zmiany"
 
 Różnica jest subtelna, ale kluczowa. W pierwszym przypadku dajesz instrukcje krok po kroku. To trochę tak jak byś do szefa kuchni powiedział: "pokrój marchewkę na kostkę 5mm, dodaj do garnka, gotuj 7 minut". W drugim mówisz: "przygotuj zupę marchewkową". Claude sam zdecyduje o szczegółach.
@@ -136,13 +135,21 @@ I choć najnowsze badania pokazują, że "wcielanie się w role", nie ma zbyt du
 
 Im więcej kontekstu, tym lepszy rezultat. Claude nie czyta w myślach - potrzebuje zrozumieć problem.
 
-### Błąd #3: Podawanie szczegółowych komend
+### Błąd #3: Nie weryfikowanie wyników (ślepe zaufanie)
 
-❌ **Źle:** "Wykonaj: cd src && grep -r 'TODO' . && wc -l"
+❌ **Źle:** Claude wykonał zadanie → od razu używasz wyniku w pracy
 
-✅ **Dobrze:** "Znajdź wszystkie komentarze TODO w kodzie źródłowym i powiedz mi ile ich jest"
+✅ **Dobrze:** Claude wykonał zadanie → sprawdzasz wynik → upewniasz się że jest poprawny → dopiero wtedy używasz
 
-Claude zna bash, grep, sed, awk i setki innych narzędzi lepiej niż większość z nas. Pozwól mu wybrać najlepsze rozwiązanie.
+Pamiętasz mema z początku maila? Claude może "zwiedzać Yellowstone" zamiast pracować. Modele AI potrafią halucynować, popełniać błędy lub nie do końca zrozumieć zadanie. **Zawsze weryfikuj wyniki przed użyciem** - to Ty jesteś ostatecznie odpowiedzialny.
+
+### Błąd #4: Próba załatwienia wszystkiego jednym mega-poleceniem
+
+❌ **Źle:** "Przeanalizuj wszystkie faktury, stwórz raport, wykryj anomalie, przygotuj prezentację, wyślij mailem do szefa i zaktualizuj arkusz budżetowy"
+
+✅ **Dobrze:** Rozpocznij od jednego głównego zadania, sprawdź wynik, a potem kontynuuj kolejne kroki iteracyjnie
+
+Praca z Claude Code to współpraca, nie zlecenie do wykonania i zniknięcie na kawę. Lepsze rezultaty osiągniesz pracując krok po kroku: wykonaj zadanie → sprawdź → doprecyzuj lub przejdź dalej. To jak rozmowa z dobrym współpracownikiem, nie wysyłanie skomplikowanego e-maila i czekanie na cud.
 
 ---
 
@@ -186,7 +193,7 @@ Zapamiętaj te kluczowe punkty:
 
 Sprawdź czy dobrze zrozumiałeś materiał:
 
-1. **Czym Claude Code różni się od Copilota czy ChatGPT?** (Podpowiedź: pomyśl o autonomii i sposobie działania)
+1. **Czym Claude Code różni się od np. ChatGPT?** (Podpowiedź: pomyśl o autonomii i sposobie działania)
 
 2. **Podaj przykład dobrego i złego polecenia dla Claude Code.** Co sprawia, że jedno jest lepsze od drugiego?
 
@@ -236,5 +243,10 @@ Jeśli masz pytania lub coś jest niejasne - śmiało odpisz na tego maila. Jest
 Powodzenia!
 
 ---
+
+## Na miłe zakończenie :)
+## 001
+
+TUTAJ WKLEJ OBRAZEK z adresu https://images.danielroziecki.com//.netlify/images?url=/001.we.become.png
 
 **P.S.** Pamiętaj - największa zmiana to nie samo narzędzie, ale sposób myślenia. Od "jak to zrobić?" do "co chcę osiągnąć?". To niewielka różnica w słowach, ale ogromna w praktyce.
