@@ -58,6 +58,13 @@ Po wyborze użytkownika, wygeneruj **szczegółowy scenariusz** wybranego komiks
 - Insider jokes ze świata IT
 - Bez slapstick, humor sytuacyjny i intelektualny
 
+**DOSTĘPNI BOHATEROWIE:**
+- **Junior dev** - młodszy programista, uczy się, często popełnia błędy
+- **Senior dev** - doświadczony programista, mentoruje, zna skróty
+- **Boss** - manager/szef, rozumie biznes, czasem nie rozumie technikaliów
+
+**UWAGA:** Jeśli scenariusz wymaga nowych bohaterów (np. DevOps, Designer, Tester), opisz ich charakterystykę w scenariuszu.
+
 ## Format szczegółowego scenariusza (zwięzły)
 
 Dla każdego panelu:
