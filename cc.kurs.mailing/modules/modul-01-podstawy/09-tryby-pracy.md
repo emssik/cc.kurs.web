@@ -476,13 +476,13 @@ W **Plan Mode**. Ten tryb służy tylko do tworzenia planów działania - Claude
 ## Linki
 
 **Oficjalna dokumentacja:**
-- [Claude Code - Interactive Mode (Permission Modes)](https://code.claude.com/docs/interactive-mode)
-- [Claude Code - Slash Commands](https://code.claude.com/docs/slash-commands)
-- [Claude Code - Checkpointing (Rewind)](https://code.claude.com/docs/checkpointing)
+- [Claude Code - Interactive Mode (Permission Modes)](https://code.claude.com/docs/en/interactive-mode)
+- [Claude Code - Slash Commands](https://code.claude.com/docs/en/slash-commands)
+- [Claude Code - Checkpointing (Rewind)](https://code.claude.com/docs/en/checkpointing)
 
 **Dodatkowe materiały:**
-- [Claude Code - CLI Reference](https://code.claude.com/docs/cli-reference)
-- [Claude Code - Settings](https://code.claude.com/docs/settings)
+- [Claude Code - CLI Reference](https://code.claude.com/docs/en/cli-reference)
+- [Claude Code - Settings](https://code.claude.com/docs/en/settings)
 
 **Community resources:**
 - [Reddit r/ClaudeAI - Workflows](https://reddit.com/r/ClaudeAI)

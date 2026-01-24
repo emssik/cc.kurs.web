@@ -430,7 +430,7 @@ alias ccheck='claude /usage && claude /cost'
 ## Linki do dodatkowych zasobów
 
 1. **Oficjalna dokumentacja Claude Code - Slash Commands**
-   https://code.claude.com/docs/slash-commands
+   https://code.claude.com/docs/en/slash-commands
 
 2. **Managing Context Windows (Anthropic Blog)**
    https://www.anthropic.com/index/managing-context-windows

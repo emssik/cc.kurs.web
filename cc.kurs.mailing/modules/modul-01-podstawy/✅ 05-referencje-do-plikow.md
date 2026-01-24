@@ -68,7 +68,7 @@ W JetBrains IDE jest dodatkowy skrót klawiszowy `Cmd+Option+K` (Mac) lub `Alt+C
 **Dla użytkowników CLI:**
 Jeśli używasz Claude Code z terminala (a nie extensionu), możesz opisać kontekst słownie (np. "funkcja calculateTotal w auth.js") lub użyć składni `@plik` do ręcznego wskazania pliku.
 
-**Szczegóły techniczne** znajdziesz w [dokumentacji VS Code](https://code.claude.com/docs/vs-code) i [dokumentacji JetBrains](https://code.claude.com/docs/jetbrains).
+**Szczegóły techniczne** znajdziesz w [dokumentacji VS Code](https://code.claude.com/docs/en/vs-code) i [dokumentacji JetBrains](https://code.claude.com/docs/en/jetbrains).
 
 ### Referencje do katalogów: @katalog/
 
@@ -265,7 +265,7 @@ Claude może odczytywać obrazy (PNG, JPG, JPEG) i pliki PDF - to otwiera zupeł
 3. **Wklej ze schowka**: Skopiuj obraz i użyj `Ctrl+V` (macOS/Linux) lub `Alt+V` (Windows)
 4. **Podaj ścieżkę**: "Przeanalizuj obraz: /path/to/image.png"
 
-**Szczegóły** znajdziesz w [dokumentacji trybu interaktywnego](https://code.claude.com/docs/interactive-mode).
+**Szczegóły** znajdziesz w [dokumentacji trybu interaktywnego](https://code.claude.com/docs/en/interactive-mode).
 
 **Uwaga:** Claude czyta PDF-y jako całość (wszystkie strony). Jeśli potrzebujesz konkretnej strony, poproś Claude o skupienie się na określonej treści w instrukcji.
 
@@ -422,9 +422,9 @@ Znajdź dwa podobne pliki (np. dwa raporty, dwie wersje tego samego dokumentu) i
 
 ## Dodatkowe zasoby
 
-- [Dokumentacja Claude Code - Tryb interaktywny](https://code.claude.com/docs/interactive-mode)
-- [Dokumentacja Claude Code - Integracja VS Code](https://code.claude.com/docs/vs-code)
-- [Dokumentacja Claude Code - Integracja JetBrains](https://code.claude.com/docs/jetbrains)
+- [Dokumentacja Claude Code - Tryb interaktywny](https://code.claude.com/docs/en/interactive-mode)
+- [Dokumentacja Claude Code - Integracja VS Code](https://code.claude.com/docs/en/vs-code)
+- [Dokumentacja Claude Code - Integracja JetBrains](https://code.claude.com/docs/en/jetbrains)
 - [ProgrammerHumor - File Structure Memes](https://programmerhumor.io/memes/folder-structure) - Zabawne memy o organizacji plików
 
 ---

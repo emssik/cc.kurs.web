@@ -35,7 +35,7 @@ Zanim przejdziemy dalej, sprawdź swoją wiedzę:
 - `CLAUDE.md` w głównym katalogu = instrukcje dla projektu
 - `~/.claude/CLAUDE.md` = globalne preferencje użytkownika
 - Komenda `/init` generuje szkielet automatycznie
-- Traktuj go jak onboarding dla nowego developera
+- Traktuj go jak onboarding dla nowego członka zespołu (programisty, marketera, PM - każdego!)
 - Hierarchia: enterprise → project → user → local
 
 **W 5 minut:** Uruchom `/init` w swoim projekcie, edytuj wygenerowany `CLAUDE.md`, dodaj komendy build/test i strukturę folderów.
@@ -132,7 +132,7 @@ Claude automatycznie załaduje te pliki do kontekstu. To oszczędza miejsce i po
 
 ### Dobra praktyka - jak pisać CLAUDE.md
 
-**Złota zasada:** Traktuj CLAUDE.md jak dokument onboardingowy dla nowego junior developera.
+**Złota zasada:** Traktuj CLAUDE.md jak dokument onboardingowy dla nowego członka zespołu - czy to programisty, marketera, project managera czy pisarza.
 
 Musi zawierać:
 - **Setup commands** - jak zainstalować i uruchomić projekt
@@ -338,15 +338,27 @@ npm run dev:docs      # Storybook
 - **Fonts:** Inter (variable) loaded via next/font
 
 ### Testing Strategy
-```
-                    │ Unit │ Integration │ E2E │
-────────────────────┼──────┼─────────────┼─────┤
-Coverage Target     │ 90%  │ 70%         │ 30% │
-Test Location       │ *.test.ts         │ e2e/│
-Mock External APIs  │ Yes  │ Yes         │ No  │
-Run on Pre-commit   │ Yes  │ No          │ No  │
-Run on PR           │ Yes  │ Yes         │ Yes │
-```
+
+#### Unit Tests
+- **Coverage Target:** 90%
+- **Test Location:** `*.test.ts` (obok plików źródłowych)
+- **Mock External APIs:** Tak (wszystkie zewnętrzne zależności)
+- **Run on Pre-commit:** Tak (szybkie, muszą przejść)
+- **Run on PR:** Tak
+
+#### Integration Tests
+- **Coverage Target:** 70%
+- **Test Location:** `*.test.ts` (obok plików źródłowych)
+- **Mock External APIs:** Tak (ale mniej niż w unit)
+- **Run on Pre-commit:** Nie (zbyt wolne)
+- **Run on PR:** Tak
+
+#### E2E Tests
+- **Coverage Target:** 30% (tylko critical flows)
+- **Test Location:** `e2e/` (osobny katalog)
+- **Mock External APIs:** Nie (testujemy prawdziwe integracje)
+- **Run on Pre-commit:** Nie (bardzo wolne)
+- **Run on PR:** Tak
 
 ## Team Conventions
 
@@ -422,6 +434,252 @@ lsof -ti:8080 | xargs kill -9  # Backend
 ````
 
 **Kiedy używać:** Duże zespoły (10+ osób), enterprise, wymagane compliance i standardy.
+
+---
+
+## CLAUDE.md poza programowaniem - przykłady dla każdego
+
+Claude Code to narzędzie nie tylko dla developerów! Oto jak CLAUDE.md może pomóc w różnych zawodach:
+
+### Dla marketerów - Kampania marketingowa
+
+```markdown
+# Kampania Q1 2025: Brand Awareness
+
+## Brand Voice Guidelines
+- Ton: Przyjazny, ale profesjonalny
+- Używamy "Ty" zamiast "Pan/Pani"
+- Emoji: Maksymalnie 1-2 na post (❤️ ✨)
+- Unikamy: Wykrzykników, agresywnej sprzedaży
+
+## Content Calendar
+- Blog: Poniedziałki 10:00
+- LinkedIn: Wt/Czw 14:00
+- Newsletter: Piątki 9:00
+
+## Approved Channels
+- LinkedIn, Instagram, Blog
+- NIE UŻYWAJ: Twitter (pauzujemy do końca Q1)
+
+## Campaign Hashtags
+- Primary: #BrandName2025
+- Secondary: #IndustryLeader
+
+## Target Audience
+- Wiek: 25-45 lat
+- Branża: Tech, startups, SMB
+- Pain points: Brak czasu, przepełniony inbox, chaos w projektach
+
+## Common Tasks
+- "Create 5 LinkedIn post ideas about [topic]"
+- "Analyze campaign performance from @analytics.csv"
+- "Draft email sequence for lead nurturing"
+- "Rewrite this copy to be more engaging"
+```
+
+**Przykład użycia:**
+```bash
+> Analyze last week's campaign from @analytics.csv and suggest 3 improvements
+```
+
+Claude będzie wiedział, jakie hashtagi używać, jaki ton zachować, i które kanały są aktywne.
+
+---
+
+### Dla Project Managerów - Zarządzanie zespołem
+
+```markdown
+# Project: Mobile App Launch
+
+## Team & Roles
+- Dev team: 4 developers (Anna, Bartek, Ola, Tomek)
+- Designer: 1 UI/UX (Kasia)
+- QA: 1 tester (Marcin)
+- Stakeholders: CEO (Jan), CTO (Ewa)
+
+## Sprint Info
+- Duration: 2 weeks
+- Current Sprint: #12 (ends Dec 22)
+- Velocity: 25 story points (average)
+
+## Meeting Schedule
+- Daily standups: 9:00 (15min max)
+- Sprint planning: Mondays 10:00 (2h)
+- Sprint review: Last Friday 14:00 (1h)
+- Retrospective: Last Friday 15:30 (1h)
+
+## Top 3 Risks
+1. **API integration delay** - HIGH (backend team blocked)
+2. **Designer availability** - MEDIUM (vacation Dec 15-22)
+3. **Budget overrun** - LOW (10% buffer remaining)
+
+## Communication Rules
+- Blockers: Immediately to Slack #dev-blockers
+- Daily updates: End of day in Notion
+- Escalations: Email + Slack mention to PM
+- Client comms: Only via PM (no direct contact)
+
+## Decision-Making Framework
+- <$1000: PM decides
+- $1000-5000: PM + CTO approval
+- >$5000: Full stakeholder meeting
+
+## Common PM Tasks
+- "Create weekly status report for stakeholders based on @sprint-notes.md"
+- "Draft risk mitigation plan for API delay"
+- "Generate retrospective agenda from last sprint"
+- "Calculate if we can finish feature X in current sprint based on velocity"
+- "Prepare burndown chart from @jira-export.csv"
+```
+
+**Przykład użycia:**
+```bash
+> Based on current velocity and @backlog.md, can we finish user authentication in this sprint?
+```
+
+Claude zna zespół, velocity, i ryzyko - może realistycznie oszacować feasibility.
+
+---
+
+### Dla pisarzy - Projekt książkowy
+
+```markdown
+# Książka: "Skuteczna produktywność dla zabieganych"
+
+## Style Guide
+- **Ton:** Osobisty, jak rozmowa przy kawie
+- **POV:** Pierwsza osoba ("nauczyłem się", "odkryłem")
+- **Przykłady:** Zawsze z życia, konkretne sytuacje
+- **Długość zdań:** Krótkie (max 20 słów), dynamiczne
+- **Unikamy:** Abstrakcyjnych rad, cliché, nadużywania cudzysłowów
+
+## Struktura książki
+- **Rozdziały:** 12 (po 15 stron każdy = ~3500 słów)
+- **Format rozdziału:**
+  1. Hook (ciekawa historia/pytanie) - 300 słów
+  2. Story (osobiste doświadczenie) - 800 słów
+  3. Lesson (wyciągnięta nauka) - 1500 słów
+  4. Exercise (praktyczne ćwiczenie dla czytelnika) - 400 słów
+  5. Takeaways (bullet points) - 500 słów
+
+## Target Audience
+- Młodzi profesjonaliści (25-35 lat)
+- Pracują w korporacjach/startupach
+- Czują się przytłoczeni ilością zadań
+- Chcą więcej wolnego czasu bez utraty kariery
+- Nie są "productivity geeks" - szukają prostych rozwiązań
+
+## Słowa kluczowe (SEO + branding)
+- **Używaj często:** Produktywność, efektywność, work-life balance, nawyki, mindset, priorytetyzacja
+- **UNIKAJ:** "hustle culture", "work harder", "grinding" (nie ten nurt!)
+
+## Research Sources
+- @research-notes/ - artykuły naukowe i badania
+- @interviews/ - wywiady z 15 ekspertami (transkrypcje)
+- @personal-stories/ - moje doświadczenia z dziennika (2020-2024)
+
+## Ton Examples (do naśladowania)
+✅ "Pamiętam ten poniedziałek, gdy siedziałem przed 47 otwartymi zakładkami..."
+✅ "Odkryłem to przypadkiem, podczas gdy próbowałem..."
+❌ "Badania pokazują, że produktywność jest kluczowa" (zbyt ogólne)
+❌ "Musisz wstać o 5 rano i grindować!" (nie nasz ton)
+
+## Common Writing Tasks
+- "Expand this outline into full 3500-word chapter draft"
+- "Find 3 scientific studies supporting [claim] from @research-notes/"
+- "Rewrite this section to be more conversational and engaging"
+- "Check if this chapter follows the 5-step structure"
+- "Generate 10 title ideas for Chapter 5"
+- "Extract 5 pull quotes from @draft-chapter-3.md for marketing"
+```
+
+**Przykład użycia:**
+```bash
+> Read @draft-chapter-3.md and rewrite opening paragraph to be more hooking. Use a personal story.
+```
+
+Claude będzie wiedział, jaki ton zachować, jaką strukturę stosować, i kogo masz na myśli jako czytelnika.
+
+---
+
+### Dla freelancerów - Business management
+
+```markdown
+# Mój Freelance Business: UX/UI Design
+
+## Services & Pricing (2025)
+- **Logo design:** $500-1500 (depending on revisions, typical: 3 rounds)
+- **Website design:** $2000-5000 (5-10 pages, responsive)
+- **Full branding package:** $3000-8000 (logo + guidelines + 20 materials)
+- **Hourly consultations:** $75/h (max 2h per client/week)
+- **Rush fee:** +30% (delivery <7 days)
+- **Revision policy:** 3 rounds included, $150/extra round
+
+## Client Onboarding Process
+1. **Discovery call** (free, 30min via Zoom) - qualify the fit
+2. **Send proposal** (use template @contracts/proposal-template.md)
+3. **Contract + NDA** (via DocuSign)
+4. **50% deposit required** (before work starts, non-refundable)
+5. **Kickoff meeting** (1h, finalize brief, Zoom + record)
+6. **Weekly check-ins** (Fridays 30min, show progress)
+
+## Payment Terms
+- **NET 14** for existing clients (worked 2+ times before)
+- **50/50 split** for new clients (50% upfront, 50% on final delivery)
+- **Payment methods:** Bank transfer (preferred), PayPal (-3% fee), Stripe (-2.9% fee)
+- **Late payment:** 5% fee after 7 days overdue, work paused after 14 days
+- **Currency:** USD only (converted at current rate for international)
+
+## Invoice Reminders (automated via @scripts/invoice-reminder.sh)
+- Day 7: Friendly reminder ("Just checking in...")
+- Day 13: Second reminder (more direct, "Payment due tomorrow")
+- Day 15: Final notice + late fee warning (5%)
+- Day 20: Pause work, escalate, consider legal
+
+## Contract Templates
+- @contracts/design-agreement.pdf - standard design work
+- @contracts/nda.pdf - for confidential projects
+- @contracts/payment-terms.md - detailed billing
+- @contracts/scope-change-request.md - when client wants extras
+
+## Project Management
+- **Tool:** Notion (share workspace with client for transparency)
+- **Files:** Google Drive (folder per client, shared)
+- **Communication:** Email (formal), Slack (quick questions, response <2h)
+- **Deliverables:** Figma (design files), PDF (presentation), PNG (finals)
+- **Backups:** Automatic daily to Dropbox
+
+## Red Flags (when to say NO)
+- Client wants "quick logo for $50"
+- No budget discussion in discovery call
+- Wants to pay after project completion (no deposit)
+- Multiple decision-makers, unclear who approves
+- Asks for work before contract signed
+- Expects unlimited revisions
+
+## Common Freelance Tasks
+- "Draft proposal for [ClientName] based on @brief-2025-01-15.md"
+- "Generate invoice for [ProjectName] completed this week, include tax"
+- "Create 6-week timeline for branding project with milestones"
+- "Check if [ClientName] payment is overdue and draft appropriate reminder"
+- "Calculate total hours spent on [project] from @time-tracking.csv"
+- "Prepare year-end tax summary from all invoices in @invoices/"
+```
+
+**Przykład użycia:**
+```bash
+> Generate professional invoice for "Acme Corp - Website Redesign" project, $4500, completed Jan 15, NET 14, include late fee policy
+```
+
+Claude będzie wiedział, jakie stawki stosujesz, jakie payment terms, i wygeneruje zgodną z Twoim stylem fakturę/propozycję.
+
+---
+
+**Dlaczego to ważne?**
+
+CLAUDE.md to narzędzie **dla każdego**, nie tylko dla programistów. Marketing, zarządzanie, pisanie, freelancing - wszystkie te obszary zyskują mając "pamięć projektu", która pomaga Claude rozumieć kontekst Twojej pracy.
+
+Kluczowa zasada pozostaje taka sama: **Traktuj CLAUDE.md jak onboarding doc dla nowego członka zespołu** - czy to programisty, marketera, PM, pisarza czy freelancera.
 
 ---
 
@@ -543,13 +801,73 @@ Ta reguła będzie aktywna tylko gdy pracujesz z plikami testowymi!
 
 ## Typowe błędy i jak ich unikać
 
-| Problem | Objaw | Rozwiązanie |
-|---------|-------|-------------|
-| **Claude ignoruje CLAUDE.md** | Nie stosuje się do reguł | Sprawdź czy plik jest w root projektu i poprawnie sformatowany (Markdown) |
-| **Za długi CLAUDE.md** | Zużywa za dużo tokenów | Ogranicz do <500 linii. Przenieś szczegóły do osobnych docs/ i zaimportuj przez @ |
-| **Konflikt między global a project** | Niespójne zachowanie | Project CLAUDE.md ma priorytet nad global ~/.claude/CLAUDE.md |
-| **CLAUDE.local.md w repo** | Przypadkowy commit | Dodaj do .gitignore: `echo "CLAUDE.local.md" >> .gitignore` |
-| **Stare informacje** | Claude używa outdated data | Zaktualizuj CLAUDE.md i uruchom `/reload` |
+### Claude ignoruje CLAUDE.md
+
+**Objaw:** Nie stosuje się do reguł, których oczekujesz (np. używa złego stylu kodu)
+
+**Rozwiązanie:**
+- Sprawdź czy plik jest w root projektu (nie w podfolderze)
+- Upewnij się, że jest poprawnie sformatowany jako Markdown
+- Użyj `/reload` aby wymusić przeładowanie pamięci
+- Sprawdź czy nazwa pliku to dokładnie `CLAUDE.md` (wielkość liter ma znaczenie na Linux/Mac)
+
+---
+
+### Za długi CLAUDE.md
+
+**Objaw:** Sesja zużywa dużo tokenów (jednostek przetwarzania AI), odpowiedzi są wolniejsze lub droższe
+
+**Rozwiązanie:**
+- Ogranicz do <500 linii w głównym pliku
+- Przenieś szczegółowe dokumentacje do osobnych plików w `docs/`
+- Użyj składni `@` aby zaimportować zamiast kopiować: `See @docs/architecture.md`
+- Rozważ modularyzację: podziel na pliki w `.claude/rules/`
+
+---
+
+### Konflikt między global a project
+
+**Objaw:** Niespójne zachowanie - czasem Claude stosuje jedne reguły, czasem inne
+
+**Rozwiązanie:**
+- Pamiętaj hierarchię: Project CLAUDE.md **nadpisuje** global ~/.claude/CLAUDE.md
+- Sprawdź oba pliki i usuń konfliktujące reguły
+- Używaj global dla ogólnych preferencji ("zawsze TypeScript")
+- Używaj project dla specyfiki projektu ("w tym projekcie używamy double quotes")
+
+---
+
+### CLAUDE.local.md w repozytorium
+
+**Objaw:** Przypadkowy commit pliku z Twoimi prywatnymi notatkami do repo
+
+**Rozwiązanie:**
+- Natychmiast dodaj do `.gitignore`:
+  ```bash
+  echo "CLAUDE.local.md" >> .gitignore
+  ```
+- Sprawdź historię Git: `git log --all --full-history -- CLAUDE.local.md`
+- Jeśli już został zacommitowany, usuń z tracking:
+  ```bash
+  git rm --cached CLAUDE.local.md
+  git commit -m "Remove accidentally committed local notes"
+  ```
+
+---
+
+### Stare informacje w CLAUDE.md
+
+**Objaw:** Claude używa nieaktualnych komend, starej struktury projektu, deprecated narzędzi
+
+**Rozwiązanie:**
+- Zaktualizuj CLAUDE.md po każdej większej zmianie w projekcie
+- Uruchom `/reload` w CLI aby wymusić przeładowanie pamięci
+- Dodaj datę ostatniej aktualizacji w nagłówku:
+  ```markdown
+  # My Project
+  Last updated: 2025-01-15
+  ```
+- Ustaw przypomnienie (np. co kwartał) aby zrewidować CLAUDE.md
 
 ---
 
@@ -666,7 +984,7 @@ CLAUDE.md to **most między Tobą a Claude**. Pozwala AI zrozumieć kontekst Two
 1. CLAUDE.md to automatycznie ładowany kontekst projektu
 2. Hierarchia: enterprise → project → user → local
 3. Komenda `/init` generuje szkielet, `/memory` pozwala edytować
-4. Traktuj go jak onboarding doc dla nowego developera
+4. Traktuj go jak onboarding doc dla nowego członka zespołu
 5. Importuj inne pliki przez @syntax
 6. Modularyzuj reguły w `.claude/rules/` dla dużych projektów
 7. Nigdy nie commituj sekretów - używaj zmiennych środowiskowych
@@ -785,11 +1103,52 @@ Dla większego projektu:
 
 ---
 
+## Słowniczek
+
+Jeśli niektóre terminy w tej lekcji były niejasne, oto krótkie wyjaśnienia:
+
+**API (Application Programming Interface)**
+Interfejs, który pozwala różnym programom komunikować się ze sobą. Np. Claude Code łączy się z serwerami Anthropic przez API.
+
+**Token**
+Jednostka tekstu przetwarzana przez AI (około 3-4 znaki w języku angielskim, więcej w polskim). Im więcej tokenów, tym większy koszt zapytania. Długi CLAUDE.md (500+ linii) zużywa więcej tokenów przy każdej sesji.
+
+**Monorepo**
+Repozytorium Git zawierające wiele projektów/pakietów w jednym miejscu. Np. frontend + backend + mobile w jednym repo zamiast trzech osobnych.
+
+**ORM (Object-Relational Mapping)**
+Narzędzie, które tłumaczy Twój kod na zapytania do bazy danych. Zamiast pisać SQL, używasz funkcji w swoim języku programowania. Przykład: Prisma, TypeORM.
+
+**GraphQL**
+Język zapytań do API (interfejsu komunikacji między aplikacjami), alternatywa dla REST. Pozwala pobrać dokładnie te dane, których potrzebujesz w jednym zapytaniu (zamiast wielu).
+
+**REST (Representational State Transfer)**
+Popularny styl budowania API, gdzie każdy zasób (np. użytkownik, artykuł) ma swój unikalny adres URL.
+
+**Git hooks**
+Skrypty uruchamiane automatycznie przy operacjach Git. Np. przed commitem można uruchomić testy, sprawdzić formatowanie kodu, itd.
+
+**ADR (Architecture Decision Record)**
+Dokument opisujący ważną decyzję architektoniczną i jej uzasadnienie. Np. "Dlaczego wybraliśmy Zustand zamiast Redux?" - przydatne dla przyszłych członków zespołu.
+
+**CORS (Cross-Origin Resource Sharing)**
+Mechanizm bezpieczeństwa przeglądarek określający, które domeny mogą wysyłać zapytania do Twojego API. Chroni przed nieautoryzowanym dostępem.
+
+**Rate limiting**
+Ograniczenie liczby zapytań do API w określonym czasie (np. 100 żądań/minutę). Chroni serwer przed przeciążeniem i atakami.
+
+**Sandbox mode**
+Tryb bezpieczeństwa w Claude Code, który izoluje operacje do katalogu projektu. Claude nie może modyfikować plików systemowych ani wychodzić poza folder projektu.
+
+**CLI (Command Line Interface)**
+Interfejs tekstowy w terminalu, gdzie wpisujesz komendy zamiast klikać w przyciski. Claude Code działa jako CLI.
+
+---
+
 ## Linki i zasoby
 
 ### Oficjalna dokumentacja
-- [Claude Code - Memory Management](https://code.claude.com/docs/memory)
-- [Claude Code - Memory Management](https://code.claude.com/docs/memory)
+- [Claude Code - Memory Management](https://code.claude.com/docs/en/memory)
 
 ### Community resources
 - [CLAUDE.md Templates na GitHub](https://github.com/topics/claude-md-template)

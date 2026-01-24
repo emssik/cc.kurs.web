@@ -190,7 +190,7 @@ Ta komenda jest **sprytna** - sama wykrywa, jakiego terminala używasz i konfigu
 - **Option+Enter** (macOS) - domyślnie działa po konfiguracji Option jako Meta w ustawieniach terminala
 - **Ctrl+J** (wszędzie) - line feed character, działa uniwersalnie
 
-**Szczegóły techniczne:** [Terminal Configuration Guide](https://code.claude.com/docs/terminal-config)
+**Szczegóły techniczne:** [Terminal Configuration Guide](https://code.claude.com/docs/en/terminal-config)
 
 #### 2. Personalizacja statusu (dla power users)
 
@@ -216,7 +216,7 @@ Nie proś, żeby pokazywał Ci koszty, czy informacje o kontekście, bo przynajm
 
 Claude **sam Ci to skonfiguruje** - zapyta o preferencje, pokaże preview i zapisze konfigurację. Ja mam ustawione: model, branch git, katalog. Teraz zawsze wiem co się dzieje.
 
-**Dla zaawansowanych:** Jeśli chcesz napisać własny skrypt statusline'a (bash, python, node.js), szczegóły znajdziesz w [dokumentacji statusline](https://code.claude.com/docs/statusline).
+**Dla zaawansowanych:** Jeśli chcesz napisać własny skrypt statusline'a (bash, python, node.js), szczegóły znajdziesz w [dokumentacji statusline](https://code.claude.com/docs/en/statusline).
 
 Możesz też skożystać z ładnych gotowców: https://github.com/sirmalloc/ccstatusline
 
@@ -363,9 +363,9 @@ Dobra konfiguracja terminala to jednorazowa inwestycja, która **zwraca się set
 ## Linki do dodatkowych zasobów
 
 ### Oficjalna dokumentacja
-- [Interactive Mode Reference](https://code.claude.com/docs/interactive-mode) - Kompletna dokumentacja skrótów klawiszowych
-- [Terminal Configuration Guide](https://code.claude.com/docs/terminal-config) - Wszystkie opcje konfiguracyjne terminala
-- [Statusline Documentation](https://code.claude.com/docs/statusline) - Customizacja statusline
+- [Interactive Mode Reference](https://code.claude.com/docs/en/interactive-mode) - Kompletna dokumentacja skrótów klawiszowych
+- [Terminal Configuration Guide](https://code.claude.com/docs/en/terminal-config) - Wszystkie opcje konfiguracyjne terminala
+- [Statusline Documentation](https://code.claude.com/docs/en/statusline) - Customizacja statusline
 
 ### Praktyczne poradniki
 - [How I Use Claude Code - Builder.io](https://www.builder.io/blog/claude-code) - Keyboard shortcuts i living entirely in Claude Code

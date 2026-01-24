@@ -125,6 +125,89 @@ Dokumentację Claude Code znajdziesz w ai_docs/claude_code
 
 ---
 
+### 6. POPRAWNOŚĆ LINKÓW DO DOKUMENTACJI
+
+**Sprawdź:**
+- Czy wszystkie linki do dokumentacji Claude Code zawierają **`/en/`** w ścieżce
+- Format poprawny: `https://code.claude.com/docs/en/[ścieżka]`
+- Format błędny: `https://code.claude.com/docs/[ścieżka]` (brak `/en/`)
+
+**Przykłady:**
+- ✅ `https://code.claude.com/docs/en/iam`
+- ✅ `https://code.claude.com/docs/en/security`
+- ✅ `https://code.claude.com/docs/en/hooks-guide`
+- ❌ `https://code.claude.com/docs/iam` (brakuje `/en/`)
+- ❌ `https://code.claude.com/docs/sandboxing` (brakuje `/en/`)
+
+**Wyszukaj wszystkie linki:**
+- Użyj Grep aby znaleźć wszystkie wystąpienia `https://code.claude.com/docs/`
+- Sprawdź, czy każdy link zawiera `/en/` po `/docs/`
+- Zweryfikuj, że anchory (np. `#permission-modes`) są zachowane
+
+---
+
+### 7. FORMAT I PREZENTACJA TREŚCI (email-friendly)
+
+**Sprawdź:**
+- Czy lekcja **unika skomplikowanych tabelek markdown** z wieloma kolumnami
+- Czy informacje są prezentowane w formacie **przyjaznym dla maili HTML**
+- Czy używa się alternatywnych formatów: list, sekcji z nagłówkami, punktów
+
+**Problem:**
+Tabele markdown (szczególnie z 4+ kolumnami) źle się przenoszą do HTML i wyglądają fatalnie w mailach:
+- Tekst się nakłada
+- Kolumny są nierówne
+- Trudno czytać na mobile
+- Łamią responsywność
+
+**❌ UNIKAJ takich tabelek:**
+```markdown
+| Tryb | Co robi | Kiedy używać | Dla kogo |
+|------|---------|--------------|----------|
+| **default** | Pyta o zgodę... | Większość przypadków | Wszyscy |
+| **acceptEdits** | Auto akceptuje... | Gdy ufasz | Doświadczeni |
+```
+
+**✅ ZAMIAST TEGO użyj:**
+
+**Opcja A: Listy z nagłówkami**
+```markdown
+### default
+**Co robi:** Pyta o zgodę przy pierwszym użyciu narzędzia
+**Kiedy używać:** Większość przypadków, bezpieczny start
+**Dla kogo:** Wszyscy użytkownicy
+
+### acceptEdits
+**Co robi:** Automatycznie akceptuje edycje plików (NIE Bash!)
+**Kiedy używać:** Gdy ufasz Claude i chcesz mniej pytań
+**Dla kogo:** Doświadczeni użytkownicy
+```
+
+**Opcja B: Punktory z pogrubieniami**
+```markdown
+- **default** - Pyta o zgodę przy pierwszym użyciu. Idealny dla wszystkich na start.
+
+- **acceptEdits** - Auto-akceptuje edycje plików (NIE Bash!). Dla doświadczonych użytkowników, którzy chcą mniej pytań.
+
+- **plan** - Claude tylko analizuje, NIE może modyfikować. Idealny do code review i nauki.
+```
+
+**Opcja C: Sekcje z emoji (jeśli pasuje do tonu)**
+```markdown
+🔒 **default - Bezpieczny start**
+Pyta o zgodę przy pierwszym użyciu. Używaj zawsze, gdy zaczynasz.
+
+⚡ **acceptEdits - Szybsza praca**
+Automatycznie akceptuje edycje (NIE Bash!). Dla doświadczonych.
+```
+
+**Oceń:**
+- Czy lekcja zawiera tabele z 4+ kolumnami?
+- Czy informacje da się przedstawić w prostszym formacie?
+- Czy format będzie czytelny w mailu HTML na mobile?
+
+---
+
 ## Format raportu
 
 Po przeczytaniu lekcji, wygeneruj raport w następującym formacie:
@@ -229,6 +312,52 @@ Interfejs, który pozwala różnym programom rozmawiać ze sobą. W przypadku Cl
 
 **[kolejne terminy]**
 ```
+
+---
+
+## 6. POPRAWNOŚĆ LINKÓW DO DOKUMENTACJI
+
+**Ocena:** ✅ / ⚠️ / ❌
+
+**Status:**
+- [Liczba znalezionych linków do dokumentacji Claude Code]
+- [Liczba linków z błędną ścieżką (bez `/en/`)]
+
+**Linki wymagające poprawy:**
+```
+Linia X: https://code.claude.com/docs/iam
+        → https://code.claude.com/docs/en/iam
+
+Linia Y: https://code.claude.com/docs/sandboxing
+        → https://code.claude.com/docs/en/sandboxing
+```
+
+**Uwagi:**
+- [Czy wszystkie linki są poprawne?]
+- [Lista linków do poprawy z numerami linii]
+
+---
+
+## 7. FORMAT I PREZENTACJA TREŚCI
+
+**Ocena:** ✅ / ⚠️ / ❌
+
+**Status:**
+- [Liczba skomplikowanych tabelek (4+ kolumn)]
+- [Czy format jest przyjazny dla maili HTML?]
+
+**Tabele wymagające przepisania:**
+```
+Linia X: Tabela z kolumnami [lista kolumn]
+        → Zaproponuj format: [lista z nagłówkami / punktory / sekcje]
+
+Linia Y: Tabela z kolumnami [lista kolumn]
+        → Zaproponuj format: [...]
+```
+
+**Sugestie:**
+- [Które tabele należy zamienić na listy/sekcje?]
+- [Przykłady przepisania fragmentów]
 
 ---
 
