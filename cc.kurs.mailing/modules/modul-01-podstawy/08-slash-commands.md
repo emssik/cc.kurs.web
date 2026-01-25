@@ -1,10 +1,8 @@
-# Mail 8: Slash commands - kontroluj kontekst i koszty
+# Mail 8: Slash commands - kompletny przegląd
 
 ## Przypomnienie z lekcji 7
 
-W poprzedniej lekcji poznaliśmy **CLAUDE.md** - pamięć projektu, która działa jak dokument onboardingowy dla Claude. Nauczyliśmy się tworzyć hierarchię plików (globalny, projektowy, lokalny) oraz używać komendy `/init` do automatycznego generowania szkieletu. Dowiedzieliśmy się też, jak importować inne pliki do kontekstu używając składni `@ścieżka/do/pliku`.
-
-Kluczowa lekcja? Traktuj CLAUDE.md jak instrukcję dla nowego stażysty - powinien zawierać komendy build/test, strukturę projektu i najważniejsze zasady kodowania.
+W poprzedniej lekcji poznaliśmy **CLAUDE.md** - pamięć projektu, która działa jak dokument onboardingowy dla Claude. Nauczyliśmy się tworzyć hierarchię plików (globalny, projektowy, lokalny) oraz używać komendy `/init` do automatycznego generowania szkieletu.
 
 ---
 
@@ -18,109 +16,88 @@ Kluczowa lekcja? Traktuj CLAUDE.md jak instrukcję dla nowego stażysty - powini
 
 ## TLDR
 
-Slash commands to Twoje narzędzia do zarządzania sesją w Claude Code. Najważniejsze:
-- `/clear` - resetuje kontekst (oszczędza tokeny)
-- `/compact` - kompresuje historię, zachowując kluczowe informacje
-- `/cost` i `/usage` - monitorowanie wydatków i zużycia tokenów
+Ta lekcja to **kompletna ściągawka** wszystkich slash commands. Część z nich już znasz z poprzednich lekcji - tutaj znajdziesz je wszystkie w jednym miejscu.
+
+**Nowe komendy w tej lekcji:**
 - `/export` - eksport rozmowy do pliku (backup postępów)
-- `/settings` lub `/config` - sprawdź aktualną konfigurację
+- `/plan` - tryb planowania przed implementacją
+- `/resume` - wznów poprzednią sesję
+- `/model` - zmień model AI
+- `/settings` lub `/config` - sprawdź/zmień konfigurację
 
-**Złota zasada:** Co 30-60 minut sprawdź `/cost`, zrób `/compact`, zapisz `/export`. To jak checkpoint w grze - chroni Twój postęp i portfel.
-
----
-
-## Mem z Twittera
-
-![Zarządzanie kosztami AI](https://twitter.com/search?q=AI%20costs%20meme&src=typed_query)
-
-*Deweloper: "Używam AI do wszystkiego!"*
-*Rachunek za API: "Cześć, to ja."*
-*Deweloper po zobaczeniu `/cost`: "Może jednak nie do wszystkiego..."*
-
-[Link do mema o kontrolowaniu kosztów AI](https://x.com/search?q=AI%20API%20costs%20expensive&src=typed_query&f=image)
+**Checkpoint Pattern** - praktyczna strategia oszczędzania (szczegóły w lekcji).
 
 ---
 
-## Lekcja: Slash Commands - Twój panel kontrolny
+## Lekcja: Slash Commands - kompletny przegląd
 
-### Dlaczego slash commands są ważne?
+W tej lekcji znajdziesz **wszystkie slash commands** w jednym miejscu. Część z nich poznałeś już w poprzednich lekcjach - tutaj skupimy się na nowych komendach i praktycznym **Checkpoint Pattern**.
 
-Wyobraź sobie, że prowadzisz małą firmę i korzystasz z Claude Code do różnych zadań. Rano piszesz kod do aplikacji webowej, po południu analizujesz dane sprzedażowe, wieczorem przygotowujesz kampanię email. Każda sesja zajmuje czas i kosztuje tokeny.
+### Zarządzanie kontekstem i koszty (przypomnienie)
 
-**Problem:** Bez kontroli kontekstu jedna długa sesja może kosztować 5-10 dolarów. To jak zostawienie włączonego światła przez całą noc - niepotrzebne marnotrawstwo.
+Komendy `/clear`, `/compact`, `/context`, `/cost`, `/usage` i `/stats` szczegółowo omawialiśmy w **Lekcji 03** (abonamenty i koszty). Krótkie przypomnienie:
 
-**Rozwiązanie:** Slash commands pozwalają zarządzać sesją jak dobrze zorganizowanym biurem - regularnie sprzątasz, archiwizujesz, monitorujesz koszty.
+| Komenda | Funkcja |
+|---------|---------|
+| `/clear` | Usuwa całą historię rozmowy |
+| `/compact` | Kompresuje historię, zachowuje kluczowe info |
+| `/context` | Wizualizuje co zajmuje miejsce w kontekście |
+| `/cost` | Koszt sesji (dla API users) |
+| `/usage` | Limity i rate limits (tylko API) |
+| `/stats` | Wizualizacja użycia (Pro/Max) |
 
-### Podstawowe slash commands
+> 💡 **Szczegóły:** Patrz Lekcja 03 - "Uwierzytelnianie i abonamenty"
 
-#### 1. Zarządzanie kontekstem (oszczędzanie pieniędzy)
+### Kompletna lista slash commands
 
-**`/clear` - resetuj wszystko**
+Poniżej znajdziesz wszystkie komendy z oznaczeniem, gdzie były szczegółowo omówione.
+
+#### Kontekst i koszty (→ Lekcja 03)
+
+| Komenda | Opis |
+|---------|------|
+| `/clear` | Wyczyść historię i kontekst |
+| `/compact` | Skompresuj historię, zachowaj kluczowe info |
+| `/context` | Wizualizuj zużycie kontekstu |
+| `/cost` | Koszt sesji (API users) |
+| `/usage` | Limity i rate limits (API) |
+| `/stats` | Wizualizacja użycia (Pro/Max) |
+
+#### CLAUDE.md (→ Lekcja 07)
+
+| Komenda | Opis |
+|---------|------|
+| `/init` | Wygeneruj CLAUDE.md dla projektu |
+| `/memory` | Edytuj pliki CLAUDE.md |
+
+#### Logowanie (→ Lekcja 03)
+
+| Komenda | Opis |
+|---------|------|
+| `/login` | Zaloguj się do konta Claude |
+| `/logout` | Wyloguj się |
+
+#### Bezpieczeństwo (→ Lekcja 06)
+
+| Komenda | Opis |
+|---------|------|
+| `/permissions` | Zarządzaj uprawnieniami |
+| `/sandbox` | Konfiguracja sandboxa |
+
+#### Instalacja i diagnostyka (→ Lekcja 02)
+
+| Komenda | Opis |
+|---------|------|
+| `/doctor` | Diagnostyka instalacji i połączenia |
+| `/version` | Sprawdź wersję Claude Code |
+
+#### NOWE - Zarządzanie sesją
+
+**`/export`** - Eksportuj konwersację do pliku
 ```bash
-> /clear
+> /export conversation.md
 ```
-Usuwa całą historię rozmowy. Używaj gdy:
-- Kończysz jeden projekt i zaczynasz nowy
-- Kontekst się "zaśmiecił" niepotrzebnymi informacjami
-- Chcesz zacząć od czystej karty
-
-**`/compact` - sprzątnij, ale zostaw ważne rzeczy**
-```bash
-> /compact
-```
-Claude podsumowuje rozmowę, usuwa niepotrzebne szczegóły, ale zachowuje kluczowe ustalenia. Używaj gdy:
-- Pracujesz już 30-60 minut nad projektem
-- Zużyłeś >50% limitu tokenów
-- Chcesz kontynuować pracę, ale odświeżyć kontekst
-
-**Przykład - długa sesja kodowania:**
-```bash
-> Dodaj autentykację OAuth do projektu
-[... 30 minut pracy, wiele plików edytowanych ...]
-
-> /usage
-# Output: Using 45,000 / 200,000 tokens (22%)
-
-> /compact
-# Claude: "Podsumowałem dotychczasową pracę. Zaimplementowaliśmy OAuth z Google i GitHub,
-#          dodaliśmy endpointy /auth/login i /auth/callback, oraz testy..."
-
-> /usage
-# Output: Using 8,000 / 200,000 tokens (4%) # Oszczędność 37k tokenów!
-```
-
-#### 2. Monitorowanie kosztów
-
-**`/cost` - sprawdź ile wydałeś**
-```bash
-> /cost
-# Session started: 14:23:15
-# Duration: 1h 23m
-# Total cost: $0.87
-# Model: claude-sonnet-4-5-20250929
-# Input tokens: 125,443
-# Output tokens: 38,291
-```
-
-**`/usage` - sprawdź zużycie tokenów (tylko dla subscription plans)**
-```bash
-> /usage
-# Using 45,000 / 200,000 tokens (22%)
-```
-
-**Uwaga:** Komenda `/usage` jest dostępna tylko dla użytkowników z API subscription (Console/API accounts). Pokazuje limity planu subskrypcyjnego i status rate limitów. Nie jest dostępna dla użytkowników planu Pro lub Max.
-
-**Pro-tip:** Ustaw sobie nawyk sprawdzania `/cost` co godzinę. To jak sprawdzanie salda konta - lepiej wiedzieć wcześniej niż być zaskoczonym rachunkiem.
-
-#### 3. Backup i eksport
-
-**`/export` - zapisz postęp do pliku**
-```bash
-> /export project-summary.md
-# Saves całą konwersację do pliku Markdown
-```
-
-Używaj przed:
+Zapisuje całą rozmowę do pliku Markdown. Używaj przed:
 - Dużymi zmianami w kodzie
 - Zakończeniem sesji
 - Przełączaniem między projektami
@@ -135,78 +112,50 @@ Używaj przed:
 > Przeczytaj @handoff-to-bob.md i kontynuuj
 ```
 
-### Kompletna lista slash commands
-
-| Komenda | Funkcja | Przykład użycia |
-|---------|---------|-----------------|
-| `/help` | Pokaż dostępne komendy | `/help` |
-| `/clear` | Wyczyść historię i kontekst | `/clear` (przed startem nowego zadania) |
-| `/compact` | Skompresuj historię, zachowaj kluczowe info | `/compact` (po 30-60 min pracy) |
-| `/cost` | Pokaż koszt obecnej sesji | `/cost` (sprawdź ile wydałeś) |
-| `/usage` | Pokaż zużycie tokenów (tylko subscription) | `/usage` |
-| `/login` | Zaloguj się do konta Claude | `/login` |
-| `/logout` | Wyloguj się | `/logout` |
-| `/settings` | Pokaż aktualną konfigurację | `/settings` |
-| `/init` | Wygeneruj CLAUDE.md dla projektu | `/init` (w root projektu) |
-| `/memory` | Edytuj pliki CLAUDE.md | `/memory` (otwórz edytor pamięci projektu) |
-| `/doctor` | Diagnostyka instalacji i połączenia | `/doctor` (troubleshooting) |
-| `/permissions` | Zarządzaj uprawnieniami | `/permissions` (pokaż/edytuj uprawnienia) |
-| `/export` | Eksportuj konwersację do pliku | `/export conversation.md` |
-| `/version` | Sprawdź wersję Claude Code | `/version` |
-
-### Custom Status Line - wizualny kontekst projektu
-
-Claude Code pozwala skonfigurować własny **status line** - pasek statusu wyświetlany podczas pracy, który może pokazywać kluczowe informacje o projekcie:
-
-**Jak to działa?**
-Status line to skrypt, który zwraca informacje wyświetlane w interfejsie Claude Code. Może zawierać:
-- Aktualną gałąź Git
-- Liczbę uncommitted changes
-- Status testów
-- Dowolne inne informacje projektowe
-
-**Konfiguracja w settings.json:**
-```json
-{
-  "statusLine": {
-    "type": "command",
-    "command": "~/.claude/statusline.sh"
-  }
-}
-```
-
-**Gotowe rozwiązanie z community:**
-Zamiast pisać własny skrypt od zera, możesz użyć **ccstatusline** - gotowego rozwiązania:
-
-🔗 **https://github.com/sirmalloc/ccstatusline**
-
-Zawiera:
-- Git branch i status (uncommitted changes)
-- File counts (pliki w projekcie)
-- Test status (jeśli wykryje framework testowy)
-- Łatwa instalacja i konfiguracja
-
-**Przykład prostego własnego skryptu:**
+**`/resume`** - Wznów poprzednią sesję
 ```bash
-#!/bin/bash
-# ~/.claude/statusline.sh
-
-BRANCH=$(git branch --show-current 2>/dev/null || echo "no git")
-UNCOMMITTED=$(git status --short 2>/dev/null | wc -l | tr -d ' ')
-
-echo "📍 $BRANCH | 📝 $UNCOMMITTED changes"
+> /resume
 ```
+Pozwala kontynuować poprzednią rozmowę z pełnym kontekstem.
 
-Pamiętaj, aby nadać skryptowi uprawnienia wykonywania:
+**`/rewind`** - Cofnij konwersację i/lub kod
 ```bash
-chmod +x ~/.claude/statusline.sh
+> /rewind
 ```
+Alternatywa dla skrótu `Esc+Esc` (→ Lekcja 04). Pozwala wybrać co cofnąć: kod, rozmowę, lub jedno i drugie.
 
-**Po co to?**
-Status line daje Ci (i Claude) natychmiastowy kontekst o stanie projektu bez potrzeby sprawdzania komend typu `git status`. To szczególnie przydatne gdy:
-- Przełączasz się między projektami
-- Pracujesz na wielu gałęziach
-- Chcesz mieć szybki overview stanu projektu
+#### NOWE - Konfiguracja i model
+
+**`/config`** lub **`/settings`** - Otwórz interfejs ustawień
+```bash
+> /settings
+```
+Pozwala zmienić konfigurację Claude Code bez edycji plików JSON.
+
+**`/model`** - Wybierz/zmień model AI
+```bash
+> /model
+```
+Przełącz między modelami (Haiku, Sonnet, Opus) w trakcie sesji.
+
+**`/plan`** - Wejdź w tryb planowania
+```bash
+> /plan
+```
+Claude najpierw zaplanuje podejście, zanim zacznie implementację. Przydatne dla złożonych zadań.
+
+#### Pomoc
+
+**`/help`** - Pokaż wszystkie dostępne komendy
+
+**Tip:** Wpisz `/` w Claude Code, aby zobaczyć listę komend z podpowiedziami.
+
+### Status Line (→ Lekcja 04)
+
+Własny pasek statusu z informacjami o projekcie (git branch, uncommitted changes) omawialiśmy w **Lekcji 04**. Znajdziesz tam:
+- Konfigurację w `settings.json`
+- Gotowe rozwiązanie **ccstatusline** z GitHub
+- Przykład własnego skryptu
 
 ### Praktyczne scenariusze
 
@@ -264,8 +213,9 @@ Najważniejsza technika zarządzania kosztami. Używaj co 30-60 minut:
 
 ```bash
 # Co 30-60 minut:
+> /context           # Wizualizuj co zajmuje miejsce w kontekście
 > /cost              # Sprawdź ile wydałeś
-> /compact           # Skompresuj jeśli >50k tokens
+> /compact           # Skompresuj jeśli >50k tokens lub >70% kontekstu
 > /export backup.md  # Backup progress
 
 # Przed końcem sesji:
@@ -274,8 +224,9 @@ Najważniejsza technika zarządzania kosztami. Używaj co 30-60 minut:
 ```
 
 **Dlaczego to działa?**
+- `/context` pokazuje co zajmuje miejsce w kontekście (skills, pliki, historia)
 - Regularny `/compact` redukuje zużycie tokenów nawet o 70-80%
-- `/export` chroni przed utratą postępów przy crashu
+- `/export` chroni przed utratą postępów przy nieoczekiwanym zamknięciu programu
 - `/cost` pozwala wykryć problemy zanim rachunek urośnie
 
 ### Typowe błędy i jak ich unikać
@@ -287,26 +238,18 @@ Najważniejsza technika zarządzania kosztami. Używaj co 30-60 minut:
 | **Nie sprawdzanie /cost** | Nieoczekiwanie wysoki rachunek | Ustaw habit: `/cost` co godzinę |
 | **Brak /export** | Utrata postępu przy crashu | `/export` przed każdą dużą zmianą |
 
-### Advanced tricks
+### Przydatne tricki
 
-**1. Auto-export przy wyjściu (dodaj do ~/.zshrc)**
+> 💡 Podstawy aliasów shellowych znajdziesz w **Lekcji 02**.
+
+**Funkcja z reminderem o eksporcie:**
 ```bash
+# Dodaj do ~/.zshrc lub ~/.bashrc
 claude-session() {
+    echo "💡 Pamiętaj: /export przed wyjściem!"
     claude
-    # Po wyjściu z Claude (Ctrl+D):
-    echo "Saving session..."
-    claude /export "session-$(date +%Y%m%d-%H%M).md"
+    echo "Sesja zakończona. Sprawdź czy zrobiłeś /export."
 }
-```
-
-**2. Alias do szybkiej diagnostyki**
-```bash
-alias cdoc='claude /doctor && claude /usage && claude /cost'
-```
-
-**3. Periodic cost alerts (w tle podczas pracy)**
-```bash
-watch -n 300 'claude /cost'  # Co 5 min sprawdź koszt
 ```
 
 ### Debug workflow
@@ -325,64 +268,28 @@ watch -n 300 'claude /cost'  # Co 5 min sprawdź koszt
 > /settings
 ```
 
-### Przykład z życia: Zarządzanie małą firmą konsultingową
+---
 
-Marcin prowadzi małą firmę konsultingową. Tak używa slash commands:
+## Słowniczek
 
-**Poranek - kodowanie:**
-```bash
-cd ~/Projekty/klient-abc
-claude
-> /init  # Załaduj kontekst projektu
-> Dodaj system logowania do aplikacji
-[... 45 minut pracy ...]
-> /cost  # $0.42
-> /compact
-> /export morning-coding-session.md
-> /clear
-```
+> 💡 Definicje tokenów, kontekstu i rate limitów znajdziesz w **Lekcji 03**.
 
-**Popołudnie - analiza biznesowa:**
-```bash
-cd ~/Documents/Business
-claude
-> Przeanalizuj faktury z ostatniego kwartału i znajdź optymalizacje
-[... analiza danych ...]
-> /cost  # $0.28
-> /export quarterly-analysis.md
-> /clear
-```
+**Checkpoint Pattern** - strategia regularnego zapisywania postępów: co 30-60 min wykonaj `/cost` → `/compact` → `/export`. Chroni przed utratą pracy i kontroluje koszty.
 
-**Wieczór - marketing:**
-```bash
-cd ~/Marketing
-claude
-> Napisz post na LinkedIn o naszej nowej usłudze
-[... copywriting ...]
-> /cost  # $0.15
-> /export linkedin-posts.md
-```
-
-**Podsumowanie dnia:**
-```bash
-# Łączny koszt: $0.85
-# Trzy różne projekty, każdy z czystym kontekstem
-# Wszystko zbackupowane i zorganizowane
-```
+**Plan mode** - tryb pracy Claude Code, w którym AI najpierw planuje podejście do zadania zanim zacznie implementację. Aktywowany przez `/plan`.
 
 ---
 
 ## Podsumowanie
 
-Slash commands to Twój panel kontrolny w Claude Code. Kluczowe wnioski:
+Ta lekcja to **kompletna ściągawka** wszystkich slash commands. Kluczowe wnioski:
 
-1. **Regularnie monitoruj:** `/cost` i `/usage` pokazują czy jesteś na dobrej drodze
-2. **Oszczędzaj inteligentnie:** `/compact` zamiast `/clear` gdy chcesz kontynuować pracę
-3. **Backup, backup, backup:** `/export` przed każdą większą zmianą
-4. **Checkpoint Pattern:** Co 30-60 min: `/cost` → `/compact` → `/export`
-5. **Organizuj kontekst:** `/clear` między różnymi projektami
+1. **Nowe komendy:** `/export`, `/resume`, `/plan`, `/model`, `/settings` - poznałeś je w tej lekcji
+2. **Checkpoint Pattern:** Co 30-60 min: `/cost` → `/compact` → `/export`
+3. **Backup jest kluczowy:** `/export` przed każdą większą zmianą chroni Twój postęp
+4. **Wracaj do poprzednich lekcji:** Szczegóły kosztów (L03), CLAUDE.md (L07), statusline (L04)
 
-**Złota zasada:** Claude Code to potężne narzędzie, ale bez kontroli może generować wysokie koszty. Slash commands pozwalają pracować wydajnie i ekonomicznie.
+**Złota zasada:** Wpisz `/` w Claude Code, aby zobaczyć wszystkie dostępne komendy - nie musisz ich pamiętać na pamięć.
 
 ---
 
@@ -398,54 +305,41 @@ Slash commands to Twój panel kontrolny w Claude Code. Kluczowe wnioski:
 
 ## Zadania praktyczne
 
-### Zadanie 1: Zmierz swoje koszty
-1. Rozpocznij nową sesję Claude Code w swoim projekcie
-2. Pracuj normalnie przez 30 minut (kodowanie, analiza, cokolwiek)
-3. Sprawdź `/usage` i `/cost`
-4. Wykonaj `/compact`
-5. Sprawdź `/usage` ponownie - ile tokenów zaoszczędziłeś?
-6. Zapisz wyniki używając `/export baseline-costs.md`
+### Zadanie 1: Wypróbuj Checkpoint Pattern
+1. Rozpocznij sesję Claude Code w swoim projekcie
+2. Pracuj przez 30 minut
+3. Wykonaj pełny checkpoint:
+   - `/cost` - zanotuj koszt
+   - `/compact` - skompresuj kontekst
+   - `/export session-backup.md` - zapisz postęp
+4. Sprawdź `/context` przed i po `/compact` - ile zaoszczędziłeś?
 
-### Zadanie 2: Stwórz własny checkpoint workflow
-1. Dodaj alias do swojego `.zshrc` lub `.bashrc`:
-```bash
-alias ccheck='claude /usage && claude /cost'
-```
-2. Przetestuj go podczas następnej sesji
-3. Zapisz własne notatki: jak często planujesz używać checkpointów?
+### Zadanie 2: Export i resume
+1. Pracuj nad zadaniem przez 15 minut
+2. Wykonaj `/export handoff.md`
+3. Zamknij Claude Code
+4. Uruchom ponownie i wpisz `/resume`
+5. Porównaj: czy kontekst się zachował?
+6. Alternatywnie: `> Przeczytaj @handoff.md i kontynuuj`
 
-### Zadanie 3: Przełączanie między projektami
-1. Pracuj nad projektem A przez 20 minut
-2. Użyj `/export project-a-progress.md`
-3. Wykonaj `/clear`
-4. Przejdź do projektu B (`cd ~/projekt-b`)
-5. Uruchom Claude i pracuj nad projektem B
-6. Wróć do projektu A - załaduj kontekst używając:
-```bash
-> Przeczytaj @project-a-progress.md i kontynuuj pracę
-```
+### Zadanie 3: Tryb planowania
+1. Wybierz złożone zadanie (np. "Dodaj system logowania do aplikacji")
+2. Wpisz `/plan`
+3. Opisz zadanie i pozwól Claude zaplanować podejście
+4. Oceń: czy plan jest sensowny? Co byś zmienił?
 
 ---
 
 ## Linki do dodatkowych zasobów
 
 1. **Oficjalna dokumentacja Claude Code - Slash Commands**
-   https://code.claude.com/docs/en/slash-commands
+   https://docs.anthropic.com/en/docs/claude-code/cli-usage#slash-commands
 
-2. **Managing Context Windows (Anthropic Blog)**
-   https://www.anthropic.com/index/managing-context-windows
+2. **Export and Backup Strategies (Community Guide)**
+   https://github.com/anthropics/claude-code/discussions
 
-3. **Cost Optimization Best Practices**
-   https://docs.anthropic.com/claude/docs/cost-optimization
-
-4. **Understanding Token Usage**
-   https://help.anthropic.com/en/articles/8114521-what-are-tokens
-
-5. **Export and Backup Strategies (Community Guide)**
-   https://github.com/anthropics/claude-code/discussions/export-strategies
-
-6. **Checkpoint Pattern - Case Studies**
-   https://dev.to/search?q=claude%20code%20checkpoint%20pattern
+3. **Skills i Custom Commands**
+   https://docs.anthropic.com/en/docs/claude-code/slash-commands
 
 ---
 

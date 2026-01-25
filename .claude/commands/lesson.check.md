@@ -1,47 +1,259 @@
 ---
 description: Sprawdź jakość lekcji z kursu Claude Code
 argument-hint: [ścieżka-do-pliku-lekcji]
+model: Sonnet
 ---
 
-# Walidator jakości lekcji Claude Code
+# Walidator jakości lekcji Claude Code (wersja równoległa)
 
 ## Twoje zadanie
 
-Przeczytaj lekcję z pliku: **$ARGUMENTS**
+Przeczytaj lekcję z pliku: **$ARGUMENTS** i przeprowadź kompleksową analizę jakości używając 4 równoległych agentów.
 
-Następnie przeprowadź kompleksową analizę jakości lekcji według poniższych kryteriów.
+---
 
-## Kryteria sprawdzania
+## KROK 1: Przeczytaj lekcję i wyekstrahuj metadane
 
-### 1. TON I ZWRACANIE SIĘ DO ODBIORCY
+Użyj Read tool, aby przeczytać lekcję z: **$ARGUMENTS**
+
+Po przeczytaniu, wyekstrahuj:
+
+1. **Główne tematy** - do sprawdzenia w changelog (np. "hooks", "MCP", "permissions", "sandbox")
+2. **Linki do dokumentacji** - wszystkie URLe do code.claude.com/docs/
+3. **Terminy techniczne** - słowa wymagające słowniczka (API, CLI, token, itp.)
+4. **Grupy odbiorców** - dla kogo są przykłady w lekcji
+
+Zapisz te informacje - przekażesz je agentom.
+
+---
+
+## KROK 2: Uruchom 4 agenty równolegle
+
+**WAŻNE:** Użyj Task tool z **4 równoległymi wywołaniami** w jednej wiadomości.
+
+Każdy agent otrzymuje:
+- Pełną treść lekcji (skopiuj ją do promptu)
+- Ścieżkę do pliku: **$ARGUMENTS**
+- Swoją specyficzną instrukcję
+
+---
+
+### Agent 1: AKTUALNOŚĆ
+
+```
+subagent_type: general-purpose
+description: Check lesson freshness
+```
+
+**Prompt dla agenta:**
+
+```
+# Agent AKTUALNOŚĆ - Sprawdź aktualność lekcji
+
+## Twoje zadanie
+Sprawdź czy poniższa lekcja jest aktualna względem changelog i dokumentacji Claude Code.
+
+## Lekcja do sprawdzenia
+Ścieżka: [WSTAW ŚCIEŻKĘ]
+
+[WSTAW PEŁNĄ TREŚĆ LEKCJI]
+
+## Główne tematy do sprawdzenia w changelog
+[WSTAW LISTĘ TEMATÓW Z KROKU 1]
+
+## Instrukcje
+
+### 1. Pobierz changelog
+Użyj WebFetch na: https://code.claude.com/docs/en/changelog
+
+Szukaj:
+- Nowych funkcjonalności dotyczących tematów z lekcji
+- Zmian w istniejących funkcjach opisanych w lekcji
+- Deprecjacji lub usunięcia funkcji
+- Zmian w składni komend, flagach, opcjach
+
+### 2. Zweryfikuj z dokumentacją
+Jeśli changelog wskazuje na zmiany, użyj WebFetch na odpowiednie strony:
+- https://code.claude.com/docs/en/overview
+- https://code.claude.com/docs/en/security
+- https://code.claude.com/docs/en/settings
+- https://code.claude.com/docs/en/memory
+- https://code.claude.com/docs/en/hooks-guide
+- https://code.claude.com/docs/en/mcp-overview
+
+### 3. Wygeneruj raport
+
+## RAPORT: AKTUALNOŚĆ
+
+**Ocena:** ✅ / ⚠️ / ❌
+
+**Sprawdzony changelog:**
+- Data ostatniego wpisu: [data]
+- Zmiany istotne dla tej lekcji: [tak/nie]
+
+**Nieaktualne fragmenty:**
+
+### Linia X: [cytat]
+- **Problem:** [co się zmieniło]
+- **Źródło:** [link]
+- **Poprawka:** [treść]
+
+**Nowe funkcjonalności do uwzględnienia:**
+- [Lista funkcji z changelogu wartych dodania]
+
+**Status:** Lekcja jest aktualna / Wymaga aktualizacji X fragmentów
+```
+
+---
+
+### Agent 2: STYL
+
+```
+subagent_type: general-purpose
+description: Check style and formatting
+```
+
+**Prompt dla agenta:**
+
+```
+# Agent STYL - Sprawdź jakość stylistyczną
+
+## Twoje zadanie
+Sprawdź jakość stylistyczną i formatowanie poniższej lekcji.
+
+## Lekcja do sprawdzenia
+Ścieżka: [WSTAW ŚCIEŻKĘ]
+
+[WSTAW PEŁNĄ TREŚĆ LEKCJI]
+
+## Kryteria do sprawdzenia
+
+### KRYTERIUM 1: TON I ZWRACANIE SIĘ DO ODBIORCY
 
 **Sprawdź:**
-- Czy lekcja konsekwentnie zwraca się do odbiorcy w **drugiej osobie liczby pojedynczej** ("nauczysz się", "zrobisz", "możesz")
+- Czy lekcja konsekwentnie zwraca się w **drugiej osobie liczby pojedynczej** ("nauczysz się", "zrobisz", "możesz")
 - Czy ton jest bezpośredni i angażujący
 - Czy unika się bezosobowych form ("można", "należy", "powinno się")
 
-**Wyszukaj przykłady:**
+**Szukaj:**
 - ✅ Dobre: "Dzisiaj nauczysz się...", "Uruchomisz...", "Sprawdzisz..."
 - ❌ Złe: "Można nauczyć się...", "Należy uruchomić...", "Powinno się sprawdzić..."
 
 ---
 
-### 2. ORYGINALNOŚĆ TREŚCI (vs. dokumentacja)
+### KRYTERIUM 4: PROSTOTA I PRZYSTĘPNOŚĆ JĘZYKA
 
-Dokumentację Claude Code znajdziesz w ai_docs/claude_code
+**Sprawdź:**
+- Czy język jest **prosty i zrozumiały** dla osoby bez background'u technicznego
+- Czy unika się **zbędnego żargonu** (jeśli żargon jest konieczny, czy jest wyjaśniony?)
+- Czy zdania są **krótkie i konkretne**
+- Czy struktura jest **logiczna** (nagłówki, listy, przykłady)
+
+**Pułapki:**
+- ❌ Nadmiar skrótów bez wyjaśnienia (API, CLI, CI/CD bez kontekstu)
+- ❌ Zbyt długie zdania złożone
+- ❌ Nadmierna techniczność bez potrzeby
+
+---
+
+### KRYTERIUM 5: SŁOWNICZEK TERMINÓW
+
+**Sprawdź:**
+- Czy lekcja zawiera **słowniczek** trudniejszych terminów?
+- Czy terminy techniczne są **wyjaśniane przy pierwszym użyciu**?
+
+**Terminy wymagające wyjaśnienia (przykłady):**
+- API, CLI, token, workspace, rate limit, CI/CD, REPL
+- Git, branch, commit, push, pull
+- SSH, endpoint, payload
+
+---
+
+### KRYTERIUM 7: FORMAT I PREZENTACJA TREŚCI (email-friendly)
+
+**Sprawdź:**
+- Czy lekcja **unika skomplikowanych tabelek markdown** z wieloma kolumnami (4+)
+- Czy informacje są prezentowane w formacie **przyjaznym dla maili HTML**
+
+**Problem z tabelami:**
+Tabele markdown (szczególnie z 4+ kolumnami) źle się przenoszą do HTML i wyglądają fatalnie w mailach.
+
+**❌ UNIKAJ:**
+```markdown
+| Tryb | Co robi | Kiedy używać | Dla kogo |
+```
+
+**✅ ZAMIAST TEGO:**
+```markdown
+### default
+**Co robi:** Pyta o zgodę przy pierwszym użyciu
+**Kiedy używać:** Większość przypadków
+```
+
+---
+
+## RAPORT: STYL
+
+### 1. TON I ZWRACANIE SIĘ DO ODBIORCY
+**Ocena:** ✅ / ⚠️ / ❌
+**Uwagi:** [lista problemów lub OK]
+**Sugestie:** [konkretne poprawki]
+
+### 4. PROSTOTA I PRZYSTĘPNOŚĆ JĘZYKA
+**Ocena:** ✅ / ⚠️ / ❌
+**Uwagi:** [lista problemów]
+**Terminy do uproszczenia:** [lista]
+
+### 5. SŁOWNICZEK TERMINÓW
+**Ocena:** ✅ / ⚠️ / ❌
+**Status:** [czy istnieje, czy kompletny]
+**Terminy bez wyjaśnienia:** [lista]
+**Proponowany słowniczek:** [jeśli brakuje]
+
+### 7. FORMAT I PREZENTACJA
+**Ocena:** ✅ / ⚠️ / ❌
+**Tabele do przepisania:** [lista z numerami linii]
+**Sugestie alternatywnych formatów:** [przykłady]
+```
+
+---
+
+### Agent 3: TECHNIKA
+
+```
+subagent_type: general-purpose
+description: Check technical accuracy
+```
+
+**Prompt dla agenta:**
+
+```
+# Agent TECHNIKA - Sprawdź poprawność techniczną
+
+## Twoje zadanie
+Sprawdź poprawność techniczną, oryginalność i jakość przykładów w poniższej lekcji.
+
+## Lekcja do sprawdzenia
+Ścieżka: [WSTAW ŚCIEŻKĘ]
+
+[WSTAW PEŁNĄ TREŚĆ LEKCJI]
+
+## Dostępna dokumentacja
+Przeczytaj pliki z katalogu ai_docs/claude_code aby porównać z lekcją.
+
+## Kryteria do sprawdzenia
+
+### KRYTERIUM 2: ORYGINALNOŚĆ TREŚCI (vs. dokumentacja)
 
 **Sprawdź:**
 - Czy lekcja **przekazuje wiedzę praktyczną** opartą na doświadczeniu, a nie tylko przepisuje dokumentację
-- Czy zawiera **osobiste spostrzeżenia**, war stories, "pro-tipy" z praktyki
-- Czy instrukcje techniczne zawierają **odniesienia do dokumentacji** zamiast dosłownego przepisywania
+- Czy zawiera **osobiste spostrzeżenia**, war stories, "pro-tipy"
 - Czy autor wyjaśnia **"dlaczego"** i **"kiedy"**, a nie tylko **"jak"**
 
 **Pożądane elementy:**
 - ✅ "Z mojego doświadczenia...", "W praktyce zauważyłem...", "Pro-tip: ..."
 - ✅ Odniesienia: "Szczegóły znajdziesz w [dokumentacji](link)"
-- ✅ Kontekst: "To przydatne, gdy...", "Używaj tego, jeśli..."
 - ❌ Przepisywanie całych sekcji z dokumentacji bez własnego komentarza
-- ❌ Brak kontekstu - same suche instrukcje
 
 **Zidentyfikuj fragmenty podejrzane o bycie przepisaną dokumentacją:**
 - Zbyt techniczny język
@@ -50,9 +262,7 @@ Dokumentację Claude Code znajdziesz w ai_docs/claude_code
 
 ---
 
-### 3. JAKOŚĆ I RÓŻNORODNOŚĆ PRZYKŁADÓW
-
-**Sprawdź przykłady pod kątem:**
+### KRYTERIUM 3: JAKOŚĆ I RÓŻNORODNOŚĆ PRZYKŁADÓW
 
 #### A) Poprawność techniczna
 - Czy przykłady kodu są **działające** i **aktualne**
@@ -62,302 +272,193 @@ Dokumentację Claude Code znajdziesz w ai_docs/claude_code
 #### B) Ciekawość i wartość edukacyjna
 - Czy przykłady są **praktyczne** i rozwiązują realne problemy
 - Czy pokazują **typowe use case'y** z życia
-- Czy są **zrozumiałe** bez nadmiernego uproszczenia
 
 #### C) Różnorodność odbiorców
 **KLUCZOWE:** Claude Code to narzędzie dla **każdego białego kołnierzyka**, nie tylko programistów!
 
 **Sprawdź, czy lekcja zawiera przykłady dla różnych grup:**
-- ✅ **Programiści:** debugging, refactoring, code review
-- ✅ **Marketerzy:** analiza kampanii, copywriting, planowanie contentu
-- ✅ **Project managerzy:** planowanie projektów, retrospektywy, risk analysis
-- ✅ **Pisarze/kreatywni:** pisanie artykułów, wierszy, scenariuszy
-- ✅ **Analitycy biznesowi:** analiza danych, raporty, prezentacje
-- ✅ **HR/rekruterzy:** screaning CV, przygotowanie ogłoszeń
-- ✅ **Nauczyciele:** przygotowanie materiałów, planów lekcji
-- ✅ **Freelancerzy:** fakturowanie, planowanie czasu, oferty dla klientów
-
-**Oceń:**
-- Czy przykłady są **zbyt programistyczne**?
-- Czy lekcja pokazuje **szersze zastosowania** Claude Code?
-- Czy językiem zrozumieją **osoby nietechniczne**?
+- ✅ Programiści: debugging, refactoring, code review
+- ✅ Marketerzy: analiza kampanii, copywriting, planowanie contentu
+- ✅ Project managerzy: planowanie projektów, retrospektywy
+- ✅ Pisarze/kreatywni: pisanie artykułów, wierszy, scenariuszy
+- ✅ Analitycy biznesowi: analiza danych, raporty, prezentacje
+- ✅ HR/rekruterzy: screening CV, przygotowanie ogłoszeń
 
 ---
 
-### 4. PROSTOTA I PRZYSTĘPNOŚĆ JĘZYKA
-
-**Sprawdź:**
-- Czy język jest **prosty i zrozumiały** dla osoby bez background'u technicznego
-- Czy unika się **zbędnego żargonu** (jeśli żargon jest konieczny, czy jest wyjaśniony?)
-- Czy zdania są **krótkie i konkretne**
-- Czy struktura jest **logiczna** (nagłówki, listy, przykłady)
-- Czy wizualna hierarchia pomaga w nawigacji (pogrubienia, kursywy, listy)
-
-**Pułapki do wykrycia:**
-- ❌ Nadmiar skrótów bez wyjaśnienia (API, CLI, CI/CD bez kontekstu)
-- ❌ Zbyt długie zdania złożone
-- ❌ Nadmierna techniczność bez potrzeby
-- ❌ Założenie wiedzy, której czytelnik może nie mieć
-
-**Przykład prostego języka:**
-- ✅ "Claude Code to narzędzie w terminalu, które pomaga Ci w pracy"
-- ❌ "Claude Code to CLI-based AI-powered development environment z agentic capabilities"
-
----
-
-### 5. SŁOWNICZEK TERMINÓW
-
-**Sprawdź:**
-- Czy lekcja zawiera **słowniczek** trudniejszych terminów?
-- Czy terminy techniczne są **wyjaśniane przy pierwszym użyciu**?
-- Czy wyjaśnienia są **przystępne** dla osób nietechnicznych?
-
-**Lokalizacja słowniczka:**
-- Na końcu lekcji (sekcja "Słowniczek")
-- LUB inline w tekście (przy pierwszym użyciu terminu)
-- LUB w przypis/tooltip
-
-**Terminy wymagające wyjaśnienia (przykłady):**
-- API, CLI, token, workspace, rate limit, CI/CD, REPL
-- Git, branch, commit, push, pull
-- SSH,環境變數, endpoint, payload
-- Billing, usage, pricing tier
-
----
-
-### 6. POPRAWNOŚĆ LINKÓW DO DOKUMENTACJI
+### KRYTERIUM 6: POPRAWNOŚĆ LINKÓW DO DOKUMENTACJI
 
 **Sprawdź:**
 - Czy wszystkie linki do dokumentacji Claude Code zawierają **`/en/`** w ścieżce
 - Format poprawny: `https://code.claude.com/docs/en/[ścieżka]`
 - Format błędny: `https://code.claude.com/docs/[ścieżka]` (brak `/en/`)
 
-**Przykłady:**
-- ✅ `https://code.claude.com/docs/en/iam`
-- ✅ `https://code.claude.com/docs/en/security`
-- ✅ `https://code.claude.com/docs/en/hooks-guide`
-- ❌ `https://code.claude.com/docs/iam` (brakuje `/en/`)
-- ❌ `https://code.claude.com/docs/sandboxing` (brakuje `/en/`)
-
-**Wyszukaj wszystkie linki:**
-- Użyj Grep aby znaleźć wszystkie wystąpienia `https://code.claude.com/docs/`
-- Sprawdź, czy każdy link zawiera `/en/` po `/docs/`
-- Zweryfikuj, że anchory (np. `#permission-modes`) są zachowane
+**Użyj Grep** aby znaleźć wszystkie wystąpienia `https://code.claude.com/docs/`
 
 ---
 
-### 7. FORMAT I PREZENTACJA TREŚCI (email-friendly)
+## RAPORT: TECHNIKA
 
-**Sprawdź:**
-- Czy lekcja **unika skomplikowanych tabelek markdown** z wieloma kolumnami
-- Czy informacje są prezentowane w formacie **przyjaznym dla maili HTML**
-- Czy używa się alternatywnych formatów: list, sekcji z nagłówkami, punktów
+### 2. ORYGINALNOŚĆ TREŚCI
+**Ocena:** ✅ / ⚠️ / ❌
+**Uwagi:** [czy opiera się na doświadczeniu czy przepisuje docs]
+**Fragmenty podejrzane o przepisanie:** [lista z linijkami]
+**Sugestie:** [jak dodać osobisty kontekst]
 
-**Problem:**
-Tabele markdown (szczególnie z 4+ kolumnami) źle się przenoszą do HTML i wyglądają fatalnie w mailach:
-- Tekst się nakłada
-- Kolumny są nierówne
-- Trudno czytać na mobile
-- Łamią responsywność
+### 3. JAKOŚĆ I RÓŻNORODNOŚĆ PRZYKŁADÓW
 
-**❌ UNIKAJ takich tabelek:**
-```markdown
-| Tryb | Co robi | Kiedy używać | Dla kogo |
-|------|---------|--------------|----------|
-| **default** | Pyta o zgodę... | Większość przypadków | Wszyscy |
-| **acceptEdits** | Auto akceptuje... | Gdy ufasz | Doświadczeni |
+**A) Poprawność techniczna**
+**Ocena:** ✅ / ⚠️ / ❌
+**Błędy:** [lista]
+
+**B) Ciekawość i wartość**
+**Ocena:** ✅ / ⚠️ / ❌
+**Sugestie lepszych przykładów:** [lista]
+
+**C) Różnorodność odbiorców**
+**Ocena:** ✅ / ⚠️ / ❌
+**Grupy reprezentowane:** [lista]
+**Brakujące grupy:** [lista]
+**Propozycje przykładów dla brakujących grup:** [konkretne przykłady]
+
+### 6. POPRAWNOŚĆ LINKÓW
+**Ocena:** ✅ / ⚠️ / ❌
+**Linki bez /en/:** [lista z numerami linii]
+**Poprawki:** [stary → nowy]
 ```
-
-**✅ ZAMIAST TEGO użyj:**
-
-**Opcja A: Listy z nagłówkami**
-```markdown
-### default
-**Co robi:** Pyta o zgodę przy pierwszym użyciu narzędzia
-**Kiedy używać:** Większość przypadków, bezpieczny start
-**Dla kogo:** Wszyscy użytkownicy
-
-### acceptEdits
-**Co robi:** Automatycznie akceptuje edycje plików (NIE Bash!)
-**Kiedy używać:** Gdy ufasz Claude i chcesz mniej pytań
-**Dla kogo:** Doświadczeni użytkownicy
-```
-
-**Opcja B: Punktory z pogrubieniami**
-```markdown
-- **default** - Pyta o zgodę przy pierwszym użyciu. Idealny dla wszystkich na start.
-
-- **acceptEdits** - Auto-akceptuje edycje plików (NIE Bash!). Dla doświadczonych użytkowników, którzy chcą mniej pytań.
-
-- **plan** - Claude tylko analizuje, NIE może modyfikować. Idealny do code review i nauki.
-```
-
-**Opcja C: Sekcje z emoji (jeśli pasuje do tonu)**
-```markdown
-🔒 **default - Bezpieczny start**
-Pyta o zgodę przy pierwszym użyciu. Używaj zawsze, gdy zaczynasz.
-
-⚡ **acceptEdits - Szybsza praca**
-Automatycznie akceptuje edycje (NIE Bash!). Dla doświadczonych.
-```
-
-**Oceń:**
-- Czy lekcja zawiera tabele z 4+ kolumnami?
-- Czy informacje da się przedstawić w prostszym formacie?
-- Czy format będzie czytelny w mailu HTML na mobile?
 
 ---
 
-## Format raportu
+### Agent 4: ŹRÓDŁA
 
-Po przeczytaniu lekcji, wygeneruj raport w następującym formacie:
+```
+subagent_type: general-purpose
+description: Find external sources
+```
+
+**Prompt dla agenta:**
+
+```
+# Agent ŹRÓDŁA - Znajdź wartościowe źródła zewnętrzne
+
+## Twoje zadanie
+Wyszukaj w internecie wartościowe treści związane z tematami poniższej lekcji i zaproponuj rozbudowanie contentu.
+
+## Lekcja do sprawdzenia
+Ścieżka: [WSTAW ŚCIEŻKĘ]
+
+[WSTAW PEŁNĄ TREŚĆ LEKCJI]
+
+## Główne tematy do wyszukania
+[WSTAW LISTĘ TEMATÓW Z KROKU 1]
+
+## Instrukcje
+
+### 1. Zidentyfikuj główne koncepcje z lekcji
+
+### 2. Użyj WebSearch, aby znaleźć:
+- Artykuły eksperckie i tutoriale
+- Case studies i przykłady zastosowań
+- Aktualne best practices
+- Ciekawe statystyki lub badania
+- Wypowiedzi ekspertów z branży
+
+### 3. Użyj WebFetch na najciekawsze źródła
+
+### 4. Zaproponuj konkretne rozszerzenia treści
+
+**Czego szukać:**
+- ✅ Praktyczne przykłady z życia (jak firmy/ludzie używają podobnych narzędzi)
+- ✅ Statystyki i dane wspierające argumenty lekcji
+- ✅ Cytaty ekspertów dodające wiarygodności
+- ✅ Alternatywne perspektywy i podejścia
+- ✅ Aktualne trendy i nowości w temacie
+
+**Czego unikać:**
+- ❌ Treści reklamowe i promocyjne
+- ❌ Nieaktualne informacje (sprawdź daty publikacji)
+- ❌ Źródła o niskiej wiarygodności
+
+---
+
+## RAPORT: ŹRÓDŁA ZEWNĘTRZNE
+
+**Wyszukane tematy:**
+- [lista tematów]
+
+**Znalezione wartościowe źródła:**
+
+### Źródło 1: [Tytuł]
+- **URL:** [link]
+- **Wartość:** [co ciekawego zawiera]
+- **Propozycja użycia:** [gdzie i jak wpleść do lekcji]
+- **Cytat/fakt:** [konkretny fragment do wykorzystania]
+
+### Źródło 2: [Tytuł]
+...
+
+**Proponowane rozszerzenia lekcji:**
+1. [Konkretna propozycja]
+2. [Kolejna propozycja]
+3. [...]
+```
+
+---
+
+## KROK 3: Zbierz wyniki i wygeneruj raport końcowy
+
+Po zakończeniu wszystkich 4 agentów, połącz ich raporty w jeden końcowy raport:
 
 ```markdown
 # Raport walidacji lekcji
 
 **Lekcja:** [tytuł i ścieżka]
+**Data sprawdzenia:** [data]
+
+---
+
+## 0. AKTUALNOŚĆ TREŚCI
+[Wklej raport od Agenta AKTUALNOŚĆ]
 
 ---
 
 ## 1. TON I ZWRACANIE SIĘ DO ODBIORCY
-
-**Ocena:** ✅ / ⚠️ / ❌
-
-**Uwagi:**
-- [Lista znalezionych problemów lub potwierdzenie poprawności]
-- [Przykłady błędnych form, jeśli występują]
-
-**Sugestie poprawek:**
-- [Konkretne fragmenty do poprawy]
+[Wklej sekcję 1 od Agenta STYL]
 
 ---
 
 ## 2. ORYGINALNOŚĆ TREŚCI
-
-**Ocena:** ✅ / ⚠️ / ❌
-
-**Uwagi:**
-- [Czy lekcja opiera się na doświadczeniu czy przepisuje dokumentację?]
-- [Lista sekcji podejrzanych o przepisanie dokumentacji]
-
-**Fragmenty wymagające przeróbki:**
-- [Konkretne sekcje z linijkami]
-
-**Sugestie:**
-- [Jak dodać osobisty kontekst i doświadczenie]
+[Wklej sekcję 2 od Agenta TECHNIKA]
 
 ---
 
 ## 3. JAKOŚĆ I RÓŻNORODNOŚĆ PRZYKŁADÓW
-
-### A) Poprawność techniczna
-**Ocena:** ✅ / ⚠️ / ❌
-- [Czy przykłady są poprawne technicznie?]
-- [Lista błędów, jeśli występują]
-
-### B) Ciekawość i wartość
-**Ocena:** ✅ / ⚠️ / ❌
-- [Czy przykłady są ciekawe i praktyczne?]
-- [Sugestie lepszych przykładów]
-
-### C) Różnorodność odbiorców
-**Ocena:** ✅ / ⚠️ / ❌
-
-**Grupy zawodowe reprezentowane:**
-- [Lista grup: programiści, marketerzy, PM, pisarze, etc.]
-
-**Brakujące grupy:**
-- [Kogo brakuje?]
-
-**Sugestie nowych przykładów:**
-- [Dla marketerów: ...]
-- [Dla PM: ...]
-- [Dla pisarzy: ...]
+[Wklej sekcję 3 od Agenta TECHNIKA]
 
 ---
 
 ## 4. PROSTOTA I PRZYSTĘPNOŚĆ JĘZYKA
-
-**Ocena:** ✅ / ⚠️ / ❌
-
-**Uwagi:**
-- [Czy język jest przystępny dla osób nietechnicznych?]
-- [Lista fragmentów zbyt technicznych]
-
-**Terminy wymagające uproszczenia:**
-- [Lista z proponowanymi zamianami]
-
-**Sugestie poprawek:**
-- [Konkretne przepisane fragmenty]
+[Wklej sekcję 4 od Agenta STYL]
 
 ---
 
 ## 5. SŁOWNICZEK TERMINÓW
-
-**Ocena:** ✅ / ⚠️ / ❌
-
-**Status:**
-- [Czy słowniczek istnieje?]
-- [Czy jest kompletny?]
-
-**Terminy bez wyjaśnienia:**
-- [Lista terminów technicznych użytych bez definicji]
-
-**Proponowany słowniczek (jeśli brakuje):**
-```
-### Słowniczek
-
-**API (Application Programming Interface)**
-Interfejs, który pozwala różnym programom rozmawiać ze sobą. W przypadku Claude Code - sposób, w jaki Twoje narzędzie łączy się z serwerami Anthropic.
-
-**[kolejne terminy]**
-```
+[Wklej sekcję 5 od Agenta STYL]
 
 ---
 
-## 6. POPRAWNOŚĆ LINKÓW DO DOKUMENTACJI
-
-**Ocena:** ✅ / ⚠️ / ❌
-
-**Status:**
-- [Liczba znalezionych linków do dokumentacji Claude Code]
-- [Liczba linków z błędną ścieżką (bez `/en/`)]
-
-**Linki wymagające poprawy:**
-```
-Linia X: https://code.claude.com/docs/iam
-        → https://code.claude.com/docs/en/iam
-
-Linia Y: https://code.claude.com/docs/sandboxing
-        → https://code.claude.com/docs/en/sandboxing
-```
-
-**Uwagi:**
-- [Czy wszystkie linki są poprawne?]
-- [Lista linków do poprawy z numerami linii]
+## 6. POPRAWNOŚĆ LINKÓW
+[Wklej sekcję 6 od Agenta TECHNIKA]
 
 ---
 
-## 7. FORMAT I PREZENTACJA TREŚCI
+## 7. FORMAT I PREZENTACJA
+[Wklej sekcję 7 od Agenta STYL]
 
-**Ocena:** ✅ / ⚠️ / ❌
+---
 
-**Status:**
-- [Liczba skomplikowanych tabelek (4+ kolumn)]
-- [Czy format jest przyjazny dla maili HTML?]
-
-**Tabele wymagające przepisania:**
-```
-Linia X: Tabela z kolumnami [lista kolumn]
-        → Zaproponuj format: [lista z nagłówkami / punktory / sekcje]
-
-Linia Y: Tabela z kolumnami [lista kolumn]
-        → Zaproponuj format: [...]
-```
-
-**Sugestie:**
-- [Które tabele należy zamienić na listy/sekcje?]
-- [Przykłady przepisania fragmentów]
+## 8. WZBOGACENIE TREŚCI
+[Wklej raport od Agenta ŹRÓDŁA]
 
 ---
 
@@ -372,26 +473,6 @@ Linia Y: Tabela z kolumnami [lista kolumn]
 1. [Najważniejsza rzecz do poprawy]
 2. [Druga w kolejności]
 3. [Trzecia w kolejności]
-
----
-
-## PRZYKŁADY POPRAWEK (opcjonalnie)
-
-[Jeśli ocena to ⚠️ lub ❌, pokaż 1-2 przykłady przepisanych fragmentów demonstrujących pożądany styl]
-
-### Przed:
-```
-[Fragment oryginalny]
-```
-
-### Po:
-```
-[Fragment poprawiony]
-```
-
-**Dlaczego lepiej:**
-[Krótkie wyjaśnienie]
-
 ```
 
 ---
@@ -400,12 +481,15 @@ Linia Y: Tabela z kolumnami [lista kolumn]
 
 1. **Bądź konstruktywny:** Zawsze zaproponuj konkretne poprawki, nie tylko krytykuj
 2. **Priorytetyzuj:** Wskaż, co jest najważniejsze do poprawy
-3. **Cytuj konkretne fragmenty:** Użyj numerów linii z Read tool
-4. **Bądź szczegółowy:** Nie pisz ogólnie "brak przykładów dla marketerów" - zaproponuj konkretny przykład
-5. **Zachowaj ton pomocny:** Pamiętaj, że oceniasz pracę kolegi, który chce się rozwijać
+3. **Cytuj konkretne fragmenty:** Użyj numerów linii
+4. **Bądź szczegółowy:** Nie pisz ogólnie - zaproponuj konkretne przykłady
+5. **Zachowaj ton pomocny:** Pamiętaj, że oceniasz pracę kolegi
 
 ---
 
 ## Rozpocznij analizę
 
-Przeczytaj teraz plik lekcji ze ścieżki **$ARGUMENTS** i przeprowadź pełną analizę według powyższych kryteriów.
+1. Przeczytaj lekcję z: **$ARGUMENTS**
+2. Wyekstrahuj metadane (tematy, linki, terminy)
+3. Uruchom 4 agenty równolegle (WAŻNE: jedno wywołanie Task tool z 4 agentami!)
+4. Zbierz wyniki i wygeneruj końcowy raport
