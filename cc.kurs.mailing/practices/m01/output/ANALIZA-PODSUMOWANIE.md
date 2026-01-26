@@ -1,75 +1,58 @@
 # Analiza: Dzień Otwarty TechStart 2025
 
-**Data analizy:** Lekcja P.1
-**Wydarzenie:** Za 2 tygodnie (sobota, 10:00-16:00)
-**Miejsce:** Centrum Kultury "Młyn"
+**Koordynator:** Daniel | **Data analizy:** 26 stycznia 2025
 
 ---
 
-## STATUS: Co mamy gotowe
+## STATUS - co mamy gotowe
 
-| Element | Status |
-|---------|--------|
-| Data i miejsce | ✅ Zarezerwowane |
-| Catering | ✅ Zamówiony (opcje wege/wegańskie) |
-| Agenda | ✅ Ustalona (3 panele + lunch + networking) |
-| Rejestracje | ✅ 84 osoby (cel: 80-120) |
-| Sprzęt AV | ✅ W cenie sali |
-| Budżet | ✅ Opłacony |
-
----
-
-## PRIORYTETY: 3 najważniejsze rzeczy do zrobienia
-
-### 1. Email do uczestników
-- 84 adresy w CSV, nic nie zostało wysłane
-- Potrzebne: potwierdzenie + reminder + info praktyczne
-- Ton: przyjazny, bez korporacyjnego języka
-
-### 2. Brief dla wolontariuszy
-- Stary brief ma złe godziny (9:00-17:00 vs 10:00-16:00)
-- 12 osób, w tym 4 nowych - potrzebują jasnych instrukcji
-- Role: rejestracja, info, panele, catering, social media
-
-### 3. Oznakowanie budynku
-- Problem zgłaszany w 3/3 poprzednich wydarzeń
-- Ludzie się gubią → frustracja → gorsze oceny
-- Potrzebne: tabliczki, mapa, wolontariusz przy wejściu
+- Data i miejsce zarezerwowane (Centrum Kultury "Młyn", za 2 tygodnie)
+- Catering zamówiony (firma "Smaczek", opcje wege/wegańskie)
+- Pełna agenda 10:00-16:00
+- **84 zarejestrowanych uczestników** (cel: 80-120)
+- 12 wolontariuszy z przypisanymi rolami
+- Budżet opłacony (sala + catering)
+- Dane kontaktowe do wszystkich dostawców
 
 ---
 
-## RYZYKA: Na co uważać
+## PRIORYTETY - 3 najważniejsze rzeczy do zrobienia
 
-| Ryzyko | Źródło | Mitygacja |
-|--------|--------|-----------|
-| Ludzie się gubią | Feedback 2024 | Oznakowanie + mapa w mailu |
-| Mikrofon nie działa | Feedback 2024 | Sprawdzić dzień przed |
-| Wifi nie działa | Feedback 2024 | Potwierdzić hasło z Centrum |
-| Kolejka przy rejestracji | Feedback 2024 | Pre-print identyfikatorów |
-| Za mało przerw | Feedback wielokrotny | Trzymać się agendy, nie skracać |
-| Duplikaty w CSV | Analiza danych | Wyczyścić przed drukiem identyfikatorów |
+### 1. Email do uczestników (PILNE!)
+- Harmonogram mówi T-14 dni = teraz
+- Zawartość: potwierdzenie, agenda, parking (50 miejsc), dojazd, info o lunchu
+- Ton: przyjazny, bez korporacyjnego żargonu
 
----
+### 2. Zaktualizowany brief dla wolontariuszy
+- Obecny jest z 2024, godziny nieaktualne
+- Musi być gotowy przed spotkaniem organizacyjnym
+- Dodać lekcje z feedbacku (oznakowanie, mikrofony, wifi)
 
-## NASTĘPNY KROK: Lekcja P.2
-
-W lekcji P.2 **"Fundament projektu"** stworzysz:
-
-1. **CLAUDE.md dla projektu** - żeby Claude rozumiał kontekst TechStart
-2. **Plan działania** - konkretne zadania z terminami
-3. **Strukturę materiałów** - co dokładnie trzeba stworzyć
-
-**Aby rozpocząć:** wpisz `/start-p-2`
+### 3. Plan oznakowania budynku
+- Feedback z poprzedniego wydarzenia: ludzie się GUBILI
+- Potrzebne: mapa w mailu, kierunkowskazy, wolontariusz przy wejściu
 
 ---
 
-## ZASOBY
+## RYZYKA - na co uważać
 
-- Dane uczestników: `odziedziczony-chaos/rejestracje/uczestnicy.csv`
-- Ton komunikacji: `kontekst/BRAND-VOICE.md`
-- Szczegóły wydarzenia: `kontekst/BRIEF-WYDARZENIA.md`
-- Feedback historyczny: `odziedziczony-chaos/feedback/`
+| Ryzyko | Jak zapobiec |
+|--------|--------------|
+| Mikrofony nie działają | Sprawdzić dzień przed, mieć zapasowe baterie |
+| Wifi nie działa | Zweryfikować hasło, przetestować przed |
+| Kolejka przy rejestracji | Pre-print identyfikatorów, 2 stanowiska |
+| Za mało przerw | Dodać 15 min buforu po panelach |
+| Problemy dietetyczne | 17 osób wege + 1 bezglutenowa + 1 wegańska - potwierdzić z cateringiem |
 
 ---
 
-*Wygenerowano w ramach lekcji P.1 kursu Claude Code*
+## NASTĘPNY KROK - Lekcja P.2
+
+W następnej lekcji:
+1. Stworzymy plik **CLAUDE.md** dla projektu TechStart
+2. Przygotujemy szczegółowy **plan działania** na 2 tygodnie
+3. Zdefiniujemy priorytety na każdy dzień
+
+---
+
+*Wygenerowano z pomocą Claude Code | Lekcja P.1: Dziedzictwo chaosu*

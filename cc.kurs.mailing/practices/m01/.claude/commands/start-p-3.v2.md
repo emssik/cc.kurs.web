@@ -138,7 +138,7 @@ Po wykonaniu przejdź do kroku 3.
 
 Gdy masz zaufanie do Claude'a i chcesz przyspieszyć pracę, możesz włączyć Auto-Accept - tryb automatycznego akceptowania zmian.
 
-**Komenda:** `/auto-accept on` włącza, `/auto-accept off` wyłącza.
+**Komenda:** shift-tab aż uzyskasz "accept edits on"
 
 **Zadanie:**
 1. Włącz Auto-Accept
@@ -173,7 +173,7 @@ Auto-Accept przyspiesza pracę, ale używaj świadomie - Claude nie będzie pyta
   <after-user-input>
 STOSUJ zasady z lesson-protocol.md.
 
-Po wykonaniu przypomnij o wyłączeniu: /auto-accept off
+Po wykonaniu przypomnij o wyłączeniu: auto-accept
 
 Po wykonaniu przejdź do kroku 4.
   </after-user-input>

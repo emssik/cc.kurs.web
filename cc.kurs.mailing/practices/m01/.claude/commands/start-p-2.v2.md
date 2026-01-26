@@ -39,17 +39,8 @@ Ten mini-kurs oferuje dwa warianty. Wybierz ten, który Ci bardziej odpowiada:
 - Dla osób nietechnicznych
 - Wynik: gotowe dokumenty
 
-**Zadanie:** Napisz mi, który wariant wybierasz i krótko dlaczego.
-
-**Twoje opcje:**
-- A albo B
+**Zadanie:** Napisz mi, który wariant wybierasz (A lub B) i krótko dlaczego.
   </display>
-
-  <hint>
-Wybieram WARIANT A - programistyczny. Będę budować narzędzie CLI.
-// lub
-Wybieram WARIANT B - biurowy. Będę tworzyć pakiet komunikacyjny.
-  </hint>
 
   <tip>
 Wybierz wariant zgodny z Twoim doświadczeniem - oba uczą tych samych umiejętności Claude Code.
@@ -76,9 +67,8 @@ Komenda `/init` to szybki sposób na stworzenie podstawowego pliku CLAUDE.md dla
 **Zadanie:** Użyj komendy `/init` aby zainicjalizować projekt.
 
 **Twoje opcje:**
-- Wpisz własny prompt → wykonam go
-- Wpisz własny prompt + "oceń" → ocenię przed wykonaniem
-- Wpisz `hint` → pokażę gotowy prompt
+- Wpisz komendę → wykonam ją
+- Wpisz `hint` → pokażę jaką komendę użyć
   </display>
 
   <hint>
@@ -223,9 +213,8 @@ Komenda `/memory` pozwala zapisać ważne informacje, które Claude będzie pami
 2. Użyj `/memory` aby zapisać swój wybór wariantu i streszczenie planu
 
 **Twoje opcje:**
-- Wpisz własny prompt → wykonam go
-- Wpisz własny prompt + "oceń" → ocenię przed wykonaniem
-- Wpisz `hint` → pokażę gotowy prompt
+- Wpisz komendę → wykonam ją
+- Wpisz `hint` → pokażę jaką komendę użyć
   </display>
 
   <hint>

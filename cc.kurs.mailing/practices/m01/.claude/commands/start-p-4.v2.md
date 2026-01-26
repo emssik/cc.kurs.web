@@ -50,9 +50,8 @@ Komenda `/rename` pozwala nadać sesji czytelną nazwę, a `/resume` wrócić do
 **Zadanie:** Użyj `/rename` aby nazwać sesję np. "TechStart-przed-review"
 
 **Twoje opcje:**
-- Wpisz własny prompt → wykonam go
-- Wpisz własny prompt + "oceń" → ocenię przed wykonaniem
-- Wpisz `hint` → pokażę gotowy prompt
+- Wpisz komendę → wykonam ją
+- Wpisz `hint` → pokażę jaką komendę użyć
   </display>
 
   <hint>
@@ -289,9 +288,8 @@ Zapisz finalną wersję projektu.
 2. Użyj `/rename` aby nadać sesji finalną nazwę np. "TechStart-FINAL-gotowe"
 
 **Twoje opcje:**
-- Wpisz własny prompt → wykonam go
-- Wpisz własny prompt + "oceń" → ocenię przed wykonaniem
-- Wpisz `hint` → pokażę gotowy prompt
+- Wpisz komendy → wykonam je
+- Wpisz `hint` → pokażę jakie komendy użyć
   </display>
 
   <hint>
