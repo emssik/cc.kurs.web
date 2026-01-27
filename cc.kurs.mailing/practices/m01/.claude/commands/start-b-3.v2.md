@@ -3,19 +3,19 @@
 <lesson-intro>
 Plan operacyjny gotowy. Teraz musisz zakomunikować co się dzieje.
 
-**Piątek, 30 stycznia 2025, 19:30**
+**Piątek, 30 stycznia 2026, 19:30**
 
 Minęło 95 minut od cyberataku. Ekipy w terenie, generatory jadą do szpitali.
 Media dzwonią. TVN24 ma live broadcast. Twitter eksploduje. Ludzie panikują.
 
 **Twoje zadanie:** Przygotować 4 komunikaty w różnych formatach i tonach.
 
-⏱️ **REAL-TIME DEADLINE:** Niedziela 2 lutego 2025, 00:00 (twój czas)
-⏱️ **SCENARIUSZ:** Piątek 30 stycznia 2025, 19:30
+⏱️ **REAL-TIME DEADLINE:** Niedziela 2 lutego 2026, 00:00 (twój czas)
+⏱️ **SCENARIUSZ:** Piątek 30 stycznia 2026, 19:30
 ⚠️ **PALIWO W SZPITALACH:** 1h 30min pozostało
 
 <check-deadline>
-[Sprawdź datę systemową - jeśli po 2025-02-02 00:00 → tryb POST-MORTEM]
+[Sprawdź datę systemową - jeśli po 2026-02-02 00:00 → tryb POST-MORTEM]
 </check-deadline>
 </lesson-intro>
 
@@ -352,14 +352,14 @@ Stwórz output/KOMUNIKATY/notatka-minister.md:
 **NAGŁÓWEK:**
 DO: Minister Spraw Wewnętrznych i Administracji
 OD: Dyrektor Operacyjny KCZE, Iwona Krawczyk
-DATA: 30 stycznia 2025, 19:30
+DATA: 30 stycznia 2026, 19:30
 TEMAT: Raport z cyberataku na infrastrukturę energetyczną - blackout
 
 ---
 
 **1. SYTUACJA (2-3 akapity)**
 - Co: Cyberatak grupy DarkGrid na 3 elektrownie
-- Kiedy: 30.01.2025, 17:55
+- Kiedy: 30.01.2026, 17:55
 - Skala: 2.1M ludzi bez prądu, -15°C, 47 szpitali na generatorach
 - Zagrożenie: Generatory kończą paliwo za 1.5h (21:00) → ryzyko zgonów pacjentów CRITICAL
 
@@ -449,7 +449,7 @@ Przeczytaj:
 Stwórz output/KOMUNIKATY/briefing-ekipy-teren.md:
 
 ## BRIEFING OPERACYJNY - EKIPY TERENOWE
-**Data:** 30.01.2025, 19:30
+**Data:** 30.01.2026, 19:30
 **Koordynator:** [Twoje imię], KCZE, tel: +48 500 XXX XXX
 
 ---

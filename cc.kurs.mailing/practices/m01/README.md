@@ -6,7 +6,7 @@ Witaj w najbardziej intensywnym ćwiczeniu Modułu 1 kursu Claude Code.
 
 To **mini-kurs praktyczny** w którym wciela się w koordynatora operacyjnego podczas **narodowego kryzysu energetycznego**. Zamiast teorii - realne zadania pod presją czasu, z prawdziwymi konsekwencjami (symulowanymi).
 
-**Scenariusz:** Piątek 30 stycznia 2025, 17:55. Cyberatak na 3 elektrownie. 2.1M ludzi bez prądu, -15°C, 47 szpitali na generatorach (paliwo do ~22:00). Ty jesteś koordynatorem. Masz ~3.5h żeby uratować sytuację.
+**Scenariusz:** Piątek 30 stycznia 2026, 17:55. Cyberatak na 3 elektrownie. 2.1M ludzi bez prądu, -15°C, 47 szpitali na generatorach (paliwo do ~22:00). Ty jesteś koordynatorem. Masz ~3.5h żeby uratować sytuację.
 
 **Stawka:** Życie i śmierć. 2 noworodki <1000g na respiratorach, 6 pacjentów na ECMO, 67 na respiratorach OIOM.
 
@@ -116,8 +116,8 @@ Wybierasz wariant w lekcji B.1 (KROK 2). Oba prowadzą do tego samego celu - ura
 
 **KRYTYCZNE:** To nie jest tylko symulacja.
 
-Otrzymujesz to ćwiczenie **w piątek 30 stycznia 2025, około 17:55**.
-Masz czas do **niedzieli 2 lutego 2025, 00:00** (północ) na ukończenie.
+Otrzymujesz to ćwiczenie **w piątek 30 stycznia 2026, około 17:55**.
+Masz czas do **niedzieli 2 lutego 2026, 00:00** (północ) na ukończenie.
 
 **Jeśli nie zdążysz przed deadline:**
 - Wchodzisz w tryb POST-MORTEM

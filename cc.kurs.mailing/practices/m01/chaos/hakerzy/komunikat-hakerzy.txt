@@ -9,7 +9,7 @@
 
 DO: Rząd Rzeczypospolitej Polskiej
 OD: DarkGrid Collective
-DATA: 30 stycznia 2025, 18:05
+DATA: 30 stycznia 2026, 18:05
 TEMAT: Warunki przywrócenia zasilania
 
 ───────────────────────────────────────────────────────

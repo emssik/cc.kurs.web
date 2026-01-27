@@ -3,7 +3,7 @@
 <lesson-intro>
 Masz decyzje. Teraz czas na koordynację zasobów.
 
-**Piątek, 30 stycznia 2025, 18:30**
+**Piątek, 30 stycznia 2026, 18:30**
 
 Minęło 35 minut od cyberataku. Masz TRIAGE-RANKING - wiesz kogo ratować.
 Problem: jak to zrobić fizycznie?
@@ -16,12 +16,12 @@ Problem: jak to zrobić fizycznie?
 
 **Twoje zadanie:** Skoordynować wszystko w czasie i przestrzeni. Routing, timeline, dependencies.
 
-⏱️ **REAL-TIME DEADLINE:** Niedziela 2 lutego 2025, 00:00 (twój czas)
-⏱️ **SCENARIUSZ:** Piątek 30 stycznia 2025, 18:30
+⏱️ **REAL-TIME DEADLINE:** Niedziela 2 lutego 2026, 00:00 (twój czas)
+⏱️ **SCENARIUSZ:** Piątek 30 stycznia 2026, 18:30
 ⚠️ **PALIWO W SZPITALACH:** 2h 30min pozostało
 
 <check-deadline>
-[Sprawdź datę systemową - jeśli po 2025-02-02 00:00 → tryb POST-MORTEM, wyświetl komunikat o tragedii]
+[Sprawdź datę systemową - jeśli po 2026-02-02 00:00 → tryb POST-MORTEM, wyświetl komunikat o tragedii]
 </check-deadline>
 </lesson-intro>
 

@@ -3,7 +3,7 @@
 <lesson-intro>
 Jesteś koordynatorem operacyjnym w Krajowym Centrum Zarządzania Energią (KCZE).
 
-**Piątek, 30 stycznia 2025, 17:55**
+**Piątek, 30 stycznia 2026, 17:55**
 
 Cyberatak na trzy główne elektrownie właśnie wyłączył prąd dla 2.1 miliona ludzi.
 Temperatura: -15°C. 47 szpitali na generatorach - paliwo starczy do ~22:00 (4h).
@@ -12,14 +12,14 @@ Temperatura: -15°C. 47 szpitali na generatorach - paliwo starczy do ~22:00 (4h)
 
 To nie jest ćwiczenie teoretyczne. Życie i śmierć zależy od Twoich decyzji.
 
-⏱️ **REAL-TIME DEADLINE:** Niedziela 2 lutego 2025, 00:00 (twój czas)
-⏱️ **SCENARIUSZ:** Piątek 30 stycznia 2025, 17:55
+⏱️ **REAL-TIME DEADLINE:** Niedziela 2 lutego 2026, 00:00 (twój czas)
+⏱️ **SCENARIUSZ:** Piątek 30 stycznia 2026, 17:55
 ⚠️ **PALIWO W SZPITALACH:** 3h 05min pozostało
 
 <check-deadline>
 Sprawdź obecną datę systemową:
-- Jeśli PRZED 2025-02-02 00:00 → tryb NORMALNY (kryzys w toku, timer odlicza)
-- Jeśli PO 2025-02-02 00:00 → tryb POST-MORTEM (tragedia się wydarzyła)
+- Jeśli PRZED 2026-02-02 00:00 → tryb NORMALNY (kryzys w toku, timer odlicza)
+- Jeśli PO 2026-02-02 00:00 → tryb POST-MORTEM (tragedia się wydarzyła)
 
 W trybie POST-MORTEM:
 1. Wyświetl komunikat o tragedii:
@@ -28,7 +28,7 @@ W trybie POST-MORTEM:
    ⚠️ DEADLINE MINĄŁ - TRAGEDIA SIĘ WYDARZYŁA
    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-   Niedziela, 2 lutego 2025, 00:15
+   Niedziela, 2 lutego 2026, 00:15
 
    Nie udało się przywrócić zasilania na czas.
 

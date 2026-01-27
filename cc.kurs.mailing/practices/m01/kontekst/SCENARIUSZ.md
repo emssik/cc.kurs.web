@@ -2,7 +2,7 @@
 
 ## SYTUACJA
 
-**Piątek, 30 stycznia 2025, 17:55**
+**Piątek, 30 stycznia 2026, 17:55**
 
 Trzy główne elektrownie w Polsce zostały zhakowane i wyłączone przez grupę DarkGrid. 2.1 miliona ludzi pozostało bez prądu. Temperatura na dworze: -15°C. 47 szpitali działa na generatorach rezerwowych - paliwo starczy na maksymalnie 4 godziny (do ~22:00).
 
@@ -152,8 +152,8 @@ cyberatak   decyzje     ekipy     w terenie    efekty      kończą paliwo
 
 **KRYTYCZNE: To nie jest tylko symulacja.**
 
-Otrzymujesz to ćwiczenie **w piątek 30 stycznia 2025, około 17:55**.
-Masz czas do **niedzieli 2 lutego 2025, 00:00** (północ) na ukończenie.
+Otrzymujesz to ćwiczenie **w piątek 30 stycznia 2026, około 17:55**.
+Masz czas do **niedzieli 2 lutego 2026, 00:00** (północ) na ukończenie.
 
 **Jeśli nie zdążysz przed deadline:**
 - Wchodzisz w tryb POST-MORTEM

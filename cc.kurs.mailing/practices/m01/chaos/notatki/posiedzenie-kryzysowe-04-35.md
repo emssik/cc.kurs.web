@@ -1,6 +1,6 @@
 # NOTATKI Z POSIEDZENIA KRYZYSOWEGO
 
-**Data:** 30 stycznia 2025
+**Data:** 30 stycznia 2026
 **Godzina:** 18:04-18:35 (31 minut)
 **Miejsce:** Sala Operacyjna KCZE, ul. Krucza 46, Warszawa
 **Prowadzący:** Iwona Krawczyk (Dyrektor Operacyjny)

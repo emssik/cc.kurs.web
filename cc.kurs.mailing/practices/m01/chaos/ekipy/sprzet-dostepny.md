@@ -1,6 +1,6 @@
 # SPRZĘT DOSTĘPNY - GENERATORY MOBILNE
 
-**Aktualizacja:** 30.01.2025, 17:50
+**Aktualizacja:** 30.01.2026, 17:50
 **Źródło:** Baza KCZE + Depoty lokalne
 
 ---
