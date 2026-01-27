@@ -278,32 +278,71 @@ Jeśli użytkownik napisał "gotowy" / "dalej" / "zakończ" → przejdź do KROK
 
 ## KROK 5: Podsumowanie i lessons learned
 
+<alarm>
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📧 EMAIL od Dyrektor Iwony Krawczyk (21:15)
+
+LESSONS LEARNED - RAPORT POST-MORTEM
+
+[Imię], dziękuję za debriefing.
+
+Teraz ostatnie zadanie: potrzebuję od Ciebie
+RAPORTU LESSONS LEARNED dla przyszłych
+koordynatorów kryzysowych.
+
+To NIE jest raport dla komitetu. To dokument
+WEWNĘTRZNY dla KCZE - szczera refleksja co
+zadziałało, co nie, co zmieniamy.
+
+Dokument powinien odpowiedzieć:
+- Co poszło DOBRZE w tym kryzysie? (konkretnie!)
+- Co można było zrobić LEPIEJ? (i jak to poprawić)
+- Jakie są KLUCZOWE WNIOSKI na przyszłość?
+- Co ZMIENIAMY w procedurach/szkoleniach/zasobach?
+
+Na podstawie feedbacku od nas trójki (Iwona, Tomasz, Mazur)
+oraz własnej refleksji.
+
+To dokument który uratuje życie w NASTĘPNYM kryzysie.
+
+Zapisz jako output/LESSONS-LEARNED.md. -IK
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+</alarm>
+
 <display>
 -----------
 🤖 LEKCJA
 
 [Imię], debriefing zakończony. Teraz Twoja kolej.
 
-**Ostatnie zadanie:**
-Na podstawie feedbacku od Iwony, Tomasza i mjr Mazura stwórz:
+**Kontekst:**
+Dyrektor Iwona prosi o raport LESSONS LEARNED dla przyszłych koordynatorów
+kryzysowych w KCZE.
 
-`output/LESSONS-LEARNED.md` zawierający:
+To NIE jest raport dla komitetu czy ministra. To **wewnętrzny dokument**
+- szczera refleksja co zadziałało, co nie, co zmieniamy.
 
-1. **CO POSZŁO DOBRZE**
-   - Lista sukcesów (konkretnie!)
-   - Dlaczego zadziałało?
+**Cel:**
+Dokument który uratuje życie w NASTĘPNYM kryzysie. Przyszli koordynatorzy
+będą czytać Twoje wnioski żeby nie popełniać tych samych błędów.
 
-2. **CO MOŻNA BYŁO ZROBIĆ LEPIEJ**
-   - Lista błędów/suboptymalizacji
-   - Jak to poprawić następnym razem?
+**Sytuacja:**
+Masz feedback od 3 person (Iwona, Tomasz, Mazur) oraz własne doświadczenie
+z zarządzania kryzysem.
 
-3. **KLUCZOWE WNIOSKI**
-   - 3-5 najważniejszych lekcji z tego kryzysu
-   - Co zapamiętasz na przyszłość?
+Teraz musisz przefiltrować wszystko i wyciągnąć najważniejsze lekcje.
 
-4. **PLAN DZIAŁANIA NA PRZYSZŁOŚĆ**
-   - Co zmienisz w procedurach KCZE?
-   - Jakie szkolenia/zasoby są potrzebne?
+**Twoje zadanie:**
+Napisz raport LESSONS LEARNED dla przyszłych koordynatorów.
+
+Raport powinien:
+- Pokazać co poszło DOBRZE (konkretnie! z przykładami)
+- Pokazać co można było zrobić LEPIEJ (i jak to poprawić następnym razem)
+- Wyciągnąć KLUCZOWE WNIOSKI (3-5 najważniejszych lekcji)
+- Zaproponować ZMIANY w procedurach/szkoleniach/zasobach
+
+**Zapisz w:** `output/LESSONS-LEARNED.md`
 
 **Twoje opcje:**
 - Wpisz własny prompt → wykonam go
@@ -376,7 +415,7 @@ output/LESSONS-LEARNED.md:
 <after-user-input>
 Jeśli hint → wyświetl jako blok kodu
 Jeśli własny prompt z "oceń" → OCEŃ i poproś o poprawę (NIE przechodź dalej)
-Jeśli własny prompt → WYKONAJ (stwórz LESSONS-LEARNED.md)
+Jeśli własny prompt → WYKONAJ (stwórz output/LESSONS-LEARNED.md)
 
 Po wykonaniu przejdź do KROKU 6 (finał).
 </after-user-input>
@@ -419,7 +458,7 @@ Po wykonaniu przejdź do KROKU 6 (finał).
 
 1. **Analiza wielu źródeł** - przeczytanie 10+ plików (CSV, JSON, TXT, HTML) jednocześnie
 2. **Delegowanie kompleksowych zadań** - "@chaos/ przeanalizuj i wypisz TOP 10"
-3. **Tworzenie strukturyzowanych dokumentów** - rankingi, plany, komunikaty, raporty
+3. **Tworzenie strukturizowanych dokumentów** - rankingi, plany, komunikaty, raporty
 4. **Adaptacja brand voice** - różne tony dla różnych odbiorców
 5. **Praca z agentami/personami** - roleplay i konstruktywny feedback
 6. **Optymalizacja i sekwencjonowanie** - układanie zadań w czasie i przestrzeni
@@ -448,7 +487,7 @@ To był mini-kurs praktyczny po Module 1. Teraz wracasz do głównego kursu Clau
 
 **Zachowaj:**
 - Folder `output/` z Twoimi dokumentami - to portfolio
-- LESSONS-LEARNED.md - wnioski które zastosujesz w przyszłości
+- output/LESSONS-LEARNED.md - wnioski które zastosujesz w przyszłości
 
 **Podziel się:**
 - Jak Ci poszło? Co było najtrudniejsze?
@@ -458,7 +497,7 @@ To był mini-kurs praktyczny po Module 1. Teraz wracasz do głównego kursu Clau
 
 🎓 **GRATULACJE!** Ukończył[eś/aś] jeden z najtrudniejszych scenariuszy w tym kursie.
 
-Zarządzałeś kryzysem narodowym, ratowal[eś/aś] życie, koordynował[eś/aś] zasoby, komunikował[eś/aś] decyzje.
+Zarządzałeś kryzysem narodowym, ratował[eś/aś] życie, koordynował[eś/aś] zasoby, komunikował[eś/aś] decyzje.
 
 I wszystko to z pomocą Claude Code.
 

@@ -235,31 +235,63 @@ respiratorach. Błagam. KIEDY PRĄD?"
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 </alarm>
 
+<alarm>
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📱 SMS od Koordynatora Marek (18:50)
+
+"[Imię], tu Marek z centrum dyspozycji.
+12 ekip czeka na rozkazy. Generatory
+mobilne załadowane i gotowe do wyjazdu.
+
+Potrzebuję od ciebie SZCZEGÓŁOWEGO PLANU:
+- Która ekipa jedzie gdzie (adres GPS)
+- O której wyjazd, o której dotarcie
+- Które generatory do których szpitali
+- Co NAJPIERW, co POTEM (kolejność krytyczna)
+
+Kierowcy czekają z włączonymi silnikami.
+Prześlij plan w ciągu 15 minut.
+Zapisz jako output/PLAN-KOORDYNACJI.md. -Marek"
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+</alarm>
+
 <display>
 -----------
 🤖 LEKCJA
 
-[Imię], masz zasoby, masz priorytety. Teraz ułóż to w czasie.
+[Imię], masz decyzje (output/TRIAGE-RANKING.md). Teraz czas je zrealizować.
 
-**Problem sekwencjonowania:**
-- Ekipa-03 może naprawić PS-04 (20 min) ale jest 30 min drogi = razem 50 min
-- Ekipa-03 mogłaby POTEM pojechać do PS-06 (25 min naprawa + 15 min dojazd) = +40 min
-- Razem: Ekipa-03 obsługuje 2 podstacje w 90 minut
+**Problem:**
+Nie wystarczy wiedzieć ŻE coś zrobić - musisz wiedzieć JAK, KIEDY, KTO.
 
-Ale co jeśli Ekipa-07 jest 10 min od PS-06? Wtedy Ekipa-03 robi PS-04 a Ekipa-07 robi PS-06 RÓWNOLEGLE.
-Czas: 50 min (zamiast 90 min sekwencyjnie).
+**Przykład:**
+- PS-04 jest w TRIAGE na pozycji #1
+- Najbliższa ekipa (Ekipa-03) jest 25 km stąd = 30 min dojazdu
+- Naprawa zajmie 20 min
+- Razem: 50 minut
+- Ale czy Ekipa-03 może POTEM pojechać do kolejnej podstacji?
+- Czy może inna ekipa jest 5 min dalej i lepiej ją wysłać?
 
-To się nazywa **OPTYMALIZACJA**.
+To się nazywa **OPTYMALIZACJA SEKWENCJI**.
+
+**Sytuacja:**
+Koordynator ekip (Marek) czeka na szczegółowy plan operacyjny.
+12 ekip z włączonymi silnikami, generatory załadowane na TIRy.
+
+Ekipy potrzebują jasnych instrukcji:
+- Dokąd jechać (adres + GPS)
+- O której wyjazd
+- Co tam robić (restart vs naprawa vs inne)
+- Co NAJPIERW, co POTEM (dependencies - np. generator PRZED restart podstacji)
 
 **Twoje zadanie:**
-Na podstawie `output/analiza-zasoby.md` i `output/TRIAGE-RANKING.md` stwórz:
+Na podstawie swoich analiz (zasoby, TRIAGE) stwórz szczegółowy plan
+koordynacji dla centrum dyspozycji.
 
-**output/PLAN-KOORDYNACJI.md** zawierający:
-1. **FALA 1 (18:30-19:30):** Które ekipy gdzie jadą, które generatory do których szpitali
-2. **FALA 2 (19:30-20:30):** Co się dzieje potem (kolejne podstacje, tankowanie paliwa)
-3. **TIMELINE:** Co dzieje się o której godzinie (18:35, 19:00, 19:15, etc.)
-4. **DEPENDENCIES:** Co musi się stać PRZED czym (np. generator PRZED restart podstacji)
-5. **RYZYKA:** Co może pójść nie tak i plan B
+Plan musi umożliwić Markowi wydanie konkretnych rozkazów 12 ekipom.
+
+**Zapisz w:** `output/PLAN-KOORDYNACJI.md`
 
 **Twoje opcje:**
 - Wpisz własny prompt → wykonam go

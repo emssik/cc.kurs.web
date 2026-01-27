@@ -69,8 +69,8 @@ W trybie POST-MORTEM:
 
 Zanim zaczniemy - jak mam się do Ciebie zwracać?
 
-Podaj swoje imię i płeć (K/M):
-Przykład: "Anna K" lub "Marek M"
+Podaj swoje imię:
+Przykład: "Anna" lub "Marek"
 
 To pomoże mi dostosować komunikację do Ciebie.
 
@@ -83,8 +83,10 @@ To pomoże mi dostosować komunikację do Ciebie.
 Zapisz imię i płeć do `output/user.txt` w formacie:
 ```
 Imię: [imię]
-Płeć: [K lub M]
+Płeć: [K lub M] 
 ```
+
+Płeć określ na podstawie imienia, jeśli nie jesteś pewny, oznacz jako M.
 
 Wczytuj te dane na początku każdego kolejnego kroku i używaj odpowiednich form gramatycznych.
 
@@ -402,34 +404,70 @@ w ciągu 20 min. #Blackout #Warszawa
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 </alarm>
 
+<alarm>
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📞 TELEFON od Dyrektor Iwony Krawczyk (18:25)
+
+"[Imię], tu Iwona. Za 20 minut mam naradę
+z komitetem kryzysowym. Premier, MON, MSWiA,
+wszyscy będą. Potrzebuję od ciebie DOKUMENTU
+DECYZYJNEGO.
+
+Komitet musi wiedzieć:
+- Które podstacje naprawiamy w pierwszej fali
+- Które szpitale dostaną generatory
+- Dlaczego te, a nie inne
+- I NAJWAŻNIEJSZE: kogo NIE ratujesz i dlaczego
+  (bo poseł opozycji będzie to pytał na konferencji)
+
+Dokument musi być konkretny, z liczbami i uzasadnieniami.
+Każda decyzja będzie analizowana przez komisję.
+
+Masz 20 minut. Wyślij mi dokument operacyjny.
+ Zapisz jako output/TRIAGE-RANKING.md."
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+</alarm>
+
 <display>
 -----------
 🤖 LEKCJA
 
-[Imię], masz analizy. Teraz musisz podjąć DECYZJĘ.
+[Imię], to moment prawdy.
 
-Nie możesz uratować wszystkich. Zasoby są ograniczone:
-- 12 ekip (każda może naprawić 1-2 podstacje w 3h)
-- 23 generatory mobilne
-- 15,000L paliwa
+Masz wszystkie analizy. Teraz musisz podjąć OSTATECZNE DECYZJE i zapisać je w dokumencie
+dla komitetu kryzysowego.
+
+**Sytuacja:**
+- 12 ekip technicznych (mogą obsłużyć ~15-20 podstacji w 3 godziny)
+- 23 generatory mobilne (wystarczy dla ~10-15 szpitali)
+- 47 podstacji do wyboru, 47 szpitali do wyboru
+- Deadline: za 2h 30min kończy się paliwo w pierwszych szpitalach
+
+**Kontekst:**
+Dyrektor Iwona potrzebuje dokumentu dla komitetu kryzysowego (Premier, MON, MSWiA).
+Dokument ten będzie podstawą do podjęcia decyzji o wsparciu (policja, wojsko, finanse).
+
+Komitet będzie pytał:
+- "Dlaczego ta podstacja, a nie inna?"
+- "Dlaczego ten szpital dostaje generator, a tamten nie?"
+- "Ilu ludzi NIE dostanie prądu w pierwszej fali i dlaczego?"
+- "Jakie ryzyka i czy jest plan B?"
+
+**Twoje zadanie:**
+Na podstawie swoich analiz (podstacje, szpitale) stwórz dokument operacyjny
+dla komitetu kryzysowego.
+
+Dokument powinien dać jasne odpowiedzi na pytania komitetu i umożliwić
+podjęcie świadomych decyzji o wsparciu.
 
 **Opcjonalne urozmaicenie (jeśli chcesz):**
-Dodaj krótką sekcję "UPDATE 18:10" w output/TRIAGE-RANKING.md i opisz, jak korygujesz plan po jednym z losowych zdarzeń:
+Dodaj krótką sekcję "UPDATE 18:10" i opisz, jak korygujesz plan po jednym z losowych zdarzeń:
 - Generator w szpitalu CRITICAL psuje się po 30 min (awaria paliwa)
 - Droga do jednej kluczowej podstacji zostaje zablokowana przez protest
 - Media publikują przeciek o żądaniach hakerów (ryzyko paniki)
 
-**Twoje zadanie:**
-Na podstawie `output/analiza-podstacje.md` i `output/analiza-szpitale.md` stwórz:
-
-**output/TRIAGE-RANKING.md** z decyzjami:
-1. **TOP 10 podstacji** do naprawy/restart PIERWSZA FALA (najważniejsze)
-2. **TOP 10 szpitali** które dostaną generatory mobilne (backup)
-3. **Uzasadnienie** każdej decyzji
-4. **Trudne wybory** - kogo NIE ratujesz i dlaczego
-5. **Assumptions** - jakie założenia przyjąłeś
-
-To nie jest test matematyczny. To test etyczny i praktyczny.
+**Zapisz w:** `output/TRIAGE-RANKING.md`
 
 **Twoje opcje:**
 - Wpisz własny prompt → wykonam go

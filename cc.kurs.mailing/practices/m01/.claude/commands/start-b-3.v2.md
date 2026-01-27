@@ -121,32 +121,81 @@ kwoty. -ABW
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 </alarm>
 
+<alarm>
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📧 EMAIL od Rzecznika Prasowego Anna Kowalska (19:38)
+
+PILNE - KONFERENCJA PRASOWA ZA 30 MIN
+
+[Imię], tu Anna Kowalska, rzecznik KCZE.
+
+TVN24, Polsat News, Onet - wszyscy dzwonią.
+Twitter eksploduje (#Blackout 89k tweetów).
+Opozycja krzyczy "niekompetencja".
+
+Dyrektor zdecydowała: konferencja prasowa
+za 30 minut. JA będę czytać komunikat.
+TY musisz go napisać.
+
+Potrzebuję:
+- Komunikatu prasowego (300 słów MAX)
+- Który wyjaśni co się stało
+- Uspokoi ludzi (bez paniki!)
+- Pokaże że wiemy co robimy
+- Da konkretny timeline (kiedy prąd wróci)
+
+Dziennikarze będą zadawać trudne pytania:
+"Ile ofiar?", "Kiedy DOKŁADNIE?", "Czy rząd
+kontroluje sytuację?". Komunikat musi
+dać odpowiedzi.
+
+Prześlij w ciągu 15 minut.
+Zapisz jako output/KOMUNIKATY/komunikat-media.md. -Anna
+
+P.S. Sprawdź BRAND-VOICE.md - mamy zasady
+jak komunikować się w kryzysie.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+</alarm>
+
 <display>
 -----------
 🤖 LEKCJA
 
-[Imię], pierwszy komunikat: dla mediów.
+[Imię], w kryzysie NIE WYSTARCZY dobrze działać - musisz też dobrze KOMUNIKOWAĆ.
 
-**Grupa odbiorców:** Dziennikarze TVN24, Polsat News, Onet.pl, etc.
-**Cel:** Uspokój, poinformuj, buduj zaufanie że wiemy co robimy
-**Format:** 300 słów, oficjalny komunikat prasowy
+**Dlaczego?**
+- Media bez informacji wymyślą swoją narrację (zwykle gorszą)
+- Twitter bez faktów tworzy panikę i fake news
+- Opozycja bez transparentności krzyczy "niekompetencja"
 
-**Musi zawierać:**
-- Co się stało (cyberatak, 2.1M ludzi bez prądu, -15°C)
-- Co robimy (przywracamy zasilanie, priorytet szpitale)
-- Kiedy koniec (pierwsza fala 19:30-20:30, pełne przywrócenie do...)
-- Kontakt dla mediów (spokesperson)
+**Sytuacja:**
+Anna Kowalska (rzecznik prasowy KCZE) za 30 minut będzie czytać twój
+komunikat na konferencji prasowej.
 
-**TON:** Spokojny, konkretny, bez paniki. Empatyczny ale nie patetyczny.
+Sala: 50 dziennikarzy + kamery (live broadcast TVN24, Polsat, TVP).
+
+Dziennikarze będą pytać:
+- "Kiedy DOKŁADNIE wróci prąd?"
+- "Ile osób może umrzeć w szpitalach?"
+- "Czy rząd kontroluje sytuację?"
+- "Dlaczego tak długo milczeliście?"
 
 **Twoje zadanie:**
-Stwórz `output/KOMUNIKATY/komunikat-media.md` na podstawie:
-- Twojego PLAN-KOORDYNACJI.md (kiedy co się dzieje)
-- TRIAGE-RANKING.md (jakie priorytety)
-- BRAND-VOICE.md (jak komunikować)
-- Kontekstu mediów i pogody z `chaos/media/` i `chaos/pogoda/`
+Napisz komunikat prasowy dla Anny (300 słów MAX).
 
-**Możesz użyć szablonu:** `szablony/szablon-komunikat-media.md`
+Komunikat musi:
+- Wyjaśnić co się stało
+- Pokazać że wiemy co robimy (konkretny plan, timeline)
+- Jasno rozróżnić: zabezpieczenie szpitali przed 21:45 vs pełne przywrócenie etapami do poniedziałku rano
+- Uspokoić ludzi (bez paniki, empatyczny ton)
+- Przygotować Annę na trudne pytania
+
+**Kontekst:**
+- Przeczytaj `kontekst/BRAND-VOICE.md` - jak KCZE komunikuje się w kryzysie
+- Użyj danych z `output/PLAN-KOORDYNACJI.md` (timeline) i `output/TRIAGE-RANKING.md` (priorytety)
+
+**Zapisz w:** `output/KOMUNIKATY/komunikat-media.md`
 
 **Twoje opcje:**
 - Wpisz własny prompt → wykonam go
@@ -185,7 +234,7 @@ Stwórz output/KOMUNIKATY/komunikat-media.md:
 - Timeline konkretny: "Pierwsza fala przywrócenia zasilania: 19:30-20:30, dzielnice [lista TOP 3]"
 
 **Akapit 3: Kiedy koniec**
-- Szpitale CRITICAL: zasilanie do 20:30 (generatory mobilne już w drodze)
+- Szpitale CRITICAL: zabezpieczenie zasilania przed 21:45 (generatory mobilne w drodze)
 - Dzielnice mieszkaniowe: etapami 19:30-21:45
 - Pełne przywrócenie: szacujemy do poniedziałku rano
 
@@ -226,7 +275,7 @@ Napisz output/KOMUNIKATY/komunikat-media.md (300 słów):
    - Timeline konkretny: "Pierwsza dzielnica dostanie prąd o 19:30"
 
 3. **Kiedy się skończy** (2-3 zdania):
-   - Szpitale: do 20:30 będą zabezpieczone
+   - Szpitale: zabezpieczenie przed 21:45
    - Ludność: etapami 19:30-21:45
    - Cała Warszawa: do poniedziałku rano
 
@@ -257,7 +306,7 @@ Unikaj:
 <after-user-input>
 Jeśli hint → wyświetl odpowiedni wariant jako blok kodu
 Jeśli własny prompt z "oceń" → OCEŃ i poproś o poprawę (NIE przechodź dalej)
-Jeśli własny prompt → WYKONAJ (stwórz komunikat-media.md)
+Jeśli własny prompt → WYKONAJ (stwórz output/KOMUNIKATY/komunikat-media.md)
 
 Przejdź do KROKU 3.
 </after-user-input>
@@ -278,33 +327,67 @@ z miasta). Policja bezradna. #Blackout
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 </alarm>
 
+<alarm>
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📞 TELEFON od Alert RCB (19:45)
+
+"Tu Rządowe Centrum Bezpieczeństwa. Mamy
+system RCB-Alert gotowy do wysłania SMS
+do 2.1 miliona ludzi bez prądu.
+
+Potrzebuję od was TREŚCI SMS (MAX 160 znaków).
+
+Uwaga: ludzie są w PANICE. Twitter pełen
+fake news ("elektrownia wybuchła", "prądu
+nie będzie tydzień", "Rosjanie atakują").
+
+SMS musi:
+- Uspokoić
+- Dać konkretne informacje (kiedy prąd)
+- Powiedzieć co robić (instrukcje)
+
+160 ZNAKÓW MAX. Każdy znak się liczy.
+
+Prześlij treść w ciągu 10 minut - wysyłamy
+zaraz po konferencji prasowej.
+Zapisz jako output/KOMUNIKATY/sms-ludnosc.txt. -RCB"
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+</alarm>
+
 <display>
 -----------
 🤖 LEKCJA
 
-[Imię], drugi komunikat: SMS dla ludności.
+[Imię], najkrótszy komunikat - ale może najważniejszy.
 
-**Grupa odbiorców:** 2.1 miliona ludzi bez prądu, stresowani, zimni, w panice
-**Cel:** Uspokój, daj konkretne instrukcje, buduj zaufanie
-**Format:** 160 znaków (limit SMS)
+**Kontekst:**
+RCB-Alert może wysłać SMS do 2.1 miliona ludzi jednocześnie.
 
-**Musi zawierać:**
-- Co się dzieje (krótko!)
-- Kiedy prąd wróci (konkretnie lub "w etapach")
-- Co robić TERAZ (instrukcje)
+**Problem:**
+Limit SMS: 160 znaków. Musisz w 160 znakach:
+- Uspokoić ludzi (Twitter pełen paniki i fake news)
+- Powiedzieć kiedy prąd wróci (konkretnie!)
+- Dać instrukcje (co robić gdy prąd wróci)
 
-**TON:** Bardzo konkretny, spokojny, bez zbędnych słów.
+**Przykłady:**
 
-**Przykład SŁABY:**
-> "Pracujemy nad przywróceniem zasilania. Prosimy o cierpliwość. Wkrótce więcej informacji."
-(Za ogólnikowy, zero konkretów, brzmi jak wykręt)
+❌ SŁABY (ogólnikowy, zero konkretów):
+"Pracujemy nad przywróceniem zasilania. Prosimy o cierpliwość. Wkrótce więcej informacji."
 
-**Przykład DOBRY:**
-> "BLACKOUT: Prąd wraca etapami 19:30-21:45. Twoja dzielnica: sprawdź kcze.gov.pl/mapa. Przy powrocie: NIE włączaj wszystkiego naraz. Infolinia: 801-111-222"
-(Konkretny timeline, link do mapy, instrukcje, kontakt)
+✅ DOBRY (konkretny timeline, instrukcje, link):
+"BLACKOUT: Prąd wraca 19:30-21:45 etapami. Sprawdź dzielnicę: kcze.gov.pl/mapa NIE włączaj wszystkiego naraz. Info: 801-111-222"
+(154 znaki)
 
 **Twoje zadanie:**
-Stwórz `output/KOMUNIKATY/sms-ludnosc.txt` (max 160 znaków).
+Napisz SMS który:
+- Uspokoi 2.1M ludzi w panice
+- Da konkretny timeline (z twojego output/PLAN-KOORDYNACJI.md)
+- Powie co robić gdy prąd wróci (żeby nie przeciążyć sieci)
+
+**Limit: 160 znaków** (policz dokładnie!)
+
+**Zapisz w:** `output/KOMUNIKATY/sms-ludnosc.txt`
 
 **Twoje opcje:**
 - Wpisz własny prompt → wykonam go
@@ -343,7 +426,7 @@ BLACKOUT: [co][kiedy][link][instrukcje][kontakt]
 <after-user-input>
 Jeśli hint → wyświetl jako blok kodu
 Jeśli własny prompt z "oceń" → OCEŃ i poproś o poprawę (NIE przechodź dalej)
-Jeśli własny prompt → WYKONAJ (stwórz sms-ludnosc.txt, MAX 160 znaków)
+Jeśli własny prompt → WYKONAJ (stwórz output/KOMUNIKATY/sms-ludnosc.txt, MAX 160 znaków)
 
 Przejdź do KROKU 4.
 </after-user-input>
@@ -354,13 +437,41 @@ Przejdź do KROKU 4.
 
 <alarm>
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-📞 TELEFON od sekretariatu Ministra (19:52)
+📧 EMAIL od sekretariatu Ministra MSWiA (19:52)
 
-"Dzień dobry, sekretariat Ministra MSWiA.
-Pan Minister jest w drodze na naradę
-kryzysową w KPRM. Premier wymaga raportu
-sytuacyjnego za 30 minut. Minister pyta:
-ILE ofiar? KIEDY koniec? CZY ZDĄŻYCIE?"
+PILNE - NARADA KRYZYSOWA KPRM
+
+[Imię], tu sekretariat Ministra Spraw
+Wewnętrznych i Administracji.
+
+Za 40 minut narada kryzysowa w Kancelarii
+Premiera. Uczestniczą:
+- Premier
+- Minister Obrony Narodowej
+- Minister Zdrowia
+- Szef ABW
+- Komendant Główny Policji
+
+Minister potrzebuje RAPORTU SYTUACYJNEGO
+(1 strona A4 MAX).
+
+Premier będzie zadawał pytania:
+- "Ile ofiar?"
+- "Kiedy DOKŁADNIE koniec?"
+- "Czy zdążycie?"
+- "Czego potrzebujecie?"
+
+Minister musi mieć odpowiedzi. Na podstawie
+raportu podejmie decyzję czy wysłać:
+- Policję (patrole w dzielnicach bez prądu)
+- Wojsko (wsparcie logistyczne)
+- Fundusz kryzysowy (pieniądze na naprawy)
+
+1 STRONA A4. Konkretnie, liczby, fakty.
+
+Prześlij w ciągu 20 minut.
+Zapisz jako output/KOMUNIKATY/notatka-minister.md. -Sekretariat MSWiA
+
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 </alarm>
 
@@ -368,25 +479,42 @@ ILE ofiar? KIEDY koniec? CZY ZDĄŻYCIE?"
 -----------
 🤖 LEKCJA
 
-[Imię], trzeci komunikat: raport dla Ministra MSWiA.
+[Imię], najważniejszy dokument dnia.
 
-**Grupa odbiorców:** Minister Spraw Wewnętrznych i Administracji (decydent najwyższego szczebla)
-**Cel:** Poinformować o sytuacji, decyzjach, potrzebach. Umożliwić szybką decyzję o wsparciu (policja, wojsko, etc.)
-**Format:** 1 strona A4, formalny raport
+**Kontekst:**
+Za 40 minut narada kryzysowa w KPRM (Kancelaria Premiera).
 
-**Musi zawierać:**
-1. **SYTUACJA:** Co się stało, skala (liczby!)
-2. **DZIAŁANIA:** Co robimy (ekipy, generatory, timeline)
-3. **DECYZJE KLUCZOWE:** Kogo ratujemy, dlaczego (TRIAGE)
-4. **RYZYKA:** Co może pójść nie tak, konsekwencje
-5. **POTRZEBY:** Czego potrzebujemy od MSWiA (policja na ulicach? wojsko? pieniądze?)
+Obecni:
+- Premier (podejmuje decyzję o wsparciu)
+- MON (wojsko?)
+- Zdrowia (szpitale?)
+- ABW (śledztwo?)
+- Policja (patrole?)
 
-**TON:** Formalny, raportujący, bez emocji. Liczby i fakty.
+**Sytuacja:**
+Minister MSWiA będzie raportował Premierowi o sytuacji.
+Na podstawie twojego raportu.
 
-**Możesz użyć szablonu:** `szablony/szablon-notatka-minister.md`
+Premier będzie pytał:
+- "Ile ofiar może być?"
+- "Kiedy DOKŁADNIE przywrócicie zasilanie?"
+- "Czy sytuacja pod kontrolą?"
+- "Czego potrzebujecie żeby zdążyć?"
 
 **Twoje zadanie:**
-Stwórz `output/KOMUNIKATY/notatka-minister.md`.
+Napisz raport sytuacyjny dla Ministra (1 strona A4 MAX).
+
+Raport musi:
+- Przedstawić skalę kryzysu (liczby!)
+- Wyjaśnić co robicie (plan, timeline, decyzje)
+- Zidentyfikować ryzyka (co może pójść nie tak)
+- Powiedzieć czego potrzebujecie od MSWiA (policja? wojsko? pieniądze?)
+
+Raport będzie podstawą do podjęcia decyzji o wsparciu.
+
+**TON:** Formalny, raportujący, bez emocji. Premier potrzebuje faktów, nie patosu.
+
+**Zapisz w:** `output/KOMUNIKATY/notatka-minister.md`
 
 **Twoje opcje:**
 - Wpisz własny prompt → wykonam go
@@ -421,13 +549,13 @@ TEMAT: Raport z cyberataku na infrastrukturę energetyczną - blackout
 - Co: Cyberatak grupy DarkGrid na 3 elektrownie
 - Kiedy: 30.01.2026, 17:55
 - Skala: 2.1M ludzi bez prądu, -15°C, 47 szpitali na generatorach
-- Zagrożenie: Generatory kończą paliwo za 1.5h (21:00) → ryzyko zgonów pacjentów CRITICAL
+- Zagrożenie: Generatory kończą paliwo za 1.5h (ok. 21:00, część do 21:45) → ryzyko zgonów pacjentów CRITICAL
 
 **2. DZIAŁANIA PODJĘTE (2-3 akapity)**
 - 12 ekip technicznych w terenie (naprawa/restart 47 podstacji)
 - 23 generatory mobilne transportowane do szpitali CRITICAL
 - Priorytetyzacja: TOP 10 podstacji (zasila 15 szpitali + 800k ludzi)
-- Timeline: Pierwsza fala zasilania 19:30-20:30, pełne przywrócenie do poniedziałku rano
+- Timeline: Pierwsza fala zasilania 19:30-20:30, zabezpieczenie szpitali przed 21:45, pełne przywrócenie do poniedziałku rano
 
 **3. DECYZJE KLUCZOWE I UZASADNIENIE (2 akapity)**
 - Priorytet 1: Szpitale CRITICAL (647 pacjentów na respiratorach, noworodki, ECMO)
@@ -457,7 +585,7 @@ TEMAT: Raport z cyberataku na infrastrukturę energetyczną - blackout
 <after-user-input>
 Jeśli hint → wyświetl jako blok kodu
 Jeśli własny prompt z "oceń" → OCEŃ i poproś o poprawę (NIE przechodź dalej)
-Jeśli własny prompt → WYKONAJ (stwórz notatka-minister.md)
+Jeśli własny prompt → WYKONAJ (stwórz output/KOMUNIKATY/notatka-minister.md)
 
 Przejdź do KROKU 5.
 </after-user-input>
@@ -470,11 +598,50 @@ Przejdź do KROKU 5.
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 📱 SMS od Ekipy-08 (19:58)
 
-SZEFIE ALARM! Ekipa-08 przy PS-08. Widzimy
-dym z transformatora. Wygląda na sabotaż
-(drut odcięty ręcznie). Temperatura rośnie.
-Ryzyko POŻARU 80%. Próbujemy restart czy
-EWAKUACJA? ODPOWIEDZ SZYBKO!!! -E08
+SZEFIE ALARM! Ekipa-08 przy PS-08.
+Widzimy dym z transformatora. Wygląda
+na sabotaż (drut odcięty ręcznie).
+Temperatura rośnie. RYZYKO POŻARU 80%.
+
+Próbujemy restart czy EWAKUACJA?
+
+ODPOWIEDZ SZYBKO!!!
+Mamy 5 minut do decyzji. -E08
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+</alarm>
+
+<alarm>
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📞 TELEFON od Koordynatora Marek (20:00)
+
+"[Imię], tu Marek. Mamy problem.
+
+Ekipa-05 stoi w korku na Wisłostradzie
+(+45 min opóźnienia). Ekipa-08 zgłasza
+sabotaż w PS-08 (ryzyko pożaru). Ekipa-11
+pyta czy mają jechać do PS-20 (Kabaty)
+czy czekać na dyspozycje.
+
+12 ekip w terenie. Każda dostała kawałek
+planu ale nikt nie widzi całości. Pytają:
+- Co NAJPIERW?
+- Co POTEM?
+- Co jeśli coś pójdzie nie tak?
+
+Potrzebuję OPERACYJNEGO BRIEFINGU dla ekip.
+
+Dokument który:
+- Powie każdej ekipie CO robić, GDZIE, KIEDY
+- Wyjaśni PRIORYTETY (co CRITICAL, co może poczekać)
+- Pokaże ZALEŻNOŚCI (co musi być PRZED czym)
+- Da NUMERY KONTAKTOWE (do kogo dzwonić w razie problemu)
+
+Wojskowy styl. Bullet points. Zero zbędnych słów.
+
+Prześlij briefing - rozesłę do wszystkich ekip.
+Zapisz jako output/KOMUNIKATY/briefing-ekipy-teren.md. -Marek"
+
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 </alarm>
 
@@ -482,25 +649,33 @@ EWAKUACJA? ODPOWIEDZ SZYBKO!!! -E08
 -----------
 🤖 LEKCJA
 
-[Imię], czwarty i ostatni komunikat: briefing dla ekip terenowych.
+[Imię], ekipy w terenie potrzebują JASNYCH ROZKAZÓW.
 
-**Grupa odbiorców:** 12 ekip technicznych w terenie (inżynierowie, elektrycy)
-**Cel:** Powiedzieć im CO robić, GDZIE jechać, KIEDY, JAKIE PRIORYTETY
-**Format:** Bullet points, konkretny, operacyjny
+**Problem:**
+12 ekip pracuje jednocześnie. Każda widzi tylko swój kawałek.
+Nikt nie widzi całości. To prowadzi do chaosu:
+- Ekipa-05 stoi w korku (nie wie czy czekać czy jechać inną drogą)
+- Ekipa-08 widzi sabotaż (nie wie czy ryzykować restart)
+- Ekipa-11 czeka na dyspozycje (nie wie co robić)
 
-**Musi zawierać:**
-- Który ekipie która podstacja (z adresem GPS)
-- Co tam robić (restart / naprawa / co konkretnie)
-- Jaki priorytet (CRITICAL / HIGH / MEDIUM)
-- Dependencies ("NAJPIERW generator w szpitalu, POTEM restart podstacji")
-- Kontakt w razie problemu (numer do koordynatora)
+**Sytuacja:**
+Koordynator Marek prosi o operacyjny briefing dla 12 ekip.
 
-**TON:** Operacyjny, wojskowy niemal. Bez zbędnych słów.
+Briefing musi:
+- Powiedzieć każdej ekipie DOKĄD jechać (adres + GPS)
+- Powiedzieć CO tam robić (restart vs naprawa vs co konkretnie)
+- Wyjaśnić PRIORYTETY (co CRITICAL, co może poczekać)
+- Pokazać ZALEŻNOŚCI (np. "generator MUSI być gotowy PRZED restart PS-08")
+- Dać KONTAKT w razie problemu (do kogo dzwonić)
 
-**Możesz użyć szablonu:** `szablony/szablon-briefing-teren.md`
+**TON:**
+Operacyjny, wojskowy. Ekipy w stresie, mało czasu, potrzebują
+jasnych instrukcji. Zero zbędnych słów.
 
 **Twoje zadanie:**
-Stwórz `output/KOMUNIKATY/briefing-ekipy-teren.md`.
+Stwórz operacyjny briefing dla 12 ekip terenowych.
+
+**Zapisz w:** `output/KOMUNIKATY/briefing-ekipy-teren.md`
 
 **Twoje opcje:**
 - Wpisz własny prompt → wykonam go
@@ -584,7 +759,7 @@ Stwórz output/KOMUNIKATY/briefing-ekipy-teren.md:
 <after-user-input>
 Jeśli hint → wyświetl jako blok kodu
 Jeśli własny prompt z "oceń" → OCEŃ i poproś o poprawę (NIE przechodź dalej)
-Jeśli własny prompt → WYKONAJ (stwórz briefing-ekipy-teren.md)
+Jeśli własny prompt → WYKONAJ (stwórz output/KOMUNIKATY/briefing-ekipy-teren.md)
 
 Przejdź do KROKU 6 (podsumowanie).
 </after-user-input>
