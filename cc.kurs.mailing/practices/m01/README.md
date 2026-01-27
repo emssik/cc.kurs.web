@@ -6,11 +6,11 @@ Witaj w najbardziej intensywnym ćwiczeniu Modułu 1 kursu Claude Code.
 
 To **mini-kurs praktyczny** w którym wciela się w koordynatora operacyjnego podczas **narodowego kryzysu energetycznego**. Zamiast teorii - realne zadania pod presją czasu, z prawdziwymi konsekwencjami (symulowanymi).
 
-**Scenariusz:** Piątek 30 stycznia 2026, 17:55. Cyberatak na 3 elektrownie. 2.1M ludzi bez prądu, -15°C, 47 szpitali na generatorach (paliwo do ~22:00). Ty jesteś koordynatorem. Masz ~3.5h żeby uratować sytuację.
+**Scenariusz:** Piątek 30 stycznia 2026, 17:55. Cyberatak na 3 elektrownie. 2.1M ludzi bez prądu, -15°C, 47 szpitali na generatorach (paliwo do ~21:45). Ty jesteś koordynatorem. Masz ~3h50 żeby uratować sytuację.
 
 **Stawka:** Życie i śmierć. 2 noworodki <1000g na respiratorach, 6 pacjentów na ECMO, 67 na respiratorach OIOM.
 
-**Real-time deadline:** Otrzymujesz to ćwiczenie w piątek 30 stycznia ~18:00. Deadline: niedziela 2 lutego, 00:00. Jeśli nie zdążysz - wchodzisz w tryb POST-MORTEM (analiza porażki).
+**Real-time deadline:** Otrzymujesz to ćwiczenie w piątek 30 stycznia ~18:00. Deadline: poniedziałek 2 lutego, 00:00. Jeśli nie zdążysz - wchodzisz w tryb POST-MORTEM (analiza porażki).
 
 Spoiler: Claude Code wystarczy. Ale musisz działać szybko i mądrze.
 
@@ -91,10 +91,10 @@ To wszystko! Claude przeprowadzi Cię przez cały mini-kurs.
 
 Po ukończeniu mini-kursu będziesz mieć:
 
-1. **TRIAGE-RANKING.md** - twoja priorytetyzacja (kogo ratujesz, dlaczego)
-2. **PLAN-KOORDYNACJI.md** - szczegółowy plan operacyjny (timeline, dependencies, zasoby)
-3. **KOMUNIKATY/** - 4 komunikaty kryzysowe (media, SMS, minister, ekipy)
-4. **LESSONS-LEARNED.md** - wnioski z kryzysu (co poszło dobrze, co można poprawić)
+1. **output/TRIAGE-RANKING.md** - twoja priorytetyzacja (kogo ratujesz, dlaczego)
+2. **output/PLAN-KOORDYNACJI.md** - szczegółowy plan operacyjny (timeline, dependencies, zasoby)
+3. **output/KOMUNIKATY/** - 4 komunikaty kryzysowe (media, SMS, minister, ekipy)
+4. **output/LESSONS-LEARNED.md** - wnioski z kryzysu (co poszło dobrze, co można poprawić)
 5. **Doświadczenie** - praktyczna wiedza którą zastosujesz w prawdziwych projektach
 
 **I przede wszystkim:** Doświadczenie zarządzania kryzysem narodowym z pomocą Claude Code.
@@ -117,7 +117,7 @@ Wybierasz wariant w lekcji B.1 (KROK 2). Oba prowadzą do tego samego celu - ura
 **KRYTYCZNE:** To nie jest tylko symulacja.
 
 Otrzymujesz to ćwiczenie **w piątek 30 stycznia 2026, około 17:55**.
-Masz czas do **niedzieli 2 lutego 2026, 00:00** (północ) na ukończenie.
+Masz czas do **poniedziałku 2 lutego 2026, 00:00** (północ) na ukończenie.
 
 **Jeśli nie zdążysz przed deadline:**
 - Wchodzisz w tryb POST-MORTEM
@@ -142,7 +142,7 @@ practices/m01/
 ├── chaos/                       # CHAOTYCZNE DANE (tu jest wszystko)
 │   ├── podstacje/
 │   │   ├── raporty-podstacji.csv        # 47 podstacji (statusy, czasy, ryzyka)
-│   │   └── mapa-infrastruktury.html     # (opcjonalnie) Mapa OpenStreetMap
+│   │   └── mapa-infrastruktury.html     # Schemat sektorów i podstacji
 │   ├── szpitale/
 │   │   └── zgłoszenia-szpitali.json     # 47 szpitali (pacjenci CRITICAL, paliwo)
 │   ├── ekipy/
@@ -157,7 +157,7 @@ practices/m01/
 │   │   ├── artykul-onet.html            # (opcjonalnie) "Blackout w Warszawie"
 │   │   └── artykul-tvn24.html           # (opcjonalnie) "Hakerzy atakują?"
 │   ├── pogoda/
-│   │   └── prognoza-IMGW.html           # (opcjonalnie) Prognoza (-15°C → -18°C)
+│   │   └── prognoza-imgw.html           # (opcjonalnie) Prognoza (-15°C → -18°C)
 │   └── notatki/
 │       └── posiedzenie-kryzysowe-04-35.md  # Notatki z posiedzenia (18:04-18:35)
 ├── szablony/

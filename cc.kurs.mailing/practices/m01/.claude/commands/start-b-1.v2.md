@@ -1,3 +1,7 @@
+---
+model: sonnet
+---
+
 # Lekcja B.1: TRIAGE - Kto dostanie prąd?
 
 <lesson-intro>
@@ -6,20 +10,20 @@ Jesteś koordynatorem operacyjnym w Krajowym Centrum Zarządzania Energią (KCZE
 **Piątek, 30 stycznia 2026, 17:55**
 
 Cyberatak na trzy główne elektrownie właśnie wyłączył prąd dla 2.1 miliona ludzi.
-Temperatura: -15°C. 47 szpitali na generatorach - paliwo starczy do ~22:00 (4h).
+Temperatura: -15°C. 47 szpitali na generatorach - paliwo starczy 2h30-3h50 (do ~21:45).
 
 **Twoja misja:** Przeanalizować chaos i zdecydować kto dostanie prąd pierwszy.
 
 To nie jest ćwiczenie teoretyczne. Życie i śmierć zależy od Twoich decyzji.
 
-⏱️ **REAL-TIME DEADLINE:** Niedziela 2 lutego 2026, 00:00 (twój czas)
+⏱️ **REAL-TIME DEADLINE:** Poniedziałek 2 lutego 2026, 00:00 (twój czas)
 ⏱️ **SCENARIUSZ:** Piątek 30 stycznia 2026, 17:55
-⚠️ **PALIWO W SZPITALACH:** 3h 05min pozostało
+⚠️ **PALIWO W SZPITALACH:** średnio 3h 05min pozostało
 
 <check-deadline>
 Sprawdź obecną datę systemową:
 - Jeśli PRZED 2026-02-02 00:00 → tryb NORMALNY (kryzys w toku, timer odlicza)
-- Jeśli PO 2026-02-02 00:00 → tryb POST-MORTEM (tragedia się wydarzyła)
+- Jeśli O RÓWNEJ lub PO 2026-02-02 00:00 → tryb POST-MORTEM (tragedia się wydarzyła)
 
 W trybie POST-MORTEM:
 1. Wyświetl komunikat o tragedii:
@@ -28,7 +32,7 @@ W trybie POST-MORTEM:
    ⚠️ DEADLINE MINĄŁ - TRAGEDIA SIĘ WYDARZYŁA
    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-   Niedziela, 2 lutego 2026, 00:15
+   Poniedziałek, 2 lutego 2026, 00:15
 
    Nie udało się przywrócić zasilania na czas.
 
@@ -91,6 +95,19 @@ Następnie przejdź do KROKU 1.
 
 ## KROK 1: Zrozumienie sytuacji
 
+<alarm>
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🐦 TWITTER @TVN24 (17:58)
+
+PILNE: Cyberatak na elektrownie.
+2,1 mln ludzi bez prądu. Temperatura -15°C.
+47 szpitali na generatorach rezerwowych.
+Rząd milczy. #Blackout #Warszawa
+
+❤️ 12.4k  💬 3.2k  🔁 8.9k
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+</alarm>
+
 <display>
 -----------
 🤖 LEKCJA
@@ -118,7 +135,7 @@ Nie musisz czytać wszystkiego szczegółowo - na razie zorientuj się co masz d
 
 <hint>
 ```
-Przeczytaj kontekst/SCENARIUSZ.md i pokaż mi jakie pliki są w folderze chaos/.
+Przeczytaj @kontekst/SCENARIUSZ.md i pokaż mi jakie pliki są w folderze @chaos/.
 Wypisz strukturę drzewa katalogów z krótkimi opisami czego dotyczy każdy plik.
 ```
 </hint>
@@ -130,9 +147,10 @@ Jeśli użytkownik napisał własny prompt:
     * Co jest dobre
     * Co można poprawić
     * Konkretna sugestia
+    * PO OCENIE: poproś o poprawiony prompt i NIE przechodź do kolejnego kroku
   - Jeśli NIE zawiera prośby o ocenę → WYKONAJ prompt:
-    * Przeczytaj SCENARIUSZ.md
-    * Pokaż strukturę chaos/ (użyj narzędzi do listowania plików)
+    * Przeczytaj kontekst/SCENARIUSZ.md
+    * Pokaż strukturę chaos/
     * Wypisz krótkie opisy zawartości
 
 Po wykonaniu przejdź do KROKU 2.
@@ -183,6 +201,17 @@ Od teraz dostosowuj hinty według wybranego wariantu (patrz: <hint-variant-a> i 
 
 ## KROK 3: Analiza podstacji (chaos/podstacje/)
 
+<alarm>
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📱 SMS od Inż. Tomasza Nowaka (18:05)
+
+Szefie, mamy problem. PS-08 ma logikę-bombę
+potwierdzoną przez ABW. Restart = 50% szans
+że spłonie. Ale zasila 3 szpitale CRITICAL.
+Co robimy? Czekam na decyzję. -TN
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+</alarm>
+
 <display>
 -----------
 🤖 LEKCJA
@@ -220,7 +249,7 @@ Przeczytaj @chaos/podstacje/raporty-podstacji.csv i przeanalizuj:
 1. Które podstacje mają status "SPRAWNA" vs "USZKODZONA" vs "RYZYKO"
 2. Dla każdej podstacji: ile osób zasila, czas naprawy, czy ma dependencies
 3. Stwórz ranking podstacji według:
-   - Priorytet = (liczba_osób × 100) + (szpitale_zależne × 10000) - (czas_naprawy × 10)
+   - Priorytet = (ludnosc_zasila × 100) + (szpitale_zalezne × 10000) - (czas_naprawy_min × 10)
    - Im wyższy priorytet, tym ważniejsza podstacja
 4. Zapisz TOP 15 podstacji w output/analiza-podstacje.md z uzasadnieniem
 
@@ -252,7 +281,7 @@ Zapisz TOP 15 podstacji w output/analiza-podstacje.md:
 <after-user-input>
 Jeśli użytkownik wpisał "hint" → wyświetl odpowiedni wariant jako blok kodu
 Jeśli użytkownik napisał własny prompt:
-  - Jeśli zawiera "oceń" → OCEŃ prompt
+  - Jeśli zawiera "oceń" → OCEŃ prompt i poproś o poprawę (NIE przechodź dalej)
   - Jeśli NIE → WYKONAJ:
     * Przeczytaj chaos/podstacje/raporty-podstacji.csv
     * Przeanalizuj według kryteriów zadania
@@ -265,13 +294,25 @@ Po wykonaniu przejdź do KROKU 4.
 
 ## KROK 4: Analiza szpitali (chaos/szpitale/)
 
+<alarm>
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📞 TELEFON od Szpitala Dziecięcego (18:12)
+
+"To dyrektor Szpitala Dziecięcego. Mamy
+2 noworodki poniżej 1000g na NICU. Generator
+trzyma jeszcze 3h, ale pompka paliwa zaczyna
+się przegrzewać. Jeśli odmówi - mamy
+15 minut życia baterii. KIEDY BĘDZIE PRĄD?"
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+</alarm>
+
 <display>
 -----------
 🤖 LEKCJA
 
 [Imię], teraz najtrudniejsza część - szpitale.
 
-47 szpitali bez prądu. Generatory starczą na 2-4 godziny. Niektóre mają pacjentów na respiratorach, niektóre noworodki w inkubatorach, niektóre trwające operacje.
+47 szpitali bez prądu. Generatory starczą na 2h30-3h50. Niektóre mają pacjentów na respiratorach, niektóre noworodki w inkubatorach, niektóre trwające operacje.
 
 **Twoje zadanie:**
 Przeanalizuj `chaos/szpitale/zgłoszenia-szpitali.json`.
@@ -299,7 +340,7 @@ Zidentyfikuj:
 Przeczytaj @chaos/szpitale/zgłoszenia-szpitali.json i:
 
 1. Stwórz ranking szpitali według:
-   - Priorytet = (pacjenci_critical × 1000) + (200 - minuty_paliwa_pozostałe)
+   - Priorytet = (pacjenci_critical × 1000) + (200 - generator_paliwo_pozostalo_min)
 2. Cross-reference: które podstacje zasilają TOP 10 szpitali?
 3. Zidentyfikuj "single points of failure" - szpitale zależne od jednej podstacji
 4. Oblicz ile generatorów mobilnych potrzebujemy dla TOP 10 szpitali jako backup
@@ -336,7 +377,7 @@ Zapisz w output/analiza-szpitale.md:
 <after-user-input>
 Jeśli użytkownik wpisał "hint" → wyświetl odpowiedni wariant jako blok kodu
 Jeśli użytkownik napisał własny prompt:
-  - Jeśli zawiera "oceń" → OCEŃ prompt
+  - Jeśli zawiera "oceń" → OCEŃ prompt i poproś o poprawę (NIE przechodź dalej)
   - Jeśli NIE → WYKONAJ:
     * Przeczytaj chaos/szpitale/zgłoszenia-szpitali.json
     * Przeanalizuj według kryteriów zadania
@@ -349,6 +390,18 @@ Po wykonaniu przejdź do KROKU 5.
 
 ## KROK 5: Trudne decyzje - ranking finalny
 
+<alarm>
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🐦 TWITTER @AlarmWarszawa (18:20)
+
+PILNE UPDATE: Temperatura spadła do -16°C.
+IMGW prognozuje -18°C o 21:00. W dzielnicach
+bez prądu ludzie palą w mieszkaniach (ryzyko
+pożarów). Straż pożarna: 47 interwencji
+w ciągu 20 min. #Blackout #Warszawa
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+</alarm>
+
 <display>
 -----------
 🤖 LEKCJA
@@ -360,10 +413,16 @@ Nie możesz uratować wszystkich. Zasoby są ograniczone:
 - 23 generatory mobilne
 - 15,000L paliwa
 
+**Opcjonalne urozmaicenie (jeśli chcesz):**
+Dodaj krótką sekcję "UPDATE 18:10" w output/TRIAGE-RANKING.md i opisz, jak korygujesz plan po jednym z losowych zdarzeń:
+- Generator w szpitalu CRITICAL psuje się po 30 min (awaria paliwa)
+- Droga do jednej kluczowej podstacji zostaje zablokowana przez protest
+- Media publikują przeciek o żądaniach hakerów (ryzyko paniki)
+
 **Twoje zadanie:**
 Na podstawie `output/analiza-podstacje.md` i `output/analiza-szpitale.md` stwórz:
 
-**TRIAGE-RANKING.md** z decyzjami:
+**output/TRIAGE-RANKING.md** z decyzjami:
 1. **TOP 10 podstacji** do naprawy/restart PIERWSZA FALA (najważniejsze)
 2. **TOP 10 szpitali** które dostaną generatory mobilne (backup)
 3. **Uzasadnienie** każdej decyzji
@@ -453,10 +512,10 @@ Napisz o moralnych dylematach:
 <after-user-input>
 Jeśli użytkownik wpisał "hint" → wyświetl odpowiedni wariant jako blok kodu
 Jeśli użytkownik napisał własny prompt:
-  - Jeśli zawiera "oceń" → OCEŃ prompt
+  - Jeśli zawiera "oceń" → OCEŃ prompt i poproś o poprawę (NIE przechodź dalej)
   - Jeśli NIE → WYKONAJ:
     * Przeczytaj oba pliki analiz
-    * Stwórz TRIAGE-RANKING.md z decyzjami
+    * Stwórz output/TRIAGE-RANKING.md z decyzjami
 
 Po wykonaniu przejdź do KROKU 6 (podsumowanie).
 </after-user-input>
@@ -475,7 +534,7 @@ Po wykonaniu przejdź do KROKU 6 (podsumowanie).
 ✓ Przeanalizował[eś/aś] chaotyczne dane (47 podstacji, 47 szpitali)
 ✓ Zidentyfikował[eś/aś] priorytetowe obiekty
 ✓ Podjął[eś/aś] trudne decyzje kogo ratować
-✓ Stworzyłeś TRIAGE-RANKING.md z uzasadnieniami
+✓ Stworzyłeś output/TRIAGE-RANKING.md z uzasadnieniami
 
 **Co nauczyłeś się o Claude Code:**
 - Analiza wielu źródeł jednocześnie (@chaos/)
@@ -487,7 +546,7 @@ Po wykonaniu przejdź do KROKU 6 (podsumowanie).
 Masz decyzje. Teraz musisz skoordynować zasoby - ekipy, generatory, paliwo, routing.
 
 ⏱️ Scenariusz: 18:30 (35 min od ataku)
-⏱️ Paliwo w szpitalach: 2h 30min pozostało
+⏱️ Paliwo w szpitalach: średnio 2h 30min pozostało
 
 **Gotowy na kolejną lekcję?**
 

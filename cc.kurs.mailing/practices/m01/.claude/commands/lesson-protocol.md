@@ -1,3 +1,7 @@
+---
+model: sonnet
+---
+
 # Protokół prowadzenia lekcji praktycznych
 
 <lesson-protocol>

@@ -46,7 +46,7 @@
 
 ### Używaj:
 - **Liczb:** "2.1 miliona ludzi", "47 szpitali", "19:30-20:00"
-- **Timeline:** "Pierwsza fala", "do niedzieli rano", "do godziny 21:00"
+- **Timeline:** "Pierwsza fala", "do poniedziałku rano", "do godziny 21:00"
 - **Konkretów:** "dzielnice Mokotów, Ursynów", nie "część miasta"
 - **Aktywu:** "Przywracamy zasilanie", nie "zasilanie będzie przywracane"
 - **Prostych słów:** "prąd wraca", nie "zasilanie zostanie przywrócone w trybie priorytetowym"
@@ -79,7 +79,7 @@
 **Długość:** MAX 160 znaków
 
 **Przykład:**
-> BLACKOUT: Prąd wraca etapami 19:30-22:00. Twoja dzielnica: kcze.gov.pl/mapa. NIE włączaj wszystkiego naraz. Info: 801-111-222
+> BLACKOUT: Prąd wraca etapami 19:30-21:45. Twoja dzielnica: kcze.gov.pl/mapa. NIE włączaj wszystkiego naraz. Info: 801-111-222
 
 ### Raport dla decydentów (minister, premier)
 

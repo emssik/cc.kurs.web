@@ -4,7 +4,7 @@
 
 **Piątek, 30 stycznia 2026, 17:55**
 
-Trzy główne elektrownie w Polsce zostały zhakowane i wyłączone przez grupę DarkGrid. 2.1 miliona ludzi pozostało bez prądu. Temperatura na dworze: -15°C. 47 szpitali działa na generatorach rezerwowych - paliwo starczy na maksymalnie 4 godziny (do ~22:00).
+Trzy główne elektrownie w Polsce zostały zhakowane i wyłączone przez grupę DarkGrid. 2.1 miliona ludzi pozostało bez prądu. Temperatura na dworze: -15°C. 47 szpitali działa na generatorach rezerwowych - paliwo starczy 2h30-3h50 (do ~21:45).
 
 **Ty jesteś:** Koordynator operacyjny w Krajowym Centrum Zarządzania Energią (KCZE), bezpośrednio odpowiedzialny za przywrócenie zasilania w trybie kryzysowym.
 
@@ -56,14 +56,14 @@ Trzy główne elektrownie w Polsce zostały zhakowane i wyłączone przez grupę
 ## TIMELINE KRYZYSOWY
 
 ```
-17:55 ┈┈┈┈> 18:30 ┈┈┈┈> 19:30 ┈┈┈┈> 20:00 ┈┈┈┈> 21:00 ┈┈┈┈> 22:00
+17:55 ┈┈┈┈> 18:30 ┈┈┈┈> 19:30 ┈┈┈┈> 20:00 ┈┈┈┈> 21:00 ┈┈┈┈> 21:45
  │            │            │            │            │           │
 START      TRIAGE      ROUTING   DEPLOYMENT   PIERWSZE    GENERATORY
 cyberatak   decyzje     ekipy     w terenie    efekty      kończą paliwo
            (kto?)     (gdzie?)   (działanie)  (zasilanie)  (TRAGEDIA?)
 ```
 
-**04:05h na uratowanie sytuacji.**
+**03:50h na uratowanie sytuacji.**
 
 ## HAKERZY: DarkGrid
 
@@ -121,9 +121,10 @@ cyberatak   decyzje     ekipy     w terenie    efekty      kończą paliwo
 - **Zgłoszenia szpitali:** JSON z 47 obiektami (niektóre z błędnymi priorytetami)
 - **Lokalizacje ekip:** TXT z GPS coordinates (3 ekipy nie odpowiadają)
 - **Paliwo:** 3 depoty, różne dostępności (jeden zamknięty do 19:00)
-- **Mapa infrastruktury:** HTML z OpenStreetMap (musisz przeanalizować odległości)
-- **Twitter/Media:** HTML z symulowanym live feedem (widzisz jak ludzie reagują)
-- **Pogoda:** Prognoza IMGW (temperatura spada do -18°C o 21:00)
+- **Mapa infrastruktury:** `chaos/podstacje/mapa-infrastruktury.html` (schemat sektorów)
+- **Hakerzy:** `chaos/hakerzy/komunikat-hakerzy.txt` + `chaos/hakerzy/analiza-ABW-wstepna.md`
+- **Media:** `chaos/media/twitter-feed.html`, `chaos/media/artykul-onet.html`, `chaos/media/artykul-tvn24.html`
+- **Pogoda:** `chaos/pogoda/prognoza-imgw.html` (IMGW, spadek do -18°C ok. 21:00)
 
 **Twoje zadanie:** Przeanalizować chaos, podjąć decyzje, skoordynować zasoby, przekazać informacje.
 
@@ -153,7 +154,7 @@ cyberatak   decyzje     ekipy     w terenie    efekty      kończą paliwo
 **KRYTYCZNE: To nie jest tylko symulacja.**
 
 Otrzymujesz to ćwiczenie **w piątek 30 stycznia 2026, około 17:55**.
-Masz czas do **niedzieli 2 lutego 2026, 00:00** (północ) na ukończenie.
+Masz czas do **poniedziałku 2 lutego 2026, 00:00** (północ) na ukończenie.
 
 **Jeśli nie zdążysz przed deadline:**
 - Wchodzisz w tryb POST-MORTEM

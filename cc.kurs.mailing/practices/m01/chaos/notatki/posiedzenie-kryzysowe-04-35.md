@@ -17,7 +17,7 @@
 
 ## 18:04 - Iwona Krawczyk otwiera posiedzenie
 
-> "Dobry wieczór. Sytuacja jest poważna. 17:55 - cyberatak na 3 elektrownie. 2.1M ludzi bez prądu. 47 szpitali na generatorach - paliwo do ~22:00. Mamy ~3.5 godziny żeby uratować sytuację.
+> "Dobry wieczór. Sytuacja jest poważna. 17:55 - cyberatak na 3 elektrownie. 2.1M ludzi bez prądu. 47 szpitali na generatorach - paliwo do ~21:45. Mamy ~3h40 żeby uratować sytuację.
 >
 > Tomasz - raport techniczny. Szybko."
 
@@ -44,14 +44,14 @@
 
 ## 18:08 - dr Marek Lewandowski (raport medyczny)
 
-> "47 szpitali bez głównego zasilania. Generatory rezerwowe działają, ale paliwo starczy 2.5-4h zależnie od szpitala.
+> "47 szpitali bez głównego zasilania. Generatory rezerwowe działają, ale paliwo starczy 2.5-3.8h zależnie od szpitala.
 >
 > **CRITICAL (życie i śmierć w <3h):**
 > - Szpital Dziecięcy: 2 noworodki <1000g na respiratorach NICU. Paliwo do 20:50. Bez prądu - śmierć w 10 minut.
 > - Szpital Kardiologiczny (CSK): 6 pacjentów na ECMO. Bez prądu - śmierć w 3 minuty. Paliwo do 20:45.
 > - Szpital Wojewódzki: 67 pacjentów OIOM na respiratorach. Paliwo do 20:45.
 >
-> **HIGH (stabilni ale krytyczni w 3-5h):** 15 szpitali
+> **HIGH (stabilni ale krytyczni w 3-4h):** 15 szpitali
 >
 > **MEDIUM/LOW:** Reszta - stabilni pacjenci.
 >
@@ -110,7 +110,7 @@
 > 4. Przygotuj komunikaty: media, ludność, minister, ekipy terenowe.
 > 5. Raportuj do mnie co 30 minut.
 >
-> **Deadline:** Generatory w szpitalach muszą mieć paliwo PRZED 22:00. To 3h 25min od teraz.
+> **Deadline:** Generatory w szpitalach muszą mieć paliwo PRZED 21:45. To 3h 25min od teraz.
 >
 > Tomasz - wspiera technicznie.
 > mjr Mazur - koordynacja z policją.

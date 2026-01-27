@@ -1,3 +1,7 @@
+---
+model: sonnet
+---
+
 # Lekcja B.3: GŁOS W KRYZYSIE - Media, ludność, decydenci
 
 <lesson-intro>
@@ -10,12 +14,12 @@ Media dzwonią. TVN24 ma live broadcast. Twitter eksploduje. Ludzie panikują.
 
 **Twoje zadanie:** Przygotować 4 komunikaty w różnych formatach i tonach.
 
-⏱️ **REAL-TIME DEADLINE:** Niedziela 2 lutego 2026, 00:00 (twój czas)
+⏱️ **REAL-TIME DEADLINE:** Poniedziałek 2 lutego 2026, 00:00 (twój czas)
 ⏱️ **SCENARIUSZ:** Piątek 30 stycznia 2026, 19:30
-⚠️ **PALIWO W SZPITALACH:** 1h 30min pozostało
+⚠️ **PALIWO W SZPITALACH:** średnio 1h 30min pozostało
 
 <check-deadline>
-[Sprawdź datę systemową - jeśli po 2026-02-02 00:00 → tryb POST-MORTEM]
+[Sprawdź datę systemową - jeśli o równej lub po 2026-02-02 00:00 → tryb POST-MORTEM]
 </check-deadline>
 </lesson-intro>
 
@@ -31,6 +35,18 @@ Dostosuj wszystkie komunikaty (formy gramatyczne).
 ---
 
 ## KROK 1: Intro i kontekst komunikacyjny
+
+<alarm>
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🐦 TWITTER @OnetWiadomosci (19:35)
+
+SKANDAL: KCZE milczy od 90 minut.
+Zero komunikatów. Zero informacji.
+Ludzie mrą z zimna a rząd się CHOWA.
+"Niekompetencja na najwyższym poziomie"
+- komentuje poseł opozycji. #Blackout
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+</alarm>
 
 <display>
 -----------
@@ -54,6 +70,7 @@ Dostosuj wszystkie komunikaty (formy gramatyczne).
 Każdy ma inny cel, inną grupę odbiorców, inny ton.
 
 **Najpierw przeczytaj:** `kontekst/BRAND-VOICE.md` - jak komunikować się w kryzysie KCZE.
+**Dodatkowo przejrzyj:** `chaos/media/twitter-feed.html`, `chaos/media/artykul-onet.html`, `chaos/media/artykul-tvn24.html` oraz `chaos/pogoda/prognoza-imgw.html` (kontekst nastrojów i warunków).
 
 **Twoje opcje:**
 - Wpisz własny prompt → wykonam go
@@ -67,7 +84,8 @@ Każdy ma inny cel, inną grupę odbiorców, inny ton.
 
 <hint>
 ```
-Przeczytaj @kontekst/BRAND-VOICE.md i wypisz kluczowe zasady komunikacji kryzysowej KCZE:
+Przeczytaj @kontekst/BRAND-VOICE.md oraz @chaos/media/twitter-feed.html, @chaos/media/artykul-onet.html, @chaos/media/artykul-tvn24.html i @chaos/pogoda/prognoza-imgw.html.
+Następnie wypisz kluczowe zasady komunikacji kryzysowej KCZE i 3-5 punktów kontekstu medialno-społecznego, które powinny wpłynąć na ton komunikatów:
 - Jaki ton? (spokojny, konkretny, empatyczny)
 - Czego unikać? (paniki, ogólników, kłamstw)
 - Co zawierać? (co się stało, co robimy, kiedy koniec)
@@ -78,8 +96,8 @@ To będzie baza dla wszystkich komunikatów.
 
 <after-user-input>
 Jeśli hint → wyświetl jako blok kodu
-Jeśli własny prompt z "oceń" → OCEŃ
-Jeśli własny prompt → WYKONAJ (przeczytaj BRAND-VOICE.md, wypisz zasady)
+Jeśli własny prompt z "oceń" → OCEŃ i poproś o poprawę (NIE przechodź dalej)
+Jeśli własny prompt → WYKONAJ (przeczytaj BRAND-VOICE.md oraz chaos/media/ i chaos/pogoda/, wypisz zasady i kontekst)
 
 Przejdź do KROKU 2.
 </after-user-input>
@@ -87,6 +105,21 @@ Przejdź do KROKU 2.
 ---
 
 ## KROK 2: Komunikat dla mediów (300 słów)
+
+<alarm>
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📧 EMAIL od Rzecznika ABW (19:38)
+
+PILNE - WYCIEK INFORMACJI
+
+Wykryliśmy wyciek do mediów: żądania
+hakerów (50M USD, uwolnienie osadzonych).
+Onet.pl publikuje za 15 minut. MUSICIE
+wyprzedzić narrację własnym komunikatem.
+Sugeruję: spokój, kontrola, nie potwierdzać
+kwoty. -ABW
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+</alarm>
 
 <display>
 -----------
@@ -111,6 +144,7 @@ Stwórz `output/KOMUNIKATY/komunikat-media.md` na podstawie:
 - Twojego PLAN-KOORDYNACJI.md (kiedy co się dzieje)
 - TRIAGE-RANKING.md (jakie priorytety)
 - BRAND-VOICE.md (jak komunikować)
+- Kontekstu mediów i pogody z `chaos/media/` i `chaos/pogoda/`
 
 **Możesz użyć szablonu:** `szablony/szablon-komunikat-media.md`
 
@@ -130,6 +164,7 @@ Przeczytaj:
 - @output/PLAN-KOORDYNACJI.md (timeline, co się dzieje kiedy)
 - @output/TRIAGE-RANKING.md (decyzje, priorytety)
 - @kontekst/BRAND-VOICE.md (ton komunikacji)
+- @chaos/hakerzy/analiza-ABW-wstepna.md (potwierdzenie i ryzyka)
 - @szablony/szablon-komunikat-media.md (struktura)
 
 Stwórz output/KOMUNIKATY/komunikat-media.md:
@@ -151,8 +186,8 @@ Stwórz output/KOMUNIKATY/komunikat-media.md:
 
 **Akapit 3: Kiedy koniec**
 - Szpitale CRITICAL: zasilanie do 20:30 (generatory mobilne już w drodze)
-- Dzielnice mieszkaniowe: etapami 19:30-22:00
-- Pełne przywrócenie: szacujemy do niedzieli rano
+- Dzielnice mieszkaniowe: etapami 19:30-21:45
+- Pełne przywrócenie: szacujemy do poniedziałku rano
 
 **Akapit 4: Instrukcje dla ludności**
 - "Prosimy o ograniczenie zużycia energii gdy prąd wróci"
@@ -173,6 +208,7 @@ Przeczytaj:
 - @output/PLAN-KOORDYNACJI.md (co robimy, kiedy)
 - @output/TRIAGE-RANKING.md (jakie decyzje podjęliśmy)
 - @kontekst/BRAND-VOICE.md (jak mówić w kryzysie)
+- @chaos/hakerzy/analiza-ABW-wstepna.md (kontekst ataku)
 - @szablony/szablon-komunikat-media.md (przykład)
 
 Napisz output/KOMUNIKATY/komunikat-media.md (300 słów):
@@ -191,8 +227,8 @@ Napisz output/KOMUNIKATY/komunikat-media.md (300 słów):
 
 3. **Kiedy się skończy** (2-3 zdania):
    - Szpitale: do 20:30 będą zabezpieczone
-   - Ludność: etapami 19:30-22:00
-   - Cała Warszawa: do niedzieli rano
+   - Ludność: etapami 19:30-21:45
+   - Cała Warszawa: do poniedziałku rano
 
 4. **Co ludzie mają robić** (2-3 zdania):
    - Nie panikować
@@ -220,7 +256,7 @@ Unikaj:
 
 <after-user-input>
 Jeśli hint → wyświetl odpowiedni wariant jako blok kodu
-Jeśli własny prompt z "oceń" → OCEŃ
+Jeśli własny prompt z "oceń" → OCEŃ i poproś o poprawę (NIE przechodź dalej)
 Jeśli własny prompt → WYKONAJ (stwórz komunikat-media.md)
 
 Przejdź do KROKU 3.
@@ -229,6 +265,18 @@ Przejdź do KROKU 3.
 ---
 
 ## KROK 3: SMS dla ludności (160 znaków)
+
+<alarm>
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🐦 TWITTER @PolskaSieRusza (19:45)
+
+PANIKA w Warszawie: Lidl i Biedronka
+WYPRZEDANE (świece, baterie, konserwy).
+Bankomaty nie działają (brak prądu).
+Kolejki po benzynę 2h (ludzie uciekają
+z miasta). Policja bezradna. #Blackout
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+</alarm>
 
 <display>
 -----------
@@ -252,7 +300,7 @@ Przejdź do KROKU 3.
 (Za ogólnikowy, zero konkretów, brzmi jak wykręt)
 
 **Przykład DOBRY:**
-> "BLACKOUT: Prąd wraca etapami 19:30-22:00. Twoja dzielnica: sprawdź kcze.gov.pl/mapa. Przy powrocie: NIE włączaj wszystkiego naraz. Infolinia: 801-111-222"
+> "BLACKOUT: Prąd wraca etapami 19:30-21:45. Twoja dzielnica: sprawdź kcze.gov.pl/mapa. Przy powrocie: NIE włączaj wszystkiego naraz. Infolinia: 801-111-222"
 (Konkretny timeline, link do mapy, instrukcje, kontakt)
 
 **Twoje zadanie:**
@@ -276,7 +324,7 @@ output/KOMUNIKATY/sms-ludnosc.txt (MAX 160 znaków):
 
 **Zawiera:**
 1. Co się dzieje: "BLACKOUT - cyberatak"
-2. Kiedy prąd: "wraca etapami 19:30-22:00"
+2. Kiedy prąd: "wraca etapami 19:30-21:45"
 3. Jak sprawdzić swoją dzielnicę: "mapa: kcze.gov.pl/[link]"
 4. Instrukcje: "NIE włączaj wszystkiego naraz przy powrocie"
 5. Kontakt: "infolinia 801-111-222"
@@ -284,7 +332,7 @@ output/KOMUNIKATY/sms-ludnosc.txt (MAX 160 znaków):
 **Wymogi:**
 - Max 160 znaków (policz dokładnie!)
 - Bez zbędnych słów ("prosimy", "dziękujemy", etc.)
-- Konkretnie (NIE "wkrótce", TAK "19:30-22:00")
+- Konkretnie (NIE "wkrótce", TAK "19:30-21:45")
 - Spokojny ton (NIE używaj wielkich liter poza nagłówkiem BLACKOUT)
 
 Przykład struktury:
@@ -294,7 +342,7 @@ BLACKOUT: [co][kiedy][link][instrukcje][kontakt]
 
 <after-user-input>
 Jeśli hint → wyświetl jako blok kodu
-Jeśli własny prompt z "oceń" → OCEŃ
+Jeśli własny prompt z "oceń" → OCEŃ i poproś o poprawę (NIE przechodź dalej)
 Jeśli własny prompt → WYKONAJ (stwórz sms-ludnosc.txt, MAX 160 znaków)
 
 Przejdź do KROKU 4.
@@ -303,6 +351,18 @@ Przejdź do KROKU 4.
 ---
 
 ## KROK 4: Notatka dla Ministra MSWiA (1 strona A4)
+
+<alarm>
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📞 TELEFON od sekretariatu Ministra (19:52)
+
+"Dzień dobry, sekretariat Ministra MSWiA.
+Pan Minister jest w drodze na naradę
+kryzysową w KPRM. Premier wymaga raportu
+sytuacyjnego za 30 minut. Minister pyta:
+ILE ofiar? KIEDY koniec? CZY ZDĄŻYCIE?"
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+</alarm>
 
 <display>
 -----------
@@ -367,7 +427,7 @@ TEMAT: Raport z cyberataku na infrastrukturę energetyczną - blackout
 - 12 ekip technicznych w terenie (naprawa/restart 47 podstacji)
 - 23 generatory mobilne transportowane do szpitali CRITICAL
 - Priorytetyzacja: TOP 10 podstacji (zasila 15 szpitali + 800k ludzi)
-- Timeline: Pierwsza fala zasilania 19:30-20:30, pełne przywrócenie do niedzieli rano
+- Timeline: Pierwsza fala zasilania 19:30-20:30, pełne przywrócenie do poniedziałku rano
 
 **3. DECYZJE KLUCZOWE I UZASADNIENIE (2 akapity)**
 - Priorytet 1: Szpitale CRITICAL (647 pacjentów na respiratorach, noworodki, ECMO)
@@ -396,7 +456,7 @@ TEMAT: Raport z cyberataku na infrastrukturę energetyczną - blackout
 
 <after-user-input>
 Jeśli hint → wyświetl jako blok kodu
-Jeśli własny prompt z "oceń" → OCEŃ
+Jeśli własny prompt z "oceń" → OCEŃ i poproś o poprawę (NIE przechodź dalej)
 Jeśli własny prompt → WYKONAJ (stwórz notatka-minister.md)
 
 Przejdź do KROKU 5.
@@ -405,6 +465,18 @@ Przejdź do KROKU 5.
 ---
 
 ## KROK 5: Briefing dla ekip terenowych (bullet points)
+
+<alarm>
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📱 SMS od Ekipy-08 (19:58)
+
+SZEFIE ALARM! Ekipa-08 przy PS-08. Widzimy
+dym z transformatora. Wygląda na sabotaż
+(drut odcięty ręcznie). Temperatura rośnie.
+Ryzyko POŻARU 80%. Próbujemy restart czy
+EWAKUACJA? ODPOWIEDZ SZYBKO!!! -E08
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+</alarm>
 
 <display>
 -----------
@@ -511,7 +583,7 @@ Stwórz output/KOMUNIKATY/briefing-ekipy-teren.md:
 
 <after-user-input>
 Jeśli hint → wyświetl jako blok kodu
-Jeśli własny prompt z "oceń" → OCEŃ
+Jeśli własny prompt z "oceń" → OCEŃ i poproś o poprawę (NIE przechodź dalej)
 Jeśli własny prompt → WYKONAJ (stwórz briefing-ekipy-teren.md)
 
 Przejdź do KROKU 6 (podsumowanie).
@@ -544,7 +616,7 @@ Masz plan, masz komunikaty. Teraz czas na REVIEW - debriefing z zespołem.
 Iwona (dyrektor), Tomasz (inżynier), mjr Mazur (MSWiA) przeanalizują Twoje decyzje.
 
 ⏱️ Scenariusz: 20:00 (2h 05min od ataku)
-⏱️ Paliwo w szpitalach: 1h 00min pozostało
+⏱️ Paliwo w szpitalach: średnio 1h 00min pozostało
 
 **Gotowy na ostatnią lekcję?**
 

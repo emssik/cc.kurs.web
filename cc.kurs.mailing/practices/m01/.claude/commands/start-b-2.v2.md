@@ -1,3 +1,7 @@
+---
+model: sonnet
+---
+
 # Lekcja B.2: LOGISTYKA ŻYCIA - Generatory, ekipy, paliwo
 
 <lesson-intro>
@@ -12,16 +16,16 @@ Problem: jak to zrobić fizycznie?
 - 12 ekip technicznych (rozsianych po regionie)
 - 23 generatory mobilne (w 3 lokalizacjach)
 - 15,000L paliwa (3 depoty)
-- 3 godziny 30 minut do końca paliwa w szpitalach
+- średnio 2 godziny 30 minut do końca paliwa w szpitalach
 
 **Twoje zadanie:** Skoordynować wszystko w czasie i przestrzeni. Routing, timeline, dependencies.
 
-⏱️ **REAL-TIME DEADLINE:** Niedziela 2 lutego 2026, 00:00 (twój czas)
+⏱️ **REAL-TIME DEADLINE:** Poniedziałek 2 lutego 2026, 00:00 (twój czas)
 ⏱️ **SCENARIUSZ:** Piątek 30 stycznia 2026, 18:30
-⚠️ **PALIWO W SZPITALACH:** 2h 30min pozostało
+⚠️ **PALIWO W SZPITALACH:** średnio 2h 30min pozostało
 
 <check-deadline>
-[Sprawdź datę systemową - jeśli po 2026-02-02 00:00 → tryb POST-MORTEM, wyświetl komunikat o tragedii]
+[Sprawdź datę systemową - jeśli o równej lub po 2026-02-02 00:00 → tryb POST-MORTEM, wyświetl komunikat o tragedii]
 </check-deadline>
 </lesson-intro>
 
@@ -37,6 +41,18 @@ Dostosuj wszystkie komunikaty (formy gramatyczne).
 ---
 
 ## KROK 1: Intro i wczytanie TRIAGE
+
+<alarm>
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🐦 TWITTER @PolsatNews (18:35)
+
+⚠️ CHAOS W WARSZAWIE: Plundrowanie
+Biedronki na Pradze. Blokada A2 (protest
+kierowców TIR). Policja: "Nie mamy ludzi
+na wszystkie dzielnice". Ludzie w panice
+wykupują świece i baterie. #Blackout
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+</alarm>
 
 <display>
 -----------
@@ -86,8 +102,8 @@ To będzie baza dla planu koordynacji.
 
 <after-user-input>
 Jeśli hint → wyświetl jako blok kodu
-Jeśli własny prompt z "oceń" → OCEŃ
-Jeśli własny prompt → WYKONAJ (przeczytaj TRIAGE-RANKING, wypisz decyzje)
+Jeśli własny prompt z "oceń" → OCEŃ i poproś o poprawę (NIE przechodź dalej)
+Jeśli własny prompt → WYKONAJ (przeczytaj output/TRIAGE-RANKING.md, wypisz decyzje)
 
 Przejdź do KROKU 2.
 </after-user-input>
@@ -95,6 +111,17 @@ Przejdź do KROKU 2.
 ---
 
 ## KROK 2: Analiza zasobów (ekipy, generatory, paliwo)
+
+<alarm>
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📱 SMS od Ekipy-05 (18:42)
+
+Szefie, Ekipa-05 zgłasza. Stoimy w korku
+na Wisłostrady (wypadek TIR-a). GPS pokazuje
++45 min opóźnienia do PS-14. Czy jedziemy
+dalej czy zmieniamy plan? Czekamy. -E05
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+</alarm>
 
 <display>
 -----------
@@ -186,7 +213,7 @@ Zapisz w output/analiza-zasoby.md:
 
 <after-user-input>
 Jeśli hint → wyświetl odpowiedni wariant jako blok kodu
-Jeśli własny prompt z "oceń" → OCEŃ
+Jeśli własny prompt z "oceń" → OCEŃ i poproś o poprawę (NIE przechodź dalej)
 Jeśli własny prompt → WYKONAJ (przeczytaj chaos/ekipy/, stwórz analiza-zasoby.md)
 
 Przejdź do KROKU 3.
@@ -195,6 +222,18 @@ Przejdź do KROKU 3.
 ---
 
 ## KROK 3: Sekwencjonowanie - kto, co, kiedy
+
+<alarm>
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📞 TELEFON od Szpitala Wojewódzkiego (18:55)
+
+"KCZE? Szpital Wojewódzki. Mamy problem
+z generatorem - czujnik paliwa pokazuje
+40 min mniej niż myśleliśmy. ZOSTAŁO NAM
+2h 10min MAX. Mamy 67 pacjentów na
+respiratorach. Błagam. KIEDY PRĄD?"
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+</alarm>
 
 <display>
 -----------
@@ -215,7 +254,7 @@ To się nazywa **OPTYMALIZACJA**.
 **Twoje zadanie:**
 Na podstawie `output/analiza-zasoby.md` i `output/TRIAGE-RANKING.md` stwórz:
 
-**PLAN-KOORDYNACJI.md** zawierający:
+**output/PLAN-KOORDYNACJI.md** zawierający:
 1. **FALA 1 (18:30-19:30):** Które ekipy gdzie jadą, które generatory do których szpitali
 2. **FALA 2 (19:30-20:30):** Co się dzieje potem (kolejne podstacje, tankowanie paliwa)
 3. **TIMELINE:** Co dzieje się o której godzinie (18:35, 19:00, 19:15, etc.)
@@ -367,8 +406,8 @@ output/PLAN-KOORDYNACJI.md ze szczegółowym planem:
 
 <after-user-input>
 Jeśli hint → wyświetl odpowiedni wariant jako blok kodu
-Jeśli własny prompt z "oceń" → OCEŃ
-Jeśli własny prompt → WYKONAJ (stwórz PLAN-KOORDYNACJI.md)
+Jeśli własny prompt z "oceń" → OCEŃ i poproś o poprawę (NIE przechodź dalej)
+Jeśli własny prompt → WYKONAJ (stwórz output/PLAN-KOORDYNACJI.md)
 
 Po wykonaniu przejdź do KROKU 4 (podsumowanie).
 </after-user-input>
@@ -386,7 +425,7 @@ Po wykonaniu przejdź do KROKU 4 (podsumowanie).
 **Co [zrobiłeś/zrobiłaś]:**
 ✓ Przeanalizował[eś/aś] zasoby (12 ekip, 23 generatory, 15k L paliwa)
 ✓ Zoptymalizował[eś/aś] routing (kto, gdzie, kiedy)
-✓ Stworzyłeś PLAN-KOORDYNACJI.md z timeline i dependencies
+✓ Stworzyłeś output/PLAN-KOORDYNACJI.md z timeline i dependencies
 ✓ Zidentyfikował[eś/aś] ryzyka i plan B
 
 **Co nauczyłeś się o Claude Code:**
@@ -403,7 +442,7 @@ Masz plan operacyjny. Teraz musisz ZAKOMUNIKOWAĆ:
 - Ekipy terenowe: briefing operacyjny
 
 ⏱️ Scenariusz: 19:30 (1h 35min od ataku)
-⏱️ Paliwo w szpitalach: 1h 30min pozostało
+⏱️ Paliwo w szpitalach: średnio 1h 30min pozostało
 
 **Gotowy na kolejną lekcję?**
 
