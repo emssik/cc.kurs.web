@@ -1,0 +1,48 @@
+id,nazwa,status,ludnosc_zasila,szpitale_zalezne,czas_naprawy_min,ryzyko,dependent_na,notatki,ostatnia_aktualizacja
+PS-01,Podstacja Główna Centrum,USZKODZONA,45000,0,120,NISKIE,BRAK,"Uszkodzony transformator główny, wymaga wymiany",17:58
+PS-02,Podstacja Mokotów Zachód,SPRAWNA,28000,2,15,NISKIE,PS-01,"Można restart, ale zależy od PS-01",18:02
+PS-03,Podstacja Wilanów,USZKODZONA,33000,1,180,WYSOKIE,BRAK,"Podejrzenie sabotażu - logika bomba?",17:55
+PS-04,Podstacja Ursynów Północ,SPRAWNA,52000,3,20,NISKIE,BRAK,"Gotowa do restart, priorytet CRITICAL",18:00
+PS-05,Podstacja Służewiec,USZKODZONA,41000,0,90,ŚREDNIE,PS-01,"Częściowe uszkodzenie, możliwa szybka naprawa",18:05
+PS-06,Podstacja Ochota,SPRAWNA,38000,1,25,NISKIE,BRAK,"Sprawna, wymaga tylko restart procedury",17:59
+PS-07,Podstacja Wola Centralna,USZKODZONA,47000,2,150,WYSOKIE,BRAK,"Poważne uszkodzenia, długa naprawa",18:03
+PS-08,Podstacja Praga Północ,RYZYKO,55000,3,30,KRYTYCZNE,BRAK,"!!! LOGIKA-BOMBA POTWIERDZONA - 50% szans na sukces !!!",18:01
+PS-09,Podstacja Targówek,SPRAWNA,29000,0,15,NISKIE,PS-08,"Zależy od PS-08, ale sama sprawna",18:04
+PS-10,Podstacja Białołęka,USZKODZONA,35000,1,60,ŚREDNIE,BRAK,"Uszkodzenie średnie, naprawialne w 1h",17:57
+PS-11,Podstacja Bielany Zachód,SPRAWNA,31000,2,20,NISKIE,BRAK,"Gotowa do restart",18:02
+PS-12,Podstacja Żoliborz,USZKODZONA,27000,1,45,WYSOKIE,BRAK,"Można szybko naprawić BEZ testów - ryzyko pożaru 20%",18:06
+PS-13,Podstacja Bemowo,SPRAWNA,42000,0,25,NISKIE,BRAK,"Sprawna, standard restart",17:58
+PS-14,Podstacja Włochy,USZKODZONA,38000,1,120,ŚREDNIE,BRAK,"Długa naprawa, wymiana części",18:01
+PS-15,Podstacja Ursus,USZKODZONA,44000,2,240,NISKIE,BRAK,"Bardzo długa naprawa ale pewna - bez ryzyka",18:03
+PS-16,Podstacja Rembertów,SPRAWNA,22000,0,15,NISKIE,BRAK,"Sprawna, priorytet niski (bez szpitali)",17:59
+PS-17,Podstacja Wawer,USZKODZONA,26000,1,75,ŚREDNIE,BRAK,"Naprawa średnia, wymaga spawania",18:04
+PS-18,Podstacja Wesoła,SPRAWNA,18000,0,20,NISKIE,BRAK,"Sprawna, mała podstacja",18:00
+PS-19,Podstacja Wilanów Wschód,USZKODZONA,31000,1,90,ŚREDNIE,PS-03,"Zależy od PS-03, wymaga synchronizacji",18:05
+PS-20,Podstacja Kabaty,USZKODZONA,29000,2,60,WYSOKIE,BRAK,"Szybka naprawa RYZYKOWNA - lub 180 min bezpieczna",17:56
+PS-21,Podstacja Natolin,SPRAWNA,35000,1,15,NISKIE,BRAK,"Gotowa do restart, zasila Szpital Południowy",18:02
+PS-22,Podstacja Stegny,USZKODZONA,27000,0,100,ŚREDNIE,BRAK,"Naprawa standardowa",18:01
+PS-23,Podstacja Sadyba,SPRAWNA,24000,1,20,NISKIE,PS-01,"Zależy od PS-01",17:58
+PS-24,Podstacja Saska Kępa,USZKODZONA,32000,0,110,ŚREDNIE,BRAK,"Uszkodzenie transformatora",18:03
+PS-25,Podstacja Gocław,SPRAWNA,28000,2,25,NISKIE,BRAK,"Gotowa, zasila 2 szpitale na Grochowie",18:04
+PS-26,Podstacja Grochów Północ,USZKODZONA,41000,1,80,WYSOKIE,BRAK,"Podejrzenie dodatkowego sabotażu",17:57
+PS-27,Podstacja Praga Południe,SPRAWNA,48000,3,20,NISKIE,PS-08,"Największa zależna od PS-08 - CRITICAL",18:06
+PS-28,Podstacja Gołąbki,USZKODZONA,23000,0,70,ŚREDNIE,BRAK,"Standardowa naprawa",18:00
+PS-29,Podstacja Anin,SPRAWNA,19000,0,15,NISKIE,BRAK,"Sprawna, priorytet niski",17:59
+PS-30,Podstacja Falenica,USZKODZONA,21000,1,95,ŚREDNIE,BRAK,"Naprawa wymaga dojazdu 45 min",18:02
+PS-31,Podstacja Miedzeszyn,SPRAWNA,17000,0,20,NISKIE,BRAK,"Sprawna, mała",18:01
+PS-32,Podstacja Sulejówek Przyłącze,USZKODZONA,25000,1,130,WYSOKIE,BRAK,"Poza głównym obszarem, długi dojazd",17:55
+PS-33,Podstacja Marki,SPRAWNA,30000,0,15,NISKIE,BRAK,"Gotowa do restart",18:03
+PS-34,Podstacja Zielonka,USZKODZONA,22000,0,85,ŚREDNIE,BRAK,"Standardowa naprawa",18:04
+PS-35,Podstacja Ząbki,SPRAWNA,28000,1,20,NISKIE,BRAK,"Gotowa, zasila niewielki szpital",17:58
+PS-36,Podstacja Kobyłka,USZKODZONA,24000,0,100,ŚREDNIE,BRAK,"Naprawa średnia",18:00
+PS-37,Podstacja Wołomin Przyłącze,SPRAWNA,26000,1,25,NISKIE,BRAK,"Sprawna, priorytet średni",18:05
+PS-38,Podstacja Legionowo,USZKODZONA,33000,2,140,WYSOKIE,BRAK,"Długa naprawa, 2 szpitale zależne",17:57
+PS-39,Podstacja Młociny,SPRAWNA,39000,1,15,NISKIE,BRAK,"Gotowa do restart, zasila Szpital Północny",18:02
+PS-40,Podstacja Radiowo,USZKODZONA,27000,0,75,ŚREDNIE,BRAK,"Naprawa standardowa",18:01
+PS-41,Podstacja Marymont,SPRAWNA,31000,2,20,NISKIE,PS-39,"Zależy od PS-39, zasila 2 szpitale",18:04
+PS-42,Podstacja Bielany Wschód,USZKODZONA,29000,1,90,ŚREDNIE,BRAK,"Naprawa średnia",17:59
+PS-43,Podstacja Piaski,SPRAWNA,20000,0,15,NISKIE,BRAK,"Sprawna, priorytet niski",18:03
+PS-44,Podstacja Chomiczówka,USZKODZONA,25000,0,110,WYSOKIE,BRAK,"Długa naprawa",18:00
+PS-45,Podstacja Młynów,SPRAWNA,34000,1,20,NISKIE,BRAK,"Gotowa, zasila szpital rehabilitacyjny",17:56
+PS-46,Podstacja Babice,USZKODZONA,22000,0,80,ŚREDNIE,BRAK,"Naprawa standardowa",18:02
+PS-47,Podstacja Chrzanów,SPRAWNA,27000,1,25,NISKIE,BRAK,"Sprawna, zasila Szpital Zachodni",18:05
