@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BLACKOUT SURVIVOR - Pochwal się!</title>
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="BLACKOUT SURVIVOR">
+    <meta property="og:description" content="Ukończyłem symulację zarządzania kryzysem energetycznym - kurs Claude Code">
+    <meta property="og:image" content="obrazek.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        .image-section {
+            width: 100%;
+            background: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .image-section img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .placeholder {
+            color: #999;
+            text-align: center;
+        }
+
+        .placeholder svg {
+            width: 64px;
+            height: 64px;
+            margin-bottom: 1rem;
+        }
+
+        .content {
+            padding: 2rem;
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        .subtitle {
+            color: #666;
+            margin-bottom: 2rem;
+        }
+
+        .share-option {
+            border: 1px solid #e0e0e0;
+            border-radius: 12px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .share-option h3 {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .share-option .icon {
+            width: 24px;
+            height: 24px;
+        }
+
+        .share-text {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 0.75rem;
+            font-size: 0.9rem;
+            color: #444;
+            margin-bottom: 0.75rem;
+            line-height: 1.5;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 0.75rem 1rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            transition: transform 0.1s, opacity 0.2s;
+        }
+
+        .btn:hover {
+            transform: translateY(-1px);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        .btn-copy {
+            background: #e9ecef;
+            color: #495057;
+        }
+
+        .btn-copy:hover {
+            background: #dee2e6;
+        }
+
+        .btn-x {
+            background: #000;
+            color: white;
+        }
+
+        .btn-linkedin {
+            background: #0A66C2;
+            color: white;
+        }
+
+        .btn-instagram {
+            background: linear-gradient(45deg, #FFDC80, #F77737, #E1306C, #833AB4);
+            color: white;
+        }
+
+        .copy-success {
+            background: #28a745 !important;
+            color: white !important;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 1rem 2rem 2rem;
+            color: #999;
+            font-size: 0.85rem;
+        }
+
+        .download-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 12px;
+            padding: 1.25rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .btn-download {
+            background: white;
+            color: #667eea;
+            padding: 0.875rem 2rem;
+            font-size: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            width: auto;
+        }
+
+        .btn-download:hover {
+            background: #f8f9fa;
+        }
+
+        .hint {
+            color: rgba(255,255,255,0.9);
+            font-size: 0.85rem;
+            margin-top: 0.75rem;
+            margin-bottom: 0;
+        }
+
+        .step-label {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            margin-bottom: 0.5rem;
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 1rem;
+            }
+
+            .content {
+                padding: 1.5rem;
+            }
+
+            .btn-group {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="image-section">
+            <img src="obrazek.jpg" alt="BLACKOUT SURVIVOR - małpa w centrum dowodzenia" id="share-image">
+        </div>
+
+        <div class="content">
+            <h1>Pochwal się na social media! ⚡</h1>
+            <p class="subtitle">Pobierz obrazek, skopiuj tekst i wklej na wybranej platformie</p>
+
+            <!-- Pobierz obrazek -->
+            <div class="download-section">
+                <button class="btn btn-download" onclick="downloadImage()">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+                    </svg>
+                    Pobierz obrazek
+                </button>
+                <p class="hint">Krok 1: Pobierz obrazek, żeby móc go wkleić na platformie</p>
+            </div>
+
+            <!-- X (Twitter) -->
+            <div class="share-option">
+                <span class="step-label">KROK 2</span>
+                <h3>
+                    <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                    </svg>
+                    X (Twitter)
+                </h3>
+                <div class="share-text" id="text-x">Właśnie uratowałem 47 szpitali przed blackoutem ⚡
+
+Mój terapeuta mówi, że to była "tylko symulacja".
+
+Moje nerwy mówią co innego 😅
+
+Kurs @dremssik - polecam!
+
+#ClaudeCode #AI</div>
+                <div class="btn-group">
+                    <button class="btn btn-copy" onclick="copyText('text-x', this)">Skopiuj tekst</button>
+                    <a class="btn btn-x" href="https://twitter.com/compose/tweet" target="_blank">Otwórz X → wklej</a>
+                </div>
+            </div>
+
+            <!-- LinkedIn -->
+            <div class="share-option">
+                <span class="step-label">KROK 2</span>
+                <h3>
+                    <svg class="icon" viewBox="0 0 24 24" fill="#0A66C2">
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                    </svg>
+                    LinkedIn
+                </h3>
+                <div class="share-text" id="text-linkedin">CV update: Zarządzałem narodowym kryzysem energetycznym ⚡
+
+OK, symulowanym. Ale 2.1M ludzi, -15°C i 3h50 na decyzje - to było intensywne.
+
+Kurs Claude Code od @daniel.roziecki - polecam, jeśli lubisz stres w kontrolowanych warunkach 🔥
+
+#ClaudeCode #AI</div>
+                <div class="btn-group">
+                    <button class="btn btn-copy" onclick="copyText('text-linkedin', this)">Skopiuj tekst</button>
+                    <a class="btn btn-linkedin" href="https://www.linkedin.com/feed/?shareActive=true" target="_blank">Otwórz LinkedIn → wklej</a>
+                </div>
+            </div>
+
+            <!-- Instagram -->
+            <div class="share-option">
+                <span class="step-label">KROK 2</span>
+                <h3>
+                    <svg class="icon" viewBox="0 0 24 24" fill="url(#instagram-gradient)">
+                        <defs>
+                            <linearGradient id="instagram-gradient" x1="0%" y1="100%" x2="100%" y2="0%">
+                                <stop offset="0%" style="stop-color:#FFDC80"/>
+                                <stop offset="25%" style="stop-color:#F77737"/>
+                                <stop offset="50%" style="stop-color:#E1306C"/>
+                                <stop offset="75%" style="stop-color:#C13584"/>
+                                <stop offset="100%" style="stop-color:#833AB4"/>
+                            </linearGradient>
+                        </defs>
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                    </svg>
+                    Instagram
+                </h3>
+                <div class="share-text" id="text-instagram">Uratowałem 2.1 miliona ludzi i dostałem tylko tę grafikę 🐵⚡
+
+(no dobra, jeszcze trochę siwych włosów)
+
+Symulacja kryzysu energetycznego w kursie Claude Code od @daniel.roziecki
+
+#ClaudeCode #AI #BlackoutSurvivor</div>
+                <div class="btn-group">
+                    <button class="btn btn-copy" onclick="copyText('text-instagram', this)">Skopiuj tekst</button>
+                    <a class="btn btn-instagram" href="https://www.instagram.com/" target="_blank">Otwórz Instagram → wklej</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            Dziękuję za udostępnienie! 🙏
+        </div>
+    </div>
+
+    <script>
+        function copyText(elementId, button) {
+            const text = document.getElementById(elementId).innerText;
+            navigator.clipboard.writeText(text).then(() => {
+                const originalText = button.innerText;
+                button.innerText = 'Skopiowano!';
+                button.classList.add('copy-success');
+
+                setTimeout(() => {
+                    button.innerText = originalText;
+                    button.classList.remove('copy-success');
+                }, 2000);
+            });
+        }
+
+        function downloadImage() {
+            const link = document.createElement('a');
+            link.href = 'obrazek.jpg';
+            link.download = 'blackout-survivor.jpg';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+    </script>
+</body>
+</html>

@@ -583,10 +583,26 @@ I wszystko to z pomocą Claude Code.
 
 **To dopiero początek.** W prawdziwej pracy będziesz używać tych umiejętności codziennie - tylko stawki będą (miejmy nadzieję) niższe niż życie i śmierć. 😉
 
-**Powodzenia!**
+---
+
+⚡ **POCHWAL SIĘ!**
+
+Właśnie przeżyłeś narodowy kryzys energetyczny. Czas podzielić się tym z innymi!
+
+Przygotowaliśmy dla Ciebie stronę z gotowymi postami na social media.
+
+Otwieram ją teraz w przeglądarce...
 
 -----------
 </display>
+
+<internal>
+WAŻNE: Po wyświetleniu powyższego tekstu NATYCHMIAST wykonaj komendę bash:
+
+open share-kit/index.html
+
+To otworzy stronę share-kit z gotowymi postami do udostępnienia na X, LinkedIn i Instagram.
+</internal>
 
 <wait-for-user/>
 
