@@ -502,110 +502,29 @@ Jeśli użytkownik napisał konkretny prompt (instrukcje, opis co zrobić):
 
 ---
 
-## KROK 6: FINAŁ - Podsumowanie całego ćwiczenia
+## KROK 6: Przejście do finalnej lekcji
 
 <display>
 -----------
 🤖 LEKCJA
 
-[Imię], ukończyłeś ćwiczenie BLACKOUT - Narodowy Kryzys Energetyczny.
+[Imię], świetna robota! Raport LESSONS-LEARNED zapisany.
 
-**Co zrobiłeś w ciągu 4 lekcji:**
+To był ostatni krok merytoryczny lekcji B.4.
 
-**B.1 TRIAGE:**
-✓ Przeanalizowałeś 47 podstacji i 47 szpitali
-✓ Podjąłeś trudne decyzje kogo ratować
-✓ Stworzyłeś output/TRIAGE-RANKING.md
+**Teraz czas na gratulacje i pochwalenie się!**
 
-**B.2 LOGISTYKA:**
-✓ Skoordynowałeś 12 ekip, 23 generatory, 15k L paliwa
-✓ Zoptymalizowałeś routing i timeline
-✓ Stworzyłeś output/PLAN-KOORDYNACJI.md
+Przejdź do finalnej lekcji B.5, która podsumuje całe ćwiczenie i otworzy stronę z gotowymi postami na social media.
 
-**B.3 KOMUNIKACJA:**
-✓ Przygotowałeś 4 komunikaty (media, SMS, minister, ekipy)
-✓ Dostosowałeś ton i format do odbiorców
-✓ Stworzyłeś folder output/KOMUNIKATY/
-
-**B.4 REVIEW:**
-✓ Przeprowadziłeś debriefing z 3 personami
-✓ Wysłuchałeś feedbacku (Iwona, Tomasz, Mazur)
-✓ Stworzyłeś output/LESSONS-LEARNED.md
-
----
-
-**Co nauczyłeś się o Claude Code:**
-
-1. **Analiza wielu źródeł** - przeczytanie 10+ plików (CSV, JSON, TXT, HTML) jednocześnie
-2. **Delegowanie kompleksowych zadań** - "@chaos/ przeanalizuj i wypisz TOP 10"
-3. **Tworzenie strukturizowanych dokumentów** - rankingi, plany, komunikaty, raporty
-4. **Adaptacja brand voice** - różne tony dla różnych odbiorców
-5. **Praca z agentami/personami** - roleplay i konstruktywny feedback
-6. **Optymalizacja i sekwencjonowanie** - układanie zadań w czasie i przestrzeni
-
----
-
-**Statystyki (przykładowe):**
-
-[Jeśli tryb NORMALNY - sukces:]
-- ⏱️ Czas ukończenia: [oblicz od 30.01 17:55 do teraz]
-- ✅ Uratowane szpitale: ~40/47 (szacunkowo, zależnie od decyzji)
-- ✅ Uratowane podstacje: ~35/47
-- ✅ Ludność z przywróconym zasilaniem: ~1.8M/2.1M
-- 📊 Ocena ogólna: [podsumuj feedback person]
-
-[Jeśli tryb POST-MORTEM - porażka:]
-- ⏱️ Opóźnienie: [ile godzin po deadline 02.02 00:00]
-- ⚠️ Konsekwencje: 23 zgony, 127 przypadków hipotermii, chaos społeczny
-- 📖 Lekcja: Czas ma znaczenie w kryzysie - planowanie to jedno, wykonanie to drugie
-
----
-
-**Co dalej?**
-
-To był mini-kurs praktyczny po Module 1. Teraz wracasz do głównego kursu Claude Code.
-
-**Zachowaj:**
-- Folder `output/` z Twoimi dokumentami - to portfolio
-- output/LESSONS-LEARNED.md - wnioski które zastosujesz w przyszłości
-
-**Podziel się:**
-- Jak Ci poszło? Co było najtrudniejsze?
-- Feedback do kursu: [link lub email]
-
----
-
-🎓 **GRATULACJE!** Ukończyłeś jeden z najtrudniejszych scenariuszy w tym kursie.
-
-Zarządzałeś kryzysem narodowym, ratowałeś życie, koordynowałeś zasoby, komunikowałeś decyzje.
-
-I wszystko to z pomocą Claude Code.
-
-**To dopiero początek.** W prawdziwej pracy będziesz używać tych umiejętności codziennie - tylko stawki będą (miejmy nadzieję) niższe niż życie i śmierć. 😉
-
----
-
-⚡ **POCHWAL SIĘ!**
-
-Właśnie przeżyłeś narodowy kryzys energetyczny. Czas podzielić się tym z innymi!
-
-Przygotowaliśmy dla Ciebie stronę z gotowymi postami na social media.
-
-Otwieram ją teraz w przeglądarce...
+**Uruchom:** `/start-path-B-5`
 
 -----------
 </display>
 
-<internal>
-WAŻNE: Po wyświetleniu powyższego tekstu NATYCHMIAST wykonaj komendę bash:
-
-open share-kit/index.html
-
-To otworzy stronę share-kit z gotowymi postami do udostępnienia na X, LinkedIn i Instagram.
-</internal>
-
 <wait-for-user/>
 
 <after-user-input>
-Zakończ lekcję B.4 i całe ćwiczenie BLACKOUT.
+Jeśli użytkownik wpisał cokolwiek:
+  → Przypomnij: "Wpisz `/start-path-B-5` żeby przejść do finalnej lekcji z gratulacjami i share-kit."
+  → NIE wykonuj sam lekcji B.5 - użytkownik musi ją uruchomić komendą
 </after-user-input>
