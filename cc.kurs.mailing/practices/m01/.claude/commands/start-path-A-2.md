@@ -2,7 +2,7 @@
 model: sonnet
 ---
 
-# Lekcja B.2: LOGISTYKA ŻYCIA - Generatory, ekipy, paliwo
+# Lekcja A.2: LOGISTYKA ŻYCIA - Generatory, ekipy, paliwo
 
 <lesson-intro>
 Masz decyzje. Teraz czas na koordynację zasobów.
@@ -25,7 +25,24 @@ Problem: jak to zrobić fizycznie?
 ⚠️ **PALIWO W SZPITALACH:** średnio 2h 30min pozostało
 
 <check-deadline>
-[Sprawdź datę systemową - jeśli o równej lub po 2026-02-02 00:00 → tryb POST-MORTEM, wyświetl komunikat o tragedii]
+Sprawdź obecną datę systemową:
+- Jeśli PRZED 2026-02-02 00:00 → tryb NORMALNY (kontynuuj lekcję)
+- Jeśli O RÓWNEJ lub PO 2026-02-02 00:00 → tryb POST-MORTEM:
+
+  1. Wyświetl komunikat:
+
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+     ⚠️ DEADLINE MINĄŁ - TRYB SYMULACJI
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+     Kontynuujesz w trybie "co by było gdyby".
+     Wszystkie outputy będą oznaczone prefiksem [SYMULACJA].
+
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  2. Kontynuuj lekcję normalnie, ale:
+     - Wszystkie zapisywane pliki mają prefix [SYMULACJA] w pierwszej linii
+     - Ton person w A.4/B.4 jest bardziej krytyczny
 </check-deadline>
 </lesson-intro>
 
@@ -101,11 +118,25 @@ To będzie baza dla planu koordynacji.
 </hint>
 
 <after-user-input>
-Jeśli hint → wyświetl jako blok kodu
-Jeśli własny prompt z "oceń" → OCEŃ i poproś o poprawę (NIE przechodź dalej)
-Jeśli własny prompt → WYKONAJ (przeczytaj output/TRIAGE-RANKING.md, wypisz decyzje)
+WAŻNE: "gotowy", "ok", "dalej" to NIE jest prompt - czekaj na konkretne instrukcje!
 
-Przejdź do KROKU 2.
+Jeśli użytkownik wpisał "hint" lub "podpowiedź":
+  → Wyświetl treść <hint> jako blok kodu
+  → Powiedz: "Możesz użyć tego promptu, zmodyfikować go lub napisać własny."
+  → CZEKAJ - NIE przechodź dalej
+
+Jeśli użytkownik napisał prompt z "oceń" / "sprawdź" / "co sądzisz":
+  → OCEŃ prompt (co dobre, co poprawić)
+  → CZEKAJ na poprawiony prompt - NIE przechodź dalej
+
+Jeśli użytkownik wpisał tylko "gotowy" / "ok" / "dalej" / "następny":
+  → To NIE jest prompt do wykonania
+  → Odpowiedz: "Napisz własny prompt lub wpisz 'hint' żeby zobaczyć gotową podpowiedź."
+  → CZEKAJ - NIE przechodź dalej
+
+Jeśli użytkownik napisał konkretny prompt (instrukcje z @plikami, opis co zrobić):
+  → WYKONAJ prompt użytkownika
+  → Po wykonaniu przejdź do KROKU 2
 </after-user-input>
 
 ---
@@ -153,7 +184,7 @@ Przeanalizuj zasoby i odpowiedz:
 
 <wait-for-user/>
 
-<hint-variant-a>
+<hint>
 ```
 Przeczytaj @chaos/ekipy/ (wszystkie pliki) i przeanalizuj:
 
@@ -178,45 +209,28 @@ Zapisz w output/analiza-zasoby.md:
 - Suma paliwa potrzebnego vs dostępnego
 - Bottlenecki i ryzyka
 ```
-</hint-variant-a>
-
-<hint-variant-b>
-```
-Przeczytaj @chaos/ekipy/ (wszystkie pliki) i odpowiedz:
-
-1. **Ekipy:**
-   - Dla każdej z TOP 10 podstacji (z mojego TRIAGE): która ekipa powinna tam pojechać?
-   - Czy któraś ekipa będzie musiała obsłużyć kilka podstacji po kolei? (to zajmie więcej czasu)
-   - Jakie są największe ryzyka? (ekipa daleko, duży ruch, sprzęt może brakować)
-
-2. **Generatory:**
-   - Dla każdego z TOP 10 szpitali: który generator mobilny jest najlepszy? (wystarczająca moc, najbliżej)
-   - Ile czasu zajmie transport i podłączenie?
-   - Czy wszystkie szpitale CRITICAL dostaną generatory PRZED próbą restart podstacji?
-
-3. **Paliwo:**
-   - Ile paliwa potrzebuję dla 10 generatorów na 3 godziny? (każdy ~150L)
-   - Czy 15,000L wystarczy?
-   - Który depot paliwa ma najwięcej? Czy jest otwarty teraz?
-
-Zapisz w output/analiza-zasoby.md:
-- Lista ekip → gdzie jadą → kiedy dotrą
-- Lista generatorów → które szpitale → kiedy dotrą
-- Paliwo: ile potrzebuję vs ile mam
-- Co może pójść nie tak (ryzyka)
-```
-</hint-variant-b>
-
-<hint>
-[Wyświetl odpowiedni wariant]
 </hint>
 
 <after-user-input>
-Jeśli hint → wyświetl odpowiedni wariant jako blok kodu
-Jeśli własny prompt z "oceń" → OCEŃ i poproś o poprawę (NIE przechodź dalej)
-Jeśli własny prompt → WYKONAJ (przeczytaj chaos/ekipy/, stwórz analiza-zasoby.md)
+WAŻNE: "gotowy", "ok", "dalej" to NIE jest prompt - czekaj na konkretne instrukcje!
 
-Przejdź do KROKU 3.
+Jeśli użytkownik wpisał "hint" lub "podpowiedź":
+  → Wyświetl treść <hint> jako blok kodu
+  → Powiedz: "Możesz użyć tego promptu, zmodyfikować go lub napisać własny."
+  → CZEKAJ - NIE przechodź dalej
+
+Jeśli użytkownik napisał prompt z "oceń" / "sprawdź" / "co sądzisz":
+  → OCEŃ prompt (co dobre, co poprawić)
+  → CZEKAJ na poprawiony prompt - NIE przechodź dalej
+
+Jeśli użytkownik wpisał tylko "gotowy" / "ok" / "dalej" / "następny":
+  → To NIE jest prompt do wykonania
+  → Odpowiedz: "Napisz własny prompt lub wpisz 'hint' żeby zobaczyć gotową podpowiedź."
+  → CZEKAJ - NIE przechodź dalej
+
+Jeśli użytkownik napisał konkretny prompt (instrukcje z @plikami, opis co zrobić):
+  → WYKONAJ prompt użytkownika
+  → Po wykonaniu przejdź do KROKU 3
 </after-user-input>
 
 ---
@@ -303,7 +317,7 @@ Plan musi umożliwić Markowi wydanie konkretnych rozkazów 12 ekipom.
 
 <wait-for-user/>
 
-<hint-variant-a>
+<hint>
 ```
 Na podstawie @output/analiza-zasoby.md i @output/TRIAGE-RANKING.md stwórz:
 
@@ -361,87 +375,28 @@ output/PLAN-KOORDYNACJI.md z następującą strukturą:
 
 [etc. dla każdego głównego ryzyka]
 ```
-</hint-variant-a>
-
-<hint-variant-b>
-```
-Na podstawie @output/analiza-zasoby.md i @output/TRIAGE-RANKING.md napisz:
-
-output/PLAN-KOORDYNACJI.md ze szczegółowym planem:
-
-## FALA 1: Co robimy w pierwszej godzinie (18:30-19:30)
-
-### Ekipy remontowe
-[Dla każdej ekipy wypisz:]
-- Ekipa-XX jedzie do Podstacji YY
-  - Wyjazd: 18:35
-  - Dotrze: 19:05 (30 min drogi)
-  - Naprawa: 20 minut
-  - Gotowa: 19:25
-  - Dlaczego ta podstacja? [uzasadnienie z TRIAGE]
-  - Co może pójść nie tak? [ryzyka]
-
-### Generatory mobilne (backup dla szpitali)
-[Dla każdego szpitala CRITICAL:]
-- Generator-XX (200kW) jedzie do Szpitala YY
-  - Wyjazd: 18:32
-  - Dotrze: 18:57 (25 min)
-  - Podłączenie: 15 min (gotowy 19:12)
-  - Dlaczego ten szpital dostaje generator? [noworodki / ECMO / respiratory]
-  - Ile paliwa potrzebuje? 150L
-
-### Paliwo
-- Depot-A (8,000L): [lista do których generatorów]
-- Depot-B (ZAMKNIĘTY do 19:00): czekamy, potem tankujemy [lista]
-- Depot-C (7,000L): [lista do których generatorów]
-
-## FALA 2: Co robimy w drugiej godzinie (19:30-20:30)
-
-[Podobnie - kolejne podstacje, tankowanie, etc.]
-
-## TIMELINE: Co się dzieje o której godzinie
-
-18:30 - Startujemy
-18:32 - Generatory mobilne wyjeżdżają do szpitali
-18:35 - Ekipy wyjeżdżają do podstacji
-19:00 - Depot-B się otwiera → tankujemy więcej generatorów
-19:12 - Pierwszy generator gotowy (Szpital Dziecięcy - 2 noworodki)
-19:20 - Pierwsza podstacja gotowa (PS-XX) → zasilanie wraca do dzielnicy YY
-19:25 - Druga podstacja gotowa → kolejne szpitale mają prąd
-...
-20:50 - Pierwsze szpitale kończą paliwo w generatorach (jeśli nie zdążymy)
-
-## Co musi być PRZED czym (dependencies)
-
-1. Generatory mobilne MUSZĄ być gotowe PRZED próbą restart PS-08 (bo może spłonąć)
-2. PS-01 MUSI działać PRZED PS-02 i PS-23 (bo zależą od niej)
-3. Szpitale CRITICAL dostaną generatory PRZED wszystkim innym
-
-## Co może pójść nie tak i co wtedy robimy
-
-**Ryzyko 1:** PS-08 spłonie podczas restart
-- **Co robimy:** Mamy generatory mobilne w 3 szpitalach jako backup → przełączamy w 2 min
-
-**Ryzyko 2:** Ekipa się spóźni (korek, wypadek)
-- **Co robimy:** Inna ekipa przejmuje (Ekipa-07 jest 15 min dalej - może zastąpić Ekipa-03)
-
-**Ryzyko 3:** Generator się zepsuje
-- **Co robimy:** Mamy 3 generatory zapasowe w Depot-C (nie alokowane jeszcze)
-
-[etc.]
-```
-</hint-variant-b>
-
-<hint>
-[Wyświetl odpowiedni wariant]
 </hint>
 
 <after-user-input>
-Jeśli hint → wyświetl odpowiedni wariant jako blok kodu
-Jeśli własny prompt z "oceń" → OCEŃ i poproś o poprawę (NIE przechodź dalej)
-Jeśli własny prompt → WYKONAJ (stwórz output/PLAN-KOORDYNACJI.md)
+WAŻNE: "gotowy", "ok", "dalej" to NIE jest prompt - czekaj na konkretne instrukcje!
 
-Po wykonaniu przejdź do KROKU 4 (podsumowanie).
+Jeśli użytkownik wpisał "hint" lub "podpowiedź":
+  → Wyświetl treść <hint> jako blok kodu
+  → Powiedz: "Możesz użyć tego promptu, zmodyfikować go lub napisać własny."
+  → CZEKAJ - NIE przechodź dalej
+
+Jeśli użytkownik napisał prompt z "oceń" / "sprawdź" / "co sądzisz":
+  → OCEŃ prompt (co dobre, co poprawić)
+  → CZEKAJ na poprawiony prompt - NIE przechodź dalej
+
+Jeśli użytkownik wpisał tylko "gotowy" / "ok" / "dalej" / "następny":
+  → To NIE jest prompt do wykonania
+  → Odpowiedz: "Napisz własny prompt lub wpisz 'hint' żeby zobaczyć gotową podpowiedź."
+  → CZEKAJ - NIE przechodź dalej
+
+Jeśli użytkownik napisał konkretny prompt (instrukcje z @plikami, opis co zrobić):
+  → WYKONAJ prompt użytkownika
+  → Po wykonaniu przejdź do KROKU 4 (podsumowanie)
 </after-user-input>
 
 ---
@@ -452,13 +407,13 @@ Po wykonaniu przejdź do KROKU 4 (podsumowanie).
 -----------
 🤖 LEKCJA
 
-[Imię], ukończył[eś/aś] drugi etap kryzysu - LOGISTYKA.
+[Imię], ukończyłeś drugi etap kryzysu - LOGISTYKA.
 
-**Co [zrobiłeś/zrobiłaś]:**
-✓ Przeanalizował[eś/aś] zasoby (12 ekip, 23 generatory, 15k L paliwa)
-✓ Zoptymalizował[eś/aś] routing (kto, gdzie, kiedy)
+**Co zrobiłeś:**
+✓ Przeanalizowałeś zasoby (12 ekip, 23 generatory, 15k L paliwa)
+✓ Zoptymalizowałeś routing (kto, gdzie, kiedy)
 ✓ Stworzyłeś output/PLAN-KOORDYNACJI.md z timeline i dependencies
-✓ Zidentyfikował[eś/aś] ryzyka i plan B
+✓ Zidentyfikowałeś ryzyka i plan B
 
 **Co nauczyłeś się o Claude Code:**
 - Integracja wielu źródeł danych (podstacje + szpitale + ekipy + paliwo)
@@ -476,10 +431,24 @@ Masz plan operacyjny. Teraz musisz ZAKOMUNIKOWAĆ:
 ⏱️ Scenariusz: 19:30 (1h 35min od ataku)
 ⏱️ Paliwo w szpitalach: średnio 1h 30min pozostało
 
+---
+
+**Zarządzanie kontekstem:**
+Zanim uruchomisz następną lekcję, sprawdź swój kontekst:
+
+1. Sprawdź ile kontekstu zużyłeś: `/context`
+2. (Opcjonalnie) Skompaktuj historię: `/compact`
+3. Wyczyść kontekst przed następną lekcją: `/clear`
+
+Czyszczenie kontekstu zapobiega pomieszaniu instrukcji z różnych lekcji
+i optymalizuje koszty tokenów.
+
+---
+
 **Gotowy na kolejną lekcję?**
 
 ```
-/start-b-3.v2
+/start-path-A-3
 ```
 
 -----------
@@ -488,6 +457,6 @@ Masz plan operacyjny. Teraz musisz ZAKOMUNIKOWAĆ:
 <wait-for-user/>
 
 <after-user-input>
-Zakończ lekcję B.2.
-Użytkownik może teraz uruchomić /start-b-3.v2 kiedy będzie gotowy.
+Zakończ lekcję A.2.
+Użytkownik może teraz uruchomić /start-path-A-3 kiedy będzie gotowy.
 </after-user-input>

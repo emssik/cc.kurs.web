@@ -189,4 +189,6 @@ To jest **nauka**, nie test charakteru. Możesz eksperymentować, popełniać b�
 
 ---
 
-**Gotowy?** Rozpocznij od `/start-b-1.v2`
+**Gotowy?** Wybierz swoją ścieżkę:
+- **Ścieżka A (tech):** `/start-path-A-1`
+- **Ścieżka B (non-tech):** `/start-path-B-1`

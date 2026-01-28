@@ -43,10 +43,16 @@ cd /sciezka/do/practices/m01
 claude
 ```
 
-### Krok 3: Rozpocznij pierwszą lekcję
+### Krok 3: Wybierz wariant i rozpocznij pierwszą lekcję
 
+**Wariant A (tech/programistyczny):**
 ```
-/start-b-1.v2
+/start-path-A-1
+```
+
+**Wariant B (non-tech/biznesowy):**
+```
+/start-path-B-1
 ```
 
 To wszystko! Claude przeprowadzi Cię przez cały mini-kurs.
@@ -103,12 +109,12 @@ Po ukończeniu mini-kursu będziesz mieć:
 
 ## Warianty zadań
 
-Mini-kurs oferuje 2 warianty dostosowane do różnych profili:
+Mini-kurs oferuje 2 ścieżki dostosowane do różnych profili:
 
-- **Wariant A (tech/programistyczny):** Więcej analizy danych (CSV/JSON parsing), optymalizacja routingu, hinty z pseudokodem
-- **Wariant B (non-tech/biznesowy):** Więcej analizy humanitarnej i decyzyjnej, koordynacja zespołu, hinty z bullet points
+- **Ścieżka A (tech/programistyczny):** Więcej analizy danych (CSV/JSON parsing), optymalizacja routingu, hinty z pseudokodem. Start: `/start-path-A-1`
+- **Ścieżka B (non-tech/biznesowy):** Więcej analizy humanitarnej i decyzyjnej, koordynacja zespołu, hinty z bullet points. Start: `/start-path-B-1`
 
-Wybierasz wariant w lekcji B.1 (KROK 2). Oba prowadzą do tego samego celu - uratowania ludzi.
+Wybierasz wariant na starcie, uruchamiając odpowiednią komendę. Oba prowadzą do tego samego celu - uratowania ludzi.
 
 ---
 
@@ -180,10 +186,14 @@ practices/m01/
 └── .claude/
     ├── commands/
     │   ├── lesson-protocol.md      # Protokół prowadzenia lekcji
-    │   ├── start-b-1.v2.md         # Lekcja B.1: TRIAGE
-    │   ├── start-b-2.v2.md         # Lekcja B.2: LOGISTYKA
-    │   ├── start-b-3.v2.md         # Lekcja B.3: KOMUNIKACJA
-    │   ├── start-b-4.v2.md         # Lekcja B.4: REVIEW
+    │   ├── start-path-A-1.md       # Ścieżka A, Lekcja 1: TRIAGE (tech)
+    │   ├── start-path-A-2.md       # Ścieżka A, Lekcja 2: LOGISTYKA
+    │   ├── start-path-A-3.md       # Ścieżka A, Lekcja 3: KOMUNIKACJA
+    │   ├── start-path-A-4.md       # Ścieżka A, Lekcja 4: REVIEW
+    │   ├── start-path-B-1.md       # Ścieżka B, Lekcja 1: TRIAGE (non-tech)
+    │   ├── start-path-B-2.md       # Ścieżka B, Lekcja 2: LOGISTYKA
+    │   ├── start-path-B-3.md       # Ścieżka B, Lekcja 3: KOMUNIKACJA
+    │   ├── start-path-B-4.md       # Ścieżka B, Lekcja 4: REVIEW
     │   └── pomoc.md                # Pomoc w trakcie ćwiczenia
     └── agents/
         ├── dyrektor-iwona.md       # Persona: Iwona Krawczyk (Dyrektor Operacyjny)
@@ -254,10 +264,16 @@ cd /sciezka/do/practices/m01
 claude
 ```
 
-A następnie:
+A następnie wybierz swoją ścieżkę:
 
+**Ścieżka A (tech):**
 ```
-/start-b-1.v2
+/start-path-A-1
+```
+
+**Ścieżka B (non-tech):**
+```
+/start-path-B-1
 ```
 
 ⏱️ **Czas zaczyna lecieć. Generatory w szpitalach kończą paliwo za 3h 25min.**

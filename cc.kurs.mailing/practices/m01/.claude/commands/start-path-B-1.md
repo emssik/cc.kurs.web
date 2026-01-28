@@ -16,6 +16,9 @@ Temperatura: -15°C. 47 szpitali na generatorach - paliwo starczy 2h30-3h50 (do 
 
 To nie jest ćwiczenie teoretyczne. Życie i śmierć zależy od Twoich decyzji.
 
+**WARIANT: NON-TECH/BIZNESOWY**
+Hinty zawierają decyzje, komunikację, analizę humanitarną.
+
 ⏱️ **REAL-TIME DEADLINE:** Poniedziałek 2 lutego 2026, 00:00 (twój czas)
 ⏱️ **SCENARIUSZ:** Piątek 30 stycznia 2026, 17:55
 ⚠️ **PALIWO W SZPITALACH:** średnio 3h 05min pozostało
@@ -55,7 +58,23 @@ W trybie POST-MORTEM:
    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 2. Jeśli użytkownik odpowie TAK → wszystkie outputy z prefixem [SYMULACJA]
-3. Jeśli NIE → zakończ lekcję z linkiem do lekcji B.4 (review porażki)
+3. Jeśli NIE → wyświetl komunikat końcowy:
+
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   📖 KONIEC ĆWICZENIA
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+   Deadline minął - to część nauki.
+
+   W prawdziwym kryzysie czas jest krytyczny.
+   Każda godzina opóźnienia kosztuje życie.
+
+   **Lekcja:** Planowanie to jedno, wykonanie to drugie.
+
+   Możesz wrócić do tego ćwiczenia kiedykolwiek
+   i spróbować ponownie przed deadline.
+
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 </check-deadline>
 </lesson-intro>
 
@@ -83,7 +102,7 @@ To pomoże mi dostosować komunikację do Ciebie.
 Zapisz imię i płeć do `output/user.txt` w formacie:
 ```
 Imię: [imię]
-Płeć: [K lub M] 
+Płeć: [K lub M]
 ```
 
 Płeć określ na podstawie imienia, jeśli nie jesteś pewny, oznacz jako M.
@@ -143,65 +162,30 @@ Wypisz strukturę drzewa katalogów z krótkimi opisami czego dotyczy każdy pli
 </hint>
 
 <after-user-input>
-Jeśli użytkownik wpisał "hint" → wyświetl treść <hint> jako blok kodu
-Jeśli użytkownik napisał własny prompt:
-  - Jeśli zawiera "oceń" / "sprawdź" / "co sądzisz" → OCEŃ prompt (nie wykonuj):
-    * Co jest dobre
-    * Co można poprawić
-    * Konkretna sugestia
-    * PO OCENIE: poproś o poprawiony prompt i NIE przechodź do kolejnego kroku
-  - Jeśli NIE zawiera prośby o ocenę → WYKONAJ prompt:
-    * Przeczytaj kontekst/SCENARIUSZ.md
-    * Pokaż strukturę chaos/
-    * Wypisz krótkie opisy zawartości
+WAŻNE: "gotowy", "ok", "dalej" to NIE jest prompt - czekaj na konkretne instrukcje!
 
-Po wykonaniu przejdź do KROKU 2.
+Jeśli użytkownik wpisał "hint" lub "podpowiedź":
+  → Wyświetl treść <hint> jako blok kodu
+  → Powiedz: "Możesz użyć tego promptu, zmodyfikować go lub napisać własny."
+  → CZEKAJ - NIE przechodź dalej
+
+Jeśli użytkownik napisał prompt z "oceń" / "sprawdź" / "co sądzisz":
+  → OCEŃ prompt (co dobre, co poprawić)
+  → CZEKAJ na poprawiony prompt - NIE przechodź dalej
+
+Jeśli użytkownik wpisał tylko "gotowy" / "ok" / "dalej" / "następny":
+  → To NIE jest prompt do wykonania
+  → Odpowiedz: "Napisz własny prompt lub wpisz 'hint' żeby zobaczyć gotową podpowiedź."
+  → CZEKAJ - NIE przechodź dalej
+
+Jeśli użytkownik napisał konkretny prompt (instrukcje z @plikami, opis co zrobić):
+  → WYKONAJ prompt użytkownika
+  → Po wykonaniu przejdź do KROKU 2
 </after-user-input>
 
 ---
 
-## KROK 2: Wybór wariantu (A tech / B non-tech)
-
-<display>
------------
-🤖 LEKCJA
-
-[Imię], teraz musisz wybrać wariant ćwiczenia.
-
-To ćwiczenie ma dwa warianty dostosowane do różnych profili:
-
-**Wariant A (tech/programistyczny):**
-- Więcej analizy danych (CSV/JSON parsing)
-- Hinty z pseudokodem i algorytmami
-- Zadania: optymalizacja routingu, scripting, arkusze
-
-**Wariant B (non-tech/biznesowy):**
-- Więcej analizy humanitarnej i decyzyjnej
-- Hinty z bullet points i decyzjami
-- Zadania: briefingi, komunikacja, koordynacja zespołu
-
-Oba warianty prowadzą do tego samego celu - uratowania ludzi. Różnią się podejściem.
-
-**Wybierz wariant:** Wpisz "A" lub "B"
-
------------
-</display>
-
-<wait-for-user/>
-
-<after-user-input>
-Zapisz wybór do `output/wariant.txt`:
-```
-Wariant: [A lub B]
-```
-
-Przejdź do KROKU 3.
-Od teraz dostosowuj hinty według wybranego wariantu (patrz: <hint-variant-a> i <hint-variant-b>).
-</after-user-input>
-
----
-
-## KROK 3: Analiza podstacji (chaos/podstacje/)
+## KROK 2: Analiza podstacji (chaos/podstacje/)
 
 <alarm>
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -244,22 +228,7 @@ Zidentyfikuj:
 
 <wait-for-user/>
 
-<hint-variant-a>
-```
-Przeczytaj @chaos/podstacje/raporty-podstacji.csv i przeanalizuj:
-
-1. Które podstacje mają status "SPRAWNA" vs "USZKODZONA" vs "RYZYKO"
-2. Dla każdej podstacji: ile osób zasila, czas naprawy, czy ma dependencies
-3. Stwórz ranking podstacji według:
-   - Priorytet = (ludnosc_zasila × 100) + (szpitale_zalezne × 10000) - (czas_naprawy_min × 10)
-   - Im wyższy priorytet, tym ważniejsza podstacja
-4. Zapisz TOP 15 podstacji w output/analiza-podstacje.md z uzasadnieniem
-
-Format: tabela + bullet points z kluczowymi insights
-```
-</hint-variant-a>
-
-<hint-variant-b>
+<hint>
 ```
 Przeczytaj @chaos/podstacje/raporty-podstacji.csv i odpowiedz:
 
@@ -274,27 +243,33 @@ Zapisz TOP 15 podstacji w output/analiza-podstacje.md:
 - Ryzyko i czas naprawy
 - Rekomendacja: czy restart / naprawa / pominąć
 ```
-</hint-variant-b>
-
-<hint>
-[Wyświetl hint-variant-a lub hint-variant-b w zależności od wyboru użytkownika w KROKU 2]
 </hint>
 
 <after-user-input>
-Jeśli użytkownik wpisał "hint" → wyświetl odpowiedni wariant jako blok kodu
-Jeśli użytkownik napisał własny prompt:
-  - Jeśli zawiera "oceń" → OCEŃ prompt i poproś o poprawę (NIE przechodź dalej)
-  - Jeśli NIE → WYKONAJ:
-    * Przeczytaj chaos/podstacje/raporty-podstacji.csv
-    * Przeanalizuj według kryteriów zadania
-    * Stwórz plik output/analiza-podstacje.md
+WAŻNE: "gotowy", "ok", "dalej" to NIE jest prompt - czekaj na konkretne instrukcje!
 
-Po wykonaniu przejdź do KROKU 4.
+Jeśli użytkownik wpisał "hint" lub "podpowiedź":
+  → Wyświetl treść <hint> jako blok kodu
+  → Powiedz: "Możesz użyć tego promptu, zmodyfikować go lub napisać własny."
+  → CZEKAJ - NIE przechodź dalej
+
+Jeśli użytkownik napisał prompt z "oceń" / "sprawdź" / "co sądzisz":
+  → OCEŃ prompt (co dobre, co poprawić)
+  → CZEKAJ na poprawiony prompt - NIE przechodź dalej
+
+Jeśli użytkownik wpisał tylko "gotowy" / "ok" / "dalej" / "następny":
+  → To NIE jest prompt do wykonania
+  → Odpowiedz: "Napisz własny prompt lub wpisz 'hint' żeby zobaczyć gotową podpowiedź."
+  → CZEKAJ - NIE przechodź dalej
+
+Jeśli użytkownik napisał konkretny prompt (instrukcje z @plikami, opis co zrobić):
+  → WYKONAJ prompt użytkownika
+  → Po wykonaniu przejdź do KROKU 3
 </after-user-input>
 
 ---
 
-## KROK 4: Analiza szpitali (chaos/szpitale/)
+## KROK 3: Analiza szpitali (chaos/szpitale/)
 
 <alarm>
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -323,7 +298,7 @@ Zidentyfikuj:
 1. Które szpitale mają priorytet CRITICAL (życie i śmierć)
 2. Ile czasu paliwa zostało każdemu szpitalowi
 3. Którym szpitalom **najpierw** skończy się paliwo
-4. Które podstacje zasilają które szpitale (cross-reference z KROK 3)
+4. Które podstacje zasilają które szpitale (cross-reference z KROK 2)
 
 **Zapisz wyniki w:** `output/analiza-szpitale.md`
 
@@ -337,25 +312,7 @@ Zidentyfikuj:
 
 <wait-for-user/>
 
-<hint-variant-a>
-```
-Przeczytaj @chaos/szpitale/zgłoszenia-szpitali.json i:
-
-1. Stwórz ranking szpitali według:
-   - Priorytet = (pacjenci_critical × 1000) + (200 - generator_paliwo_pozostalo_min)
-2. Cross-reference: które podstacje zasilają TOP 10 szpitali?
-3. Zidentyfikuj "single points of failure" - szpitale zależne od jednej podstacji
-4. Oblicz ile generatorów mobilnych potrzebujemy dla TOP 10 szpitali jako backup
-
-Zapisz w output/analiza-szpitale.md:
-- TOP 10 szpitali (ranking + uzasadnienie)
-- Mapping: szpital → podstacja
-- Critical dependencies
-- Potrzebne zasoby (generatory mobilne)
-```
-</hint-variant-a>
-
-<hint-variant-b>
+<hint>
 ```
 Przeczytaj @chaos/szpitale/zgłoszenia-szpitali.json i odpowiedz:
 
@@ -370,27 +327,33 @@ Zapisz w output/analiza-szpitale.md:
 - Trudne decyzje: które szpitale będą musiały poczekać
 - Moralne dylematy w twoim rankingu
 ```
-</hint-variant-b>
-
-<hint>
-[Wyświetl odpowiedni wariant]
 </hint>
 
 <after-user-input>
-Jeśli użytkownik wpisał "hint" → wyświetl odpowiedni wariant jako blok kodu
-Jeśli użytkownik napisał własny prompt:
-  - Jeśli zawiera "oceń" → OCEŃ prompt i poproś o poprawę (NIE przechodź dalej)
-  - Jeśli NIE → WYKONAJ:
-    * Przeczytaj chaos/szpitale/zgłoszenia-szpitali.json
-    * Przeanalizuj według kryteriów zadania
-    * Stwórz plik output/analiza-szpitale.md
+WAŻNE: "gotowy", "ok", "dalej" to NIE jest prompt - czekaj na konkretne instrukcje!
 
-Po wykonaniu przejdź do KROKU 5.
+Jeśli użytkownik wpisał "hint" lub "podpowiedź":
+  → Wyświetl treść <hint> jako blok kodu
+  → Powiedz: "Możesz użyć tego promptu, zmodyfikować go lub napisać własny."
+  → CZEKAJ - NIE przechodź dalej
+
+Jeśli użytkownik napisał prompt z "oceń" / "sprawdź" / "co sądzisz":
+  → OCEŃ prompt (co dobre, co poprawić)
+  → CZEKAJ na poprawiony prompt - NIE przechodź dalej
+
+Jeśli użytkownik wpisał tylko "gotowy" / "ok" / "dalej" / "następny":
+  → To NIE jest prompt do wykonania
+  → Odpowiedz: "Napisz własny prompt lub wpisz 'hint' żeby zobaczyć gotową podpowiedź."
+  → CZEKAJ - NIE przechodź dalej
+
+Jeśli użytkownik napisał konkretny prompt (instrukcje z @plikami, opis co zrobić):
+  → WYKONAJ prompt użytkownika
+  → Po wykonaniu przejdź do KROKU 4
 </after-user-input>
 
 ---
 
-## KROK 5: Trudne decyzje - ranking finalny
+## KROK 4: Trudne decyzje - ranking finalny
 
 <alarm>
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -479,39 +442,7 @@ Dodaj krótką sekcję "UPDATE 18:10" i opisz, jak korygujesz plan po jednym z l
 
 <wait-for-user/>
 
-<hint-variant-a>
-```
-Na podstawie @output/analiza-podstacje.md i @output/analiza-szpitale.md stwórz:
-
-output/TRIAGE-RANKING.md zawierający:
-
-## FALA 1: Podstacje priorytetowe (restart/naprawa)
-[TOP 10 podstacji z rankingu, dla każdej:]
-- Nazwa podstacji
-- Uzasadnienie (szpitale? ludność? infrastruktura?)
-- Czas naprawy / ryzyko
-- Zasoby potrzebne (ekipa, generatory, paliwo)
-
-## BACKUP: Szpitale na generatorach mobilnych
-[TOP 10 szpitali, dla każdych:]
-- Nazwa szpitala
-- Dlaczego dostają generator mobilny
-- Ile czasu mają do końca paliwa
-- Jaki generator (moc kW)
-
-## Założenia i ograniczenia
-- Jakie kryteria priorytetyzacji użyłem
-- Jakie trade-offy zaakceptowałem
-- Co zostawiam na FALĘ 2 (jeśli będzie czas)
-
-## Trudne decyzje
-- Których szpitali/podstacji NIE ratuję w pierwszej fali
-- Konsekwencje tych decyzji
-- Dlaczego podjąłem taką a nie inną decyzję
-```
-</hint-variant-a>
-
-<hint-variant-b>
+<hint>
 ```
 Na podstawie @output/analiza-podstacje.md i @output/analiza-szpitale.md napisz:
 
@@ -541,44 +472,51 @@ Napisz o moralnych dylematach:
 - Jakie są największe ryzyka w twoim planie?
 - Co zrobisz jeśli coś pójdzie nie tak (plan B)?
 ```
-</hint-variant-b>
-
-<hint>
-[Wyświetl odpowiedni wariant]
 </hint>
 
 <after-user-input>
-Jeśli użytkownik wpisał "hint" → wyświetl odpowiedni wariant jako blok kodu
-Jeśli użytkownik napisał własny prompt:
-  - Jeśli zawiera "oceń" → OCEŃ prompt i poproś o poprawę (NIE przechodź dalej)
-  - Jeśli NIE → WYKONAJ:
-    * Przeczytaj oba pliki analiz
-    * Stwórz output/TRIAGE-RANKING.md z decyzjami
+WAŻNE: "gotowy", "ok", "dalej" to NIE jest prompt - czekaj na konkretne instrukcje!
 
-Po wykonaniu przejdź do KROKU 6 (podsumowanie).
+Jeśli użytkownik wpisał "hint" lub "podpowiedź":
+  → Wyświetl treść <hint> jako blok kodu
+  → Powiedz: "Możesz użyć tego promptu, zmodyfikować go lub napisać własny."
+  → CZEKAJ - NIE przechodź dalej
+
+Jeśli użytkownik napisał prompt z "oceń" / "sprawdź" / "co sądzisz":
+  → OCEŃ prompt (co dobre, co poprawić)
+  → CZEKAJ na poprawiony prompt - NIE przechodź dalej
+
+Jeśli użytkownik wpisał tylko "gotowy" / "ok" / "dalej" / "następny":
+  → To NIE jest prompt do wykonania
+  → Odpowiedz: "Napisz własny prompt lub wpisz 'hint' żeby zobaczyć gotową podpowiedź."
+  → CZEKAJ - NIE przechodź dalej
+
+Jeśli użytkownik napisał konkretny prompt (instrukcje z @plikami, opis co zrobić):
+  → WYKONAJ prompt użytkownika
+  → Po wykonaniu przejdź do KROKU 5 (podsumowanie)
 </after-user-input>
 
 ---
 
-## KROK 6: Podsumowanie i następne kroki
+## KROK 5: Podsumowanie i następne kroki
 
 <display>
 -----------
 🤖 LEKCJA
 
-[Imię], ukończył[eś/aś] pierwszy etap kryzysu - TRIAGE.
+[Imię], ukończyłeś pierwszy etap kryzysu - TRIAGE.
 
-**Co [zrobiłeś/zrobiłaś]:**
-✓ Przeanalizował[eś/aś] chaotyczne dane (47 podstacji, 47 szpitali)
-✓ Zidentyfikował[eś/aś] priorytetowe obiekty
-✓ Podjął[eś/aś] trudne decyzje kogo ratować
+**Co zrobiłeś:**
+✓ Przeanalizowałeś chaotyczne dane (47 podstacji, 47 szpitali)
+✓ Zidentyfikowałeś priorytetowe obiekty
+✓ Podjąłeś trudne decyzje kogo ratować
 ✓ Stworzyłeś output/TRIAGE-RANKING.md z uzasadnieniami
 
 **Co nauczyłeś się o Claude Code:**
 - Analiza wielu źródeł jednocześnie (@chaos/)
 - Parsowanie różnych formatów (CSV, JSON, HTML)
 - Delegowanie kompleksowych analiz
-- Tworzenie strukturyzowanych dokumentów
+- Tworzenie strukturizowanych dokumentów
 
 **Następny krok:**
 Masz decyzje. Teraz musisz skoordynować zasoby - ekipy, generatory, paliwo, routing.
@@ -586,10 +524,24 @@ Masz decyzje. Teraz musisz skoordynować zasoby - ekipy, generatory, paliwo, rou
 ⏱️ Scenariusz: 18:30 (35 min od ataku)
 ⏱️ Paliwo w szpitalach: średnio 2h 30min pozostało
 
+---
+
+**Zarządzanie kontekstem:**
+Zanim uruchomisz następną lekcję, sprawdź swój kontekst:
+
+1. Sprawdź ile kontekstu zużyłeś: `/context`
+2. (Opcjonalnie) Skompaktuj historię: `/compact`
+3. Wyczyść kontekst przed następną lekcją: `/clear`
+
+Czyszczenie kontekstu zapobiega pomieszaniu instrukcji z różnych lekcji
+i optymalizuje koszty tokenów.
+
+---
+
 **Gotowy na kolejną lekcję?**
 
 ```
-/start-b-2.v2
+/start-path-B-2
 ```
 
 -----------
@@ -599,5 +551,5 @@ Masz decyzje. Teraz musisz skoordynować zasoby - ekipy, generatory, paliwo, rou
 
 <after-user-input>
 Zakończ lekcję B.1.
-Użytkownik może teraz uruchomić /start-b-2.v2 kiedy będzie gotowy.
+Użytkownik może teraz uruchomić /start-path-B-2 kiedy będzie gotowy.
 </after-user-input>

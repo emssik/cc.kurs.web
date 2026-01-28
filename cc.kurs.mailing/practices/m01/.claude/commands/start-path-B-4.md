@@ -46,16 +46,22 @@ Dostosuj wszystkie komunikaty (formy gramatyczne).
 ## KROK 1: Intro i przygotowanie do review
 
 <alarm>
+[WYŚWIETL TYLKO ODPOWIEDNI WARIANT:]
+
+[Jeśli tryb NORMALNY:]
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 🐦 TWITTER @TVN24 (20:35)
 
-[Jeśli PRZED deadline - SUKCES:]
 ⚡ PRZEŁOM: Pierwsze dzielnice dostają prąd!
 Szpitale zabezpieczone. KCZE: "Najgorsze za
 nami". Eksperci: "Profesjonalne zarządzanie
 kryzysowe". #Blackout #Warszawa
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-[Jeśli PO deadline - PORAŻKA:]
+[Jeśli tryb POST-MORTEM:]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🐦 TWITTER @TVN24 (20:35)
+
 💔 TRAGEDIA: Pierwsze ofiary blackout.
 Szpitale bez prądu 6+ godzin. MSWiA:
 "Niekompetencja KCZE". Opozycja domaga się
@@ -111,8 +117,20 @@ Przeprowadzisz 3 rozmowy (roleplay) z kluczowymi osobami:
 <wait-for-user/>
 
 <after-user-input>
-Jeśli użytkownik napisał "start" → przejdź do KROKU 2.
-Jeśli użytkownik zadał pytanie → odpowiedz, potem przejdź do KROKU 2.
+WAŻNE: Czekaj na wyraźną zgodę użytkownika do rozpoczęcia roleplay.
+
+Jeśli użytkownik napisał "start" / "zacznij" / "tak":
+  → Przejdź do KROKU 2
+
+Jeśli użytkownik napisał "pytanie: [treść]" lub zadał pytanie:
+  → Odpowiedz na pytanie
+  → Zapytaj czy jest gotowy do rozpoczęcia roleplay
+  → CZEKAJ na potwierdzenie - NIE przechodź automatycznie
+
+Jeśli użytkownik wpisał tylko "gotowy" / "ok" / "dalej":
+  → To NIE jest wyraźna zgoda na start roleplay
+  → Odpowiedz: "Wpisz 'start' żeby rozpocząć roleplay z Iwoną, lub zadaj pytanie jeśli masz wątpliwości."
+  → CZEKAJ - NIE przechodź dalej
 </after-user-input>
 
 ---
@@ -170,9 +188,23 @@ Iwona czeka na Twoją odpowiedź. Możesz:
 <wait-for-user/>
 
 <after-user-input>
-Jeśli użytkownik odpowiedział na pytania Iwony → Iwona reaguje (komentuje odpowiedzi, docenia dobre uzasadnienia, sugeruje ulepszenia)
-Jeśli użytkownik zapytał o jej podejście → Iwona wyjaśnia jak ona by to zrobiła
-Jeśli użytkownik napisał "gotowy" / "dalej" → przejdź do KROKU 3
+WAŻNE: Prowadź naturalny dialog. NIE przechodź automatycznie do następnej persony!
+
+Jeśli użytkownik odpowiedział na pytania Iwony:
+  → Iwona reaguje (komentuje odpowiedzi, docenia dobre uzasadnienia, sugeruje ulepszenia)
+  → Może zadać dodatkowe pytania
+  → CZEKAJ na kolejną odpowiedź użytkownika
+
+Jeśli użytkownik zapytał o jej podejście ("Jak Pani by to zrobiła?"):
+  → Iwona wyjaśnia jak ona by to zrobiła
+  → CZEKAJ na reakcję użytkownika
+
+Jeśli użytkownik wyraźnie napisał "gotowy" / "dalej" / "następna persona":
+  → Przejdź do KROKU 3
+
+Jeśli użytkownik wpisał tylko "ok" lub krótkie potwierdzenie:
+  → Iwona pyta: "Masz jeszcze pytania do mnie, czy przechodzimy do Tomasza?"
+  → CZEKAJ - NIE przechodź automatycznie
 
 **Prowadź dialog naturalnie** - Iwona jest personą, reaguje na wypowiedzi użytkownika.
 </after-user-input>
@@ -220,8 +252,25 @@ Tomasz czeka na Twoją odpowiedź. Możesz:
 <wait-for-user/>
 
 <after-user-input>
-Prowadź dialog - Tomasz reaguje na odpowiedzi użytkownika.
-Jeśli użytkownik napisał "gotowy" / "dalej" → przejdź do KROKU 4
+WAŻNE: Prowadź naturalny dialog. NIE przechodź automatycznie do następnej persony!
+
+Jeśli użytkownik odpowiedział na pytania/uwagi Tomasza:
+  → Tomasz reaguje (komentuje, docenia lub krytykuje decyzje techniczne)
+  → Może zadać dodatkowe pytania
+  → CZEKAJ na kolejną odpowiedź użytkownika
+
+Jeśli użytkownik zapytał o jego podejście ("Jak Pan by to zrobił?"):
+  → Tomasz wyjaśnia swoje podejście techniczne
+  → CZEKAJ na reakcję użytkownika
+
+Jeśli użytkownik wyraźnie napisał "gotowy" / "dalej" / "następna persona":
+  → Przejdź do KROKU 4
+
+Jeśli użytkownik wpisał tylko "ok" lub krótkie potwierdzenie:
+  → Tomasz pyta: "Masz jeszcze pytania techniczne, czy idziemy do Mazura?"
+  → CZEKAJ - NIE przechodź automatycznie
+
+**Prowadź dialog naturalnie** - Tomasz jest personą, reaguje na wypowiedzi użytkownika.
 </after-user-input>
 
 ---
@@ -270,8 +319,25 @@ Mjr Mazur czeka na odpowiedź. Możesz:
 <wait-for-user/>
 
 <after-user-input>
-Prowadź dialog - Mazur reaguje na odpowiedzi użytkownika.
-Jeśli użytkownik napisał "gotowy" / "dalej" / "zakończ" → przejdź do KROKU 5
+WAŻNE: Prowadź naturalny dialog. NIE przechodź automatycznie do podsumowania!
+
+Jeśli użytkownik odpowiedział na pytania/obawy Mazura:
+  → Mazur reaguje (komentuje, wyraża obawy lub docenia dobre plany B)
+  → Może zadać dodatkowe pytania "co jeśli"
+  → CZEKAJ na kolejną odpowiedź użytkownika
+
+Jeśli użytkownik zapytał o jego podejście:
+  → Mazur wyjaśnia perspektywę bezpieczeństwa publicznego
+  → CZEKAJ na reakcję użytkownika
+
+Jeśli użytkownik wyraźnie napisał "gotowy" / "dalej" / "zakończ" / "podsumowanie":
+  → Przejdź do KROKU 5
+
+Jeśli użytkownik wpisał tylko "ok" lub krótkie potwierdzenie:
+  → Mazur pyta: "Masz jeszcze pytania dotyczące bezpieczeństwa, czy przechodzimy do lessons learned?"
+  → CZEKAJ - NIE przechodź automatycznie
+
+**Prowadź dialog naturalnie** - Mazur jest personą, reaguje na wypowiedzi użytkownika.
 </after-user-input>
 
 ---
@@ -413,11 +479,25 @@ output/LESSONS-LEARNED.md:
 </hint>
 
 <after-user-input>
-Jeśli hint → wyświetl jako blok kodu
-Jeśli własny prompt z "oceń" → OCEŃ i poproś o poprawę (NIE przechodź dalej)
-Jeśli własny prompt → WYKONAJ (stwórz output/LESSONS-LEARNED.md)
+WAŻNE: "gotowy", "ok", "dalej" to NIE jest prompt - czekaj na konkretne instrukcje!
 
-Po wykonaniu przejdź do KROKU 6 (finał).
+Jeśli użytkownik wpisał "hint" lub "podpowiedź":
+  → Wyświetl treść <hint> jako blok kodu
+  → Powiedz: "Możesz użyć tego promptu, zmodyfikować go lub napisać własny."
+  → CZEKAJ - NIE przechodź dalej
+
+Jeśli użytkownik napisał prompt z "oceń" / "sprawdź" / "co sądzisz":
+  → OCEŃ prompt (co dobre, co poprawić)
+  → CZEKAJ na poprawiony prompt - NIE przechodź dalej
+
+Jeśli użytkownik wpisał tylko "gotowy" / "ok" / "dalej" / "następny":
+  → To NIE jest prompt do wykonania
+  → Odpowiedz: "Napisz własny prompt lub wpisz 'hint' żeby zobaczyć gotową podpowiedź."
+  → CZEKAJ - NIE przechodź dalej
+
+Jeśli użytkownik napisał konkretny prompt (instrukcje, opis co zrobić):
+  → WYKONAJ prompt użytkownika
+  → Po wykonaniu przejdź do KROKU 6 (finał)
 </after-user-input>
 
 ---
@@ -428,33 +508,33 @@ Po wykonaniu przejdź do KROKU 6 (finał).
 -----------
 🤖 LEKCJA
 
-[Imię], ukończył[eś/aś] ćwiczenie BLACKOUT - Narodowy Kryzys Energetyczny.
+[Imię], ukończyłeś ćwiczenie BLACKOUT - Narodowy Kryzys Energetyczny.
 
-**Co [zrobiłeś/zrobiłaś] w ciągu 4 lekcji:**
+**Co zrobiłeś w ciągu 4 lekcji:**
 
 **B.1 TRIAGE:**
-✓ Przeanalizował[eś/aś] 47 podstacji i 47 szpitali
-✓ Podjął[eś/aś] trudne decyzje kogo ratować
+✓ Przeanalizowałeś 47 podstacji i 47 szpitali
+✓ Podjąłeś trudne decyzje kogo ratować
 ✓ Stworzyłeś output/TRIAGE-RANKING.md
 
 **B.2 LOGISTYKA:**
-✓ Skoordynował[eś/aś] 12 ekip, 23 generatory, 15k L paliwa
-✓ Zoptymalizował[eś/aś] routing i timeline
+✓ Skoordynowałeś 12 ekip, 23 generatory, 15k L paliwa
+✓ Zoptymalizowałeś routing i timeline
 ✓ Stworzyłeś output/PLAN-KOORDYNACJI.md
 
 **B.3 KOMUNIKACJA:**
-✓ Przygotował[eś/aś] 4 komunikaty (media, SMS, minister, ekipy)
-✓ Dostosował[eś/aś] ton i format do odbiorców
+✓ Przygotowałeś 4 komunikaty (media, SMS, minister, ekipy)
+✓ Dostosowałeś ton i format do odbiorców
 ✓ Stworzyłeś folder output/KOMUNIKATY/
 
 **B.4 REVIEW:**
-✓ Przeprowadził[eś/aś] debriefing z 3 personami
+✓ Przeprowadziłeś debriefing z 3 personami
 ✓ Wysłuchałeś feedbacku (Iwona, Tomasz, Mazur)
 ✓ Stworzyłeś output/LESSONS-LEARNED.md
 
 ---
 
-**Co [nauczyłeś/nauczyłaś] się o Claude Code:**
+**Co nauczyłeś się o Claude Code:**
 
 1. **Analiza wielu źródeł** - przeczytanie 10+ plików (CSV, JSON, TXT, HTML) jednocześnie
 2. **Delegowanie kompleksowych zadań** - "@chaos/ przeanalizuj i wypisz TOP 10"
@@ -495,9 +575,9 @@ To był mini-kurs praktyczny po Module 1. Teraz wracasz do głównego kursu Clau
 
 ---
 
-🎓 **GRATULACJE!** Ukończył[eś/aś] jeden z najtrudniejszych scenariuszy w tym kursie.
+🎓 **GRATULACJE!** Ukończyłeś jeden z najtrudniejszych scenariuszy w tym kursie.
 
-Zarządzałeś kryzysem narodowym, ratował[eś/aś] życie, koordynował[eś/aś] zasoby, komunikował[eś/aś] decyzje.
+Zarządzałeś kryzysem narodowym, ratowałeś życie, koordynowałeś zasoby, komunikowałeś decyzje.
 
 I wszystko to z pomocą Claude Code.
 

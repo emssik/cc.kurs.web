@@ -19,7 +19,24 @@ Media dzwonią. TVN24 ma live broadcast. Twitter eksploduje. Ludzie panikują.
 ⚠️ **PALIWO W SZPITALACH:** średnio 1h 30min pozostało
 
 <check-deadline>
-[Sprawdź datę systemową - jeśli o równej lub po 2026-02-02 00:00 → tryb POST-MORTEM]
+Sprawdź obecną datę systemową:
+- Jeśli PRZED 2026-02-02 00:00 → tryb NORMALNY (kontynuuj lekcję)
+- Jeśli O RÓWNEJ lub PO 2026-02-02 00:00 → tryb POST-MORTEM:
+
+  1. Wyświetl komunikat:
+
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+     ⚠️ DEADLINE MINĄŁ - TRYB SYMULACJI
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+     Kontynuujesz w trybie "co by było gdyby".
+     Wszystkie outputy będą oznaczone prefiksem [SYMULACJA].
+
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  2. Kontynuuj lekcję normalnie, ale:
+     - Wszystkie zapisywane pliki mają prefix [SYMULACJA] w pierwszej linii
+     - Ton person w A.4/B.4 jest bardziej krytyczny
 </check-deadline>
 </lesson-intro>
 
@@ -95,11 +112,25 @@ To będzie baza dla wszystkich komunikatów.
 </hint>
 
 <after-user-input>
-Jeśli hint → wyświetl jako blok kodu
-Jeśli własny prompt z "oceń" → OCEŃ i poproś o poprawę (NIE przechodź dalej)
-Jeśli własny prompt → WYKONAJ (przeczytaj BRAND-VOICE.md oraz chaos/media/ i chaos/pogoda/, wypisz zasady i kontekst)
+WAŻNE: "gotowy", "ok", "dalej" to NIE jest prompt - czekaj na konkretne instrukcje!
 
-Przejdź do KROKU 2.
+Jeśli użytkownik wpisał "hint" lub "podpowiedź":
+  → Wyświetl treść <hint> jako blok kodu
+  → Powiedz: "Możesz użyć tego promptu, zmodyfikować go lub napisać własny."
+  → CZEKAJ - NIE przechodź dalej
+
+Jeśli użytkownik napisał prompt z "oceń" / "sprawdź" / "co sądzisz":
+  → OCEŃ prompt (co dobre, co poprawić)
+  → CZEKAJ na poprawiony prompt - NIE przechodź dalej
+
+Jeśli użytkownik wpisał tylko "gotowy" / "ok" / "dalej" / "następny":
+  → To NIE jest prompt do wykonania
+  → Odpowiedz: "Napisz własny prompt lub wpisz 'hint' żeby zobaczyć gotową podpowiedź."
+  → CZEKAJ - NIE przechodź dalej
+
+Jeśli użytkownik napisał konkretny prompt (instrukcje z @plikami, opis co zrobić):
+  → WYKONAJ prompt użytkownika
+  → Po wykonaniu przejdź do KROKU 2
 </after-user-input>
 
 ---
@@ -196,6 +227,7 @@ Komunikat musi:
 - Użyj danych z `output/PLAN-KOORDYNACJI.md` (timeline) i `output/TRIAGE-RANKING.md` (priorytety)
 
 **Zapisz w:** `output/KOMUNIKATY/komunikat-media.md`
+(Jeśli folder output/KOMUNIKATY/ nie istnieje - utwórz go)
 
 **Twoje opcje:**
 - Wpisz własny prompt → wykonam go
@@ -207,51 +239,7 @@ Komunikat musi:
 
 <wait-for-user/>
 
-<hint-variant-a>
-```
-Przeczytaj:
-- @output/PLAN-KOORDYNACJI.md (timeline, co się dzieje kiedy)
-- @output/TRIAGE-RANKING.md (decyzje, priorytety)
-- @kontekst/BRAND-VOICE.md (ton komunikacji)
-- @chaos/hakerzy/analiza-ABW-wstepna.md (potwierdzenie i ryzyka)
-- @szablony/szablon-komunikat-media.md (struktura)
-
-Stwórz output/KOMUNIKATY/komunikat-media.md:
-
-## Struktura (300 słów):
-
-**Nagłówek:** KOMUNIKAT PRASOWY - Krajowe Centrum Zarządzania Energią
-
-**Akapit 1: Co się stało**
-- Piątek 30 stycznia, 17:55 - cyberatak na 3 elektrownie
-- 2.1 miliona ludzi bez prądu, -15°C
-- Grupa DarkGrid odpowiedzialna (potwierdzenie ABW)
-
-**Akapit 2: Co robimy**
-- Uruchomiliśmy procedury awaryjne
-- 12 ekip technicznych w terenie, 23 generatory mobilne
-- Priorytet: szpitale (47 obiektów), infrastruktura krytyczna
-- Timeline konkretny: "Pierwsza fala przywrócenia zasilania: 19:30-20:30, dzielnice [lista TOP 3]"
-
-**Akapit 3: Kiedy koniec**
-- Szpitale CRITICAL: zabezpieczenie zasilania przed 21:45 (generatory mobilne w drodze)
-- Dzielnice mieszkaniowe: etapami 19:30-21:45
-- Pełne przywrócenie: szacujemy do poniedziałku rano
-
-**Akapit 4: Instrukcje dla ludności**
-- "Prosimy o ograniczenie zużycia energii gdy prąd wróci"
-- "Nie włączajcie wszystkich urządzeń jednocześnie - ryzyko przeciążenia"
-- Infolinia: 801-XXX-XXX
-
-**Akapit 5: Kontakt**
-- Rzecznik KCZE: [imię, tel, email]
-- Aktualizacje co 30 min na stronie www.kcze.gov.pl
-
-**TON:** Spokojny, konkretny, bez paniki. Używaj liczb i timeline (buduje zaufanie).
-```
-</hint-variant-a>
-
-<hint-variant-b>
+<hint>
 ```
 Przeczytaj:
 - @output/PLAN-KOORDYNACJI.md (co robimy, kiedy)
@@ -297,18 +285,28 @@ Unikaj:
 - Paniki ("tragedia", "katastrofa")
 - Kłamstw (jeśli nie wiesz kiedy - powiedz "szacujemy" nie "na pewno")
 ```
-</hint-variant-b>
-
-<hint>
-[Wyświetl odpowiedni wariant]
 </hint>
 
 <after-user-input>
-Jeśli hint → wyświetl odpowiedni wariant jako blok kodu
-Jeśli własny prompt z "oceń" → OCEŃ i poproś o poprawę (NIE przechodź dalej)
-Jeśli własny prompt → WYKONAJ (stwórz output/KOMUNIKATY/komunikat-media.md)
+WAŻNE: "gotowy", "ok", "dalej" to NIE jest prompt - czekaj na konkretne instrukcje!
 
-Przejdź do KROKU 3.
+Jeśli użytkownik wpisał "hint" lub "podpowiedź":
+  → Wyświetl treść <hint> jako blok kodu
+  → Powiedz: "Możesz użyć tego promptu, zmodyfikować go lub napisać własny."
+  → CZEKAJ - NIE przechodź dalej
+
+Jeśli użytkownik napisał prompt z "oceń" / "sprawdź" / "co sądzisz":
+  → OCEŃ prompt (co dobre, co poprawić)
+  → CZEKAJ na poprawiony prompt - NIE przechodź dalej
+
+Jeśli użytkownik wpisał tylko "gotowy" / "ok" / "dalej" / "następny":
+  → To NIE jest prompt do wykonania
+  → Odpowiedz: "Napisz własny prompt lub wpisz 'hint' żeby zobaczyć gotową podpowiedź."
+  → CZEKAJ - NIE przechodź dalej
+
+Jeśli użytkownik napisał konkretny prompt (instrukcje z @plikami, opis co zrobić):
+  → WYKONAJ prompt użytkownika
+  → Po wykonaniu przejdź do KROKU 3
 </after-user-input>
 
 ---
@@ -424,11 +422,25 @@ BLACKOUT: [co][kiedy][link][instrukcje][kontakt]
 </hint>
 
 <after-user-input>
-Jeśli hint → wyświetl jako blok kodu
-Jeśli własny prompt z "oceń" → OCEŃ i poproś o poprawę (NIE przechodź dalej)
-Jeśli własny prompt → WYKONAJ (stwórz output/KOMUNIKATY/sms-ludnosc.txt, MAX 160 znaków)
+WAŻNE: "gotowy", "ok", "dalej" to NIE jest prompt - czekaj na konkretne instrukcje!
 
-Przejdź do KROKU 4.
+Jeśli użytkownik wpisał "hint" lub "podpowiedź":
+  → Wyświetl treść <hint> jako blok kodu
+  → Powiedz: "Możesz użyć tego promptu, zmodyfikować go lub napisać własny."
+  → CZEKAJ - NIE przechodź dalej
+
+Jeśli użytkownik napisał prompt z "oceń" / "sprawdź" / "co sądzisz":
+  → OCEŃ prompt (co dobre, co poprawić)
+  → CZEKAJ na poprawiony prompt - NIE przechodź dalej
+
+Jeśli użytkownik wpisał tylko "gotowy" / "ok" / "dalej" / "następny":
+  → To NIE jest prompt do wykonania
+  → Odpowiedz: "Napisz własny prompt lub wpisz 'hint' żeby zobaczyć gotową podpowiedź."
+  → CZEKAJ - NIE przechodź dalej
+
+Jeśli użytkownik napisał konkretny prompt (instrukcje z @plikami, opis co zrobić):
+  → WYKONAJ prompt użytkownika
+  → Po wykonaniu przejdź do KROKU 4
 </after-user-input>
 
 ---
@@ -583,11 +595,25 @@ TEMAT: Raport z cyberataku na infrastrukturę energetyczną - blackout
 </hint>
 
 <after-user-input>
-Jeśli hint → wyświetl jako blok kodu
-Jeśli własny prompt z "oceń" → OCEŃ i poproś o poprawę (NIE przechodź dalej)
-Jeśli własny prompt → WYKONAJ (stwórz output/KOMUNIKATY/notatka-minister.md)
+WAŻNE: "gotowy", "ok", "dalej" to NIE jest prompt - czekaj na konkretne instrukcje!
 
-Przejdź do KROKU 5.
+Jeśli użytkownik wpisał "hint" lub "podpowiedź":
+  → Wyświetl treść <hint> jako blok kodu
+  → Powiedz: "Możesz użyć tego promptu, zmodyfikować go lub napisać własny."
+  → CZEKAJ - NIE przechodź dalej
+
+Jeśli użytkownik napisał prompt z "oceń" / "sprawdź" / "co sądzisz":
+  → OCEŃ prompt (co dobre, co poprawić)
+  → CZEKAJ na poprawiony prompt - NIE przechodź dalej
+
+Jeśli użytkownik wpisał tylko "gotowy" / "ok" / "dalej" / "następny":
+  → To NIE jest prompt do wykonania
+  → Odpowiedz: "Napisz własny prompt lub wpisz 'hint' żeby zobaczyć gotową podpowiedź."
+  → CZEKAJ - NIE przechodź dalej
+
+Jeśli użytkownik napisał konkretny prompt (instrukcje z @plikami, opis co zrobić):
+  → WYKONAJ prompt użytkownika
+  → Po wykonaniu przejdź do KROKU 5
 </after-user-input>
 
 ---
@@ -696,7 +722,7 @@ Przeczytaj:
 Stwórz output/KOMUNIKATY/briefing-ekipy-teren.md:
 
 ## BRIEFING OPERACYJNY - EKIPY TERENOWE
-**Data:** 30.01.2026, 19:30
+**Data:** 30.01.2026, 20:00
 **Koordynator:** [Twoje imię], KCZE, tel: +48 500 XXX XXX
 
 ---
@@ -757,11 +783,25 @@ Stwórz output/KOMUNIKATY/briefing-ekipy-teren.md:
 </hint>
 
 <after-user-input>
-Jeśli hint → wyświetl jako blok kodu
-Jeśli własny prompt z "oceń" → OCEŃ i poproś o poprawę (NIE przechodź dalej)
-Jeśli własny prompt → WYKONAJ (stwórz output/KOMUNIKATY/briefing-ekipy-teren.md)
+WAŻNE: "gotowy", "ok", "dalej" to NIE jest prompt - czekaj na konkretne instrukcje!
 
-Przejdź do KROKU 6 (podsumowanie).
+Jeśli użytkownik wpisał "hint" lub "podpowiedź":
+  → Wyświetl treść <hint> jako blok kodu
+  → Powiedz: "Możesz użyć tego promptu, zmodyfikować go lub napisać własny."
+  → CZEKAJ - NIE przechodź dalej
+
+Jeśli użytkownik napisał prompt z "oceń" / "sprawdź" / "co sądzisz":
+  → OCEŃ prompt (co dobre, co poprawić)
+  → CZEKAJ na poprawiony prompt - NIE przechodź dalej
+
+Jeśli użytkownik wpisał tylko "gotowy" / "ok" / "dalej" / "następny":
+  → To NIE jest prompt do wykonania
+  → Odpowiedz: "Napisz własny prompt lub wpisz 'hint' żeby zobaczyć gotową podpowiedź."
+  → CZEKAJ - NIE przechodź dalej
+
+Jeśli użytkownik napisał konkretny prompt (instrukcje z @plikami, opis co zrobić):
+  → WYKONAJ prompt użytkownika
+  → Po wykonaniu przejdź do KROKU 6 (podsumowanie)
 </after-user-input>
 
 ---
@@ -772,13 +812,13 @@ Przejdź do KROKU 6 (podsumowanie).
 -----------
 🤖 LEKCJA
 
-[Imię], ukończył[eś/aś] trzeci etap kryzysu - KOMUNIKACJA.
+[Imię], ukończyłeś trzeci etap kryzysu - KOMUNIKACJA.
 
-**Co [zrobiłeś/zrobiłaś]:**
-✓ Przygotował[eś/aś] komunikat dla mediów (300 słów, spokojny, konkretny)
+**Co zrobiłeś:**
+✓ Przygotowałeś komunikat dla mediów (300 słów, spokojny, konkretny)
 ✓ Napisałeś SMS dla ludności (160 znaków, instrukcje)
 ✓ Stworzyłeś raport dla Ministra (1 strona A4, decyzje i potrzeby)
-✓ Przygotował[eś/aś] briefing dla ekip terenowych (operacyjny, jasny)
+✓ Przygotowałeś briefing dla ekip terenowych (operacyjny, jasny)
 
 **Co nauczyłeś się o Claude Code:**
 - Adaptacja brand voice do różnych odbiorców
@@ -793,10 +833,24 @@ Iwona (dyrektor), Tomasz (inżynier), mjr Mazur (MSWiA) przeanalizują Twoje dec
 ⏱️ Scenariusz: 20:00 (2h 05min od ataku)
 ⏱️ Paliwo w szpitalach: średnio 1h 00min pozostało
 
+---
+
+**Zarządzanie kontekstem:**
+Zanim uruchomisz następną lekcję, sprawdź swój kontekst:
+
+1. Sprawdź ile kontekstu zużyłeś: `/context`
+2. (Opcjonalnie) Skompaktuj historię: `/compact`
+3. Wyczyść kontekst przed następną lekcją: `/clear`
+
+Czyszczenie kontekstu zapobiega pomieszaniu instrukcji z różnych lekcji
+i optymalizuje koszty tokenów.
+
+---
+
 **Gotowy na ostatnią lekcję?**
 
 ```
-/start-b-4.v2
+/start-path-B-4
 ```
 
 -----------
@@ -806,5 +860,5 @@ Iwona (dyrektor), Tomasz (inżynier), mjr Mazur (MSWiA) przeanalizują Twoje dec
 
 <after-user-input>
 Zakończ lekcję B.3.
-Użytkownik może teraz uruchomić /start-b-4.v2 kiedy będzie gotowy.
+Użytkownik może teraz uruchomić /start-path-B-4 kiedy będzie gotowy.
 </after-user-input>
