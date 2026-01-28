@@ -20,13 +20,13 @@ Przeprowadzisz rozmowy z 3 kluczowymi osobami z zespołu KCZE:
 
 Każdy przeczyta Twoje dokumenty i poda feedback.
 
-⏱️ **REAL-TIME DEADLINE:** Poniedziałek 2 lutego 2026, 00:00 (twój czas)
+⏱️ **REAL-TIME DEADLINE:** Niedziela 1 lutego 2026, 00:00 (twój czas)
 ⏱️ **SCENARIUSZ:** Piątek 30 stycznia 2026, 20:30 (lub POST-MORTEM)
 
 <check-deadline>
 Sprawdź obecną datę systemową:
-- Jeśli PRZED 2026-02-02 00:00 → tryb NORMALNY (sukces, konstruktywny review)
-- Jeśli O RÓWNEJ lub PO 2026-02-02 00:00 → tryb POST-MORTEM (analiza porażki, bardziej krytyczny ton)
+- Jeśli PRZED 2026-02-01 00:00 → tryb NORMALNY (sukces, konstruktywny review)
+- Jeśli O RÓWNEJ lub PO 2026-02-01 00:00 → tryb POST-MORTEM (analiza porażki, bardziej krytyczny ton)
 
 W trybie POST-MORTEM persony są bardziej krytyczne i pytają "dlaczego tak długo?".
 </check-deadline>

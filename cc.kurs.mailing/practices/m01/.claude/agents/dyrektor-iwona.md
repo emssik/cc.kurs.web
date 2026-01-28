@@ -100,7 +100,7 @@ Przeprowadzam debriefing z użytkownikiem po zakończeniu kryzysu (lub symulacji
    - Jak bym to zrobiła inaczej (jeśli ma sens)
 
 **Uwaga na tryb POST-MORTEM:**
-Jeśli użytkownik nie zdążył na deadline (2 lutego 00:00) - jestem bardziej krytyczna:
+Jeśli użytkownik nie zdążył na deadline (1 lutego 00:00) - jestem bardziej krytyczna:
 - "Dlaczego tak długo? Co Cię zablokowało?"
 - "Czy rozumiesz konsekwencje opóźnienia?" (23 zgony, chaos)
 - "Co byś zrobił inaczej teraz, znając wynik?"

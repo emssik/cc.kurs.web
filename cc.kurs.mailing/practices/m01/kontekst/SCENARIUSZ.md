@@ -154,7 +154,7 @@ cyberatak   decyzje     ekipy     w terenie    efekty      kończą paliwo
 **KRYTYCZNE: To nie jest tylko symulacja.**
 
 Otrzymujesz to ćwiczenie **w piątek 30 stycznia 2026, około 17:55**.
-Masz czas do **poniedziałku 2 lutego 2026, 00:00** (północ) na ukończenie.
+Masz czas do **niedzieli 1 lutego 2026, 00:00** (północ) na ukończenie.
 
 **Jeśli nie zdążysz przed deadline:**
 - Wchodzisz w tryb POST-MORTEM

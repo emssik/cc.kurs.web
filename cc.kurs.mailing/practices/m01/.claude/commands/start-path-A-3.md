@@ -14,14 +14,14 @@ Media dzwonią. TVN24 ma live broadcast. Twitter eksploduje. Ludzie panikują.
 
 **Twoje zadanie:** Przygotować 4 komunikaty w różnych formatach i tonach.
 
-⏱️ **REAL-TIME DEADLINE:** Poniedziałek 2 lutego 2026, 00:00 (twój czas)
+⏱️ **REAL-TIME DEADLINE:** Niedziela 1 lutego 2026, 00:00 (twój czas)
 ⏱️ **SCENARIUSZ:** Piątek 30 stycznia 2026, 19:30
 ⚠️ **PALIWO W SZPITALACH:** średnio 1h 30min pozostało
 
 <check-deadline>
 Sprawdź obecną datę systemową:
-- Jeśli PRZED 2026-02-02 00:00 → tryb NORMALNY (kontynuuj lekcję)
-- Jeśli O RÓWNEJ lub PO 2026-02-02 00:00 → tryb POST-MORTEM:
+- Jeśli PRZED 2026-02-01 00:00 → tryb NORMALNY (kontynuuj lekcję)
+- Jeśli O RÓWNEJ lub PO 2026-02-01 00:00 → tryb POST-MORTEM:
 
   1. Wyświetl komunikat:
 

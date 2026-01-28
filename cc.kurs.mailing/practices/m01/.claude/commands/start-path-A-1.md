@@ -19,14 +19,14 @@ To nie jest ćwiczenie teoretyczne. Życie i śmierć zależy od Twoich decyzji.
 **WARIANT: TECH/PROGRAMISTYCZNY**
 Hinty zawierają pseudokod, algorytmy, optymalizacje.
 
-⏱️ **REAL-TIME DEADLINE:** Poniedziałek 2 lutego 2026, 00:00 (twój czas)
+⏱️ **REAL-TIME DEADLINE:** Niedziela 1 lutego 2026, 00:00 (twój czas)
 ⏱️ **SCENARIUSZ:** Piątek 30 stycznia 2026, 17:55
 ⚠️ **PALIWO W SZPITALACH:** średnio 3h 05min pozostało
 
 <check-deadline>
 Sprawdź obecną datę systemową:
-- Jeśli PRZED 2026-02-02 00:00 → tryb NORMALNY (kryzys w toku, timer odlicza)
-- Jeśli O RÓWNEJ lub PO 2026-02-02 00:00 → tryb POST-MORTEM (tragedia się wydarzyła)
+- Jeśli PRZED 2026-02-01 00:00 → tryb NORMALNY (kryzys w toku, timer odlicza)
+- Jeśli O RÓWNEJ lub PO 2026-02-01 00:00 → tryb POST-MORTEM (tragedia się wydarzyła)
 
 W trybie POST-MORTEM:
 1. Wyświetl komunikat o tragedii:
@@ -35,7 +35,7 @@ W trybie POST-MORTEM:
    ⚠️ DEADLINE MINĄŁ - TRAGEDIA SIĘ WYDARZYŁA
    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-   Poniedziałek, 2 lutego 2026, 00:15
+   Niedziela, 1 lutego 2026, 00:15
 
    Nie udało się przywrócić zasilania na czas.
 

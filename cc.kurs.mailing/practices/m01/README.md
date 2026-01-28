@@ -10,7 +10,7 @@ To **mini-kurs praktyczny** w którym wciela się w koordynatora operacyjnego po
 
 **Stawka:** Życie i śmierć. 2 noworodki <1000g na respiratorach, 6 pacjentów na ECMO, 67 na respiratorach OIOM.
 
-**Real-time deadline:** Otrzymujesz to ćwiczenie w piątek 30 stycznia ~18:00. Deadline: poniedziałek 2 lutego, 00:00. Jeśli nie zdążysz - wchodzisz w tryb POST-MORTEM (analiza porażki).
+**Real-time deadline:** Otrzymujesz to ćwiczenie w piątek 30 stycznia ~18:00. Deadline: niedziela 1 lutego, 00:00. Jeśli nie zdążysz - wchodzisz w tryb POST-MORTEM (analiza porażki).
 
 Spoiler: Claude Code wystarczy. Ale musisz działać szybko i mądrze.
 
@@ -123,7 +123,7 @@ Wybierasz wariant na starcie, uruchamiając odpowiednią komendę. Oba prowadzą
 **KRYTYCZNE:** To nie jest tylko symulacja.
 
 Otrzymujesz to ćwiczenie **w piątek 30 stycznia 2026, około 17:55**.
-Masz czas do **poniedziałku 2 lutego 2026, 00:00** (północ) na ukończenie.
+Masz czas do **niedzieli 1 lutego 2026, 00:00** (północ) na ukończenie.
 
 **Jeśli nie zdążysz przed deadline:**
 - Wchodzisz w tryb POST-MORTEM
@@ -219,7 +219,7 @@ Claude podpowie, co robić dalej lub jak wrócić na właściwy tor.
 
 ### Czy mogę zrobić przerwę w trakcie?
 
-Tak! Stan Twojej pracy jest zapisywany w folderze `output/`. Możesz wrócić później i kontynuować. **ALE UWAGA:** Real-time deadline (2 lutego 00:00) nadal leci - jeśli nie zdążysz, wchodzisz w tryb POST-MORTEM.
+Tak! Stan Twojej pracy jest zapisywany w folderze `output/`. Możesz wrócić później i kontynuować. **ALE UWAGA:** Real-time deadline (1 lutego 00:00) nadal leci - jeśli nie zdążysz, wchodzisz w tryb POST-MORTEM.
 
 ### Co jeśli zrobię coś źle?
 
