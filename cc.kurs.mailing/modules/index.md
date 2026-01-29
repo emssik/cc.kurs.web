@@ -174,6 +174,29 @@
 
 ---
 
+## Lekcja 09: Claude Code w przeglądarce - claude.ai/code
+
+| Temat | Głębokość | Uwagi |
+|-------|-----------|-------|
+| Dla kogo jest claude.ai/code | 📗 Rozwinięcie | Nie-programiści, brak dostępu do CLI, delegowanie zadań |
+| Konfiguracja: GitHub OAuth | 📕 Wyczerpany | Połączenie z GitHub, zakres uprawnień |
+| Instalacja Claude GitHub App | 📕 Wyczerpany | Wybór repozytoriów, zarządzanie dostępem |
+| Konfiguracja środowiska | 📕 Wyczerpany | Domyślne narzędzia (Python, Node.js, Ruby, PHP, Go, Rust, Java, C++), PostgreSQL, Redis |
+| Dostęp do sieci | 📕 Wyczerpany | Limited/Full/None, biała lista domen (GitHub, npmjs, pypi, AWS, Azure) |
+| Zmienne środowiskowe | 📕 Wyczerpany | Dodawanie przez UI, SessionStart Hook, $CLAUDE_CODE_REMOTE |
+| Sesja w WEB | 📗 Rozwinięcie | Klonowanie repo, przygotowanie środowiska, wykonywanie zadania |
+| Diff View | 📕 Wyczerpany | Podgląd zmian, komentowanie, iteracja przed PR |
+| Workflow z diff view | 📗 Rozwinięcie | Review → komentarz → poprawa → PR |
+| Praktyczne przykłady | 📕 Wyczerpany | Dla programisty, marketera, PM, analityka, pisarza, rekrutera |
+| Ograniczenia sandbox | 📕 Wyczerpany | Docker/Unix sockets, proxy blokujący binarne, tylko GitHub, timeout |
+| WEB vs CLI | 📕 Wyczerpany | Kiedy co wybrać, łączenie środowisk |
+| Bezpieczeństwo WEB | 📗 Rozwinięcie | Izolacja VM, credentials, Git proxy, czego sandbox NIE chroni |
+| Konfiguracja terminala do WEB | 📗 Rozwinięcie | /remote-env, automatyczna instalacja zależności |
+| Teleportacja sesji | 📕 Wyczerpany | Wymagania, sposoby (/teleport, claude --teleport), git status/stash, jednokierunkowość |
+| Typowe problemy WEB | 📗 Rozwinięcie | Repository not found, network failed, timeout, teleportacja |
+
+---
+
 ## Podsumowanie tematów
 
 ### Tematy wyczerpane (📕) - nie powtarzać
@@ -227,6 +250,17 @@
 - Tryb nieinteraktywny (-p dla skryptów)
 - Checkpoint Pattern (workflow)
 
+**Claude Code w przeglądarce (Lekcja 09):**
+- Konfiguracja: GitHub OAuth i Claude GitHub App
+- Konfiguracja środowiska (narzędzia, języki)
+- Dostęp do sieci (Limited/Full/None, biała lista)
+- Zmienne środowiskowe (UI + SessionStart Hook)
+- Diff View (podgląd, komentowanie, iteracja)
+- Praktyczne przykłady dla różnych ról
+- Ograniczenia sandbox (Docker, proxy, timeout)
+- WEB vs CLI (kiedy co wybrać)
+- Teleportacja sesji (wymagania, metody)
+
 ### Tematy rozwinięte (📗) - można pogłębić w zaawansowanych modułach
 
 **Bezpieczeństwo:**
@@ -251,6 +285,14 @@
 - Piping danych
 - Monitorowanie zadań (/tasks)
 - Wznawianie sesji (--continue, --resume flagi CLI)
+
+**Claude Code w przeglądarce (Lekcja 09):**
+- Dla kogo jest claude.ai/code
+- Sesja w WEB (klonowanie, środowisko, wykonanie)
+- Workflow z diff view
+- Bezpieczeństwo WEB (izolacja, credentials, Git proxy)
+- Konfiguracja terminala do WEB (/remote-env)
+- Typowe problemy i rozwiązania
 
 ### Tematy podstawowe (📘) - wymagają rozwinięcia
 
@@ -379,6 +421,26 @@
 | Piping danych | 08 | 📗 Rozwinięcie |
 | Checkpoint Pattern | 08 | 📕 Wyczerpany |
 
+### Claude Code w przeglądarce
+| Temat | Lekcja | Głębokość |
+|-------|--------|-----------|
+| Dla kogo jest claude.ai/code | 09 | 📗 Rozwinięcie |
+| Konfiguracja: GitHub OAuth | 09 | 📕 Wyczerpany |
+| Instalacja Claude GitHub App | 09 | 📕 Wyczerpany |
+| Konfiguracja środowiska | 09 | 📕 Wyczerpany |
+| Dostęp do sieci | 09 | 📕 Wyczerpany |
+| Zmienne środowiskowe | 09 | 📕 Wyczerpany |
+| Sesja w WEB | 09 | 📗 Rozwinięcie |
+| Diff View | 09 | 📕 Wyczerpany |
+| Workflow z diff view | 09 | 📗 Rozwinięcie |
+| Praktyczne przykłady | 09 | 📕 Wyczerpany |
+| Ograniczenia sandbox | 09 | 📕 Wyczerpany |
+| WEB vs CLI | 09 | 📕 Wyczerpany |
+| Bezpieczeństwo WEB | 09 | 📗 Rozwinięcie |
+| Konfiguracja terminala do WEB | 09 | 📗 Rozwinięcie |
+| Teleportacja sesji | 09 | 📕 Wyczerpany |
+| Typowe problemy WEB | 09 | 📗 Rozwinięcie |
+
 ### Slash Commands
 | Komenda | Lekcja | Głębokość |
 |---------|--------|-----------|
@@ -399,6 +461,8 @@
 | /login, /logout | 03 | 📗 Rozwinięcie |
 | /help | - | 📘 Podstawy |
 | /version | - | 📘 Podstawy |
+| /remote-env | 09 | 📗 Rozwinięcie |
+| /tp | 09 | 📕 Wyczerpany |
 
 ### Tryby pracy i uprawnienia
 | Temat | Lekcja | Głębokość |
@@ -469,6 +533,6 @@
 
 ---
 
-**Data aktualizacji:** 2026-01-25
-**Źródło:** Analiza 9 lekcji z modułu-01-podstawy (00-08)
-**Status lekcji:** Lekcje 00-08 ✅
+**Data aktualizacji:** 2026-01-26
+**Źródło:** Analiza 10 lekcji z modułu-01-podstawy (00-09)
+**Status lekcji:** Lekcje 00-09 ✅

@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Onet: Blackout w Warszawie - co wiemy?</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background-color: #f5f5f5;
+      color: #1a1a1a;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: #fff;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .header {
+      background: linear-gradient(135deg, #e65100 0%, #ff6d00 100%);
+      padding: 15px 25px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: bold;
+      color: #fff;
+      text-decoration: none;
+      letter-spacing: -1px;
+    }
+
+    .header-nav {
+      color: rgba(255,255,255,0.9);
+      font-size: 13px;
+    }
+
+    .breaking-banner {
+      background: #d32f2f;
+      color: #fff;
+      padding: 10px 25px;
+      font-size: 13px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.8; }
+    }
+
+    .breaking-banner span {
+      background: #fff;
+      color: #d32f2f;
+      padding: 3px 8px;
+      margin-right: 10px;
+      font-size: 11px;
+      border-radius: 2px;
+    }
+
+    article {
+      padding: 30px 40px 50px;
+    }
+
+    h1 {
+      font-size: 32px;
+      font-weight: 700;
+      color: #1a1a1a;
+      line-height: 1.25;
+      margin-bottom: 15px;
+      border-left: 4px solid #ff6d00;
+      padding-left: 15px;
+    }
+
+    .meta {
+      color: #666;
+      font-size: 13px;
+      margin-bottom: 25px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .meta strong {
+      color: #e65100;
+    }
+
+    .lead {
+      font-size: 19px;
+      color: #333;
+      line-height: 1.7;
+      margin-bottom: 30px;
+      font-weight: 400;
+    }
+
+    h2 {
+      font-size: 22px;
+      color: #1a1a1a;
+      margin: 30px 0 15px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid #ff6d00;
+      display: inline-block;
+    }
+
+    p {
+      font-size: 16px;
+      color: #333;
+      margin-bottom: 20px;
+      line-height: 1.8;
+    }
+
+    .quotes-section {
+      background: #fafafa;
+      border-left: 4px solid #ff6d00;
+      padding: 20px 25px;
+      margin: 25px 0;
+    }
+
+    .quote {
+      background: #fff;
+      padding: 15px 20px;
+      margin-bottom: 12px;
+      border-radius: 4px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+      font-style: italic;
+      color: #444;
+      position: relative;
+    }
+
+    .quote:last-child {
+      margin-bottom: 0;
+    }
+
+    .quote::before {
+      content: '"';
+      font-size: 40px;
+      color: #ff6d00;
+      position: absolute;
+      top: -5px;
+      left: 10px;
+      opacity: 0.3;
+      font-family: Georgia, serif;
+    }
+
+    .quote-text {
+      padding-left: 20px;
+    }
+
+    .quote-source {
+      display: block;
+      font-style: normal;
+      font-size: 12px;
+      color: #888;
+      margin-top: 8px;
+      text-align: right;
+    }
+
+    .update-box {
+      background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+      border: 1px solid #ffb74d;
+      border-left: 4px solid #e65100;
+      padding: 15px 20px;
+      margin: 25px 0;
+      border-radius: 0 4px 4px 0;
+    }
+
+    .update-box strong {
+      color: #e65100;
+      text-transform: uppercase;
+      font-size: 12px;
+      letter-spacing: 0.5px;
+    }
+
+    .info-box {
+      background: #f5f5f5;
+      padding: 20px;
+      margin: 25px 0;
+      border-radius: 4px;
+    }
+
+    .info-box p {
+      margin-bottom: 0;
+    }
+
+    .footer {
+      background: #333;
+      color: #999;
+      padding: 20px 40px;
+      font-size: 12px;
+      text-align: center;
+    }
+
+    .footer a {
+      color: #ff6d00;
+      text-decoration: none;
+    }
+
+    ul {
+      list-style: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <a href="#" class="logo">Onet</a>
+      <nav class="header-nav">Wiadomości | Polska | Warszawa</nav>
+    </header>
+
+    <div class="breaking-banner">
+      <span>Pilne</span> Sytuacja kryzysowa w stolicy — śledzimy wydarzenia na bieżąco
+    </div>
+
+    <article>
+      <h1>Blackout w Warszawie. Hakerzy czy awaria?</h1>
+      <p class="meta"><strong>Onet</strong> | 30.01.2026, 18:06 | Aktualizacja: 18:42</p>
+
+      <p class="lead">Duże obszary Warszawy bez prądu. Mieszkańcy zgłaszają brak ogrzewania,
+      problemy z ruchem drogowym i opóźnienia służb. Oficjalne komunikaty są
+      skąpe, a w sieci pojawiają się plotki o ataku hakerskim.</p>
+
+      <h2>Co mówią mieszkańcy</h2>
+      <div class="quotes-section">
+        <div class="quote">
+          <div class="quote-text">
+            W blokach zimno, windy stoją. Starsi sąsiedzi nie mogą wyjść z mieszkań.
+            <span class="quote-source">— mieszkaniec Woli</span>
+          </div>
+        </div>
+        <div class="quote">
+          <div class="quote-text">
+            W sklepach tylko gotówka, bankomaty nie działają. Ludzie są zdenerwowani.
+            <span class="quote-source">— użytkownik z Pragi</span>
+          </div>
+        </div>
+      </div>
+
+      <h2>Nieoficjalne informacje</h2>
+      <div class="info-box">
+        <p>Według niepotwierdzonych źródeł część podstacji mogła zostać celowo
+        wyłączona. KCZE nie potwierdza tych doniesień.</p>
+      </div>
+
+      <div class="update-box">
+        <strong>Aktualizacja 18:42:</strong> Oczekujemy na oficjalny komunikat KCZE.
+        Artykuł będzie aktualizowany.
+      </div>
+    </article>
+
+    <footer class="footer">
+      &copy; 2026 Onet.pl | <a href="#">Polityka prywatności</a> | <a href="#">Kontakt</a>
+    </footer>
+  </div>
+</body>
+</html>

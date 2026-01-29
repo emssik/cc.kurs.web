@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mapa infrastruktury - schemat sektorów</title>
+  <style>
+    :root {
+      --bg-primary: #0d0d1a;
+      --bg-secondary: #1a1a2e;
+      --bg-tertiary: #16213e;
+      --border-dark: #2a2a4a;
+      --text-primary: #e0e0e0;
+      --text-secondary: #a0a0b0;
+      --text-muted: #6a6a7a;
+      --accent-cyan: #00d4ff;
+      --accent-green: #00ff88;
+      --accent-yellow: #ffcc00;
+      --accent-red: #ff4757;
+      --accent-orange: #ff8c42;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+      margin: 0;
+      padding: 24px;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      min-height: 100vh;
+    }
+
+    h1 {
+      font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+      font-size: 28px;
+      font-weight: 600;
+      color: var(--accent-cyan);
+      margin: 0 0 8px 0;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      border-bottom: 2px solid var(--accent-cyan);
+      padding-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    h1::before {
+      content: '◉';
+      color: var(--accent-green);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    h2 {
+      font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+      font-size: 18px;
+      font-weight: 500;
+      color: var(--text-primary);
+      margin: 32px 0 16px 0;
+      padding: 8px 12px;
+      background: var(--bg-tertiary);
+      border-left: 3px solid var(--accent-cyan);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .note {
+      background: var(--bg-secondary);
+      padding: 14px 18px;
+      border-left: 4px solid var(--accent-yellow);
+      border-radius: 0 4px 4px 0;
+      color: var(--text-secondary);
+      font-size: 14px;
+      margin-bottom: 24px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin: 20px 0;
+    }
+
+    .sector {
+      background: var(--bg-secondary);
+      border: 2px solid var(--accent-green);
+      border-radius: 6px;
+      padding: 16px;
+      min-height: 100px;
+      position: relative;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 10px rgba(0, 255, 136, 0.1);
+    }
+
+    .sector:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 20px rgba(0, 255, 136, 0.2);
+    }
+
+    .sector::before {
+      content: '●';
+      position: absolute;
+      top: 10px;
+      right: 12px;
+      font-size: 10px;
+      color: var(--accent-green);
+      animation: pulse 2s infinite;
+    }
+
+    /* Special styling for different sectors */
+    .sector:nth-child(2) {
+      border-color: var(--accent-cyan);
+      box-shadow: 0 0 15px rgba(0, 212, 255, 0.15);
+    }
+    .sector:nth-child(2)::before { color: var(--accent-cyan); }
+    .sector:nth-child(2):hover { box-shadow: 0 0 25px rgba(0, 212, 255, 0.25); }
+
+    .sector:nth-child(3) {
+      border-color: var(--accent-red);
+      box-shadow: 0 0 15px rgba(255, 71, 87, 0.15);
+    }
+    .sector:nth-child(3)::before { color: var(--accent-red); animation: pulse-fast 1s infinite; }
+    .sector:nth-child(3):hover { box-shadow: 0 0 25px rgba(255, 71, 87, 0.25); }
+
+    @keyframes pulse-fast {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+
+    .sector:nth-child(6) {
+      border-color: var(--accent-yellow);
+      background: linear-gradient(135deg, var(--bg-secondary) 0%, rgba(255, 204, 0, 0.05) 100%);
+      box-shadow: 0 0 15px rgba(255, 204, 0, 0.1);
+    }
+    .sector:nth-child(6)::before { content: '◆'; color: var(--accent-yellow); animation: none; }
+
+    .sector h3 {
+      margin: 0 0 10px 0;
+      font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--accent-cyan);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .sector div {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin-top: 16px;
+      background: var(--bg-secondary);
+      border-radius: 6px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    thead {
+      background: var(--bg-tertiary);
+    }
+
+    th {
+      font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--accent-cyan);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 14px 16px;
+      text-align: left;
+      border-bottom: 2px solid var(--accent-cyan);
+    }
+
+    td {
+      padding: 14px 16px;
+      vertical-align: top;
+      border-bottom: 1px solid var(--border-dark);
+      font-size: 14px;
+      color: var(--text-secondary);
+    }
+
+    td:first-child {
+      font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+      font-weight: 600;
+      color: var(--text-primary);
+      white-space: nowrap;
+      width: 120px;
+    }
+
+    tbody tr:hover {
+      background: rgba(0, 212, 255, 0.05);
+    }
+
+    tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    code {
+      font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+      background: var(--bg-tertiary);
+      color: var(--accent-orange);
+      padding: 2px 8px;
+      border-radius: 3px;
+      font-size: 13px;
+      border: 1px solid var(--border-dark);
+    }
+
+    ul {
+      margin: 16px 0;
+      padding-left: 0;
+      list-style: none;
+    }
+
+    li {
+      position: relative;
+      padding: 10px 16px 10px 28px;
+      margin-bottom: 8px;
+      background: var(--bg-secondary);
+      border-radius: 4px;
+      border-left: 3px solid var(--accent-cyan);
+      color: var(--text-secondary);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    li::before {
+      content: '▸';
+      position: absolute;
+      left: 10px;
+      color: var(--accent-cyan);
+    }
+
+    li:nth-child(3) {
+      border-left-color: var(--accent-red);
+    }
+    li:nth-child(3)::before { color: var(--accent-red); }
+
+    /* Responsive adjustments */
+    @media (max-width: 900px) {
+      .grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      body {
+        padding: 16px;
+      }
+    }
+
+    /* Scrollbar styling */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--bg-primary);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--border-dark);
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--accent-cyan);
+    }
+  </style>
+</head>
+<body>
+  <h1>Mapa infrastruktury (schemat)</h1>
+  <p class="note">Schemat sektorów miasta (nie w skali). Użyj do szybkiego grupowania podstacji i oceny routingów. Dokładne statusy i zależności są w CSV.</p>
+  <div class="grid">
+    <div class="sector"><h3>Północ</h3><div>Sektory północne (Bielany, Żoliborz, Młociny, Legionowo)</div></div>
+    <div class="sector"><h3>Centrum</h3><div>Węzeł centralny (PS-01)</div></div>
+    <div class="sector"><h3>Wschód</h3><div>Praga, Targówek, Wawer, okolice</div></div>
+    <div class="sector"><h3>Zachód</h3><div>Wola, Ochota, Bemowo, Ursus</div></div>
+    <div class="sector"><h3>Południe</h3><div>Mokotów, Ursynów, Wilanów</div></div>
+    <div class="sector"><h3>Legenda</h3><div>PS-01: węzeł centralny. PS-08: logika-bomba. PS-03: podejrzenie sabotażu.</div></div>
+  </div>
+  <h2>Lista sektorów i podstacji</h2>
+  <table>
+    <thead><tr><th>Sektor</th><th>Podstacje (ID - nazwa)</th></tr></thead>
+    <tbody>
+      <tr><td>Centrum</td><td>PS-01 - Podstacja Główna Centrum</td></tr>
+      <tr><td>Północ</td><td>PS-11 - Podstacja Bielany Zachód<br/>PS-12 - Podstacja Żoliborz<br/>PS-38 - Podstacja Legionowo<br/>PS-39 - Podstacja Młociny<br/>PS-40 - Podstacja Radiowo<br/>PS-41 - Podstacja Marymont<br/>PS-42 - Podstacja Bielany Wschód<br/>PS-43 - Podstacja Piaski<br/>PS-44 - Podstacja Chomiczówka</td></tr>
+      <tr><td>Południe</td><td>PS-02 - Podstacja Mokotów Zachód<br/>PS-03 - Podstacja Wilanów<br/>PS-04 - Podstacja Ursynów Północ<br/>PS-05 - Podstacja Służewiec<br/>PS-19 - Podstacja Wilanów Wschód<br/>PS-20 - Podstacja Kabaty<br/>PS-21 - Podstacja Natolin<br/>PS-22 - Podstacja Stegny<br/>PS-23 - Podstacja Sadyba</td></tr>
+      <tr><td>Wschód</td><td>PS-08 - Podstacja Praga Północ<br/>PS-09 - Podstacja Targówek<br/>PS-10 - Podstacja Białołęka<br/>PS-16 - Podstacja Rembertów<br/>PS-17 - Podstacja Wawer<br/>PS-18 - Podstacja Wesoła<br/>PS-24 - Podstacja Saska Kępa<br/>PS-25 - Podstacja Gocław<br/>PS-26 - Podstacja Grochów Północ<br/>PS-27 - Podstacja Praga Południe<br/>PS-29 - Podstacja Anin<br/>PS-30 - Podstacja Falenica<br/>PS-31 - Podstacja Miedzeszyn<br/>PS-32 - Podstacja Sulejówek Przyłącze<br/>PS-33 - Podstacja Marki<br/>PS-34 - Podstacja Zielonka<br/>PS-35 - Podstacja Ząbki<br/>PS-36 - Podstacja Kobyłka<br/>PS-37 - Podstacja Wołomin Przyłącze</td></tr>
+      <tr><td>Zachód</td><td>PS-06 - Podstacja Ochota<br/>PS-07 - Podstacja Wola Centralna<br/>PS-13 - Podstacja Bemowo<br/>PS-14 - Podstacja Włochy<br/>PS-15 - Podstacja Ursus<br/>PS-28 - Podstacja Gołąbki<br/>PS-45 - Podstacja Młynów<br/>PS-46 - Podstacja Babice<br/>PS-47 - Podstacja Chrzanów</td></tr>
+    </tbody>
+  </table>
+  <h2>Wskazówki do analizy</h2>
+  <ul>
+    <li>Sprawdź zależności w polu <code>dependent_na</code> i oznacz węzły krytyczne.</li>
+    <li>Priorytetyzuj podstacje z dużą liczbą ludności i szpitali zależnych.</li>
+    <li>Ryzyka: <code>RYZYKO</code> oraz notatki o sabotażu/logice-bombie.</li>
+  </ul>
+</body>
+</html>

@@ -1,0 +1,156 @@
+=== PALIWO - DEPOTY I DOSTĘPNOŚĆ ===
+Aktualizacja: 30.01.2026, 17:50
+Źródło: Baza KCZE Logistyka
+
+───────────────────────────────────────
+
+DEPOT A: Warszawa-Mokotów
+Adres: ul. Puławska 200, Warszawa
+GPS: 52.1697, 21.0325
+Status: OTWARTY 24/7
+Personel: 3 osoby na miejscu
+
+Diesel dostępny: 8,000 litrów
+Maksymalna wydajność: 500 L/15 min (tankowanie 1 generatora)
+Notatki: Największy depot, najbliżej większości generatorów (Depot A)
+
+Dystrybutory: 2 sztuki (można tankować 2 generatory równolegle)
+
+───────────────────────────────────────
+
+DEPOT B: Warszawa-Praga
+Adres: ul. Grochowska 350, Warszawa
+GPS: 52.2428, 21.1239
+Status: ⚠️ ZAMKNIĘTY do 19:00 (brak personelu)
+Personel: 0 (wezwano w trybie awaryjnym - dojadą o 19:00)
+
+Diesel dostępny: 4,500 litrów
+Maksymalna wydajność: 300 L/15 min
+Notatki: ⚠️ ZAMKNIĘTY! Personel dojedzie o 19:00. Można wcześniej wywieźć paliwo ale wymaga koordynacji z policją (zamknięty obiekt).
+
+Dystrybutory: 1 sztuka
+
+OPCJE DLA OTWARCIA PRZED 19:00:
+1. Koordynacja z policją - wysłanie patrolu który otworzy obiekt (wymaga 30 min)
+2. Wezwanie personelu wcześniej (telefony do pracowników - niewiadoma czy dojadą szybciej)
+3. Czekanie do 19:00 (bezpieczna opcja)
+
+───────────────────────────────────────
+
+DEPOT C: Warszawa-Bemowo
+Adres: ul. Powstańców Śląskich 200, Warszawa
+GPS: 52.2697, 20.9172
+Status: OTWARTY 24/7
+Personel: 2 osoby na miejscu
+
+Diesel dostępny: 7,000 litrów
+Maksymalna wydajność: 400 L/15 min
+Notatki: Zachód miasta, dobry dostęp do podstacji zachodniej części Warszawy
+
+Dystrybutory: 2 sztuki (można tankować 2 generatory równolegle)
+
+───────────────────────────────────────
+
+PODSUMOWANIE:
+
+CAŁKOWITA DOSTĘPNOŚĆ PALIWA:
+- Depot A: 8,000 L (DOSTĘPNE OD RAZU)
+- Depot B: 4,500 L (NIEDOSTĘPNE do 19:00)
+- Depot C: 7,000 L (DOSTĘPNE OD RAZU)
+
+RAZEM: 19,500 L
+DOSTĘPNE OD RAZU: 15,000 L (Depot A + C)
+DOSTĘPNE OD 19:00: +4,500 L (Depot B)
+
+───────────────────────────────────────
+
+ZUŻYCIE (szacunkowe):
+
+Przykład 1: 10 generatorów (średnio 150 kW każdy) na 3h
+10 × 45 L/h × 3h = 1,350 L
+
+Przykład 2: 15 generatorów (mix mocy) na 5h
+- 5× 200kW (55 L/h) = 5 × 55 × 5 = 1,375 L
+- 5× 150kW (45 L/h) = 5 × 45 × 5 = 1,125 L
+- 5× 100kW (35 L/h) = 5 × 35 × 5 = 875 L
+RAZEM: 3,375 L
+
+Przykład 3: 23 generatory (WSZYSTKIE) na 3h
+Szacunkowo: 23 × 45 L/h (średnio) × 3h = 3,105 L
+
+───────────────────────────────────────
+
+WNIOSKI:
+
+✓ 15,000 L (dostępne od razu) POWINNO wystarczyć dla:
+  - 10-15 generatorów na 5h
+  - 23 generatory na 3h (z małym marginem)
+
+⚠️ RYZYKO: Jeśli wszystkie 23 generatory działają >4h:
+  23 × 45 × 4 = 4,140 L - WYSTARCZY
+  23 × 45 × 5 = 5,175 L - WYSTARCZY (15k L)
+  23 × 45 × 6 = 6,210 L - WYSTARCZY
+  23 × 45 × 8 = 8,280 L - WYSTARCZY
+
+⚠️ ALE: Jeśli wszystkie generatory na MAX mocy (pesymistyczny scenariusz):
+  23 × 55 L/h (max) × 5h = 6,325 L - WYSTARCZY (ledwo)
+
+✓ WNIOSEK: 15,000 L powinno wystarczyć dla całego kryzysu (3-5h).
+  Jeśli potrzebujesz więcej - Depot B otwarty od 19:00 (+4,500 L).
+
+───────────────────────────────────────
+
+LOGISTYKA TANKOWANIA:
+
+Czas tankowania 1 generatora: ~15 min (150 L)
+
+Depot A: 2 dystrybutory → 2 generatory równolegle
+Depot C: 2 dystrybutory → 2 generatory równolegle
+Depot B: 1 dystrybutor → 1 generator (od 19:00)
+
+PRZYKŁADOWY TIMELINE TANKOWANIA:
+18:00 - Generatory przyjeżdżają do depotów
+18:00-18:15 - Tankowanie pierwszej pary (Depot A + C równolegle) = 4 generatory
+18:15-18:30 - Tankowanie drugiej pary = 4 generatory
+18:30-18:45 - Tankowanie trzeciej pary = 4 generatory
+...
+19:30 - Wszystkie 16 generatorów (Depot A + C) zatankowane
+
+PÓŹNIEJ (jeśli potrzeba):
+19:00+ - Depot B otwarty → tankowanie pozostałych generatorów
+
+───────────────────────────────────────
+
+UWAGI KRYTYCZNE:
+
+⚠️ Depot B ZAMKNIĘTY do 19:00 - jeśli potrzebujesz paliwa TERAZ, masz tylko 15k L (Depot A + C)
+
+⚠️ Tankowanie zajmuje czas - uwzględnij 15 min na generator w timeline
+
+⚠️ Dystrybutory są ograniczone - Depot A i C mają po 2, więc max 4 generatory równolegle
+
+⚠️ Generatory zużywają paliwo w czasie transportu (50 km = ~5-10 L) - uwzględnij w obliczeniach
+
+⚠️ Jeśli generator jedzie NA miejscu (szpital) przez 5h, będzie potrzebował dotankowania:
+  Przykład: Generator 150 kW, 5h pracy
+  - Zużycie: 45 L/h × 5h = 225 L
+  - Zbiornik generatora: ~150 L (standardowy)
+  - Potrzeba dotankowania: ~75 L (po 3h pracy)
+
+  OPCJE:
+  1. Tankowanie PRZED wysłaniem (pełny zbiornik 150 L + jerrycan 75 L = 225 L total)
+  2. Wysłanie cysterny paliwowej do szpitala (dotankowanie na miejscu po 3h)
+
+───────────────────────────────────────
+
+REKOMENDACJE:
+
+1. Użyj Depot A i C jako główne źródła (15k L dostępne od razu)
+2. Depot B jako backup (jeśli potrzebujesz więcej po 19:00)
+3. Tankuj generatory PRZED wysłaniem do szpitali (pełny zbiornik)
+4. Dla długich operacji (>3h) - weź jerrycany z dodatkowym paliwem
+5. Priorytetyzuj: generatory dla szpitali CRITICAL tankuj NAJPIERW
+
+───────────────────────────────────────
+
+Koniec raportu

@@ -1,0 +1,150 @@
+=== LOKALIZACJE EKIP TECHNICZNYCH ===
+Aktualizacja: 30.01.2026, 17:50
+Źródło: System GPS KCZE
+
+EKIPA-01
+Status: DOSTĘPNA
+Lokalizacja: ul. Puławska 123, Warszawa (Mokotów)
+GPS: 52.1735, 21.0275
+Specjalizacja: Transformatory wysokonapięciowe
+Członkowie: 4 osoby (Kowalski, Nowak, Wiśniewski, Dąbrowski)
+Sprzęt: Spawarka, tester, narzędzia podstawowe
+Zasięg działania: ~50 km
+Notatki: Najbardziej doświadczona ekipa, ale najdalej od większości podstacji
+
+EKIPA-02
+Status: DOSTĘPNA
+Lokalizacja: ul. Marszałkowska 15, Warszawa (Śródmieście)
+GPS: 52.2297, 21.0122
+Specjalizacja: Restart procedury, diagnostyka
+Członkowie: 3 osoby (Lewandowski, Kamiński, Zieliński)
+Sprzęt: Laptop diagnostyczny, tester, kable
+Zasięg działania: ~40 km
+Notatki: Szybka ekipa - specjalizują się w restartach (bez napraw)
+
+EKIPA-03
+Status: DOSTĘPNA
+Lokalizacja: ul. Wołoska 88, Warszawa (Mokotów)
+GPS: 52.1897, 21.0506
+Specjalizacja: Naprawy złożone, elektronika
+Członkowie: 5 osób (Szymański, Woźniak, Mazur, Krawczyk, Piotrowski)
+Sprzęt: Pełny zestaw (spawarka, tester, części zamienne)
+Zasięg działania: ~60 km
+Notatki: Największa ekipa - może zrobić 2 podstacje jednocześnie (split)
+
+EKIPA-04
+Status: DOSTĘPNA
+Lokalizacja: ul. Grochowska 272, Warszawa (Praga Południe)
+GPS: 52.2397, 21.1122
+Specjalizacja: Transformatory, sieci wysokiego napięcia
+Członkowie: 4 osoby (Jankowski, Wójcik, Kowalczyk, Adamczyk)
+Sprzęt: Spawarka, tester, narzędzia
+Zasięg działania: ~50 km
+Notatki: Blisko PS-08 (logika-bomba!) - 10 min dojazd
+
+EKIPA-05
+Status: DOSTĘPNA
+Lokalizacja: ul. Kasprzaka 17, Warszawa (Wola)
+GPS: 52.2428, 20.9839
+Specjalizacja: Restart, szybkie naprawy
+Członkowie: 3 osoby (Sikorski, Tomczak, Nowicki)
+Sprzęt: Tester, kable, narzędzia podstawowe
+Zasięg działania: ~40 km
+Notatki: Blisko PS-01 (kluczowa dla dependencies!) - 5 min dojazd
+
+EKIPA-06
+Status: DOSTĘPNA
+Lokalizacja: ul. Cegłowska 80, Warszawa (Bielany)
+GPS: 52.2897, 20.9506
+Specjalizacja: Restart, diagnostyka
+Członkowie: 3 osoby (Rutkowski, Król, Makowski)
+Sprzęt: Laptop, tester, kable
+Zasięg działania: ~40 km
+Notatki: Północna część miasta - blisko PS-11, PS-39
+
+EKIPA-07
+Status: DOSTĘPNA
+Lokalizacja: ul. Grójecka 152, Warszawa (Ochota)
+GPS: 52.2097, 20.9739
+Specjalizacja: Naprawy średnie, transformatory
+Członkowie: 4 osoby (Błaszczyk, Górski, Kubiak, Majewski)
+Sprzęt: Spawarka, tester, części
+Zasięg działania: ~50 km
+Notatki: Centralna lokalizacja - dobry dostęp do większości podstacji
+
+EKIPA-08
+Status: DOSTĘPNA
+Lokalizacja: ul. Mehoffera 41, Warszawa (Białołęka)
+GPS: 52.3097, 21.0839
+Specjalizacja: Restart, szybkie interwencje
+Członkowie: 3 osoby (Kucharski, Baranowski, Walczak)
+Sprzęt: Tester, kable, narzędzia
+Zasięg działania: ~40 km
+Notatki: Północny-wschód - blisko PS-10, PS-09, PS-08
+
+EKIPA-09
+Status: DOSTĘPNA
+Lokalizacja: ul. Puławska 456, Warszawa (Ursynów)
+GPS: 52.1297, 21.0372
+Specjalizacja: Naprawy, diagnostyka
+Członkowie: 4 osoby (Borkowski, Duda, Laskowski, Zakrzewski)
+Sprzęt: Spawarka, tester, części
+Zasięg działania: ~50 km
+Notatki: Południowa część miasta - blisko PS-04, PS-21
+
+EKIPA-10
+Status: NIEDOSTĘPNA (BRAK KONTAKTU!)
+Lokalizacja: Ostatnia znana: ul. Modlińska 3, Warszawa (Targówek)
+GPS: 52.3028, 21.0506
+Specjalizacja: Nieznana (brak danych)
+Członkowie: ? (brak kontaktu od 17:30)
+Sprzęt: ?
+Zasięg działania: ?
+Notatki: !!! BRAK KONTAKTU OD 17:30 !!! Próby połączenia nieudane. Status nieznany.
+
+EKIPA-11
+Status: DOSTĘPNA
+Lokalizacja: ul. Jagiellońska 77, Legionowo
+GPS: 52.4047, 20.9428
+Specjalizacja: Naprawy, transformatory
+Członkowie: 4 osoby (Michalski, Witkowski, Ostrowski, Sokołowski)
+Sprzęt: Spawarka, tester, części
+Zasięg działania: ~50 km
+Notatki: Poza Warszawą - długie dojazdy do większości podstacji (30-60 min)
+
+EKIPA-12
+Status: DOSTĘPNA
+Lokalizacja: ul. Żołnierska 12, Warszawa (Wola)
+GPS: 52.2506, 20.9672
+Specjalizacja: Restart, elektronika
+Członkowie: 3 osoby (Czarnecki, Sawicki, Kołodziej)
+Sprzęt: Laptop, tester, kable
+Zasięg działania: ~40 km
+Notatki: Zachód miasta - blisko PS-13, PS-07
+
+=== PODSUMOWANIE ===
+
+DOSTĘPNE: 11 ekip (EKIPA-10 brak kontaktu!)
+SPECJALIZACJA RESTART: 5 ekip (02, 05, 06, 08, 12)
+SPECJALIZACJA NAPRAWY: 6 ekip (01, 03, 04, 07, 09, 11)
+
+ZASIĘGI:
+- ~40 km: 6 ekip (szybkie, restart)
+- ~50 km: 4 ekipy (naprawy, transformatory)
+- ~60 km: 1 ekipa (03 - największa)
+
+NOTATKI:
+- EKIPA-10: BRAK KONTAKTU! Nie wliczać do dostępnych zasobów!
+- EKIPA-03: Może split na 2 podzespoły (5 osób)
+- EKIPA-04: Najbliżej PS-08 (logika-bomba) - 10 min dojazd
+- EKIPA-05: Najbliżej PS-01 (kluczowa dependency) - 5 min dojazd
+
+=== OSTRZEŻENIA ===
+
+⚠️ EKIPA-10 nie odpowiada - możliwe że wpadli w korki / wypadek / problem techniczny
+⚠️ Temperatura -15°C - spawanie trwa 2x dłużej (metal kruchy)
+⚠️ Ciemno na ulicach - dojazdy mogą być opóźnione (brak świateł)
+⚠️ Ruch w mieście chaotyczny - możliwe korki, blokady
+
+---
+Koniec raportu
