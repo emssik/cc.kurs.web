@@ -1,0 +1,504 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Feed społecznościowy - blackout (eskalacja)</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: #000;
+      color: #e7e9ea;
+      min-height: 100vh;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      border-left: 1px solid #2f3336;
+      border-right: 1px solid #2f3336;
+      min-height: 100vh;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      background-color: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(12px);
+      padding: 12px 16px;
+      border-bottom: 1px solid #2f3336;
+      z-index: 100;
+    }
+
+    h1 {
+      font-size: 20px;
+      font-weight: 700;
+      color: #e7e9ea;
+      margin-bottom: 4px;
+    }
+
+    .header-meta {
+      font-size: 13px;
+      color: #71767b;
+    }
+
+    .live-indicator {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background-color: rgba(244, 33, 46, 0.15);
+      color: #f4212e;
+      padding: 4px 10px;
+      border-radius: 9999px;
+      font-size: 12px;
+      font-weight: 700;
+      margin-left: 12px;
+    }
+
+    .live-dot {
+      width: 8px;
+      height: 8px;
+      background-color: #f4212e;
+      border-radius: 50%;
+      animation: pulse 1.5s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    .feed {
+      padding: 0;
+    }
+
+    .item {
+      padding: 12px 16px;
+      border-bottom: 1px solid #2f3336;
+      transition: background-color 0.2s ease;
+      display: flex;
+      gap: 12px;
+    }
+
+    .item:hover {
+      background-color: rgba(255, 255, 255, 0.03);
+    }
+
+    .avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #1d9bf0 0%, #1a8cd8 100%);
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 16px;
+      color: #fff;
+    }
+
+    .avatar.official {
+      background: linear-gradient(135deg, #00ba7c 0%, #00a06a 100%);
+    }
+
+    .avatar.media {
+      background: linear-gradient(135deg, #f91880 0%, #e0186e 100%);
+    }
+
+    .avatar.alert {
+      background: linear-gradient(135deg, #ffd400 0%, #e6bf00 100%);
+      color: #000;
+    }
+
+    .avatar.military {
+      background: linear-gradient(135deg, #4a5d23 0%, #3d4d1c 100%);
+    }
+
+    .content {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .meta {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      margin-bottom: 4px;
+      flex-wrap: wrap;
+    }
+
+    .username {
+      font-weight: 700;
+      color: #e7e9ea;
+      font-size: 15px;
+    }
+
+    .handle {
+      color: #71767b;
+      font-size: 15px;
+    }
+
+    .separator {
+      color: #71767b;
+      font-size: 15px;
+    }
+
+    .timestamp {
+      color: #71767b;
+      font-size: 15px;
+    }
+
+    .verified {
+      width: 18px;
+      height: 18px;
+      fill: #1d9bf0;
+      margin-left: 2px;
+    }
+
+    .text {
+      font-size: 15px;
+      line-height: 1.4;
+      color: #e7e9ea;
+      word-wrap: break-word;
+    }
+
+    .tag {
+      color: #1d9bf0;
+      font-weight: 400;
+    }
+
+    .tag:hover {
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    .actions {
+      display: flex;
+      gap: 40px;
+      margin-top: 12px;
+      color: #71767b;
+      font-size: 13px;
+    }
+
+    .action {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      transition: color 0.2s ease;
+    }
+
+    .action:hover {
+      color: #1d9bf0;
+    }
+
+    .action.retweet:hover {
+      color: #00ba7c;
+    }
+
+    .action.like:hover {
+      color: #f91880;
+    }
+
+    .urgent {
+      border-left: 3px solid #f4212e;
+      background-color: rgba(244, 33, 46, 0.05);
+    }
+
+    .official-post {
+      border-left: 3px solid #00ba7c;
+      background-color: rgba(0, 186, 124, 0.05);
+    }
+
+    .military-post {
+      border-left: 3px solid #4a5d23;
+      background-color: rgba(74, 93, 35, 0.08);
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        border-left: none;
+        border-right: none;
+      }
+
+      .actions {
+        gap: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>LIVE FEED: <span class="tag">#blackout</span> <span class="live-indicator"><span class="live-dot"></span>LIVE</span></h1>
+      <p class="header-meta">Źródło: monitoring KCZE (symulacja) · Ostatnia aktualizacja: 15:28</p>
+    </header>
+
+    <div class="feed">
+      <div class="item">
+        <div class="avatar">M</div>
+        <div class="content">
+          <div class="meta">
+            <span class="username">Marek</span>
+            <span class="handle">@marek_wola</span>
+            <span class="separator">·</span>
+            <span class="timestamp">14:02</span>
+          </div>
+          <div class="text">Wojskowe ciężarówki na Wolskiej. Co się dzieje? Czy to już stan wyjątkowy? <span class="tag">#blackout</span> <span class="tag">#wojsko</span></div>
+          <div class="actions">
+            <span class="action">💬 234</span>
+            <span class="action retweet">🔁 1.8K</span>
+            <span class="action like">❤️ 567</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="item military-post">
+        <div class="avatar military">W</div>
+        <div class="content">
+          <div class="meta">
+            <span class="username">WOT Mazowsze</span>
+            <svg class="verified" viewBox="0 0 22 22"><path d="M20.396 11c-.018-.646-.215-1.275-.57-1.816-.354-.54-.852-.972-1.438-1.246.223-.607.27-1.264.14-1.897-.131-.634-.437-1.218-.882-1.687-.47-.445-1.053-.75-1.687-.882-.633-.13-1.29-.083-1.897.14-.273-.587-.704-1.086-1.245-1.44S11.647 1.62 11 1.604c-.646.017-1.273.213-1.813.568s-.969.854-1.24 1.44c-.608-.223-1.267-.272-1.902-.14-.635.13-1.22.436-1.69.882-.445.47-.749 1.055-.878 1.688-.13.633-.08 1.29.144 1.896-.587.274-1.087.705-1.443 1.245-.356.54-.555 1.17-.574 1.817.02.647.218 1.276.574 1.817.356.54.856.972 1.443 1.245-.224.606-.274 1.263-.144 1.896.13.634.433 1.218.877 1.688.47.443 1.054.747 1.687.878.633.132 1.29.084 1.897-.136.274.586.705 1.084 1.246 1.439.54.354 1.17.551 1.816.569.647-.016 1.276-.213 1.817-.567s.972-.854 1.245-1.44c.604.239 1.266.296 1.903.164.636-.132 1.22-.447 1.68-.907.46-.46.776-1.044.908-1.681s.075-1.299-.165-1.903c.586-.274 1.084-.705 1.439-1.246.354-.54.551-1.17.569-1.816zM9.662 14.85l-3.429-3.428 1.293-1.302 2.072 2.072 4.4-4.794 1.347 1.246z"></path></svg>
+            <span class="handle">@WOT_Mazowsze</span>
+            <span class="separator">·</span>
+            <span class="timestamp">14:08</span>
+          </div>
+          <div class="text">Żołnierze WOT wspierają służby porządkowe w Warszawie. Pomagamy w dystrybucji wody i kierowaniu ruchem. Prosimy o spokój - jesteśmy tu dla Was. <span class="tag">#blackout</span> <span class="tag">#WOT</span></div>
+          <div class="actions">
+            <span class="action">💬 456</span>
+            <span class="action retweet">🔁 3.2K</span>
+            <span class="action like">❤️ 4.1K</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="avatar">K</div>
+        <div class="content">
+          <div class="meta">
+            <span class="username">Kasia</span>
+            <span class="handle">@kasia_praga</span>
+            <span class="separator">·</span>
+            <span class="timestamp">14:15</span>
+          </div>
+          <div class="text">W Biedronce na Targowej bójka o wodę. Ludzie wyrywają sobie butelki z rąk. Ochrona nie daje rady. <span class="tag">#blackout</span> <span class="tag">#panika</span></div>
+          <div class="actions">
+            <span class="action">💬 345</span>
+            <span class="action retweet">🔁 2.3K</span>
+            <span class="action like">❤️ 234</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="item urgent">
+        <div class="avatar">🔥</div>
+        <div class="content">
+          <div class="meta">
+            <span class="username">Prawda_PL_2024</span>
+            <span class="handle">@prawda_pl_info</span>
+            <span class="separator">·</span>
+            <span class="timestamp">14:22</span>
+          </div>
+          <div class="text">‼️ WOJSKO NA ULICACH = STAN WOJENNY! Rząd wprowadza dyktaturę pod pretekstem awarii! To zaplanowana akcja! OBUDŹCIE SIĘ! <span class="tag">#blackout</span> <span class="tag">#stanwojenny</span> <span class="tag">#dyktatura</span></div>
+          <div class="actions">
+            <span class="action">💬 1.2K</span>
+            <span class="action retweet">🔁 5.6K</span>
+            <span class="action like">❤️ 890</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="avatar">J</div>
+        <div class="content">
+          <div class="meta">
+            <span class="username">Janusz</span>
+            <span class="handle">@janusz_mokotow</span>
+            <span class="separator">·</span>
+            <span class="timestamp">14:31</span>
+          </div>
+          <div class="text">Telefon mi pada, 3% baterii. Gdzie są punkty ładowania? Ktokolwiek? <span class="tag">#blackout</span></div>
+          <div class="actions">
+            <span class="action">💬 67</span>
+            <span class="action retweet">🔁 234</span>
+            <span class="action like">❤️ 189</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="avatar media">T</div>
+        <div class="content">
+          <div class="meta">
+            <span class="username">TVN24</span>
+            <svg class="verified" viewBox="0 0 22 22"><path d="M20.396 11c-.018-.646-.215-1.275-.57-1.816-.354-.54-.852-.972-1.438-1.246.223-.607.27-1.264.14-1.897-.131-.634-.437-1.218-.882-1.687-.47-.445-1.053-.75-1.687-.882-.633-.13-1.29-.083-1.897.14-.273-.587-.704-1.086-1.245-1.44S11.647 1.62 11 1.604c-.646.017-1.273.213-1.813.568s-.969.854-1.24 1.44c-.608-.223-1.267-.272-1.902-.14-.635.13-1.22.436-1.69.882-.445.47-.749 1.055-.878 1.688-.13.633-.08 1.29.144 1.896-.587.274-1.087.705-1.443 1.245-.356.54-.555 1.17-.574 1.817.02.647.218 1.276.574 1.817.356.54.856.972 1.443 1.245-.224.606-.274 1.263-.144 1.896.13.634.433 1.218.877 1.688.47.443 1.054.747 1.687.878.633.132 1.29.084 1.897-.136.274.586.705 1.084 1.246 1.439.54.354 1.17.551 1.816.569.647-.016 1.276-.213 1.817-.567s.972-.854 1.245-1.44c.604.239 1.266.296 1.903.164.636-.132 1.22-.447 1.68-.907.46-.46.776-1.044.908-1.681s.075-1.299-.165-1.903c.586-.274 1.084-.705 1.439-1.246.354-.54.551-1.17.569-1.816zM9.662 14.85l-3.429-3.428 1.293-1.302 2.072 2.072 4.4-4.794 1.347 1.246z"></path></svg>
+            <span class="handle">@tvaborant24</span>
+            <span class="separator">·</span>
+            <span class="timestamp">14:38</span>
+          </div>
+          <div class="text">PILNE: Premier zwołuje konferencję na 16:00. WOT rozmieszczone w 12 dzielnicach Warszawy. Punkty wydawania wody przy remizach OSP. <span class="tag">#blackout</span></div>
+          <div class="actions">
+            <span class="action">💬 567</span>
+            <span class="action retweet">🔁 4.5K</span>
+            <span class="action like">❤️ 2.3K</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="avatar alert">!</div>
+        <div class="content">
+          <div class="meta">
+            <span class="username">Ewa ratownik</span>
+            <span class="handle">@ewa_ratownik</span>
+            <span class="separator">·</span>
+            <span class="timestamp">14:45</span>
+          </div>
+          <div class="text">SOR na Banacha przepełniony. Ludzie mdleją z nerwów i odwodnienia. Przywoźcie TYLKO przypadki zagrożenia życia! <span class="tag">#blackout</span> <span class="tag">#SOR</span></div>
+          <div class="actions">
+            <span class="action">💬 234</span>
+            <span class="action retweet">🔁 1.9K</span>
+            <span class="action like">❤️ 567</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="avatar">🔥</div>
+        <div class="content">
+          <div class="meta">
+            <span class="username">Info_Warszawa_24</span>
+            <span class="handle">@info_wawa_24</span>
+            <span class="separator">·</span>
+            <span class="timestamp">14:52</span>
+          </div>
+          <div class="text">Słyszałem strzały przy Dworcu Centralnym!!! Ktoś potwierdzi? Wojsko strzela do ludzi??? <span class="tag">#blackout</span> <span class="tag">#strzały</span></div>
+          <div class="actions">
+            <span class="action">💬 2.3K</span>
+            <span class="action retweet">🔁 8.9K</span>
+            <span class="action like">❤️ 456</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="item official-post">
+        <div class="avatar official">P</div>
+        <div class="content">
+          <div class="meta">
+            <span class="username">Policja Warszawa</span>
+            <svg class="verified" viewBox="0 0 22 22"><path d="M20.396 11c-.018-.646-.215-1.275-.57-1.816-.354-.54-.852-.972-1.438-1.246.223-.607.27-1.264.14-1.897-.131-.634-.437-1.218-.882-1.687-.47-.445-1.053-.75-1.687-.882-.633-.13-1.29-.083-1.897.14-.273-.587-.704-1.086-1.245-1.44S11.647 1.62 11 1.604c-.646.017-1.273.213-1.813.568s-.969.854-1.24 1.44c-.608-.223-1.267-.272-1.902-.14-.635.13-1.22.436-1.69.882-.445.47-.749 1.055-.878 1.688-.13.633-.08 1.29.144 1.896-.587.274-1.087.705-1.443 1.245-.356.54-.555 1.17-.574 1.817.02.647.218 1.276.574 1.817.356.54.856.972 1.443 1.245-.224.606-.274 1.263-.144 1.896.13.634.433 1.218.877 1.688.47.443 1.054.747 1.687.878.633.132 1.29.084 1.897-.136.274.586.705 1.084 1.246 1.439.54.354 1.17.551 1.816.569.647-.016 1.276-.213 1.817-.567s.972-.854 1.245-1.44c.604.239 1.266.296 1.903.164.636-.132 1.22-.447 1.68-.907.46-.46.776-1.044.908-1.681s.075-1.299-.165-1.903c.586-.274 1.084-.705 1.439-1.246.354-.54.551-1.17.569-1.816zM9.662 14.85l-3.429-3.428 1.293-1.302 2.072 2.072 4.4-4.794 1.347 1.246z"></path></svg>
+            <span class="handle">@Policja_KSP</span>
+            <span class="separator">·</span>
+            <span class="timestamp">14:58</span>
+          </div>
+          <div class="text">DEMENTUJEMY: Nie było żadnych strzałów przy Dworcu Centralnym. To fake news. Prosimy nie rozprzestrzeniać fałszywych informacji. Sytuacja jest pod kontrolą. <span class="tag">#blackout</span> <span class="tag">#fakenews</span></div>
+          <div class="actions">
+            <span class="action">💬 890</span>
+            <span class="action retweet">🔁 3.4K</span>
+            <span class="action like">❤️ 5.6K</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="avatar">A</div>
+        <div class="content">
+          <div class="meta">
+            <span class="username">Agnieszka</span>
+            <span class="handle">@agnieszka_zoliborz</span>
+            <span class="separator">·</span>
+            <span class="timestamp">15:05</span>
+          </div>
+          <div class="text">Moja mama jest sama, ma 78 lat, mieszka na 10. piętrze bez windy, bez wody. Nie mogę się do niej dostać przez korki. Czy ktoś z Żoliborza może sprawdzić? Proszę! <span class="tag">#blackout</span> <span class="tag">#pomoc</span></div>
+          <div class="actions">
+            <span class="action">💬 456</span>
+            <span class="action retweet">🔁 2.1K</span>
+            <span class="action like">❤️ 1.8K</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="avatar">P</div>
+        <div class="content">
+          <div class="meta">
+            <span class="username">Piotr</span>
+            <span class="handle">@piotr_zoliborz</span>
+            <span class="separator">·</span>
+            <span class="timestamp">15:12</span>
+          </div>
+          <div class="text">@agnieszka_zoliborz Który adres? Jestem na Żoliborzu, mogę podjechać. <span class="tag">#blackout</span></div>
+          <div class="actions">
+            <span class="action">💬 23</span>
+            <span class="action retweet">🔁 567</span>
+            <span class="action like">❤️ 2.3K</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="avatar">D</div>
+        <div class="content">
+          <div class="meta">
+            <span class="username">Damian</span>
+            <span class="handle">@damian_it</span>
+            <span class="separator">·</span>
+            <span class="timestamp">15:18</span>
+          </div>
+          <div class="text">Ludzie, robię arkusz Google z punktami pomocy, ładowania, wody. Link w bio. Aktualizuję na bieżąco. <span class="tag">#blackout</span> <span class="tag">#pomoc</span></div>
+          <div class="actions">
+            <span class="action">💬 123</span>
+            <span class="action retweet">🔁 4.5K</span>
+            <span class="action like">❤️ 3.2K</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="item urgent">
+        <div class="avatar">🔥</div>
+        <div class="content">
+          <div class="meta">
+            <span class="username">Prawda_PL_2024</span>
+            <span class="handle">@prawda_pl_info</span>
+            <span class="separator">·</span>
+            <span class="timestamp">15:24</span>
+          </div>
+          <div class="text">Policja "dementuje" bo im KAZANO! Mam nagranie - wyślę jak wrócą sieci. Nie wierzcie systemowym mediom! Szykuje się ZAMACH STANU! <span class="tag">#blackout</span> <span class="tag">#zamachstanu</span></div>
+          <div class="actions">
+            <span class="action">💬 3.4K</span>
+            <span class="action retweet">🔁 12K</span>
+            <span class="action like">❤️ 1.2K</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="item official-post">
+        <div class="avatar official">K</div>
+        <div class="content">
+          <div class="meta">
+            <span class="username">KCZE Oficjalnie</span>
+            <svg class="verified" viewBox="0 0 22 22"><path d="M20.396 11c-.018-.646-.215-1.275-.57-1.816-.354-.54-.852-.972-1.438-1.246.223-.607.27-1.264.14-1.897-.131-.634-.437-1.218-.882-1.687-.47-.445-1.053-.75-1.687-.882-.633-.13-1.29-.083-1.897.14-.273-.587-.704-1.086-1.245-1.44S11.647 1.62 11 1.604c-.646.017-1.273.213-1.813.568s-.969.854-1.24 1.44c-.608-.223-1.267-.272-1.902-.14-.635.13-1.22.436-1.69.882-.445.47-.749 1.055-.878 1.688-.13.633-.08 1.29.144 1.896-.587.274-1.087.705-1.443 1.245-.356.54-.555 1.17-.574 1.817.02.647.218 1.276.574 1.817.356.54.856.972 1.443 1.245-.224.606-.274 1.263-.144 1.896.13.634.433 1.218.877 1.688.47.443 1.054.747 1.687.878.633.132 1.29.084 1.897-.136.274.586.705 1.084 1.246 1.439.54.354 1.17.551 1.816.569.647-.016 1.276-.213 1.817-.567s.972-.854 1.245-1.44c.604.239 1.266.296 1.903.164.636-.132 1.22-.447 1.68-.907.46-.46.776-1.044.908-1.681s.075-1.299-.165-1.903c.586-.274 1.084-.705 1.439-1.246.354-.54.551-1.17.569-1.816zM9.662 14.85l-3.429-3.428 1.293-1.302 2.072 2.072 4.4-4.794 1.347 1.246z"></path></svg>
+            <span class="handle">@kcze_info</span>
+            <span class="separator">·</span>
+            <span class="timestamp">15:28</span>
+          </div>
+          <div class="text">Aktualizacja: Trwają prace nad przywróceniem zasilania. Szacowany czas dla pierwszych dzielnic: 2-4 godziny. Priorytet: szpitale, wodociągi. Prosimy ograniczyć zużycie baterii telefonów. <span class="tag">#blackout</span> <span class="tag">#KCZE</span></div>
+          <div class="actions">
+            <span class="action">💬 1.2K</span>
+            <span class="action retweet">🔁 6.7K</span>
+            <span class="action like">❤️ 3.4K</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
