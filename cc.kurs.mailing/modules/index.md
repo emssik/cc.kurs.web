@@ -338,6 +338,56 @@
 
 ---
 
+## Lekcja 13 (Moduł 02-04): Hooks - Od Probabilistyki do Determinizmu
+
+| Temat | Głębokość | Uwagi |
+|-------|-----------|-------|
+| Czym są hooki w Claude Code | 📕 Wyczerpany | Deterministyczna warstwa kontrolna, różnica AI probabilistyczny vs deterministic hooks |
+| Architektura hooka: Event, Matcher, Action | 📕 Wyczerpany | 3 elementy każdego hooka, kiedy/dla czego/co |
+| Lokalizacja hooków: User vs Project | 📕 Wyczerpany | ~/.claude/settings.json vs .claude/settings.json, kiedy używać którego |
+| Konfiguracja przez /hooks | 📕 Wyczerpany | Interaktywny UI do dodawania hooków, live editing |
+| Notification hook | 📕 Wyczerpany | Desktop notifications (macOS/Linux/Windows), osascript, notify-send |
+| PostToolUse hook - formatowanie | 📕 Wyczerpany | Automatyczne prettier/black/gofmt po edycji, multi-language support |
+| PreToolUse hook - logging | 📕 Wyczerpany | Bash command log do pliku, tracking dla PM/marketers |
+| jq basics | 📕 Wyczerpany | Parsowanie JSON w hookach, -r flag, nested values, defaults |
+| Exit codes w hookach | 📕 Wyczerpany | 0 = allow, 2 = block, 1/3-255 = non-blocking error |
+| Bezpieczeństwo hooków | 📕 Wyczerpany | Hooki wykonują się z user permissions, NIGDY nie kopiuj bez zrozumienia |
+| Typowe problemy i debug | 📕 Wyczerpany | Hook się nie uruchamia, command not found, hook za wolny, hook blokuje |
+| Kiedy hooks vs prompts | 📕 Wyczerpany | Decision tree: hooks dla deterministycznych operacji, prompts dla business logic |
+| $CLAUDE_PROJECT_DIR | 📕 Wyczerpany | Zmienna env dla project-specific scripts, absolute paths |
+| Timeout konfiguracja | 📗 Rozwinięcie | Domyślnie 60s, zwiększanie dla długich operacji |
+| Słowniczek | 📕 Wyczerpany | 13 terminów: hook, event, matcher, exit code, deterministic, probabilistic, stdin, jq, user hooks, project hooks, timeout, blocking error, non-blocking error |
+
+---
+
+## Lekcja 14 (Moduł 02-05): Hooks - Zaawansowane Bezpieczeństwo i Kontekst
+
+| Temat | Głębokość | Uwagi |
+|-------|-----------|-------|
+| Hook Input/Output JSON format | 📕 Wyczerpany | Struktura JSON dla różnych tools (Bash, Edit, Write, Read), session_id, cwd, permission_mode |
+| jq zaawansowane techniki | 📕 Wyczerpany | Nested extraction, array iteration, default values, single quotes |
+| Exit codes zaawansowane | 📕 Wyczerpany | 0 vs 2 behavior per hook event, stderr pokazywane do Claude/user |
+| set -euo pipefail best practice | 📕 Wyczerpany | Fail fast w bash hooks, undefined variables jako błędy |
+| NOWA składnia PreToolUse (2.1.9+) | 📕 Wyczerpany | hookSpecificOutput.permissionDecision (allow/deny/ask), deprecation starej składni |
+| PreToolUse security gate | 📕 Wyczerpany | Blokowanie rm -rf, sudo, .env edits, PEŁNY działający skrypt bash |
+| War story: rm -rf disaster | 📕 Wyczerpany | Real incident z Reddit, auto-accept bez guardrails = system deleted |
+| Prompt injection vs hooks | 📕 Wyczerpany | OWASP 2025 #1 risk (73% podatność), Google Jules kill chain, hooki chronią przed WYKONANIEM |
+| SessionStart context injection | 📕 Wyczerpany | Git logs, branch, uncommitted changes wstrzykiwane do kontekstu, PEŁNY skrypt |
+| additionalContext mechanism | 📕 Wyczerpany | SessionStart i UserPromptSubmit, tekst trafia do conversation context |
+| SessionStart vs Auto Memory | 📗 Rozwinięcie | External data (git, Jira) vs conversation history, kiedy używać czego |
+| PostToolUse audit logging | 📕 Wyczerpany | Compliance (ISO 27001, HIPAA, GDPR, SOC 2), CSV format, timestamp/user/tool/resource |
+| Audit requirements | 📕 Wyczerpany | Kto, co, kiedy, rezultat, retention 90 dni, WORM storage |
+| WORM storage options | 📗 Rozwinięcie | AWS S3 Object Lock, syslog, PostgreSQL append-only, enterprise compliance |
+| Routing Layer analogy | 📕 Wyczerpany | Hooki jako control plane w AI infrastructure, security/context/tracking layers |
+| 2026 production standard | 📕 Wyczerpany | "Vibe Coding" vs Engineering, guardrails not bypassable, CI/CD integration |
+| Multi-layer defense | 📕 Wyczerpany | Prevention (hooks) + Access Control (sandbox) + Monitoring (logs) + Governance (reviews) + Recovery (backups) |
+| Mocne strony PRO | 📕 Wyczerpany | Guardrails nie do obejścia, CI/CD integration, team consistency |
+| Słabe strony PRO | 📕 Wyczerpany | Źle napisany hook blokuje, zwiększona latency (~10-100ms), debugging trudniejszy |
+| CLAUDE_ENV_FILE | 📕 Wyczerpany | SessionStart only, persystencja env vars dla subsequent bash commands |
+| Słowniczek | 📕 Wyczerpany | 15 terminów: PreToolUse, PostToolUse, SessionStart, permissionDecision, additionalContext, WORM, retention policy, routing layer, control plane, prompt injection, guardrails, multi-layer defense, audit trail, compliance |
+
+---
+
 ## Podsumowanie tematów
 
 ### Tematy wyczerpane (📕) - nie powtarzać
@@ -782,18 +832,48 @@
 - Production best practices (security, performance, reliability, team collaboration) ✅
 - Optimization techniques (token, execution speed, UX) ✅
 
+**Ukończone (Lekcja 13):**
+- Hooks basics - czym są, dlaczego deterministyczne ✅
+- Architektura hooka (Event, Matcher, Action) ✅
+- Lokalizacja (user vs project hooks) ✅
+- Konfiguracja przez /hooks ✅
+- Notification hook (desktop notifications) ✅
+- PostToolUse formatowanie (prettier, black, gofmt) ✅
+- PreToolUse logging (bash command log) ✅
+- jq basics (parsing JSON w hookach) ✅
+- Exit codes (0 = allow, 2 = block) ✅
+- Bezpieczeństwo hooków (NIGDY nie kopiuj bez zrozumienia) ✅
+- Kiedy hooks vs prompts ✅
+
+**Ukończone (Lekcja 14):**
+- Hook Input/Output JSON format ✅
+- jq zaawansowane techniki ✅
+- Exit codes zaawansowane (per event behavior) ✅
+- set -euo pipefail best practice ✅
+- NOWA składnia PreToolUse (2.1.9+: hookSpecificOutput.permissionDecision) ✅
+- PreToolUse security gate (blokowanie rm/sudo/.env) ✅
+- Prompt injection vs hooks (OWASP 2025, Google Jules) ✅
+- SessionStart context injection (git logs, Jira tickets) ✅
+- additionalContext mechanism ✅
+- PostToolUse audit logging (ISO 27001, HIPAA, GDPR, SOC 2) ✅
+- WORM storage dla compliance ✅
+- Routing Layer analogy (hooki jako control plane) ✅
+- Multi-layer defense ✅
+
 **Do omówienia w kolejnych modułach:**
 - Git integration - zaawansowane workflow (commit, branch, merge, PR)
 - Task i subagenty - szczegółowo dla każdego typu (Explore, Plan, general-purpose)
 - NotebookEdit - zaawansowana praca z Jupyter
 - mcp__ide__ narzędzia - głębsza integracja z IDE
+- Prompt-based hooks (type: "prompt" dla Stop/SubagentStop)
+- PermissionRequest hooks (auto-allow/deny permissions)
+- Hooks w Skills/Agents/Commands (component-scoped hooks)
 
 ### Moduł 3: Bezpieczeństwo zaawansowane
-- Hooks - system do walidacji (wspomniany w L06)
 - Managed Settings dla organizacji
 - IAM zaawansowane
-- Pre-tool use hooks
-- Przykłady własnych hooków
+- Enterprise telemetry (OpenTelemetry integration)
+- Compliance patterns dla regulated industries
 
 ### Moduł 4: Slash Commands zaawansowane
 - Tworzenie własnych slash commands
@@ -827,6 +907,6 @@
 
 ---
 
-**Data aktualizacji:** 2026-02-02
-**Źródło:** Analiza lekcji z modułu-01-podstawy (00-09) + moduł-02-wbudowane-narzedzia (10-12)
-**Status lekcji:** Moduł 01 (Lekcje 00-09) ✅ | Moduł 02 (Lekcje 10-12) ✅
+**Data aktualizacji:** 2026-02-07
+**Źródło:** Analiza lekcji z modułu-01-podstawy (00-09) + moduł-02-wbudowane-narzedzia (10-14)
+**Status lekcji:** Moduł 01 (Lekcje 00-09) ✅ | Moduł 02 (Lekcje 10-14) ✅
