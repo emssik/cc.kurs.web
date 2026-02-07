@@ -197,6 +197,147 @@
 
 ---
 
+## Lekcja 10 (Moduł 02-01): Wprowadzenie do narzędzi - od autopilota do precyzyjnego sterowania
+
+| Temat | Głębokość | Uwagi |
+|-------|-----------|-------|
+| Model + Prompt + Context + Tools | 📗 Rozwinięcie | Podstawowa formuła pracy z AI, jak elementy wpływają na wynik |
+| Dobór modelu (Haiku, Sonnet, Opus) | 📘 Podstawy | Przypomnienie z L03, kontekst narzędzi |
+| Formułowanie promptów zaawansowane | 📗 Rozwinięcie | READ, UPDATE, CREATE patterns, kontynuacja L01 |
+| Kontekst jako król (Context is king) | 📗 Rozwinięcie | Dlaczego kontekst ważniejszy niż prompt, budowanie kontekstu |
+| Autopilot vs precyzyjne sterowanie | 📕 Wyczerpany | Dwa poziomy pracy z narzędziami, kiedy przejąć kontrolę |
+| Jawne wywoływanie narzędzi | 📕 Wyczerpany | Składnia "Użyj [TOOL] z parametrami:", 8 case studies |
+| Timeout w Bash | 📕 Wyczerpany | Parametr timeout, domyślny 180000ms, max 600000ms, przykłady użycia |
+| Multiline w Grep | 📕 Wyczerpany | Wyszukiwanie wieloliniowe, pattern z [\\s\\S]*?, praktyczne przykłady |
+| Offset i Limit w Read | 📕 Wyczerpany | Paginacja dużych plików, analiza fragmentów, case study z logami |
+| Output modes w Grep | 📕 Wyczerpany | content/files_with_matches/count, kiedy używać którego |
+| Head_limit w Grep | 📕 Wyczerpany | Ograniczanie liczby wyników, kontrola outputu |
+| Context lines w Grep (-A, -B, -C) | 📗 Rozwinięcie | Pokazywanie kontekstu wokół dopasowań |
+| Case insensitive search (-i) | 📗 Rozwinięcie | Ignorowanie wielkości liter w Grep |
+| Glob patterns | 📗 Rozwinięcie | Filtrowanie plików w Grep (*.js, *.{txt,md}) |
+| WebFetch z promptem | 📕 Wyczerpany | Precyzyjne wyciąganie danych ze stron, case study technical writer |
+| Kombinowanie narzędzi (LEGO pattern) | 📕 Wyczerpany | Grep→Read→Edit, WebFetch→Bash→Write, Glob→Grep→Task |
+| Case Studies power users | 📕 Wyczerpany | 8 szczegółowych scenariuszy: backend dev, marketer, analyst, PM, writer, recruiter, nauczyciel, content writer |
+| Narzędzie Read | 📕 Wyczerpany | Pełny opis: parametry, offset, limit, obsługa obrazów/PDF/Jupyter |
+| Narzędzie Write | 📕 Wyczerpany | Tworzenie i nadpisywanie plików, wymóg wcześniejszego Read |
+| Narzędzie Edit | 📕 Wyczerpany | Zamiany tekstowe, old_string/new_string, replace_all |
+| Narzędzie NotebookEdit | 📕 Wyczerpany | Edycja komórek Jupyter, cell_id, edit_mode (replace/insert/delete) |
+| Narzędzie Glob | 📕 Wyczerpany | Wyszukiwanie plików po wzorcach, pattern, path, sortowanie po modyfikacji |
+| Narzędzie Grep | 📕 Wyczerpany | Pełny opis wszystkich parametrów: pattern, output_mode, glob, type, multiline, head_limit, offset, context |
+| Narzędzie Bash | 📕 Wyczerpany | Wykonywanie poleceń: command, timeout, run_in_background, dangerouslyDisableSandbox |
+| Narzędzie mcp__ide__executeCode | 📕 Wyczerpany | Wykonywanie Python w Jupyter kernel, stan utrzymywany między wywołaniami |
+| Narzędzie WebFetch | 📕 Wyczerpany | Pobieranie i analiza URL: url, prompt, cache 15 minut |
+| Narzędzie WebSearch | 📕 Wyczerpany | Wyszukiwanie w sieci: query, allowed_domains, blocked_domains (tylko USA) |
+| Narzędzie Task | 📕 Wyczerpany | Subagenty: subagent_type, prompt, description, model, resume, run_in_background |
+| Narzędzia TaskCreate/Update/List/Get/Output/Stop | 📕 Wyczerpany | Pełne API zarządzania zadaniami, wszystkie parametry |
+| Narzędzie AskUserQuestion | 📕 Wyczerpany | Zadawanie pytań: questions, header, options, multiSelect, metadata |
+| Narzędzia EnterPlanMode/ExitPlanMode | 📕 Wyczerpany | Tryb planowania: allowedPrompts, pushToRemote |
+| Narzędzie Skill | 📕 Wyczerpany | Wykonywanie slash commands: skill, args |
+| Narzędzie mcp__ide__getDiagnostics | 📕 Wyczerpany | Diagnostyka VS Code: uri (opcjonalny) |
+| Słowniczek terminów narzędzi | 📕 Wyczerpany | Pattern, API, Endpoint, Kernel, Timeout, Multiline, Offset, Limit, Head_limit, Output_mode, Context lines, Glob pattern, Token limit |
+
+---
+
+## Lekcja 11 (Moduł 02-02): Custom Slash Commands - Twoje Własne Skróty
+
+| Temat | Głębokość | Uwagi |
+|-------|-----------|-------|
+| Czym są custom slash commands | 📕 Wyczerpany | Własne skróty dla Claude, proste pliki .md z instrukcjami |
+| Built-in commands: /help | 📕 Wyczerpany | Pokazuje wszystkie dostępne komendy (built-in + custom) |
+| Built-in commands: /compact | 📕 Wyczerpany | Kompresja historii konwersacji, opcje focus on topic |
+| Built-in commands: /clear | 📕 Wyczerpany | Czyszczenie całej historii, fresh start |
+| Built-in commands: /context | 📕 Wyczerpany | Token usage, files in context, loaded commands |
+| Built-in commands: /init | 📕 Wyczerpany | Tworzenie .claude/CLAUDE.md (project memory) |
+| Built-in commands: /config | 📕 Wyczerpany | Konfiguracja Claude Code settings, GUI |
+| Built-in commands: /permissions | 📕 Wyczerpany | Zarządzanie uprawnieniami tools |
+| Tworzenie pierwszego custom command | 📕 Wyczerpany | 4 przykłady step-by-step: morning routine, social post, CSV analysis, code review |
+| Argumenty: $ARGUMENTS | 📕 Wyczerpany | Podstawowy placeholder, wszystko po nazwie komendy |
+| Argumenty: $0, $1, $2 | 📕 Wyczerpany | Positional arguments, konkretne części inputu |
+| Lokalizacja: Personal commands | 📕 Wyczerpany | ~/.claude/commands/ - tylko dla Ciebie, wszystkie projekty |
+| Lokalizacja: Project commands | 📕 Wyczerpany | .claude/commands/ - dla całego teamu, commitowane do git |
+| Priority hierarchy | 📕 Wyczerpany | Enterprise > Project > Personal, konflikt przy tej samej nazwie |
+| Organizacja w subdirectories | 📕 Wyczerpany | folder/file.md → /folder:file, namespacing |
+| Autocomplete dla slash commands | 📕 Wyczerpany | Menu po wpisaniu /, nawigacja strzałkami, tab completion |
+| Hot reload mechanizm | 📕 Wyczerpany | Instant updates bez restartu, iterative development |
+| Discovery - jak Claude znajduje komendy | 📕 Wyczerpany | Scan locations, cache, availability check |
+| Przykłady dla Developers | 📕 Wyczerpany | 6 commands: /commit, /test, /bug-hunt, /refactor, /api-doc, /dependency-check |
+| Przykłady dla Marketers | 📕 Wyczerpany | 5 commands: /blog-post, /competitor-research, /email-campaign, /seo-audit, /hashtag-research |
+| Przykłady dla Data Analysts | 📕 Wyczerpany | 4 commands: /csv-summary, /create-chart, /monthly-report, /data-clean |
+| Przykłady dla HR/Admin | 📕 Wyczerpany | 3 commands: /screen-cv, /offer-letter, /onboarding-checklist |
+| Przykłady dla Managers | 📕 Wyczerpany | 2 commands: /standup-summary, /performance-review |
+| Best practices: DO ✅ | 📕 Wyczerpany | Descriptive names, clear instructions, $ARGUMENTS flexibility, examples, output format |
+| Best practices: DON'T ❌ | 📕 Wyczerpany | Vague names, too complex, hardcoded values, destructive without confirmation, no error handling |
+| Naming conventions | 📕 Wyczerpany | verb-noun pattern, category:action with subdirectories, max 64 chars |
+| Documentation tips | 📕 Wyczerpany | In-command comments, team wiki/README |
+| Troubleshooting: Command not found | 📕 Wyczerpany | Check file location, name, wait for hot reload, restart if needed |
+| Troubleshooting: $ARGUMENTS not working | 📕 Wyczerpany | Check placement (markdown body), quotes, test output |
+| Troubleshooting: Command unexpected behavior | 📕 Wyczerpany | Be explicit, add examples, specify tools |
+| Troubleshooting: Local vs team | 📕 Wyczerpany | Move from personal to project, commit to git |
+| Troubleshooting: Too many commands | 📕 Wyczerpany | Organize with subdirectories, clear categories |
+| Zadanie praktyczne | 📕 Wyczerpany | Challenge: 3 custom commands dla swojej roli z wymaganiami |
+| Słowniczek | 📕 Wyczerpany | 10 terminów: custom slash command, built-in, $ARGUMENTS, positional args, personal/project commands, hot reload, autocomplete, subdirectories, CLAUDE.md |
+
+---
+
+## Lekcja 12 (Moduł 02-03): Custom Slash Commands - Zaawansowane Workflow
+
+| Temat | Głębokość | Uwagi |
+|-------|-----------|-------|
+| Multi-step workflows: Sequential | 📕 Wyczerpany | Step 1 → Step 2 → Step 3, każdy krok przed następnym |
+| Multi-step workflows: Complex with validation | 📕 Wyczerpany | Pre-deployment checks, deployment steps, post-deployment, STOP conditions |
+| Multi-step workflows: Parallel tasks | 📕 Wyczerpany | Run all → Collect results, 4x speed gain |
+| Multi-step workflows: Conditional | 📕 Wyczerpany | IF-THEN-ELSE logic, adapts to situation, early exit |
+| Multi-step workflows: Loops | 📕 Wyczerpany | FOR EACH item → Process → Collect, bulk processing |
+| Multi-step workflows: Error recovery | 📕 Wyczerpany | Checkpoint → Refactor → Validate → Rollback if fail |
+| Tool-specific: Read optimization | 📕 Wyczerpany | Size-based strategy: <10MB full, 10-100MB chunks, >100MB tail |
+| Tool-specific: Grep optimization | 📕 Wyczerpany | Progressive refinement: count → content/files → refine pattern |
+| Tool-specific: WebSearch + WebFetch combo | 📕 Wyczerpany | Broad search → Deep dive → Synthesis, cache-aware |
+| Tool-specific: Bash patterns | 📕 Wyczerpany | Parallel, sequential (&&), background, timeout |
+| Tool-specific: Write vs Edit decision | 📕 Wyczerpany | File exists → Edit, new → Write, logic table |
+| Advanced arguments: Optional | 📕 Wyczerpany | Required + optional, intelligent defaults, ${1:-md} |
+| Advanced arguments: Flags | 📕 Wyczerpany | --watch, --coverage, --verbose, CLI-like |
+| Advanced arguments: Named | 📕 Wyczerpany | key=value parsing, self-documenting |
+| Advanced arguments: Multi-line | 📕 Wyczerpany | Short one-liner or detailed spec, both modes |
+| Advanced arguments: Validation | 📕 Wyczerpany | Fail fast, validate early, clear errors |
+| Conditional logic: If-then-else | 📕 Wyczerpany | Smart test runner, adaptive behavior, multiple modes |
+| Conditional logic: Switch-case | 📕 Wyczerpany | Environment-specific deployment, different rules per env |
+| Conditional logic: Loops | 📕 Wyczerpany | Process multiple files, progress tracking, error tolerance |
+| Conditional logic: Nested conditions | 📕 Wyczerpany | Smart commit + PR creation, multiple decision points |
+| Error handling: Try-catch | 📕 Wyczerpany | Backup → Execute → Verify → Recover, safety layers |
+| Error handling: Validation cascade | 📕 Wyczerpany | Pre-flight → Build → Deploy → Production, progressive gates |
+| Error handling: Graceful degradation | 📕 Wyczerpany | Full → Sample → Basic → Error, best effort |
+| Error handling: Retry logic | 📕 Wyczerpany | Max 3 attempts, exponential backoff, fallback to cache |
+| Real-world: Feature development | 📕 Wyczerpany | Complete workflow: setup → dev → QA → git → PR, 30min-2h, metrics |
+| Real-world: Marketing campaign | 📕 Wyczerpany | Research → Strategy → Calendar → Content → Assets → Email, complete package |
+| Real-world: Data pipeline | 📕 Wyczerpany | Loading → Cleaning → EDA → Insights → Report, ~75min to insights |
+| Real-world: Team retrospective | 📕 Wyczerpany | Data collection → Analysis → Report generation, 30min weekly |
+| Production: Security patterns | 📕 Wyczerpany | Sensitive data handling, destructive warnings, input validation |
+| Production: Sensitive data handling | 📕 Wyczerpany | Scan for hardcoded secrets, verify .env, env vars check |
+| Production: Destructive operations | 📕 Wyczerpany | Show what affected, explicit confirmation, backup first, log |
+| Production: Input validation | 📕 Wyczerpany | Sanitize shell injection, path traversal, format validation |
+| Production: Performance - Incremental | 📕 Wyczerpany | Size-based strategy: <10MB at once, chunking for large |
+| Production: Performance - Caching | 📕 Wyczerpany | Cache check, age verification, 10-100x faster on hits |
+| Production: Performance - Tool selection | 📕 Wyczerpany | Smart choice based on codebase size, 10-100x token savings |
+| Production: Reliability - Idempotency | 📕 Wyczerpany | Check first, create only missing, safe to re-run |
+| Production: Reliability - Atomicity | 📕 Wyczerpany | All or nothing, transaction pattern, never broken state |
+| Production: Reliability - Logging | 📕 Wyczerpany | Audit trail, [timestamp] [user] [command] [result] |
+| Production: Team - Documentation | 📕 Wyczerpany | Self-documenting, purpose/requirements/usage/owner |
+| Production: Team - Versioning | 📕 Wyczerpany | Version + changelog, track evolution |
+| Production: Team - Notification | 📕 Wyczerpany | Slack/email stakeholders, team awareness |
+| Optimization: Token - Lazy loading | 📕 Wyczerpany | High-level first, ask focus areas, targeted reads, 10-50x reduction |
+| Optimization: Token - Progressive detail | 📕 Wyczerpany | Level 1 (500t) → Level 2 (2000t) → Level 3 (5000t), user controls |
+| Optimization: Token - Summarization | 📕 Wyczerpany | Don't show full diff, summary only, handle any size |
+| Optimization: Speed - Parallel execution | 📕 Wyczerpany | Single Bash call, wait for all, 2-3x time savings |
+| Optimization: Speed - Fast-fail | 📕 Wyczerpany | Check cheapest first, STOP early, exit in seconds vs minutes |
+| Optimization: Speed - Background | 📕 Wyczerpany | run_in_background for >3min, continue working |
+| Optimization: UX - Progress indicators | 📕 Wyczerpany | Step X/Y, estimated time, what's happening |
+| Optimization: UX - Incremental results | 📕 Wyczerpany | Show immediately as generated, feels faster |
+| Optimization: UX - Helpful errors | 📕 Wyczerpany | What happened, how to fix, actionable + specific |
+| Zadanie końcowe | 📕 Wyczerpany | Complex workflow command: requirements, test, document, share, measure |
+| Słowniczek | 📕 Wyczerpany | 14 terminów: multi-step, conditional logic, error handling, idempotency, atomicity, progressive detail, fast-fail, incremental processing, audit trail, graceful degradation, lazy loading, background execution, cache-aware |
+
+---
+
 ## Podsumowanie tematów
 
 ### Tematy wyczerpane (📕) - nie powtarzać
@@ -261,6 +402,18 @@
 - WEB vs CLI (kiedy co wybrać)
 - Teleportacja sesji (wymagania, metody)
 
+**Wbudowane narzędzia - wprowadzenie (Lekcja 10 / Moduł 02-01):**
+- Autopilot vs precyzyjne sterowanie narzędziami
+- Jawne wywoływanie narzędzi (składnia "Użyj [TOOL] z parametrami")
+- Kombinowanie narzędzi (LEGO patterns: Grep→Read→Edit, WebFetch→Bash→Write, Glob→Grep→Task)
+- Case studies power users (8 szczegółowych scenariuszy dla różnych ról)
+- Wszystkie narzędzia podstawowe z pełnym opisem: Read, Write, Edit, NotebookEdit, Glob, Grep, Bash
+- Wszystkie narzędzia sieciowe: WebFetch (z promptem), WebSearch
+- Wszystkie narzędzia zarządzania zadaniami: Task, TaskCreate/Update/List/Get/Output/Stop
+- Wszystkie narzędzia interakcji: AskUserQuestion, EnterPlanMode, ExitPlanMode, Skill, mcp__ide__getDiagnostics
+- Kluczowe parametry narzędzi: timeout w Bash, multiline w Grep, offset/limit w Read, head_limit w Grep, output_mode w Grep
+- Słowniczek terminów technicznych narzędzi (13 terminów)
+
 ### Tematy rozwinięte (📗) - można pogłębić w zaawansowanych modułach
 
 **Bezpieczeństwo:**
@@ -293,6 +446,13 @@
 - Bezpieczeństwo WEB (izolacja, credentials, Git proxy)
 - Konfiguracja terminala do WEB (/remote-env)
 - Typowe problemy i rozwiązania
+
+**Wbudowane narzędzia - wprowadzenie (Lekcja 10):**
+- Formułowanie promptów zaawansowane (READ, UPDATE, CREATE patterns)
+- Kontekst jako król (budowanie kontekstu, dlaczego ważny)
+- Context lines w Grep (-A, -B, -C)
+- Case insensitive search w Grep (-i)
+- Glob patterns w Grep
 
 ### Tematy podstawowe (📘) - wymagają rozwinięcia
 
@@ -441,6 +601,112 @@
 | Teleportacja sesji | 09 | 📕 Wyczerpany |
 | Typowe problemy WEB | 09 | 📗 Rozwinięcie |
 
+### Wbudowane narzędzia (Moduł 02)
+| Temat | Lekcja | Głębokość |
+|-------|--------|-----------|
+| Model + Prompt + Context + Tools | 10 | 📗 Rozwinięcie |
+| Autopilot vs precyzyjne sterowanie | 10 | 📕 Wyczerpany |
+| Jawne wywoływanie narzędzi | 10 | 📕 Wyczerpany |
+| Kombinowanie narzędzi (LEGO patterns) | 10 | 📕 Wyczerpany |
+| Case studies power users | 10 | 📕 Wyczerpany |
+| Narzędzie Read | 10 | 📕 Wyczerpany |
+| Narzędzie Write | 10 | 📕 Wyczerpany |
+| Narzędzie Edit | 10 | 📕 Wyczerpany |
+| Narzędzie NotebookEdit | 10 | 📕 Wyczerpany |
+| Narzędzie Glob | 10 | 📕 Wyczerpany |
+| Narzędzie Grep | 10 | 📕 Wyczerpany |
+| Narzędzie Bash | 10 | 📕 Wyczerpany |
+| Narzędzie mcp__ide__executeCode | 10 | 📕 Wyczerpany |
+| Narzędzie WebFetch | 10 | 📕 Wyczerpany |
+| Narzędzie WebSearch | 10 | 📕 Wyczerpany |
+| Narzędzie Task i subagenty | 10 | 📕 Wyczerpany |
+| Narzędzia zarządzania zadaniami | 10 | 📕 Wyczerpany |
+| Narzędzia interakcji z użytkownikiem | 10 | 📕 Wyczerpany |
+| Narzędzia trybu planowania | 10 | 📕 Wyczerpany |
+| Timeout w Bash | 10 | 📕 Wyczerpany |
+| Multiline w Grep | 10 | 📕 Wyczerpany |
+| Offset i Limit w Read | 10 | 📕 Wyczerpany |
+| Output modes w Grep | 10 | 📕 Wyczerpany |
+| Head_limit w Grep | 10 | 📕 Wyczerpany |
+| Context lines w Grep (-A, -B, -C) | 10 | 📗 Rozwinięcie |
+| Case insensitive search (-i) | 10 | 📗 Rozwinięcie |
+| Glob patterns | 10 | 📗 Rozwinięcie |
+| Formułowanie promptów zaawansowane | 10 | 📗 Rozwinięcie |
+| Kontekst jako król | 10 | 📗 Rozwinięcie |
+| Dobór modelu dla narzędzi | 10 | 📘 Podstawy |
+
+### Custom Slash Commands (Moduł 02 - część 2)
+| Temat | Lekcja | Głębokość |
+|-------|--------|-----------|
+| Custom slash commands - czym są | 11 | 📕 Wyczerpany |
+| Built-in commands (/help, /compact, /clear) | 11 | 📕 Wyczerpany |
+| Tworzenie pierwszych custom commands | 11 | 📕 Wyczerpany |
+| Argumenty: $ARGUMENTS | 11 | 📕 Wyczerpany |
+| Argumenty: positional ($0, $1, $2) | 11 | 📕 Wyczerpany |
+| Lokalizacja: personal vs project | 11 | 📕 Wyczerpany |
+| Organizacja w subdirectories | 11 | 📕 Wyczerpany |
+| Priority hierarchy (enterprise/project/personal) | 11 | 📕 Wyczerpany |
+| Autocomplete dla slash commands | 11 | 📕 Wyczerpany |
+| Hot reload mechanizm | 11 | 📕 Wyczerpany |
+| Przykłady dla Developers (6 commands) | 11 | 📕 Wyczerpany |
+| Przykłady dla Marketers (5 commands) | 11 | 📕 Wyczerpany |
+| Przykłady dla Data Analysts (4 commands) | 11 | 📕 Wyczerpany |
+| Przykłady dla HR/Admin (3 commands) | 11 | 📕 Wyczerpany |
+| Przykłady dla Managers (2 commands) | 11 | 📕 Wyczerpany |
+| Best practices tworzenia commands | 11 | 📕 Wyczerpany |
+| Naming conventions | 11 | 📕 Wyczerpany |
+| Troubleshooting custom commands | 11 | 📕 Wyczerpany |
+| Multi-step workflows | 12 | 📕 Wyczerpany |
+| Sequential tasks pattern | 12 | 📕 Wyczerpany |
+| Parallel tasks pattern | 12 | 📕 Wyczerpany |
+| Conditional workflows (if-then-else) | 12 | 📕 Wyczerpany |
+| Loops pattern (FOR EACH) | 12 | 📕 Wyczerpany |
+| Error recovery i rollback | 12 | 📕 Wyczerpany |
+| Tool-specific optimizations | 12 | 📕 Wyczerpany |
+| Read tool optimization (chunking) | 12 | 📕 Wyczerpany |
+| Grep tool optimization (progressive) | 12 | 📕 Wyczerpany |
+| WebSearch + WebFetch combo | 12 | 📕 Wyczerpany |
+| Bash command patterns | 12 | 📕 Wyczerpany |
+| Write vs Edit decision logic | 12 | 📕 Wyczerpany |
+| Advanced argument handling | 12 | 📕 Wyczerpany |
+| Optional arguments pattern | 12 | 📕 Wyczerpany |
+| Flags pattern (--watch, --coverage) | 12 | 📕 Wyczerpany |
+| Named arguments (key=value) | 12 | 📕 Wyczerpany |
+| Multi-line arguments | 12 | 📕 Wyczerpany |
+| Validation patterns | 12 | 📕 Wyczerpany |
+| If-then-else patterns | 12 | 📕 Wyczerpany |
+| Switch-case pattern | 12 | 📕 Wyczerpany |
+| Nested conditions | 12 | 📕 Wyczerpany |
+| Try-catch pattern | 12 | 📕 Wyczerpany |
+| Validation cascade | 12 | 📕 Wyczerpany |
+| Graceful degradation | 12 | 📕 Wyczerpany |
+| Retry logic | 12 | 📕 Wyczerpany |
+| Real-world: Feature development workflow | 12 | 📕 Wyczerpany |
+| Real-world: Marketing campaign workflow | 12 | 📕 Wyczerpany |
+| Real-world: Data pipeline workflow | 12 | 📕 Wyczerpany |
+| Real-world: Team retrospective workflow | 12 | 📕 Wyczerpany |
+| Production: Security patterns | 12 | 📕 Wyczerpany |
+| Production: Sensitive data handling | 12 | 📕 Wyczerpany |
+| Production: Destructive operation warnings | 12 | 📕 Wyczerpany |
+| Production: Input validation | 12 | 📕 Wyczerpany |
+| Production: Performance patterns | 12 | 📕 Wyczerpany |
+| Production: Incremental processing | 12 | 📕 Wyczerpany |
+| Production: Caching strategy | 12 | 📕 Wyczerpany |
+| Production: Tool selection optimization | 12 | 📕 Wyczerpany |
+| Production: Idempotency | 12 | 📕 Wyczerpany |
+| Production: Atomicity | 12 | 📕 Wyczerpany |
+| Production: Logging i audit trail | 12 | 📕 Wyczerpany |
+| Production: Team collaboration patterns | 12 | 📕 Wyczerpany |
+| Optimization: Token optimization | 12 | 📕 Wyczerpany |
+| Optimization: Lazy loading | 12 | 📕 Wyczerpany |
+| Optimization: Progressive detail | 12 | 📕 Wyczerpany |
+| Optimization: Execution speed | 12 | 📕 Wyczerpany |
+| Optimization: Fast-fail pattern | 12 | 📕 Wyczerpany |
+| Optimization: Background operations | 12 | 📕 Wyczerpany |
+| Optimization: Progress indicators | 12 | 📕 Wyczerpany |
+| Optimization: Incremental results | 12 | 📕 Wyczerpany |
+| Optimization: Helpful error messages | 12 | 📕 Wyczerpany |
+
 ### Slash Commands
 | Komenda | Lekcja | Głębokość |
 |---------|--------|-----------|
@@ -487,12 +753,40 @@
 
 ## Tematy do omówienia w przyszłych modułach
 
-### Moduł 2: Wbudowane narzędzia (Tools)
-- Read, Write, Edit - szczegółowo
-- Bash tool - zaawansowane użycie
-- Grep, Glob - power user
-- Git integration - workflow
-- Task management
+### Moduł 2: Wbudowane narzędzia (Tools) - UKOŃCZONY ✅
+**Ukończone (Lekcja 10):**
+- Read, Write, Edit - pełny opis parametrów ✅
+- Grep, Glob - wszystkie parametry, output modes ✅
+- Bash tool - timeout, background execution ✅
+- WebFetch, WebSearch - kompletny przegląd ✅
+- Task management - wszystkie narzędzia TaskCreate/Update/List/Get/Output/Stop ✅
+- Autopilot vs precyzyjne sterowanie - case studies ✅
+
+**Ukończone (Lekcja 11):**
+- Custom slash commands - podstawy ✅
+- Built-in commands (/help, /compact, /clear, /init, /config, /permissions) ✅
+- Tworzenie pierwszych custom commands (4 przykłady) ✅
+- Argumenty ($ARGUMENTS, $0, $1, $2) ✅
+- Lokalizacja (personal vs project, organizacja) ✅
+- Przykłady dla 6 zawodów (Developer, Marketer, Analyst, HR, Manager) ✅
+- Autocomplete & hot reload ✅
+- Best practices & troubleshooting ✅
+
+**Ukończone (Lekcja 12):**
+- Multi-step workflows (sequential, parallel, conditional, loops) ✅
+- Tool-specific optimizations (Read, Grep, WebSearch, Bash) ✅
+- Advanced argument handling (optional, flags, named, validation) ✅
+- Conditional logic & branching (if-then-else, switch-case, nested) ✅
+- Error handling patterns (try-catch, validation cascade, graceful degradation, retry) ✅
+- Real-world workflows (4 kompleksowe: feature dev, marketing campaign, data pipeline, team retro) ✅
+- Production best practices (security, performance, reliability, team collaboration) ✅
+- Optimization techniques (token, execution speed, UX) ✅
+
+**Do omówienia w kolejnych modułach:**
+- Git integration - zaawansowane workflow (commit, branch, merge, PR)
+- Task i subagenty - szczegółowo dla każdego typu (Explore, Plan, general-purpose)
+- NotebookEdit - zaawansowana praca z Jupyter
+- mcp__ide__ narzędzia - głębsza integracja z IDE
 
 ### Moduł 3: Bezpieczeństwo zaawansowane
 - Hooks - system do walidacji (wspomniany w L06)
@@ -533,6 +827,6 @@
 
 ---
 
-**Data aktualizacji:** 2026-01-26
-**Źródło:** Analiza 10 lekcji z modułu-01-podstawy (00-09)
-**Status lekcji:** Lekcje 00-09 ✅
+**Data aktualizacji:** 2026-02-02
+**Źródło:** Analiza lekcji z modułu-01-podstawy (00-09) + moduł-02-wbudowane-narzedzia (10-12)
+**Status lekcji:** Moduł 01 (Lekcje 00-09) ✅ | Moduł 02 (Lekcje 10-12) ✅

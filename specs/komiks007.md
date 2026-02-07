@@ -164,4 +164,5 @@
 
 ## Postacie
 
-- **Senior dev** - jedyna postać, ~35 lat, okulary, koszulka, ewolucja od pewności siebie przez rozpacz do mądrości
+- **Senior dev** - ~35 lat, okulary, koszulka, ewolucja od pewności siebie przez rozpacz do mądrości
+- **Sara Developer** - dostępna jako dodatkowa postać

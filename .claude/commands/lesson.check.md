@@ -192,6 +192,46 @@ Tabele markdown (szczególnie z 4+ kolumnami) źle się przenoszą do HTML i wyg
 
 ---
 
+### KRYTERIUM 8: JĘZYK PRZYKŁADÓW KOMEND
+
+**Sprawdź:**
+- Czy **wszystkie przykłady custom commands/skills są w pełni po angielsku**
+- Czy **treść narracji i wyjaśnień jest po polsku**
+
+**Zasada:**
+- ✅ **Po angielsku:** Kod komend, nagłówki wewnątrz komend (Step 1, Phase 2), komunikaty błędów w przykładach, komentarze w kodzie, symulacje odpowiedzi Claude w przykładach
+- ✅ **Po polsku:** Narracja, wyjaśnienia między przykładami, opisy "Dlaczego?", słowniczek
+
+**❌ ŹLEŹLE (mieszanka języków):**
+```markdown
+## Faza 1: Walidacja
+
+1. Sprawdź czy plik istnieje
+2. If file not found: Pokaż błąd
+```
+
+**✅ DOBRZE (przykład po angielsku, narracja po polsku):**
+```markdown
+Sara dodała walidację:
+
+## Phase 1: Validation
+
+1. Check if file exists
+2. If file not found: Show error
+```
+
+**Szukaj:**
+- Polskich nagłówków w przykładach komend (np. "Faza", "Krok", "Zadanie")
+- Polskich komentarzy w nawiasach wewnątrz przykładów
+- Polskich komunikatów błędów w przykładach
+- Mieszanek języków w jednym bloku kodu
+
+**Użyj Grep** aby znaleźć podejrzane fragmenty:
+- `Faza [0-9]` lub `Krok [0-9]` w blokach markdown
+- Polskie słowa w blokach kodów komend
+
+---
+
 ## RAPORT: STYL
 
 ### 1. TON I ZWRACANIE SIĘ DO ODBIORCY
@@ -214,6 +254,12 @@ Tabele markdown (szczególnie z 4+ kolumnami) źle się przenoszą do HTML i wyg
 **Ocena:** ✅ / ⚠️ / ❌
 **Tabele do przepisania:** [lista z numerami linii]
 **Sugestie alternatywnych formatów:** [przykłady]
+
+### 8. JĘZYK PRZYKŁADÓW KOMEND
+**Ocena:** ✅ / ⚠️ / ❌
+**Przykłady z polskimi elementami:** [lista z numerami linii]
+**Fragmenty do przepisania:** [konkretne miejsca]
+**Uwagi:** [czy narracja jest po polsku, czy przykłady po angielsku]
 ```
 
 ---
@@ -457,7 +503,12 @@ Po zakończeniu wszystkich 4 agentów, połącz ich raporty w jeden końcowy rap
 
 ---
 
-## 8. WZBOGACENIE TREŚCI
+## 8. JĘZYK PRZYKŁADÓW KOMEND
+[Wklej sekcję 8 od Agenta STYL]
+
+---
+
+## 9. WZBOGACENIE TREŚCI
 [Wklej raport od Agenta ŹRÓDŁA]
 
 ---
