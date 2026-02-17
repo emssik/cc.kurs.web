@@ -388,6 +388,50 @@
 
 ---
 
+## Lekcja 15 (Moduł 02-08): Bash - Od Terminala do Autonomicznego Asystenta
+
+| Temat | Głębokość | Uwagi |
+|-------|-----------|-------|
+| Terminal, Shell, Bash - definicje | 📗 Rozwinięcie | Terminal (okno), Shell (interpreter), Bash (konkretny shell), różnice |
+| Anatomia komendy bash | 📗 Rozwinięcie | komenda [opcje] [argumenty], krótkie vs długie flagi (-l vs --long) |
+| Podstawowe komendy bash | 📗 Rozwinięcie | ls, cd, pwd, mkdir, rm, cp, mv, cat, grep, echo - przegląd dla początkujących |
+| Ścieżki absolutne vs relatywne | 📗 Rozwinięcie | /full/path vs ./relative, skróty (., .., ~) |
+| Claude jako operator terminala | 📗 Rozwinięcie | Jak Claude wybiera i wykonuje komendy bash |
+| Automatyczne wykrywanie kontekstu | 📗 Rozwinięcie | Node.js → npm, Python → pip, Ruby → gem, wykrywanie środowiska |
+| Timeout w narzędziu Bash | 📕 Wyczerpany | Domyślnie 30s, maksymalnie 10 min, jawne ustawianie timeout |
+| Background execution | 📕 Wyczerpany | run_in_background: true, ShellId, długotrwałe procesy (npm run dev) |
+| Spacje w nazwach plików | 📕 Wyczerpany | Problem z bashowymi spacjami, cytowanie ("path with spaces"), Claude robi to automatycznie |
+| Operator && (warunkowa sekwencja) | 📕 Wyczerpany | A && B (B tylko jeśli A OK), CI/CD pipelines, install → test → build |
+| Operator ; (bezwarunkowa sekwencja) | 📕 Wyczerpany | A ; B (B zawsze), logging, cleanup |
+| Operator \|\| (fallback) | 📕 Wyczerpany | A \|\| B (B tylko jeśli A fail), error handling, diagnostyka |
+| Równoległe wykonywanie komend | 📕 Wyczerpany | Niezależne komendy w jednym bloku, 3x speed gain |
+| Automatyzacja: Backupy | 📕 Wyczerpany | tar -czf z datą, du -h, przykład pełnego skryptu |
+| Automatyzacja: Raporty sprzedażowe | 📕 Wyczerpany | awk dla CSV, Python pandas, wybór narzędzia przez Claude |
+| Automatyzacja: Przetwarzanie wsadowe | 📕 Wyczerpany | Pętla for, batch rename 500 plików, sed do ekstrakcji |
+| Automatyzacja: Monitoring serwera | 📕 Wyczerpany | top, free, df - health check, różnice Linux vs macOS |
+| Automatyzacja: Marketing (organizacja mediów) | 📕 Wyczerpany | find, date, organizacja 1000+ obrazków po miesiącach |
+| Automatyzacja: PM (raport postępów) | 📕 Wyczerpany | awk na tasks.csv, weekly report per team member |
+| Automatyzacja: Pisarz (statystyki draftu) | 📕 Wyczerpany | wc -w, liczenie słów w rozdziałach, total breakdown |
+| Automatyzacja: HR (ekstrakcja kontaktów) | 📕 Wyczerpany | pdftotext, grep -E email regex, 200 CV → contacts.txt |
+| Bezpieczeństwo Bash: operacje bez pytania | 📕 Wyczerpany | Read-only (git status, git diff, git log) w auto-allow sandbox |
+| Bezpieczeństwo Bash: operacje wymagające zgody | 📕 Wyczerpany | Edit/Write, git commit/push, npm install, rm -rf, sudo, force operations |
+| Bezpieczeństwo Bash: operacje zabronione | 📕 Wyczerpany | rm -rf /, pliki systemowe, force push do main bez zgody |
+| Sandbox Mode podstawy | 📕 Wyczerpany | Domyślnie włączony od 2.1.x, izolacja filesystem + sieć |
+| Sandbox: izolacja filesystem | 📕 Wyczerpany | Czytanie wszędzie, zapis tylko w working directory, blokada ~/.bashrc, /etc/ |
+| Sandbox: izolacja sieciowa | 📕 Wyczerpany | Whitelist domen, pytanie o zgodę dla nowych, blokada exfiltracji |
+| Sandbox: tryby | 📕 Wyczerpany | Auto-allow mode (zalecane) vs regular permissions |
+| Sandbox: technologia | 📗 Rozwinięcie | macOS Seatbelt, Linux bubblewrap + socat |
+| Escape hatch (wyjście awaryjne) | 📕 Wyczerpany | Gdy sandbox blokuje (docker, watchman), pytanie o zgodę, allowUnsandboxedCommands |
+| excludedCommands dla sandboxu | 📕 Wyczerpany | Trwałe wyjątki dla zaufanych narzędzi w settings.json |
+| Pro-tip: Dry-run | 📕 Wyczerpany | Sprawdzenie co zostanie usunięte przed delete, find -print → find -delete |
+| Pro-tip: Verbose mode | 📗 Rozwinięcie | --verbose dla diagnostyki, npm install --verbose |
+| Pro-tip: Exit codes | 📕 Wyczerpany | && echo "✅ Success" \|\| echo "❌ Fail", auto-sprawdzanie wyniku |
+| Production-grade Bash by Claude | 📕 Wyczerpany | set -o errexit, cytowanie zmiennych, [[ ]] zamiast [ ], sprawdzanie exit codes |
+| Typowe błędy Bash | 📕 Wyczerpany | Timeout, spacje, złe uprawnienia, procesy blokujące, destructive commands |
+| Słowniczek Bash | 📕 Wyczerpany | 23 terminy: Terminal, Shell, Bash, Command, Argument, Flag, Exit code, ścieżki, timeout, background, ShellId, operatory, pipe, stdout/stderr, grep, awk, sed, tar, sandbox, escape hatch, sudo |
+
+---
+
 ## Podsumowanie tematów
 
 ### Tematy wyczerpane (📕) - nie powtarzać
@@ -588,13 +632,18 @@
 |-------|--------|-----------|
 | System uprawnień | 06 | 📕 Wyczerpany |
 | Odpowiedzi: y/n/a | 06 | 📗 Rozwinięcie |
-| Sandbox Mode | 06 | 📕 Wyczerpany |
+| Sandbox Mode podstawy | 06 | 📕 Wyczerpany |
+| Sandbox Mode szczegółowo | 15 | 📕 Wyczerpany |
 | Tryby uprawnień (4 tryby) | 06 | 📕 Wyczerpany |
 | Zagrożenia bezpieczeństwa | 06 | 📕 Wyczerpany |
 | .gitignore | 06 | 📕 Wyczerpany |
 | Dobre praktyki bezpieczeństwa | 06 | 📕 Wyczerpany |
 | Własny Sandbox | 06 | 📗 Rozwinięcie |
 | Sandbox limitations | 06 | 📗 Rozwinięcie |
+| Sandbox: izolacja filesystem i sieciowa | 15 | 📕 Wyczerpany |
+| Escape hatch (wyjście awaryjne) | 15 | 📕 Wyczerpany |
+| excludedCommands dla sandboxu | 15 | 📕 Wyczerpany |
+| Bezpieczeństwo operacji Bash | 15 | 📕 Wyczerpany |
 
 ### CLAUDE.md - pamięć projektu
 | Temat | Lekcja | Głębokość |
@@ -673,7 +722,7 @@
 | Narzędzia zarządzania zadaniami | 10 | 📕 Wyczerpany |
 | Narzędzia interakcji z użytkownikiem | 10 | 📕 Wyczerpany |
 | Narzędzia trybu planowania | 10 | 📕 Wyczerpany |
-| Timeout w Bash | 10 | 📕 Wyczerpany |
+| Timeout w Bash | 10, 15 | 📕 Wyczerpany |
 | Multiline w Grep | 10 | 📕 Wyczerpany |
 | Offset i Limit w Read | 10 | 📕 Wyczerpany |
 | Output modes w Grep | 10 | 📕 Wyczerpany |
@@ -684,6 +733,16 @@
 | Formułowanie promptów zaawansowane | 10 | 📗 Rozwinięcie |
 | Kontekst jako król | 10 | 📗 Rozwinięcie |
 | Dobór modelu dla narzędzi | 10 | 📘 Podstawy |
+| Terminal, Shell, Bash - podstawy | 15 | 📗 Rozwinięcie |
+| Podstawowe komendy bash (ls, cd, pwd...) | 15 | 📗 Rozwinięcie |
+| Operatory bash (&&, ;, \|\|) | 15 | 📕 Wyczerpany |
+| Spacje w nazwach plików | 15 | 📕 Wyczerpany |
+| Background execution | 15 | 📕 Wyczerpany |
+| Równoległe wykonywanie komend | 15 | 📕 Wyczerpany |
+| Automatyzacja z bash (8 przykładów) | 15 | 📕 Wyczerpany |
+| Sandbox Mode szczegółowo | 15 | 📕 Wyczerpany |
+| Escape hatch i excludedCommands | 15 | 📕 Wyczerpany |
+| Production-grade Bash by Claude | 15 | 📕 Wyczerpany |
 
 ### Custom Slash Commands (Moduł 02 - część 2)
 | Temat | Lekcja | Głębokość |
@@ -803,7 +862,7 @@
 
 ## Tematy do omówienia w przyszłych modułach
 
-### Moduł 2: Wbudowane narzędzia (Tools) - UKOŃCZONY ✅
+### Moduł 2: Wbudowane narzędzia (Tools) - W TRAKCIE 🔄
 **Ukończone (Lekcja 10):**
 - Read, Write, Edit - pełny opis parametrów ✅
 - Grep, Glob - wszystkie parametry, output modes ✅
@@ -860,6 +919,22 @@
 - Routing Layer analogy (hooki jako control plane) ✅
 - Multi-layer defense ✅
 
+**Ukończone (Lekcja 15):**
+- Terminal, Shell, Bash - podstawy dla początkujących ✅
+- Anatomia komendy bash (komenda, opcje, argumenty) ✅
+- Podstawowe komendy (ls, cd, pwd, mkdir, rm, cp, mv, cat, grep, echo) ✅
+- Ścieżki absolutne vs relatywne ✅
+- Claude jako operator terminala - wykrywanie kontekstu ✅
+- Timeout i background execution - szczegółowo ✅
+- Spacje w nazwach plików - cytowanie automatyczne ✅
+- Operatory bash (&&, ;, ||) - wszystkie przypadki użycia ✅
+- Równoległe wykonywanie komend ✅
+- 8 praktycznych przykładów automatyzacji (backupy, raporty, batch processing, monitoring, marketing, PM, pisarz, HR) ✅
+- Sandbox Mode - szczegółowy opis izolacji ✅
+- Escape hatch i excludedCommands ✅
+- Production-grade Bash by Claude ✅
+- Pro-tipy (dry-run, verbose, exit codes) ✅
+
 **Do omówienia w kolejnych modułach:**
 - Git integration - zaawansowane workflow (commit, branch, merge, PR)
 - Task i subagenty - szczegółowo dla każdego typu (Explore, Plan, general-purpose)
@@ -907,6 +982,6 @@
 
 ---
 
-**Data aktualizacji:** 2026-02-07
-**Źródło:** Analiza lekcji z modułu-01-podstawy (00-09) + moduł-02-wbudowane-narzedzia (10-14)
-**Status lekcji:** Moduł 01 (Lekcje 00-09) ✅ | Moduł 02 (Lekcje 10-14) ✅
+**Data aktualizacji:** 2026-02-16
+**Źródło:** Analiza lekcji z modułu-01-podstawy (00-09) + moduł-02-wbudowane-narzedzia (10-15)
+**Status lekcji:** Moduł 01 (Lekcje 00-09) ✅ | Moduł 02 (Lekcje 10-15) 🔄

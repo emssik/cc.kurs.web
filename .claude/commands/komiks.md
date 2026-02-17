@@ -45,6 +45,16 @@ Po wyborze użytkownika, wygeneruj **szczegółowy scenariusz** wybranego komiks
 
 **LIMIT:** Maksymalnie **4800 znaków** dla całego scenariusza. Bądź zwięzły, ale precyzyjny.
 
+### KROK 4: Zapis scenariusza
+
+Po wygenerowaniu szczegółowego scenariusza, **zapisz go do pliku**: `komiks.[nazwa-lekcji].md`
+
+Nazwa pliku powinna odpowiadać nazwie pliku lekcji (bez prefiksu `my.` jeśli występuje).
+
+Przykład:
+- Lekcja: `my.06.hooks-part-1.md` → Scenariusz: `komiks.hooks-part-1.md`
+- Lekcja: `lesson-api-basics.md` → Scenariusz: `komiks.lesson-api-basics.md`
+
 ## Wymagania stylistyczne
 
 **STYL GRAFICZNY:**
@@ -64,6 +74,19 @@ Po wyborze użytkownika, wygeneruj **szczegółowy scenariusz** wybranego komiks
 - **Boss** - manager/szef, rozumie biznes, czasem nie rozumie technikaliów
 
 **UWAGA:** Jeśli scenariusz wymaga nowych bohaterów (np. DevOps, Designer, Tester), opisz ich charakterystykę w scenariuszu.
+
+## Nagłówek scenariusza
+
+Na samym początku wynikowego pliku scenariusza umieść sekcję podsumowującą:
+
+```
+# [Tytuł komiksu]
+
+**Liczba scen:** [X]
+**Bohaterowie:** [lista wszystkich bohaterów z krótkim opisem, np. "Junior dev - młody programista w koszulce, Senior dev - brodaty mentor z kubkiem kawy"]
+```
+
+To ułatwia generowanie grafik - od razu widać ile paneli przygotować i jakie postacie zaprojektować.
 
 ## Format szczegółowego scenariusza (zwięzły)
 
