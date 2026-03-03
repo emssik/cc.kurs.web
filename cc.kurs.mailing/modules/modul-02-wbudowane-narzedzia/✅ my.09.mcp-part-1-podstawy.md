@@ -471,6 +471,7 @@ Mechanizm w którym model AI decyduje "chcę wywołać funkcję X z parametrami 
 
 ## Dokumentacja
 
+
 1. **Model Context Protocol - Introduction:**
    https://modelcontextprotocol.io/introduction
 
