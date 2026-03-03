@@ -337,14 +337,22 @@ if [ ! -d "node_modules" ]; then
 fi
 
 # Run ESLint with JSON output for easy parsing
+# Capture exit code manually — eslint returns 1 when it finds issues,
+# but set -e would kill the script before we can report results.
+LINT_EXIT=0
 npx eslint "$TARGET" \
   --format json \
   --no-error-on-unmatched-pattern \
-  2>/dev/null || true
+  2>/dev/null || LINT_EXIT=$?
 
 echo ""
 echo "--- Lint complete ---"
+
+# Pass through eslint's exit code: 0 = clean, 1 = issues found, 2+ = tool error
+exit "$LINT_EXIT"
 ```
+
+> To jest początkowa, pełna wersja skryptu. W kolejnych lekcjach zobaczysz, jak uprościć go do użycia w hookach -- tam wystarczy okrojona wersja, która tylko zwraca kod wyjścia.
 
 Po zapisaniu pliku nadaj mu prawa wykonania:
 
@@ -356,7 +364,7 @@ Kilka rzeczy do zauważenia:
 
 - `set -euo pipefail` -- standardowa "siatka bezpieczeństwa" w Bashu. Skrypt zatrzyma się przy pierwszym błędzie.
 - Skrypt sprawdza, czy istnieje config ESLinta i czy zainstalowano zależności. To jest "solve, don't punt" -- skrypt diagnozuje problem zamiast zrzucać go na Claude'a.
-- `2>/dev/null || true` -- ukrywa szum diagnostyczny i zapobiega awarii skryptu, gdy eslint znajdzie problemy.
+- `|| LINT_EXIT=$?` -- przechwytuje kod wyjścia eslinta zamiast go połykać. Dzięki temu skrypt zwraca `0` gdy kod jest czysty, `1` gdy eslint znajdzie problemy, a `2+` gdy wystąpi błąd narzędzia. Bez tego `set -e` zabiłoby skrypt przy pierwszym znalezionym problemie.
 
 ### Zaktualizowany SKILL.md
 
@@ -559,7 +567,7 @@ Zanim przejdziesz do praktyki, kilka pułapek, na które trafili inni:
 
 **Brak `set -euo pipefail` w skryptach.** Bez tego skrypt "po cichu" kontynuuje po błędzie.
 
-**Shell injection z wolnymi komendami.** ``!`npm test` `` to zły pomysł -- testy mogą trwać minuty, a system wykonuje te komendy przed załadowaniem skilla. Używaj szybkich komend: `git diff`, `ls`, `date`. Wolne operacje zostaw dla `scripts/`.
+**Shell injection z wolnymi komendami.** ``!`npm test` `` to zły pomysł -- testy mogą trwać minuty, a system wykonuje te komendy przed załadowaniem skilla. Hooki i shell injection powinny kończyć się w ciągu 5-10 sekund -- dłuższe operacje blokują flow pracy. Używaj szybkich komend: `git diff`, `ls`, `date`. Wolne operacje zostaw dla `scripts/`.
 
 **Zapominanie o `chmod +x`.** Claude raportuje "Permission denied"? Rozwiązanie: `chmod +x scripts/twoj-skrypt.sh`.
 

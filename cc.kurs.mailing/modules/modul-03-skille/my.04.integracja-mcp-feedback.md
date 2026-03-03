@@ -206,7 +206,7 @@ Porównaj z wersją z lekcji 03:
 
 **Nowe we frontmatterze:**
 
-- `allowed-tools` -- Claude może czytać pliki, przeszukiwać kod i uruchamiać lint bez pytania o pozwolenie. To sprawia, że review płynie bez przestojów.
+- `allowed-tools` -- Claude może czytać pliki, przeszukiwać kod i uruchamiać lint bez pytania o pozwolenie. To sprawia, że review płynie bez przestojów. Narzędzia MCP (np. `mcp__github__issue_write`) nie muszą być w `allowed-tools` — zadziałają bez tego, ale Claude zapyta o pozwolenie przy każdym użyciu. Jeśli chcesz auto-approval, dodaj je z pełną nazwą: `mcp__github__issue_write`.
 
 **Nowe w instrukcjach:**
 
@@ -358,7 +358,11 @@ Dwie iteracje, zero ręcznej interwencji.
 
 Olek ma inny problem. Jego skill tworzy prezentacje, ale operuje na pustym kontekście -- nie wie, jakie są aktualne dane sprzedażowe. A po stworzeniu prezentacji nikt nie sprawdza, czy trzyma się kupy.
 
-Podobnie jak Karina, Olek również usuwa `disable-model-invocation: true`. Tworzenie prezentacji to bezpieczna operacja i chce, żeby Claude sam proponował użycie skilla, gdy ktoś poprosi o "przygotowanie prezentacji" czy "zrobienie slajdów". Zamiast hooka z L03 (który sprawdzał strukturę po każdym zapisie), Olek przechodzi na feedback loop w treści SKILL.md -- bardziej elastyczny i dający lepszy raport końcowy. Skrypt `validate-structure.sh` z lekcji 03 ewoluuje w `validate-presentation.sh` -- bardziej kompletny, z dodatkowymi sprawdzeniami.
+Podobnie jak Karina, Olek również usuwa `disable-model-invocation: true`. Pamiętasz, jak w lekcji 03 Paweł dodał tę flagę, żeby Claude nie wywoływał skilla sam z siebie? Teraz chcesz, żeby skill mógł wywoływać model — np. do analizy feedbacku. Feedback loop wymaga, by Claude mógł reagować na wyniki walidacji, interpretować błędy i podejmować decyzje o poprawkach. Dlatego flaga musi zniknąć.
+
+W lekcji 03 dodaliśmy hook walidacyjny, który sprawdzał strukturę po każdym zapisie. Teraz go usuwamy — zamiast automatycznej walidacji po każdym zapisie, Olek przechodzi na feedback loop, który daje więcej kontroli nad procesem. Hook odpalał się przy każdym `Write`, nawet na plikach tymczasowych. Feedback loop uruchamia walidację tylko na gotowym wyniku i pozwala Claude'owi naprawić błędy, zanim zwróci Ci rezultat.
+
+Skrypt `validate-structure.sh` z lekcji 03 ewoluuje w `validate-presentation.sh` — bardziej kompletny, z dodatkowymi sprawdzeniami.
 
 ### Krok 1: shell injection dla danych
 

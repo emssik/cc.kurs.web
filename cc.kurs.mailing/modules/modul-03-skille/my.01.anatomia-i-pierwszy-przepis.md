@@ -75,6 +75,8 @@ Minimum to jeden plik: `SKILL.md`. Reszta jest opcjonalna i doładowujesz ją st
 
 W nowych wersjach Claude Code custom commands i skille to ten sam system. Plik `.claude/commands/review.md` i skill `.claude/skills/review/SKILL.md` oba tworzą komendę `/review` i działają identycznie. Twoje istniejące komendy nie wymagają migracji.
 
+> **Co gdy masz oba?** Jeśli istnieje zarówno `.claude/commands/review.md`, jak i `.claude/skills/review/SKILL.md`, to masz dwie różne komendy o tej samej nazwie. W praktyce unikaj takiej sytuacji -- wybierz jedno miejsce. Jeśli potrzebujesz folderów na zasoby (references, scripts), użyj skilla. Jeśli wystarczy Ci prosty prompt -- zostań przy custom command.
+
 Różnica? Skille dają Ci więcej możliwości: katalog na pliki pomocnicze, frontmatter do kontrolowania wywoływania i zdolność Claude'a do automatycznego ładowania skilla, gdy kontekst rozmowy na to wskazuje.
 
 ### Gdzie żyją skille
@@ -83,7 +85,7 @@ Masz trzy lokalizacje:
 
 - **Projektowe:** `.claude/skills/` w katalogu projektu -- dzielisz z zespołem przez Git.
 - **Globalne:** `~/.claude/skills/` -- Twoje osobiste skille, działają w każdym projekcie.
-- **Z pluginów:** instalowane przez `/plugin install` -- gotowe rozwiązania od innych.
+- **Z zewnątrz:** gotowe skille od innych (trzecia ścieżka -- dystrybucja skilli -- pojawi się w lekcji 05).
 
 Olek pyta:
 
@@ -344,13 +346,7 @@ Paweł dodaje:
 
 ### Krok 4: Sprawdź, co się załadowało
 
-Chcesz zobaczyć, które skille Claude ma "w pamięci"? W trakcie sesji wpisz:
-
-```
-/context
-```
-
-Zobaczysz informacje o załadowanym kontekście, w tym o skillach. Jeśli któryś skill został pominięty (np. z powodu limitu tokenów), dostaniesz ostrzeżenie.
+Chcesz zobaczyć, które skille Claude ma "w pamięci"? W trakcie sesji wpisz `/context` -- zobaczysz kolorową siatkę pokazującą, ile kontekstu zajmują poszczególne elementy, w tym załadowane skille. Jeśli jakiś skill nie zmieścił się w kontekście, `/context` pokaże ostrzeżenie.
 
 ---
 

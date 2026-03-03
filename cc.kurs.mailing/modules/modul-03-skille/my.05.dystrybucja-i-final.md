@@ -166,8 +166,10 @@ A sam `plugin.json`:
 Instalacja pluginu:
 
 ```
-/plugin install https://github.com/yourname/typescript-reviewer
+/plugin install typescript-reviewer@marketplace-name
 ```
+
+Komenda `/plugin install` pobiera plugin z marketplace'u i umieszcza go w odpowiednim katalogu. Oficjalny marketplace Anthropic (`claude-plugins-official`) jest dostępny automatycznie.
 
 Po instalacji skille z pluginu dostają namespace — używasz ich jako `typescript-reviewer:code-review`. Dzięki temu nie kolidują z lokalnymi skillami o tej samej nazwie. I tak jak z paczkami npm — musisz uważać na to, co instalujesz.
 
@@ -193,7 +195,7 @@ Czas zobaczyć efekt czterech lekcji pracy. Oto kompletna, finalna wersja skilla
 
 ### Kompletny SKILL.md
 
-```markdown
+```yaml
 ---
 name: code-review
 description: "TypeScript/Next.js code quality reviewer. Use when reviewing
@@ -211,7 +213,9 @@ hooks:
         - type: command
           command: "./scripts/run-lint.sh"
 ---
+```
 
+```markdown
 # Code Review Skill
 
 You are a senior TypeScript/Next.js code reviewer. Your job is to analyze
@@ -228,8 +232,11 @@ Determine what to review:
 - If no arguments, get the current changes:
 
 Changed files:
+```
+
 !`git diff --name-only HEAD~1 2>/dev/null || git diff --name-only --cached`
 
+```markdown
 Read each changed file before making any judgments.
 
 ### Step 2: Check Against Conventions
@@ -244,15 +251,17 @@ Compare each file against relevant conventions.
 ### Step 3: Run Automated Checks
 
 Execute the linter and tests:
+```
 
-~~~bash
+```bash
 ./scripts/run-lint.sh
-~~~
+```
 
-~~~bash
+```bash
 ./scripts/run-tests.sh
-~~~
+```
 
+```markdown
 Record all failures. These are non-negotiable — they must be fixed.
 
 ### Step 4: Analyze Patterns
@@ -317,8 +326,9 @@ After any edit or fix:
 ## Output Format
 
 Always end your review with a summary:
+```
 
-~~~
+```
 ## Review Summary
 - Files reviewed: <count>
 - Critical: <count>
@@ -327,7 +337,6 @@ Always end your review with a summary:
 - Lint: PASS/FAIL
 - Tests: PASS/FAIL
 - Overall: APPROVE / REQUEST CHANGES
-~~~
 ```
 
 Zauważ, jak zbiegają się techniki z poprzednich lekcji: frontmatter i struktura folderów (lekcja 01), progressive disclosure i shell injection (lekcja 02), context: fork (lekcja 03), allowed-tools i feedback loop (lekcja 04), hooki i checklist pattern (lekcja 04). To jest skill, który wykorzystuje wszystko czego się nauczyłeś.
@@ -350,22 +359,37 @@ Zauważ, jak zbiegają się techniki z poprzednich lekcji: frontmatter i struktu
     └── validate-presentation.sh
 ```
 
-W trakcie modułu skrypty walidacji ewoluowały: `validate-structure.sh` (lekcja 02) to szybka walidacja struktury, a w lekcji 04 doszedł `validate-presentation.sh` (pełna walidacja treści i zgodności z brandem). W finalnej wersji używasz obu -- każdy sprawdza co innego.
+W trakcie modułu skrypty walidacji ewoluowały. W finalnej wersji masz dwa skrypty, każdy z inną rolą:
+
+- `validate-structure.sh` — uruchamiany przez hook po każdym zapisie, sprawdza podstawową strukturę plików (liczba slajdów, limity słów, wymagane sekcje). To szybka walidacja znana ci z lekcji 02.
+- `validate-presentation.sh` — uruchamiany przez feedback loop, waliduje całą prezentację kompleksowo (zgodność z brandem, flow narracyjny). Pojawił się w lekcji 04.
+
+Hook walidacyjny wraca — w lekcji 04 zastąpiliśmy go feedback loop, ale w finalnej wersji oba mechanizmy współpracują: hook sprawdza strukturę na bieżąco, a feedback loop waliduje całą prezentację.
 
 ### Kompletny SKILL.md
 
-```markdown
+```yaml
 ---
 name: create-presentation
 description: "Presentation builder for company decks. Use when asked to create
   a presentation, prepare slides, build a deck, or make a pitch. Follows brand
   guidelines and storytelling framework. Outputs structured markdown slides."
-argument-hint: "<topic> [audience] [format]"
+argument-hint: "<topic> [audience] [slide-count]"
 context: fork
 agent: general-purpose
 allowed-tools: Read, Grep, Glob, Write, Bash(./scripts/*)
+hooks:
+  PostToolUse:
+    - matcher: "Write"
+      hooks:
+        - type: command
+          command: "./scripts/validate-structure.sh"
 ---
+```
 
+W lekcji 03 trzeci argument określał format prezentacji (executive, workshop, pitch). W finalnej wersji zmieniliśmy go na liczbę slajdów — format okazał się zbyt ograniczający, a kontrola liczby slajdów jest bardziej praktyczna.
+
+```markdown
 # Create Presentation Skill
 
 You are a presentation designer. You create structured, compelling slide decks
@@ -376,14 +400,16 @@ that follow brand guidelines and storytelling principles.
 Parse the arguments:
 - $0 — topic of the presentation
 - $1 — target audience (default: "general business audience")
-- $2 — format (default: "executive")
+- $2 — number of slides (default: "12")
 
 ## Context Gathering
 
 Before creating slides, gather dynamic context:
+```
 
 !`cat project-brief.json 2>/dev/null || echo "No project brief found"`
 
+```markdown
 Read the brand guidelines:
 - Read references/brand-guidelines.md for colors, fonts, tone of voice
 - Read references/slide-templates.md for approved slide layouts
@@ -415,12 +441,14 @@ Rules:
 ### Step 3: Validate
 
 Run validators after writing:
+```
 
-~~~bash
+```bash
 ./scripts/validate-structure.sh output/presentation.md     # slide count, word limits, required sections
 ./scripts/validate-presentation.sh output/presentation.md  # brand compliance, narrative flow
-~~~
+```
 
+```markdown
 ### Feedback Loop
 
 1. After each iteration, run validation (structure first, then full validation)

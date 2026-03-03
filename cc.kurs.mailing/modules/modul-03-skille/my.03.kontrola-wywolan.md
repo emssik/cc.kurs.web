@@ -163,7 +163,7 @@ Jeśli Twój skill przyjmuje kilka parametrów, możesz odwołać się do każde
 - `$1` = `sales-team` (odbiorcy)
 - `$2` = `executive` (format)
 
-Możesz też użyć pełnej składni: `$ARGUMENTS[0]`, `$ARGUMENTS[1]`, `$ARGUMENTS[2]`. Robi dokładnie to samo co `$0`, `$1`, `$2`.
+Możesz też użyć pełnej składni: `$ARGUMENTS[0]`, `$ARGUMENTS[1]`, `$ARGUMENTS[2]`. Robi dokładnie to samo co `$0`, `$1`, `$2` — to kwestia preferencji.
 
 ### ${CLAUDE_SESSION_ID} -- ID sesji
 
@@ -282,7 +282,7 @@ Pole `agent` w frontmatterze określa typ subagenta:
 
 **agent: Explore** -- tryb tylko-do-odczytu. Może czytać pliki i przeszukiwać codebase, ale nie może nic zmieniać. Użyj, gdy skill ma zebrać informacje i wrócić z raportem.
 
-**agent: Plan** -- tryb eksploracyjny, tylko-do-odczytu. Używany głównie wewnętrznie przez Claude Code w trybie planowania. W praktyce w skillach rzadko go potrzebujesz -- lepiej użyj `Explore` (do badania kodu) lub `general-purpose` (do pełnej pracy).
+**agent: Plan** -- tryb eksploracyjny, tylko-do-odczytu. Używany głównie wewnętrznie przez Claude Code w trybie planowania. Subagent w tym trybie może czytać pliki i analizować kod, ale nie wprowadza zmian.
 
 ### Kiedy używać context: fork
 
@@ -343,9 +343,11 @@ hooks:
     - matcher: "Edit|Write"
       hooks:
         - type: command
-          command: "./scripts/validate.sh"
+          command: ".claude/skills/my-skill/scripts/validate.sh"
 ---
 ```
+
+**Ważne:** hooki w skillach uruchamiają się z katalogu głównego projektu (project root), NIE z katalogu skilla. Jeśli Twój skrypt leży w `.claude/skills/my-skill/scripts/validate.sh`, musisz podać pełną ścieżkę względem roota projektu — `./scripts/validate.sh` nie zadziała, bo będzie szukał `<project-root>/scripts/validate.sh`.
 
 ### Najczęściej używane zdarzenia
 
@@ -385,9 +387,11 @@ hooks:
     - matcher: "Edit|Write"
       hooks:
         - type: command
-          command: "./scripts/run-lint.sh"
+          command: ".claude/skills/code-review/scripts/run-lint.sh"
 ---
 ```
+
+Pamiętaj: ścieżka do skryptu jest względem katalogu głównego projektu, nie katalogu skilla.
 
 Co się dzieje krok po kroku:
 
@@ -400,7 +404,7 @@ Co się dzieje krok po kroku:
 
 Pętla zwrotna: edytuj -> lintuj -> popraw. Automatycznie, bez udziału człowieka.
 
-Skrypt `run-lint.sh` może wyglądać tak:
+Skrypt `run-lint.sh` może wyglądać tak. W lekcji 02 stworzyliśmy rozbudowany skrypt lint. Dla hooka wystarczy uproszczona wersja — hook musi być szybki i minimalny:
 
 ```bash
 #!/usr/bin/env bash
@@ -430,7 +434,7 @@ hooks:
     - matcher: "Write"
       hooks:
         - type: command
-          command: "./scripts/validate-structure.sh"
+          command: ".claude/skills/create-presentation/scripts/validate-structure.sh"
 ---
 ```
 
@@ -487,7 +491,7 @@ hooks:
     - matcher: "Edit|Write"
       hooks:
         - type: command
-          command: "./scripts/run-lint.sh"
+          command: ".claude/skills/code-review/scripts/run-lint.sh"
 ---
 ```
 
@@ -506,7 +510,7 @@ hooks:
     - matcher: "Write"
       hooks:
         - type: command
-          command: "./scripts/validate-structure.sh"
+          command: ".claude/skills/create-presentation/scripts/validate-structure.sh"
 ---
 ```
 
