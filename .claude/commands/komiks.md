@@ -82,6 +82,7 @@ Na samym początku wynikowego pliku scenariusza umieść sekcję podsumowującą
 ```
 # [Tytuł komiksu]
 
+**Styl:** XKCD/CommitStrip - czarno-bialy line art
 **Liczba scen:** [X]
 **Bohaterowie:** [lista wszystkich bohaterów z krótkim opisem, np. "Junior dev - młody programista w koszulce, Senior dev - brodaty mentor z kubkiem kawy"]
 ```
